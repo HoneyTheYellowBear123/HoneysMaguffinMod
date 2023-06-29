@@ -90,6 +90,12 @@ INSERT INTO GreatPersonClasses
 		(GreatPersonClassType,			 Name,									 UnitType,					   DistrictType,			PseudoYieldType,							 IconString,				ActionIcon                      )
 VALUES  ('HONEY_MACGUFFIN_GP'           'LOC_HONEY_MACGUFFIN_GP_NAME',           'UNIT_HONEY_MACGUFFIN_GP',    'DISTRICT_CITY_CENTER', 'PSEUDOYIELD_GPP_HONEY_MACGUFFIN_GP',       '[ICON_HONEY_MACGUFFIN_GP]',   'ICON_HONEY_MACGUFFIN_GP_ACTION'); --TO DO Icons
 
+INSERT INTO Buildings
+		(BuildingType,									Name,						Description,							  PrereqDistrict,				PrereqTech,			PurchaseYield,		Cost, AdvisorType)
+VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',    'TECH_ASTRONOMY',         'YIELD_FAITH',    20,    'ADVISOR_GENERIC'); --TO DO make it only purchaseable with faith?
+--TO DO the small medium and large rockets have a field called internal only, could be useful for macguffin storage.
+
+
 
 INSERT INTO MutuallyExclusiveBuildings
 		(Building,							 MutuallyExclusiveBuilding)
@@ -98,6 +104,8 @@ VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY',     'BUILDING_WALLS');
 INSERT INTO Building_GreatWorks
 		(BuildingType,			GreatWorkSlotType,				NumSlots)
 VALUES  ('BUILDING_PALACE',		'GREATWORKSLOT_HONEY_MACGUFFIN',      10 );
+
+
 
 
 

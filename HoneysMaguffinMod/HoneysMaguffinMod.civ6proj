@@ -21,12 +21,25 @@
 </Associations>]]></AssociationData>
     <AssemblyName>HoneysMaguffinMod</AssemblyName>
     <RootNamespace>HoneysMaguffinMod</RootNamespace>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="NewAction"><File>Core/Honey_Macguffin_Base.sql</File></UpdateDatabase><AddGameplayScripts id="NewAction"><File>lua/HoneyMacguffin.lua</File></AddGameplayScripts></InGameActions>]]></InGameActionData>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <None Include="HoneysMaguffinMod.Art.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core" />
+    <Folder Include="lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\Honey_Macguffin_Base.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lua\HoneyMacguffin.lua">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildLocalExtensionPath)Civ6.targets" />
 </Project>
