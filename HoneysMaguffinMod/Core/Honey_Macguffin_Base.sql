@@ -92,7 +92,7 @@ VALUES  ('HONEY_MACGUFFIN_GP',           'LOC_HONEY_MACGUFFIN_GP_NAME',         
 
 INSERT INTO Buildings
 		(BuildingType,									Name,						Description,							  PrereqDistrict,				PrereqTech,			PurchaseYield,		Cost, AdvisorType)
-VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',    'TECH_ASTRONOMY',         'YIELD_FAITH',    20,    'ADVISOR_GENERIC'); --TO DO make it only purchaseable with faith?
+VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',    'TECH_MINING',         'YIELD_GOLD',    20,    'ADVISOR_GENERIC'); --TO DO make it only purchaseable with faith?
 --TO DO the small medium and large rockets have a field called internal only, could be useful for macguffin storage.
 
 
@@ -102,8 +102,12 @@ INSERT INTO MutuallyExclusiveBuildings
 VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY',     'BUILDING_WALLS');
 
 INSERT INTO Building_GreatWorks
-		(BuildingType,			GreatWorkSlotType,				NumSlots)
-VALUES  ('BUILDING_PALACE',		'GREATWORKSLOT_HONEY_MACGUFFIN',      10 );
+		(BuildingType,								GreatWorkSlotType,				NumSlots)
+VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY',  'GREATWORKSLOT_HONEY_MACGUFFIN',      1 );
+
+--INSERT INTO Building_GreatWorks
+--		(BuildingType,			GreatWorkSlotType,				NumSlots)
+--VALUES  ('BUILDING_PALACE',		'GREATWORKSLOT_HONEY_MACGUFFIN',      1 );
 --INSERT INTO Building_GreatWorks
 --		(BuildingType,								GreatWorkSlotType,				NumSlots)
 --VALUES  ('HONEY_MACGUFFIN_STORAGE_PSEUDOBUILDING',  'GREATWORKSLOT_HONEY_MACGUFFIN',      1 );
