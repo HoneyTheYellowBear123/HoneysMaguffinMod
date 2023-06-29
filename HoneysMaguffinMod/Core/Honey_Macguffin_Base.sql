@@ -46,13 +46,13 @@ VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY',						'KIND_BUILDING'),
 
 		('HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE',				'KIND_GREATWORK'),
 		('HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP',				'KIND_GREAT_PERSON_INDIVIDUAL'),
-		('HONEY_MAGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE',          'KIND_BUILDING');
+		('HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE',          'KIND_BUILDING');
 
 
 --Really expensive dummy era so the great people cannot be bought
 INSERT INTO Eras
 		(EraType,							 Name,								Description,							ChronologyIndex, WarmongerPoints,   GreatPersonBaseCost,	 EraTechBackgroundTexture, EraCivicBackgroundTexture, WarmongerLevelDescription, EmbarkedUnitStrength, EraTechBackgroundTextureOffsetX, EraCivicBackgroundTextureOffsetX, TechTreeLayoutMethod)
-VALUES  ('HONEY_MACGUFFIN_DUMMY_ERA', 'LOC_HONEY_MACGUFFIN_DUMMY_ERA_NAME', 'LOC_HONEY_MACGUFFIN_DUMMY_ERA_DESC',       42069,				    0,                  99999999,            'TechTree_BGModern',    'TechTree_BGFuture',      'LOC_WARMONGER_LEVEL_NONE',		 69,                     0,                                  0,                            'Cost' ),
+VALUES  ('HONEY_MACGUFFIN_DUMMY_ERA', 'LOC_HONEY_MACGUFFIN_DUMMY_ERA_NAME', 'LOC_HONEY_MACGUFFIN_DUMMY_ERA_DESC',       42069,				    0,                  99999999,            'TechTree_BGModern',    'TechTree_BGFuture',      'LOC_WARMONGER_LEVEL_NONE',		 69,                     0,                                  0,                            'Cost' );
 
 INSERT INTO TypeTags
 		(Type, Tag)
@@ -67,10 +67,14 @@ INSERT INTO UnitAiInfos
 VALUES  ('UNIT_HONEY_MACGUFFIN_GP', 'UNITTYPE_CIVILIAN'),
 		('UNIT_HONEY_MACGUFFIN_GP', 'UNITAI_LEADER');
 
+INSERT INTO PseudoYields
+		(PseudoYieldType, DefaultValue)
+VALUES  ('PSEUDOYIELD_GPP_HONEY_MACGUFFIN_GP', 0.5); --TO DO a pseudoyield for the macguffin itself. AI doesn't need to know how to use them but they should value them regardless.
+
 INSERT INTO GreatWorkObjectTypes
 		(GreatWorkObjectType,		Value,		PseudoYieldType,						 Name,									IconString)
-VALUES  ('HONEY_MACGUFFIN',			 69420, 'PSEUDOYIELD_HONEY_MACGUFFIN_PASSIVE', 'LOC_HONEY_MACGUFFIN_PASSIVE_NAME',  '[ICON_GreatWork_Relic]'), --TO DO change iconstring
-		('HONEY_MACGUFFIN_ACTIVE',   69421, 'PSEUDOYIELD_HONEY_MACGUFFIN_ACTIVE', 'LOC_HONEY_MACGUFFIN_ACTIVE_NAME',    '[ICON_GreatWork_Relic]'); --TO DO change iconstring
+VALUES  ('HONEY_MACGUFFIN_PASSIVE',	 69420, 'PSEUDOYIELD_GPP_HONEY_MACGUFFIN_GP', 'LOC_HONEY_MACGUFFIN_PASSIVE_NAME',  '[ICON_GreatWork_Relic]'), --TO DO change iconstring
+		('HONEY_MACGUFFIN_ACTIVE',   69421, 'PSEUDOYIELD_GPP_HONEY_MACGUFFIN_GP', 'LOC_HONEY_MACGUFFIN_ACTIVE_NAME',    '[ICON_GreatWork_Relic]'); --TO DO change iconstring
 
 INSERT INTO GreatWorkSlotTypes
 		(GreatWorkSlotType)
@@ -81,14 +85,10 @@ INSERT INTO GreatWork_ValidSubTypes
 VALUES  ('GREATWORKSLOT_HONEY_MACGUFFIN',	'HONEY_MACGUFFIN_PASSIVE'),
 		('GREATWORKSLOT_HONEY_MACGUFFIN',	'HONEY_MACGUFFIN_ACTIVE');
 
-INSERT INTO PseudoYieldType
-		(PseudoYieldType, DefaultValue)
-VALUES  ('PSEUDOYIELD_GPP_HONEY_MACGUFFIN_GP', 0.5); --TO DO a pseudoyield for the macguffin itself. AI doesn't need to know how to use them but they should value them regardless.
-
 --unobtainable great person for giving out macguffins. I can't great macguffins via lua script, but I can grant great people who grant macguffins so whatever I guess
 INSERT INTO GreatPersonClasses
 		(GreatPersonClassType,			 Name,									 UnitType,					   DistrictType,			PseudoYieldType,							 IconString,				ActionIcon                      )
-VALUES  ('HONEY_MACGUFFIN_GP'           'LOC_HONEY_MACGUFFIN_GP_NAME',           'UNIT_HONEY_MACGUFFIN_GP',    'DISTRICT_CITY_CENTER', 'PSEUDOYIELD_GPP_HONEY_MACGUFFIN_GP',       '[ICON_HONEY_MACGUFFIN_GP]',   'ICON_HONEY_MACGUFFIN_GP_ACTION'); --TO DO Icons
+VALUES  ('HONEY_MACGUFFIN_GP',           'LOC_HONEY_MACGUFFIN_GP_NAME',           'UNIT_HONEY_MACGUFFIN_GP',    'DISTRICT_CITY_CENTER', 'PSEUDOYIELD_GPP_HONEY_MACGUFFIN_GP',       '[ICON_HONEY_MACGUFFIN_GP]',   'ICON_HONEY_MACGUFFIN_GP_ACTION'); --TO DO Icons
 
 INSERT INTO Buildings
 		(BuildingType,									Name,						Description,							  PrereqDistrict,				PrereqTech,			PurchaseYield,		Cost, AdvisorType)
@@ -104,7 +104,9 @@ VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY',     'BUILDING_WALLS');
 INSERT INTO Building_GreatWorks
 		(BuildingType,			GreatWorkSlotType,				NumSlots)
 VALUES  ('BUILDING_PALACE',		'GREATWORKSLOT_HONEY_MACGUFFIN',      10 );
-
+--INSERT INTO Building_GreatWorks
+--		(BuildingType,								GreatWorkSlotType,				NumSlots)
+--VALUES  ('HONEY_MACGUFFIN_STORAGE_PSEUDOBUILDING',  'GREATWORKSLOT_HONEY_MACGUFFIN',      1 );
 
 
 
@@ -126,19 +128,17 @@ VALUES     ('HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP', 'LOC_HONEY_MACGUFFIN_GP_N
 
 INSERT INTO GreatWorks
 		(GreatWorkType,										 Name,									      GreatPersonIndividualType,							 GreatWorkObjectType )
-VALUES  ('HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE',     'LOC_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_NAME',   'HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP'			'HONEY_MACGUFFIN_PASSIVE',);
+VALUES  ('HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE',     'LOC_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_NAME',   'HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP',			'HONEY_MACGUFFIN_PASSIVE');
 
 INSERT INTO GreatWork_YieldChanges
 		(GreatWorkType,							 YieldType, YieldChange)
 VALUES  ('HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE', 'YIELD_GOLD', 1);
 
 
-
-INSERT INTO Building_GreatWorks
-		(BuildingType,								GreatWorkSlotType,				NumSlots)
-VALUES  ('HONEY_MAGUFFIN_STORAGE_PSEUDOBUILDING',  'GREATWORKSLOT_HONEY_MACGUFFIN',      1 );
-
+INSERT INTO Buildings
+		(BuildingType,									Name,						Description,							  PrereqDistrict,				PrereqTech,			PurchaseYield,		Cost, AdvisorType)
+VALUES  ('HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE', 'LOC_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_NAME', 'LOC_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_DESC',    'DISTRICT_CITY_CENTER',    'TECH_ASTRONOMY',         'YIELD_FAITH',    20,    'ADVISOR_GENERIC'); --TO DO make it UNBUILDABLE and UNPURCHASEABLE
 
 INSERT INTO MutuallyExclusiveBuildings
 		(Building,									MutuallyExclusiveBuilding)
-VALUES  ('HONEY_MAGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE', 'BUILDING_WALLS');
+VALUES  ('HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE', 'BUILDING_WALLS');
