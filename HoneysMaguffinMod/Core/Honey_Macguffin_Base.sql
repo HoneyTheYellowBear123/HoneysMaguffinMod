@@ -14,7 +14,7 @@
 	-- turn individual artifacts on/off
 	-- great people granted via lua and too expensive otherwise
 	-- building that transforms
-	-- 
+	-- override for greatworksoverview
 
 
 
@@ -83,16 +83,17 @@ VALUES  ('GREATWORKSLOT_HONEY_MACGUFFIN');
 INSERT INTO GreatWork_ValidSubTypes
 		(GreatWorkSlotType,					 GreatWorkObjectType)
 VALUES  ('GREATWORKSLOT_HONEY_MACGUFFIN',	'HONEY_MACGUFFIN_PASSIVE'),
-		('GREATWORKSLOT_HONEY_MACGUFFIN',	'HONEY_MACGUFFIN_ACTIVE');
+		('GREATWORKSLOT_HONEY_MACGUFFIN',	'HONEY_MACGUFFIN_ACTIVE'),
+		('GREATWORKSLOT_PALACE',            'HONEY_MACGUFFIN_PASSIVE');
 
 --unobtainable great person for giving out macguffins. I can't great macguffins via lua script, but I can grant great people who grant macguffins so whatever I guess
 INSERT INTO GreatPersonClasses
-		(GreatPersonClassType,			 Name,									 UnitType,					   DistrictType,			PseudoYieldType,							 IconString,				ActionIcon                      )
-VALUES  ('HONEY_MACGUFFIN_GP',           'LOC_HONEY_MACGUFFIN_GP_NAME',           'UNIT_HONEY_MACGUFFIN_GP',    'DISTRICT_CITY_CENTER', 'PSEUDOYIELD_GPP_HONEY_MACGUFFIN_GP',       '[ICON_HONEY_MACGUFFIN_GP]',   'ICON_HONEY_MACGUFFIN_GP_ACTION'); --TO DO Icons
+		(GreatPersonClassType,			 Name,									 UnitType,					   DistrictType,			PseudoYieldType,							 IconString                    , ActionIcon        )
+VALUES  ('HONEY_MACGUFFIN_GP',           'LOC_HONEY_MACGUFFIN_GP_NAME',           'UNIT_HONEY_MACGUFFIN_GP',    'DISTRICT_CITY_CENTER', 'PSEUDOYIELD_GPP_HONEY_MACGUFFIN_GP',       '[ICON_GreatEngineer]',       'ICON_UNITOPERATION_ENGINEER_ACTION'); --TO DO Icons
 
 INSERT INTO Buildings
-		(BuildingType,									Name,						Description,							  PrereqDistrict,				PrereqTech,			PurchaseYield,		Cost, AdvisorType)
-VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',    'TECH_MINING',         'YIELD_GOLD',    20,    'ADVISOR_GENERIC'); --TO DO make it only purchaseable with faith?
+		(BuildingType,									Name,						Description,							  PrereqDistrict,					PurchaseYield,		Cost, AdvisorType)  --TO DO add back in a prereq tech probably astrology
+VALUES  ('HONEY_MACGUFFIN_HOLDER_EMPTY', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME', 'LOC_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',    2,    'ADVISOR_GENERIC'); --TO DO make it scale heavily
 --TO DO the small medium and large rockets have a field called internal only, could be useful for macguffin storage.
 
 

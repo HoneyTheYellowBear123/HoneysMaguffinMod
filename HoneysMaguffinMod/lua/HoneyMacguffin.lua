@@ -17,7 +17,7 @@ function grantDebugGreatPerson(playerID, cityID, x, y)
 
 	if (justMe) then
 		--Game.GetGreatPeople:GrantPerson(DebugGreatPerson, DebugGreatPersonClass,macguffinEra,0,playerID,false);
-		--Game.GetGreatPeople():CreatePerson(playerID, DebugGreatPerson, x, y);
+		Game.GetGreatPeople():CreatePerson(playerID, DebugGreatPerson, x, y);
 		Game.GetGreatPeople():CreatePerson(playerID, DebugGreatPerson2, x, y);
 		justMe = false;
 	end
