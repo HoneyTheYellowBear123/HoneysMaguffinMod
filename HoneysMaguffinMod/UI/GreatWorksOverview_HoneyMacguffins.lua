@@ -24,8 +24,12 @@ local BASE_GetGreatWorkTooltip = GetGreatWorkTooltip;
 local BASE_GetGreatWorkIcon = GetGreatWorkIcon;
 local BASE_Initialize = Initialize;
 
+
 -- ===========================================================================
 function GetGreatWorkTooltip(pCityBldgs:table, greatWorkIndex:number, greatWorkType:number, pBuildingInfo:table)
+	
+	print("get great work tool tip was called");
+
 	local kGreatWorkInfo:table = GameInfo.GreatWorks[greatWorkType];
 
 	-- Return the basic tooltip for Hero relics because the theming code in the base game can cause errors with them
@@ -42,13 +46,18 @@ end
 
 function GetGreatWorkIcon(greatWorkInfo:table)
 
+	print("Get Great Work Icon was called");
+
 	local greatWorkIcon:string;
 
-	if greatWorkInfo.GreatWorkObjectType == "GREATWORKOBJECT_PRODUCT" then
+	if greatWorkInfo.GreatWorkObjectType == "HONEY_MACGUFFIN_PASSIVE" then
 		local greatWorkType:string = greatWorkInfo.GreatWorkType;
-		greatWorkType = greatWorkType:gsub("GREATWORK_PRODUCT_", "");
-		local greatWorkTrunc:string = greatWorkType:sub(1, #greatWorkType - 2);	-- remove the _1/_2/_3/_4/_5 from the end
-		greatWorkIcon = "ICON_MONOPOLIES_AND_CORPS_RESOURCE_" .. greatWorkTrunc;
+		--greatWorkType = greatWorkType:gsub("HONEY_MACGUFFIN_PASSIVE_", "");
+		--local greatWorkTrunc:string = greatWorkType:sub(1, #greatWorkType - 2);	-- remove the _1/_2/_3/_4/_5 from the end
+		--greatWorkIcon =  "ICON_GREATWORKOBJECT_ARTIFACT_ERA_ANCIENT";  --TO DO: replace this with proper naming convention                       --"ICON_MONOPOLIES_AND_CORPS_RESOURCE_" .. greatWorkTrunc;
+		greatWorkIcon = "ICON_" .. greatWorkInfo.GreatWorkType; 
+
+		print("great work icon "..greatWorkIcon);
 
 		local textureOffsetX:number, textureOffsetY:number, textureSheet:string = IconManager:FindIconAtlas(greatWorkIcon, SIZE_GREAT_WORK_ICON);
 		if(textureSheet == nil or textureSheet == "") then
@@ -61,4 +70,25 @@ function GetGreatWorkIcon(greatWorkInfo:table)
 	return BASE_GetGreatWorkIcon(greatWorkInfo);
 end
 
-Initialize();
+
+
+
+
+
+--THIS FUNCTION IS CRUCIAL IF YOU ARE ADDING NEW GREAT WORK SLOT TYPES AND THEY SAY THAT IN THE CODE BUT ITS SO SMALL
+function GetGreatWorkSlotTypeIcon(slotType:string)
+
+	print("get great works slot type icon was called");
+
+	for v1, v2 in pairs(g_DEFAULT_GREAT_WORKS_ICONS) do
+		print("showingtable"..tostring(v1).."   "..tostring(v2));
+	end
+
+	print("made it past the table");
+	
+	return g_DEFAULT_GREAT_WORKS_ICONS[slotType];
+end
+
+print("UI overview script was loaded");
+
+--Initialize();

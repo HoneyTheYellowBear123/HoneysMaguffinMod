@@ -1,5 +1,10 @@
 <GameData>
 	<LocalizedText>
+		
+		<!-- to do: put the proper icon here -->
+		<Row Tag="LOC_TYPE_TRAIT_GREAT_WORKS_HONEY_MACGUFFIN_SLOTS">
+			<Text>{1_Amount: number +#,###;-#,###} [ICON_GreatWork_Artifact] Macguffin {1_Amount : plural 1?slot; other?slots;}</Text>
+		</Row>
 
 
 	</LocalizedText>
