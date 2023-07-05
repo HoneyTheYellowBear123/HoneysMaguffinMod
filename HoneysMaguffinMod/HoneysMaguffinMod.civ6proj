@@ -21,7 +21,7 @@
 </Associations>]]></AssociationData>
     <AssemblyName>HoneysMaguffinMod</AssemblyName>
     <RootNamespace>HoneysMaguffinMod</RootNamespace>
-    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="NewAction"><File>Core/Honey_Macguffin_Base.sql</File></UpdateDatabase><AddGameplayScripts id="NewAction"><File>lua/HoneyMacguffin.lua</File></AddGameplayScripts><UpdateIcons id="NewAction"><File>Core/Honey_Macguffin_Icons.xml</File></UpdateIcons><ImportFiles id="NewAction"><Properties><LoadOrder>200</LoadOrder></Properties><File>UI/GreatWorksOverview_HoneyMacguffins.lua</File><File>UI/GreatWorkShowcase_HoneyMacguffins.lua</File><File>UI/DiplomacyDealView_HoneyMacguffins.lua</File><File>UI/Overrides/ToolTipHelper.lua</File><File>UI/Overrides/PlotTooltip_Expansion2.lua</File></ImportFiles></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="NewAction"><File>Core/Honey_Macguffin_Base.sql</File></UpdateDatabase><AddGameplayScripts id="NewAction"><File>lua/HoneyMacguffin.lua</File></AddGameplayScripts><UpdateIcons id="NewAction"><File>Core/Honey_Macguffin_Icons.xml</File></UpdateIcons><ImportFiles id="NewAction"><Properties><LoadOrder>200</LoadOrder></Properties><File>UI/GreatWorksOverview_HoneyMacguffins.lua</File><File>UI/GreatWorkShowcase_HoneyMacguffins.lua</File><File>UI/DiplomacyDealView_HoneyMacguffins.lua</File><File>UI/Overrides/ToolTipHelper.lua</File><File>UI/Overrides/CivilopediaPage_Building.lua</File></ImportFiles><UpdateText id="NewAction"><File>Core/Honey_Macguffin_Text.xml</File></UpdateText><ImportFiles id="NewAction"><Properties><LoadOrder>202</LoadOrder></Properties><File>UI/Overrides/PlotTooltip_Expansion2.lua</File></ImportFiles><ImportFiles id="NewAction"><Properties><LoadOrder>201</LoadOrder></Properties><File>UI/Overrides/PlotToolTip.lua</File></ImportFiles></InGameActions>]]></InGameActionData>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
@@ -57,7 +57,13 @@
     <Content Include="UI\GreatWorksOverview_HoneyMacguffins.lua">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UI\Overrides\CivilopediaPage_Building_HoneyMacguffins.lua">
+    <Content Include="UI\Overrides\CivilopediaPage_Building.lua">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UI\Overrides\GreatWorksOverview_Expansion2.lua">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UI\Overrides\PlotToolTip.lua">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UI\Overrides\PlotTooltip_Expansion2.lua">

@@ -54,7 +54,10 @@ function GetDetails(data)
 		local pPlayerConfig = PlayerConfigurations[data.Owner];
 		if (pPlayerConfig ~= nil) then
 			szOwnerString = Locale.Lookup(pPlayerConfig:GetCivilizationShortDescription());
+			print("owner of the plot is "..szOwnerString);
 		end
+
+		
 
 		if (szOwnerString == nil or string.len(szOwnerString) == 0) then
 			szOwnerString = Locale.Lookup("LOC_TOOLTIP_PLAYER_ID", data.Owner);
@@ -70,6 +73,7 @@ function GetDetails(data)
 
 	if(data.FeatureType ~= nil) then
 		local szFeatureString = Locale.Lookup(GameInfo.Features[data.FeatureType].Name);
+		print("feature of the plot is "..szFeatureString);
 		local localPlayer = Players[Game.GetLocalPlayer()];
 		local addCivicName = GameInfo.Features[data.FeatureType].AddCivic;
 		if (localPlayer ~= nil and addCivicName ~= nil) then
@@ -516,11 +520,14 @@ function GetDetails(data)
 					end
 				end
 				local iSlots = cityBuildings:GetNumGreatWorkSlots(data.BuildingTypes[i]);
+				print("honeydebug number of great work slots detected: "..tostring(iSlots));
 				for j = 0, iSlots - 1, 1 do
 					print("HoneyDebug plottooltip slots found!");
-					print("HoneyDebug plottooltip building is: "..tostring(data.BuildingTypes[i]));
+					--print("HoneyDebug plottooltip building is: "..tostring(data.BuildingTypes[i]));
+					
 					local greatWorkIndex:number = cityBuildings:GetGreatWorkInSlot(data.BuildingTypes[i], j);
 					if (greatWorkIndex ~= -1) then
+						print("slot types of this building:"..tostring(cityBuildings:GetGreatWorkTypeFromIndex(greatWorkIndex)));
 						local greatWorkType:number = cityBuildings:GetGreatWorkTypeFromIndex(greatWorkIndex)
 						table.insert(greatWorksSection, "- " .. Locale.Lookup(GameInfo.GreatWorks[greatWorkType].Name));
 					end
@@ -541,8 +548,10 @@ function GetDetails(data)
 	end
 
 	if (data.Fallout > 0) then
+		print("danger spot zeta");
 		table.insert(details, Locale.Lookup("LOC_TOOLTIP_PLOT_CONTAMINATED_TEXT", data.Fallout));
 	end
 
+	print("details were returned I think");
 	return details;
 end

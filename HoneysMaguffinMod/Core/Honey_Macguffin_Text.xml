@@ -1,11 +1,26 @@
 <GameData>
-	<LocalizedText>
+	<BaseGameText>
 		
 		<!-- to do: put the proper icon here -->
 		<Row Tag="LOC_TYPE_TRAIT_GREAT_WORKS_HONEY_MACGUFFIN_SLOTS">
 			<Text>{1_Amount: number +#,###;-#,###} [ICON_GreatWork_Artifact] Macguffin {1_Amount : plural 1?slot; other?slots;}</Text>
 		</Row>
 
+		<Row Tag="LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE">
+			<Text>[ICON_GreatWork_Artifact] Passive Macguffin</Text>
+		</Row>
 
+		<Row Tag="LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE">
+			<Text>[ICON_GreatWork_Artifact] Active Macguffin</Text>
+		</Row>
+
+	</BaseGameText>
+	<LocalizedText>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME" Language="en_US">
+			<Text>Macguffin Holder</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC" Language="en_US">
+			<Text>A mysterious device capable of harnessing the power of a macguffin.</Text>
+		</Row>
 	</LocalizedText>
 </GameData>

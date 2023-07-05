@@ -13,8 +13,8 @@ local BASE_HandleCustomGreatWorkTypes = HandleCustomGreatWorkTypes;
 --	CONSTANTS
 -- ===========================================================================
 
-local PASSIVE_MACGUFFIN_TYPE:string = "HONEY_MACGUFFIN_PASSIVE";
-local ACTIVE_MACGUFFIN_TYPE:string = "HONEY_MACGUFFIN_ACTIVE";
+local PASSIVE_MACGUFFIN_TYPE:string = "GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE";
+local ACTIVE_MACGUFFIN_TYPE:string = "GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE";
 
 local PADDING_BANNER:number = 120;
 local SIZE_BANNER_MIN:number = 506;
@@ -29,9 +29,9 @@ function HandleCustomGreatWorkTypes( greatWorkType:string, greatWorkIndex:number
 	local greatWorkObjectType:string = kGreatWorkInfo.GreatWorkObjectType;
 
 	-- Only Hero great work objects should be by this override
-	if ((greatWorkObjectType ~= PASSIVE_MACGUFFIN_TYPE) and (greatWorkObjectType ~= ACTIVE_MACGUFFIN_TYPE)) then
-		return BASE_HandleCustomGreatWorkTypes(greatWorkType);
-	end
+	--if ((greatWorkObjectType ~= PASSIVE_MACGUFFIN_TYPE) and (greatWorkObjectType ~= ACTIVE_MACGUFFIN_TYPE)) then
+	--	return BASE_HandleCustomGreatWorkTypes(greatWorkType);
+	--end
 
 	local icon:string = "ICON_" .. greatWorkType;
 	Controls.GreatWorkImage:SetOffsetY(0);
@@ -43,6 +43,7 @@ function HandleCustomGreatWorkTypes( greatWorkType:string, greatWorkIndex:number
 	Controls.GreatWorkBanner:SetSizeX(bannerSize);
 	Controls.GreatWorkBanner:SetHide(false);
 
+	--to do: I think if the input to this function is "" we won't have a created by name on our artifacts
 	local tInstInfo:table = Game.GetGreatWorkDataFromIndex(greatWorkIndex);
 	if (tInstInfo ~= nil) then
 		Controls.CreatedBy:SetText(Locale.Lookup("LOC_GREAT_WORKS_CREATED_BY", tInstInfo.CreatorName));

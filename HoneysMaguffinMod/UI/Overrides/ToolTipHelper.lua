@@ -19,6 +19,8 @@ ToolTipHelper = {};
 -- Returns a table of bonuses.
 ToolTipHelper.GetAdjacencyBonuses = function(t, field, key)
 
+	
+
 	local bonuses = {};
 	local has_bonus = {};
 	for row in t() do
@@ -226,7 +228,7 @@ ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
 		["GREATWORKSLOT_ARTIFACT"] = "LOC_TYPE_TRAIT_GREAT_WORKS_ARTIFACT_SLOTS";
 		["GREATWORKSLOT_CATHEDRAL"] = "LOC_TYPE_TRAIT_GREAT_WORKS_CATHEDRAL_SLOTS";
 		["GREATWORKSLOT_PRODUCT"] = "LOC_TYPE_TRAIT_GREAT_WORKS_PRODUCT_SLOTS";
-		["GREATWORKSLOT_HONEY_MACGUFFIN"] = "LOC_TYPE_TRAIT_GREAT_WORKS_HONEY_MACGUFFIN_SLOTS"; --TO DO: replace this
+		["GREATWORKSLOT_HONEY_MACGUFFIN"] = "LOC_TYPE_TRAIT_GREAT_WORKS_HONEY_MACGUFFIN_SLOTS"; 
 	};
 	print("HoneyDebug tooltiphelper building type: " ..name);
 
@@ -237,6 +239,7 @@ ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
 			print("HoneyDebug tooltiphelper slotType: "..slotType);
 			if(key) then
 				print("HoneyDebug tooltiphelper key: "..key);
+				print("HoneyDebug d");
 				table.insert(stats, Locale.Lookup(key, row.NumSlots));
 			end
 		end
