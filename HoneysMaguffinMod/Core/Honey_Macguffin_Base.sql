@@ -97,21 +97,25 @@ INSERT INTO GreatWorkSlotTypes
 		(GreatWorkSlotType)
 VALUES  ('GREATWORKSLOT_HONEY_MACGUFFIN');
 
+--for some reason UI/lua code has slots hardcoded and its causing problems. Using the artifact slot for now since my game logic will be determined in lua (ironically, also with hardcoded values).
 INSERT INTO GreatWork_ValidSubTypes
 		(GreatWorkSlotType,					 GreatWorkObjectType)
-VALUES  ('GREATWORKSLOT_HONEY_MACGUFFIN',	'GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE'),
-		('GREATWORKSLOT_HONEY_MACGUFFIN',	'GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE');
+VALUES  ('GREATWORKSLOT_ARTIFACT',	'GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE'),
+		('GREATWORKSLOT_ARTIFACT',	'GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE');
+		--('GREATWORKSLOT_HONEY_MACGUFFIN',	'GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE'),
+		--('GREATWORKSLOT_HONEY_MACGUFFIN',	'GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE');
 		--('GREATWORKSLOT_HONEY_MACGUFFIN',	'GREATWORKOBJECT_WRITING'),
 		--('GREATWORKSLOT_PALACE',            'GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE'),
 		--('GREATWORKSLOT_PALACE',	'GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE');
 
+		--TO DO: make sure steel doesn't cause problems. Probably some modifier can be used to reduce the strength of the defenses.
 INSERT INTO MutuallyExclusiveBuildings
 		(Building,							 MutuallyExclusiveBuilding)
 VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',     'BUILDING_WALLS');
 
 INSERT INTO Building_GreatWorks
 		(BuildingType,								GreatWorkSlotType,				NumSlots)
-VALUES	('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',  'GREATWORKSLOT_HONEY_MACGUFFIN',      1 );
+VALUES	('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',  'GREATWORKSLOT_ARTIFACT',      1 );--('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',  'GREATWORKSLOT_HONEY_MACGUFFIN',      1 );
 
 --INSERT INTO Building_GreatWorks
 --		(BuildingType,			GreatWorkSlotType,				NumSlots)
@@ -136,7 +140,7 @@ VALUES	('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',  'GREATWORKSLOT_HONEY_MACGUFFIN
 ----------------------------------------------------------------------------------------------------------------------------- INDIVIDUAL BREAKOUT --------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO GreatPersonIndividuals
 			(GreatPersonIndividualType,						Name,						GreatPersonClassType,			 eraType,					Gender,		 ActionCharges,            ActionEffectTextOverride)
-VALUES ('GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP', 'LOC_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME',  'GREAT_PERSON_HONEY_MACGUFFIN_GP' ,     'HONEY_MACGUFFIN_DUMMY_ERA',        'M',            0,					'LOC_GREAT_PERSON_AVIATOR_SIR_GEORGE_CAYLEY_ACTION');
+VALUES ('GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP', 'LOC_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME',  'GREAT_PERSON_HONEY_MACGUFFIN_GP' ,     'HONEY_MACGUFFIN_DUMMY_ERA',        'M',            0,					'LOC_GREAT_PERSON_HONEY_MACGUFFIN_ACTION');
 
 INSERT INTO GreatWorks
 		(GreatWorkType,										 Name,									      GreatPersonIndividualType,							 GreatWorkObjectType )
@@ -148,8 +152,8 @@ VALUES  ('GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE', 'YIEL
 
 
 INSERT INTO Buildings
-		(BuildingType,									Name,						Description,							  PrereqDistrict,				PrereqTech,			PurchaseYield,		Cost, AdvisorType)
-VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_DESC',    'DISTRICT_CITY_CENTER',    'TECH_ASTRONOMY',         'YIELD_FAITH',    20,    'ADVISOR_GENERIC'); --TO DO make it UNBUILDABLE and UNPURCHASEABLE
+		(BuildingType,									Name,						Description,							  PrereqDistrict,					 AdvisorType, Cost)
+VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_DESC',    'DISTRICT_CITY_CENTER',      'ADVISOR_GENERIC', 200); --TO DO make it UNBUILDABLE and UNPURCHASEABLE
 
 INSERT INTO MutuallyExclusiveBuildings
 		(Building,									MutuallyExclusiveBuilding)

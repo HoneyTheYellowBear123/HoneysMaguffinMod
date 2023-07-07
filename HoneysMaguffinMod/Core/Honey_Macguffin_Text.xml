@@ -16,11 +16,34 @@
 
 	</BaseGameText>
 	<LocalizedText>
+		
+		
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME" Language="en_US">
-			<Text>Macguffin Holder</Text>
+			<Text>Macguffin Altar</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC" Language="en_US">
-			<Text>A mysterious device capable of harnessing the power of a macguffin.</Text>
+			<Text>A mysterious device capable of harnessing the power of a macguffin. As it is partially powered by absolute confidence in its divine purpose, protective walls cannot be built around any city it is located in.</Text>
 		</Row>
+		<Row Tag="LOC_GREAT_PERSON_HONEY_MACGUFFIN_ACTION" Language="en_US">
+			<Text>This sage will entrust us with a mysterious and powerful macguffin.</Text>
+		</Row>
+		<Row Tag="LOC_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME" Language="en_US">
+			<Text>Macguffin Sage</Text>
+		</Row>
+		<Row Tag="LOC_UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME" Language="en_US">
+			<Text>Macguffin Sage</Text>
+		</Row>
+		
+
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_NAME" Language="en_US">
+			<Text>The Ponderer's Orb</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_NAME" Language="en_US">
+			<Text>Altar of the Ponderer's Orb</Text>
+		</Row>
+		
+
 	</LocalizedText>
 </GameData>

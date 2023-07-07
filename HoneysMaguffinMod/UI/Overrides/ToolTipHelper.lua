@@ -218,7 +218,7 @@ ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
 		end
 	end
 	
-	print("building tooltip was called!")
+	--print("building tooltip was called!")
 	local slotStrings = {
 		["GREATWORKSLOT_PALACE"] = "LOC_TYPE_TRAIT_GREAT_WORKS_PALACE_SLOTS";
 		["GREATWORKSLOT_ART"] = "LOC_TYPE_TRAIT_GREAT_WORKS_ART_SLOTS";
@@ -230,16 +230,16 @@ ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
 		["GREATWORKSLOT_PRODUCT"] = "LOC_TYPE_TRAIT_GREAT_WORKS_PRODUCT_SLOTS";
 		["GREATWORKSLOT_HONEY_MACGUFFIN"] = "LOC_TYPE_TRAIT_GREAT_WORKS_HONEY_MACGUFFIN_SLOTS"; 
 	};
-	print("HoneyDebug tooltiphelper building type: " ..name);
+	--print("HoneyDebug tooltiphelper building type: " ..name);
 
 	for row in GameInfo.Building_GreatWorks() do
 		if(row.BuildingType == buildingType) then
 			local slotType = row.GreatWorkSlotType;
 			local key = slotStrings[slotType];
-			print("HoneyDebug tooltiphelper slotType: "..slotType);
+			--print("HoneyDebug tooltiphelper slotType: "..slotType);
 			if(key) then
-				print("HoneyDebug tooltiphelper key: "..key);
-				print("HoneyDebug d");
+				--print("HoneyDebug tooltiphelper key: "..key);
+				--print("HoneyDebug d");
 				table.insert(stats, Locale.Lookup(key, row.NumSlots));
 			end
 		end

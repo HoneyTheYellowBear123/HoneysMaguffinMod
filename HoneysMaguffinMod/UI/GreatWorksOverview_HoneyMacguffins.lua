@@ -29,13 +29,13 @@ local BASE_Initialize = Initialize;
 -- ===========================================================================
 function GetGreatWorkTooltip(pCityBldgs:table, greatWorkIndex:number, greatWorkType:number, pBuildingInfo:table)
 	
-	print("get great work tool tip was called");
+	--print("get great work tool tip was called");
 
 	local kGreatWorkInfo:table = GameInfo.GreatWorks[greatWorkType];
 
 	-- Return the basic tooltip for Hero relics because the theming code in the base game can cause errors with them
 	if kGreatWorkInfo.GreatWorkObjectType == "GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE" then
-		print("danger point 1");
+		--print("danger point 1");
 		return GreatWorksSupport_GetBasicTooltip( greatWorkIndex, false );
 	end
 	-- Return the basic tooltip for Hero relics because the theming code in the base game can cause errors with them
@@ -48,7 +48,7 @@ end
 
 function GetGreatWorkIcon(greatWorkInfo:table)
 
-	print("Get Great Work Icon was called");
+	--print("Get Great Work Icon was called");
 
 	local greatWorkIcon:string;
 
@@ -59,11 +59,11 @@ function GetGreatWorkIcon(greatWorkInfo:table)
 		--greatWorkIcon =  "ICON_GREATWORKOBJECT_ARTIFACT_ERA_ANCIENT";  --TO DO: replace this with proper naming convention                       --"ICON_MONOPOLIES_AND_CORPS_RESOURCE_" .. greatWorkTrunc;
 		greatWorkIcon = "ICON_" .. greatWorkInfo.GreatWorkType; 
 
-		print("great work icon "..greatWorkIcon);
+		--print("great work icon "..greatWorkIcon);
 
 		local textureOffsetX:number, textureOffsetY:number, textureSheet:string = IconManager:FindIconAtlas(greatWorkIcon, SIZE_GREAT_WORK_ICON);
 		if(textureSheet == nil or textureSheet == "") then
-			print("danger point 2");
+			--print("danger point 2");
 			UI.DataError("Could not find slot type icon in GetGreatWorkIcon: icon=\""..greatWorkIcon.."\", iconSize="..tostring(SIZE_GREAT_WORK_ICON));
 		end
 
@@ -84,7 +84,7 @@ function GetGreatWorkSlotTypeIcon(slotType:string)
 	--print("honeydebug2 get great works slot type icon was called");
 
 	for v1, v2 in pairs(g_DEFAULT_GREAT_WORKS_ICONS) do
-		print("showingtable"..tostring(v1).."   "..tostring(v2));
+		--print("showingtable"..tostring(v1).."   "..tostring(v2));
 	end
 
 	--print("honeydebug2 made it past the table which will return "..g_DEFAULT_GREAT_WORKS_ICONS[slotType].." because of "..slotType);
@@ -97,11 +97,11 @@ end
 
 function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pBuildingInfo:table)
 
-	print("PopulateGreatWorkSlot was called");
+	--print("PopulateGreatWorkSlot was called");
 	if (pBuildingInfo.BuildyingType ~= 'BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY') then
 		BASE_PopulateGreatWorkSlot(instance,pCity,pCityBlgs,pBuildingInfo)
 	end
-	print("PopulateGreatWorkSlot thinks this building is a macguffin holder!");
+	--print("PopulateGreatWorkSlot thinks this building is a macguffin holder!");
 
 	instance.DefaultBG:SetHide(false);
 	instance.DisabledBG:SetHide(true);
@@ -152,11 +152,11 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 			end
 		end                            
 
-		print("HoneyDebug a");
+		--print("HoneyDebug a");
 		if firstGreatWork ~= nil and themeDescription ~= nil then
-			print("HoneyDebug b");
+			--print("HoneyDebug b");
 			local slotTypeIcon:string = "ICON_" .. firstGreatWork.GreatWorkObjectType;
-			print("HoneyDebug "..slotTypeIcon);
+			--print("HoneyDebug "..slotTypeIcon);
 			if firstGreatWork.GreatWorkObjectType == GREAT_WORK_ARTIFACT_TYPE then
 				slotTypeIcon = slotTypeIcon .. "_" .. firstGreatWork.EraType;
 			end
@@ -252,7 +252,7 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	instance.ThemeBonuses:CalculateSize();
 	instance.ThemeBonuses:ReprocessAnchoring();
 
-	print("HoneyDebug c");
+	--print("HoneyDebug c");
 	return numGreatWorks;
 end
 
