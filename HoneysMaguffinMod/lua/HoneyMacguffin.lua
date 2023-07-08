@@ -46,33 +46,20 @@ function initHoneyMacguffinIndexSystem()
 	end
 end
 
-local tMacguffinGreatPeople = {}
 
+local tMacguffinGreatPeople = {}
 --add all the macguffin great people to a list that we can quickly index
 function setupMacguffinGreatPeople()
 
-	
+	--local tMacguffinGreatPeople = {}
 	for i, tRow in ipairs(DB.Query("SELECT * from GreatPersonIndividuals WHERE GreatPersonClassType='GREAT_PERSON_HONEY_MACGUFFIN_GP'")) do -- WHERE GreatPersonClassType IN (GREAT_PERSON_HONEY_MACGUFFIN_GP)")) do
-		--if (tRow.GreatPersonClassType == "GREAT_PERSON_HONEY_MACGUFFIN_GP") then
-
 			tMacguffinGreatPeople[i] = tRow
 
 			print("macguffin great person discovered");
-			print(tRow.Name)
-			local shortname = string.sub(tRow.Name,0, 15);
-			print(shortname)
+
 			print(tRow.GreatPersonClassType);
-		--local shortType = string.sub(tRow.GreatPersonClassType);
-		--end
-
-		--print(tRow.PrereqTech)
-		--print(tRow.MandatoryObsoleteTech)
-		--print(tRow.PrereqCivic)
-		--print(tRow.MandatoryObsoleteCivic)
-		--print(tRow.StrategicResource)
-		--print(tRow.TraitType)
 	end
-
+	return tMacguffinGreatPeople
 
 end;
 
@@ -272,29 +259,20 @@ function GreatPersonActivatedCheck(unitPlayerID, unitID, greatPersonClassID, gre
 	--print(" qbug also d! "..d);
 
 
-	local keyset={};
-	local n=0;
 
-	--for k,v in pairs( GameInfo:GreatPersonIndividuals()) do
-	--	 n=n+1;
-	--	 keyset[n]=k;
-	--	 print("key "..tostring(k));
-	--end
+	for i, trow in ipairs(tMacguffinGreatPeople) do
+		print(" right before the check: "..trow.GreatPersonClassType);
 
+		if  GameInfo.GreatPersonIndividuals[tostring(trow.GreatPersonIndividualType)].Index ==  greatPersonIndividualID then
+			print("the following great macguffin person was activated: "..trow.Name);
+			local stringTransform = string.sub(trow.GreatPersonIndividualType, 14) --cut off the GREAT_PERSON_ part of the string
+			stringTransform = string.sub(stringTransform, 0, -4) --cut of the _GP part at the end
+			print("string transform: "..stringTransform);
 
-	
-
-	--for greatPersonIndividual in GameInfo:GreatPersonIndividuals() do
-	--	if GameInfo:GreatPersonIndividuals[greatPersonIndividual].Index == greatPersonIndividualID then
-	--		local theName = GameInfo:GreatPersonIndividuals[greatPersonIndividual].Name;
-	--		print("the great person who made the work was "..theName);
-	--	end
-	--end
+		end
+	end
 
 
-	--if greatPersonIndividualID in MacguffinGreatPeople then
-	--	print("this is a macguffin great person!");
-	--end
 end
 
 function testo(playerID, unitID, cityPlotX, cityPlotY, buildingID, greatWorkID)
