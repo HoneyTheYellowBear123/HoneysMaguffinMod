@@ -11,6 +11,8 @@ local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MAC
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 
 
+
+
 local macguffinEra = GameInfo.Eras["HONEY_MACGUFFIN_DUMMY_ERA"].Index;
 local justMe = true;
 
@@ -34,8 +36,64 @@ function grantDebugGreatPerson(playerID, cityID, x, y)
 end
 
 
+-- we need a system to tie GreatWorkID (from greatworkcreated and greatworkmoved events) to the actual macguffin that it is.
+-- for some reason GreatWorkID is the order that the great works were created in this specific game, as opposed to a unique index for each greatworkobject.
+-- fine, whatever, we can be clever and link the order to an actual greatworkobject ourselves.
+function initHoneyMacguffinIndexSystem()
+
+	if Game:GetProperty("HoneyMacguffinIndexSystem") == nil then
+		Game:SetProperty("HoneyMacguffinIndexSystem",{}); --empty table for now. The entries will be { greatworkID, greatworkobject } as great works are created.
+	end
+end
+
+local tMacguffinGreatPeople = {}
+
+--add all the macguffin great people to a list that we can quickly index
+function setupMacguffinGreatPeople()
+
+	
+	for i, tRow in ipairs(DB.Query("SELECT * from GreatPersonIndividuals WHERE GreatPersonClassType='GREAT_PERSON_HONEY_MACGUFFIN_GP'")) do -- WHERE GreatPersonClassType IN (GREAT_PERSON_HONEY_MACGUFFIN_GP)")) do
+		--if (tRow.GreatPersonClassType == "GREAT_PERSON_HONEY_MACGUFFIN_GP") then
+
+			tMacguffinGreatPeople[i] = tRow
+
+			print("macguffin great person discovered");
+			print(tRow.Name)
+			local shortname = string.sub(tRow.Name,0, 15);
+			print(shortname)
+			print(tRow.GreatPersonClassType);
+		--local shortType = string.sub(tRow.GreatPersonClassType);
+		--end
+
+		--print(tRow.PrereqTech)
+		--print(tRow.MandatoryObsoleteTech)
+		--print(tRow.PrereqCivic)
+		--print(tRow.MandatoryObsoleteCivic)
+		--print(tRow.StrategicResource)
+		--print(tRow.TraitType)
+	end
 
 
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--[[
 function replaceMacguffinAltar(cityObject, oldBuildingID, newBuildingID)
 
 	
@@ -46,28 +104,77 @@ function replaceMacguffinAltar(cityObject, oldBuildingID, newBuildingID)
 
 end
 
+
+
+local macguffinIndex = GameInfo.GreatWorks['GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE'].Index;
+local emptyMacguffinHolderIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index;
+	
+
 --instantly transform a new slot
 function changeAltarForNewMacguffin(playerID, unitID, cityPlotX, cityPlotY, buildingID, greatWorkID)
 
-
-	print("new great work was created and change altar was called. The great work ID is "..greatWorkID);
-	local greatWorkData = Game.GetGreatWorkDataFromIndex(greatWorkID);
-	local greatWorkString = greatWorkData.name;
-	local macguffinStringCheck = strsub(greatWorkString, 25, 15);
-	print(macguffinStringCheck);
-	if macguffinStringCheck == "HONEY_MACGUFFIN" then
-		print("we detected a new macguffin being created!");
+	print(" qbug great work created!");
 
 
-		local nameWithoutGreatWork = strsub(greatWorkString, 25);
-		print(nameWithoutGreatWork);
-		local altarWeExpect = "BUILDING_HONEY_MACGUFFIN_HOLDER"..nameWithoutGreatkWork;
-		print(altarWeExpect);
-		local theCity = Cities.GetCityInPlot(cityPlotX, cityPlotY);
-		local indexWeExpect =  GameInfo.Buildings[altarWeExpect].Index;
-		replaceMacguffinAltar(       buildingID, indexWeExpect);
+	print(" nbug change altar dump, playerID: "..playerID.." unitID: "..unitID.." cityPlotX "..cityPlotX.." cityPlotY "..cityPlotY.." buildingID "..buildingID.." greatWorkID "..greatWorkID);
+	print(" nbug macguffin index: "..macguffinIndex);
+	print(" nbug "..emptyMacguffinHolderIndex);
 
+	--local typel = Game.GetGreatWorkTypeFromIndex(greatWorkID);
+	--print(" nbug great worktype from index"..tostring(typel));
+
+
+	--local keyset={};
+	--local n=0;
+
+	--for k,v in pairs(tab) do
+	--	n=n+1
+	 --   keyset[n]=k
+	--end
+
+	for i in GameInfo.Buildings do
+		print("nbug type of the original "..type(GameInfo.Buildings));
+		print("nbug type of the entry "..type(i));
+		--local buildingType = i.BuildingType; --attempt to index a function value
+		print("nbug entry in buildings table "..tostring(i));
+		--print("nbug i which I think is key"..(i.BuildingType));
+		
 	end
+
+	print(" nbug empty macguffin index: "..emptyMacguffinHolderIndex);
+
+
+	--AltarCheck();
+	--local greaty = GameInfo.GreatWorks[greatWorkID];
+	--print("this works: ");
+	--print("printing greaty type: "..type(greaty));
+	--print("printing greaty great work type: "..greaty.GreatWorkType);
+	--print("printing greaty name : "..greaty.Name);
+	--print("new great work was created and change altar was called. The great work ID is "..greatWorkID);
+	--local theCity = Cities.GetCityInPlot(cityPlotX, cityPlotY);
+	--if buildingObject:GetNumGreatWorkSlots(buildingID) == 1 and  buildingObject:GetGreatWorkSlotType(i) == artifactSlot then
+
+	--end
+
+
+	--theCity:GetBuildings().GetGreatWorkInSlot(buildingID, 0);
+	--local greatWorkData = Game.GetGreatWorkDataFromIndex(greatWorkID);
+	--local greatWorkString = greatWorkData.name;
+	--local macguffinStringCheck = strsub(greatWorkString, 25, 15);
+	--print(macguffinStringCheck);
+	--if macguffinStringCheck == "HONEY_MACGUFFIN" then
+	--	print("we detected a new macguffin being created!");
+
+
+	--	local nameWithoutGreatWork = strsub(greatWorkString, 25);
+	--	print(nameWithoutGreatWork);
+	--	local altarWeExpect = "BUILDING_HONEY_MACGUFFIN_HOLDER"..nameWithoutGreatkWork;
+	--	print(altarWeExpect);
+		
+	--	local indexWeExpect =  GameInfo.Buildings[altarWeExpect].Index;
+	--	replaceMacguffinAltar(       buildingID, indexWeExpect);
+
+	--end
 
 
 
@@ -75,22 +182,37 @@ end
 
 
 local artifactSlot = GameInfo.GreatWorkSlotTypes["GREATWORKSLOT_ARTIFACT"].Index;
-local emptyMacguffinHolderIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index;
+
 
 -- check if any altars have had their macguffins shifted, and if so, update them.
-function AltarCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex)
+function AltarCheck() --fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex
+	print("altar check was called!");
 	for playerid, playerobject in pairs(Players) do
 
 		if playerobject:IsMajor() then
 			
-
-
-			for i, cityObject in playerCityMembers:Members() do
+			
+			--playerCityMembers = playerobject:GetCities()
+			for i, cityObject in playerobject:GetCities():Members() do--playerCityMembers:Members() do
 			
     
 			 local cityBuildings = cityObject:GetBuildings();
+
+			 print("city buildings type: "..type(cityBuildings));
+
+			 local size1 = 0
+			 for i,v in pairs(cityBuildings) do size1 = size1 + 1 end
+			 print("size of first table is ::" , size1)
+
+			-- local buildingNameOverride = cityBuildings:GetBuildingNameOverride(0);
+			 --print("building name override: "..buildingNameOverride);
+			-- local typeNameO = cityBuildings:GetType();
+			 --print("typenameo: "..type(typeNameO));
+			 --local greatWorkIndo= cityBuildings:GetGreatWorkInSlot(0,0);
+			 --local greatWorkIndo2 = cityBuildings:GetGreatWorkInSlot(1,0);
+
 			 
-			 for i, buildingObject in cityBuildings do
+			 for buildingObject in cityBuildings do
 				
 				--surely a macguffin altar of sorts
 				if buildingObject:GetNumGreatWorkSlots(i) == 1 and  buildingObject:GetGreatWorkSlotType(i) == artifactSlot then
@@ -140,10 +262,60 @@ function AltarCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buil
 		end
 	end
 end
+--]]
+
+function GreatPersonActivatedCheck(unitPlayerID, unitID, greatPersonClassID, greatPersonIndividualID, a, b, c, d)
+
+	print(" qbug great person activated!");
+	print(" qbug index of the macguffin great person "..DebugGreatPerson);
+	print(" qbug ndividual id from the great person activated function! "..greatPersonIndividualID);
+	--print(" qbug also d! "..d);
+
+
+	local keyset={};
+	local n=0;
+
+	--for k,v in pairs( GameInfo:GreatPersonIndividuals()) do
+	--	 n=n+1;
+	--	 keyset[n]=k;
+	--	 print("key "..tostring(k));
+	--end
+
+
+	
+
+	--for greatPersonIndividual in GameInfo:GreatPersonIndividuals() do
+	--	if GameInfo:GreatPersonIndividuals[greatPersonIndividual].Index == greatPersonIndividualID then
+	--		local theName = GameInfo:GreatPersonIndividuals[greatPersonIndividual].Name;
+	--		print("the great person who made the work was "..theName);
+	--	end
+	--end
+
+
+	--if greatPersonIndividualID in MacguffinGreatPeople then
+	--	print("this is a macguffin great person!");
+	--end
+end
+
+function testo(playerID, unitID, cityPlotX, cityPlotY, buildingID, greatWorkID)
+
+	print(" qbug great work created!");
+end
+
+function presto(fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex)
+
+	print("presto dump fromcityplayerid "..fromCityPlayerID.." fromcityid "..fromCityID.." tocityplayerid "..toCityPlayerID.." tocityid "..toCityID.." buildingID "..buildingID.." greatworktypeindex "..greatWorkTypeIndex);
+
+end
 
 
 
 
+
+
+
+initHoneyMacguffinIndexSystem();
+setupMacguffinGreatPeople();
 
 
 --[[ event
@@ -156,6 +328,9 @@ CityProjectCompleted
 	y
 	isCancelled
 --]]
-Events.GreatWorkCreated.Add(changeAltarForNewMacguffin);
-Events.GreatWorkMoved.Add(AltarCheck)
+--Events.GreatWorkCreated.Add(changeAltarForNewMacguffin)
+Events.GreatWorkCreated.Add(testo)
+Events.GreatWorkMoved.Add(presto)
+Events.UnitGreatPersonActivated.Add(GreatPersonActivatedCheck)
+--Events.GreatWorkMoved.Add(AltarCheck)
 Events.CityInitialized.Add(grantDebugGreatPerson)
