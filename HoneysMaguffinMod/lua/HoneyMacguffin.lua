@@ -44,7 +44,7 @@ end
 function initHoneyMacguffinIndexSystem()
 
 	if Game:GetProperty("HoneyMacguffinIndexSystem") == nil then
-		Game:SetProperty("HoneyMacguffinIndexSystem",{}); --empty table for now. The entries will be { greatworkID, greatworkobject } as great works are created.
+		Game:SetProperty("HoneyMacguffinIndexSystem",{}); --empty table for now. The entries will be { greatworkID, greatworkobjecttypename, buildingIndexThatItIsCurrentlyIn, TypeNameOfTheBonusPseudoBuildingItGrants } as great works are created.
 	end
 end
 
@@ -151,27 +151,42 @@ end
 function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex)
 
 	for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
+		print("macguffin entry! if you see three rework the temp table system!")
 
 		--the great work that just moved was previously registered as a macguffin
 		if MacguffinEntry[2] == greatWorkTypeIndex then
-		
+
+			local tempTable = Game:GetProperty("HoneyMacguffinIndexSystem")
+			local tempMacguffinEntry = MacguffinEntry
 			local fromCityObject = CityManager.GetCity( fromCityPlayerID, fromCityID )
 			local toCityObject = CityManager.GetCity( toCityPlayerID, toCityID )
+			local associatedAltarIndex = GameInfo.Buildings[MacguffinEntry[4]].Index
 
 			--if the building the macguffin was moved FROM was an altar (as opposed to palace, storage, or museum) we should destroy the pseudobuilding in the city it was moved from
 			if MacguffinEntry[3] == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
 
-				fromCityObject:GetBuildings():RemoveBuilding(MacguffinEntry[4]);
-				fromCityObject:GetBuildQueue():RemoveBuilding(MacguffinEntry[4]);
+				print("we removed a macguffin from an altar!");
+				fromCityObject:GetBuildings():RemoveBuilding(associatedAltarIndex);
+				fromCityObject:GetBuildQueue():RemoveBuilding(associatedAltarIndex);
+
+				if fromCityObject:GetBuildings():HasBuilding(associatedAltarIndex) then
+					print("but we failed to remove the building!");
+				end
 
 			end
 			--fi the building the macguffin is moved TO is an altar, we should create the pseudo building in the city it was moved to
 			if buildingID == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
 
 				print("macguffin entry 4: "..MacguffinEntry[4])
-				placeMacguffinAltar(toCityObject, MacguffinEntry[4])
+				placeMacguffinAltar(toCityObject, associatedAltarIndex)
 
 			end
+
+			-- update the table so we know our macguffin is in a new building
+			tempMacguffinEntry[3] = buildingID
+			tempTable[i] = tempMacguffinEntry
+
+			Game:SetProperty("HoneyMacguffinIndexSystem", tempTable)
 		end
 	end
 
