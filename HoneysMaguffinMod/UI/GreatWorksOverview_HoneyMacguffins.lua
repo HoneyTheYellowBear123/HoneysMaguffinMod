@@ -27,6 +27,9 @@ local BASE_Initialize = Initialize;
 
 
 -- ===========================================================================
+
+
+--TO DO edit this to show the different tiers of macguffins
 function GetGreatWorkTooltip(pCityBldgs:table, greatWorkIndex:number, greatWorkType:number, pBuildingInfo:table)
 	
 	--print("get great work tool tip was called");

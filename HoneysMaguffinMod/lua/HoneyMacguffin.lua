@@ -12,6 +12,8 @@ local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDU
 
 
 
+--TO DO: macguffin awakening could be performed via optional technology that changes the pseudobuilding list. We can worry about this later.
+
 
 local macguffinEra = GameInfo.Eras["HONEY_MACGUFFIN_DUMMY_ERA"].Index;
 local justMe = true;
@@ -67,189 +69,28 @@ end;
 
 
 
+--local theCity = ""
+--local theindex = 0
+function placeMacguffinAltar(cityObject, newBuildingID)
 
-
-
-
-
-
-
-
-
-
-
-
-
---[[
-function replaceMacguffinAltar(cityObject, oldBuildingID, newBuildingID)
-
-	
 	print("replacing altar function");
 	local plotC = Map.GetPlot(cityObject:GetX(), cityObject:GetY());
-	cityObject:GetBuildQueue():CreateIncompleteBuilding(newBuildingID, plotC:GetIndex(), 100);
-	cityObject:RemoveBuilding(oldBuilding);
+	cityObject:GetBuildQueue():CreateIncompleteBuilding(newBuildingID, plotC:GetIndex(), 100); --create the new one and destroy the old one. 
+	--cityObject:GetBuildings():RemoveBuilding(oldBuilding); --TO DO If this was a custom slot there would be no problems but it might slide into the palace or museum.
+	--cityObject:GetBuildQueue():RemoveBuilding(oldBuilding);
 
+	--theCity=cityObject
+	--theindex=newBuildingID
 end
 
 
 
-local macguffinIndex = GameInfo.GreatWorks['GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE'].Index;
-local emptyMacguffinHolderIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index;
-	
-
---instantly transform a new slot
-function changeAltarForNewMacguffin(playerID, unitID, cityPlotX, cityPlotY, buildingID, greatWorkID)
-
-	print(" qbug great work created!");
-
-
-	print(" nbug change altar dump, playerID: "..playerID.." unitID: "..unitID.." cityPlotX "..cityPlotX.." cityPlotY "..cityPlotY.." buildingID "..buildingID.." greatWorkID "..greatWorkID);
-	print(" nbug macguffin index: "..macguffinIndex);
-	print(" nbug "..emptyMacguffinHolderIndex);
-
-	--local typel = Game.GetGreatWorkTypeFromIndex(greatWorkID);
-	--print(" nbug great worktype from index"..tostring(typel));
-
-
-	--local keyset={};
-	--local n=0;
-
-	--for k,v in pairs(tab) do
-	--	n=n+1
-	 --   keyset[n]=k
-	--end
-
-	for i in GameInfo.Buildings do
-		print("nbug type of the original "..type(GameInfo.Buildings));
-		print("nbug type of the entry "..type(i));
-		--local buildingType = i.BuildingType; --attempt to index a function value
-		print("nbug entry in buildings table "..tostring(i));
-		--print("nbug i which I think is key"..(i.BuildingType));
-		
-	end
-
-	print(" nbug empty macguffin index: "..emptyMacguffinHolderIndex);
-
-
-	--AltarCheck();
-	--local greaty = GameInfo.GreatWorks[greatWorkID];
-	--print("this works: ");
-	--print("printing greaty type: "..type(greaty));
-	--print("printing greaty great work type: "..greaty.GreatWorkType);
-	--print("printing greaty name : "..greaty.Name);
-	--print("new great work was created and change altar was called. The great work ID is "..greatWorkID);
-	--local theCity = Cities.GetCityInPlot(cityPlotX, cityPlotY);
-	--if buildingObject:GetNumGreatWorkSlots(buildingID) == 1 and  buildingObject:GetGreatWorkSlotType(i) == artifactSlot then
-
-	--end
-
-
-	--theCity:GetBuildings().GetGreatWorkInSlot(buildingID, 0);
-	--local greatWorkData = Game.GetGreatWorkDataFromIndex(greatWorkID);
-	--local greatWorkString = greatWorkData.name;
-	--local macguffinStringCheck = strsub(greatWorkString, 25, 15);
-	--print(macguffinStringCheck);
-	--if macguffinStringCheck == "HONEY_MACGUFFIN" then
-	--	print("we detected a new macguffin being created!");
-
-
-	--	local nameWithoutGreatWork = strsub(greatWorkString, 25);
-	--	print(nameWithoutGreatWork);
-	--	local altarWeExpect = "BUILDING_HONEY_MACGUFFIN_HOLDER"..nameWithoutGreatkWork;
-	--	print(altarWeExpect);
-		
-	--	local indexWeExpect =  GameInfo.Buildings[altarWeExpect].Index;
-	--	replaceMacguffinAltar(       buildingID, indexWeExpect);
-
-	--end
 
 
 
-end
 
-
-local artifactSlot = GameInfo.GreatWorkSlotTypes["GREATWORKSLOT_ARTIFACT"].Index;
-
-
--- check if any altars have had their macguffins shifted, and if so, update them.
-function AltarCheck() --fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex
-	print("altar check was called!");
-	for playerid, playerobject in pairs(Players) do
-
-		if playerobject:IsMajor() then
-			
-			
-			--playerCityMembers = playerobject:GetCities()
-			for i, cityObject in playerobject:GetCities():Members() do--playerCityMembers:Members() do
-			
-    
-			 local cityBuildings = cityObject:GetBuildings();
-
-			 print("city buildings type: "..type(cityBuildings));
-
-			 local size1 = 0
-			 for i,v in pairs(cityBuildings) do size1 = size1 + 1 end
-			 print("size of first table is ::" , size1)
-
-			-- local buildingNameOverride = cityBuildings:GetBuildingNameOverride(0);
-			 --print("building name override: "..buildingNameOverride);
-			-- local typeNameO = cityBuildings:GetType();
-			 --print("typenameo: "..type(typeNameO));
-			 --local greatWorkIndo= cityBuildings:GetGreatWorkInSlot(0,0);
-			 --local greatWorkIndo2 = cityBuildings:GetGreatWorkInSlot(1,0);
-
-			 
-			 for buildingObject in cityBuildings do
-				
-				--surely a macguffin altar of sorts
-				if buildingObject:GetNumGreatWorkSlots(i) == 1 and  buildingObject:GetGreatWorkSlotType(i) == artifactSlot then
-
-					local greatWorkIndex = cityBuildings:GetGreatWorkInSlot(i,0)
-
-					-- -1 for empty slot, we want empty altar
-					if greatWorkIndex == -1 then
-						
-						--if the city does NOT have an empty altar, whatever building we are looking at right now should be destroyed and replaced with an empty altar.
-						if not cityBuildings:HasBuilding( emptyMacguffinHolderIndex ) then
-							print("replacing empty altar");
-							replaceMacguffinAltar(cityObject, i, emptyMacguffinHolderIndex);
-						end
-
-					else
-
-						--if the city does NOT have the correct altar for the macguffin we detected, whatever building we are looking at right now should be destroyed and replaced with the proper macguffin altar.
-						local greatWorkData = Game.GetGreatWorkDataFromIndex(greatWorkIndex);
-						local greatWorkString = greatWorkData.name;
-						--GreatWorkObjectType if name doesnt work
-
-						local nameWithoutGreatWork = strsub(greatWorkString, 25);
-						print(nameWithoutGreatWork);
-						local altarWeExpect = "BUILDING_HONEY_MACGUFFIN_HOLDER"..nameWithoutGreatkWork;
-
-						print(altarWeExpect);
-
-						local indexWeExpect =  GameInfo.Buildings[altarWeExpect].Index;
-
-						if not cityBuildings:HasBuilding( indexWeExpect ) then
-							print("replacing special altar");
-							replaceMacguffinAltar(cityObject, i, indexWeExpect);
-						end
-
-					end
-
-					
-					--check the artifact type and building type
-
-				end
-
-			 end
-			 
-		  end
-
-		end
-	end
-end
---]]
+local macguffinThatWasJustMade = ""
+local macguffinWasMade = false
 
 function GreatPersonActivatedCheck(unitPlayerID, unitID, greatPersonClassID, greatPersonIndividualID, a, b, c, d)
 
@@ -266,19 +107,72 @@ function GreatPersonActivatedCheck(unitPlayerID, unitID, greatPersonClassID, gre
 		if  GameInfo.GreatPersonIndividuals[tostring(trow.GreatPersonIndividualType)].Index ==  greatPersonIndividualID then
 			print("the following great macguffin person was activated: "..trow.Name);
 			local stringTransform = string.sub(trow.GreatPersonIndividualType, 14) --cut off the GREAT_PERSON_ part of the string
-			stringTransform = string.sub(stringTransform, 0, -4) --cut of the _GP part at the end
+			stringTransform = string.sub(stringTransform, 0, -4) --cut off the _GP part at the end
+			stringTransform = "GREATWORK_GREATWORKOBJECT_"..stringTransform;
+
+			macguffinThatWasJustMade = stringTransform --to be used by great work created
+			macguffinWasMade = true
+
 			print("string transform: "..stringTransform);
 
 		end
 	end
 
-
 end
 
-function testo(playerID, unitID, cityPlotX, cityPlotY, buildingID, greatWorkID)
+function GreatWorkCreatedCheck(playerID, unitID, cityPlotX, cityPlotY, buildingID, greatWorkID)
+
+	if macguffinWasMade then
+	   
+		local MacguffinindexTable = Game:GetProperty("HoneyMacguffinIndexSystem")
+		local stringTransform = string.sub(macguffinThatWasJustMade,43) --cut off the GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_
+		stringTransform = "BUILDING_HONEY_MACGUFFIN_HOLDER_"..stringTransform
+
+		table.insert(MacguffinindexTable , {macguffinThatWasJustMade, greatWorkID, buildingID, stringTransform}) --track each individual macguffin and what building it is in, and its associated altar for convenient access later.
+		Game:SetProperty("HoneyMacguffinIndexSystem",MacguffinindexTable)
+		print("The great work ID "..greatWorkID.." is now associated with the macguffin "..macguffinThatWasJustMade)
+
+		--if this was created INTO an empty altar we should grant the pseudobuilding in that city
+		if buildingID == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
+
+			print("we will try to make the building "..stringTransform)
+			local buildingToMake = GameInfo.Buildings[stringTransform].Index 
+			local cityToEdit = CityManager.GetCityAt(cityPlotX, cityPlotY)
+
+			placeMacguffinAltar(cityToEdit, buildingToMake)
+		end
+		macguffinWasMade = false --don't do any of this logic again until the next macguffin is created.
+	end
 
 	print(" qbug great work created!");
 end
+
+--in the case of a swap this should be called twice and it should be fine
+function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex)
+
+	for MacguffinEntry in Game:GetProperty("HoneyMacguffinIndexSystem") do
+
+		--the great work that just moved was previously registered as a macguffin
+		if MacguffinEntry[2] == greatWorkTypeIndex then 
+
+
+			--if the building the macguffin was moved FROM was an altar (as opposed to palace, storage, or museum) we should destroy the pseudobuilding in the city it was moved from
+			if MacguffinEntry[3] == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
+
+				fromCityID:RemoveBuilding(oldBuilding);
+
+			end
+
+		end
+
+	end
+
+
+
+end
+
+
+
 
 function presto(fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex)
 
@@ -289,6 +183,11 @@ end
 
 
 
+
+--function getOuttaHere()
+--	theCity:GetBuildings():RemoveBuilding(theindex); --TO DO If this was a custom slot there would be no problems but it might slide into the palace or museum.
+--	theCity:GetBuildQueue():RemoveBuilding(theindex);
+--end
 
 
 
@@ -307,8 +206,9 @@ CityProjectCompleted
 	isCancelled
 --]]
 --Events.GreatWorkCreated.Add(changeAltarForNewMacguffin)
-Events.GreatWorkCreated.Add(testo)
+Events.GreatWorkCreated.Add(GreatWorkCreatedCheck)
 Events.GreatWorkMoved.Add(presto)
 Events.UnitGreatPersonActivated.Add(GreatPersonActivatedCheck)
+--Events.TurnEnd.Add(getOuttaHere)
 --Events.GreatWorkMoved.Add(AltarCheck)
 Events.CityInitialized.Add(grantDebugGreatPerson)
