@@ -6,12 +6,15 @@
 			<Text>{1_Amount: number +#,###;-#,###} [ICON_GreatWork_Artifact] Macguffin {1_Amount : plural 1?slot; other?slots;}</Text>
 		</Row>
 
+		
+		
+		
 		<Row Tag="LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE">
-			<Text>[ICON_GreatWork_Artifact] Passive Macguffin</Text>
+			<Text>[ICON_Honey_Passive_Macguffin] Passive Macguffin</Text>
 		</Row>
 
 		<Row Tag="LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE">
-			<Text>[ICON_GreatWork_Artifact] Active Macguffin</Text>
+			<Text>[ICON_Honey_Active_Macguffin] Active Macguffin</Text>
 		</Row>
 
 	</BaseGameText>

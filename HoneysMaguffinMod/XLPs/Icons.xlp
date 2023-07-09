@@ -23,6 +23,16 @@
 			<m_ObjectName text="HoneyMacguffins45"/>
 		</Element>
 
+
+		<Element>
+			<m_EntryID text="FontIcons_Active_Macguffin"/>
+			<m_ObjectName text="FontIcons_Active_Macguffin"/>
+		</Element>
+		<Element>
+			<m_EntryID text="FontIcons_Passive_Macguffin"/>
+			<m_ObjectName text="FontIcons_Passive_Macguffin"/>
+		</Element>
+
 		
 
 	</m_Entries>

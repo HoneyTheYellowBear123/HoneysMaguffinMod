@@ -7,6 +7,9 @@
 		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="64" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins64"/>
 		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="45" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins45"/>
 
+		<Row Name="ICON_ATLAS_FONT_PASSIVE_MACGUFFIN"       Baseline="6" IconSize="22"   IconsPerRow="11" IconsPerColumn="25" Filename="FontIcons_Passive_Macguffin.dds"/>
+		<Row Name="ICON_ATLAS_FONT_ACTIVE_MACGUFFIN"       Baseline="6" IconSize="22"   IconsPerRow="11" IconsPerColumn="25" Filename="FontIcons_Active_Macguffin.dds"/>
+
 	</IconTextureAtlases>
 
 	<IconDefinitions>
@@ -14,6 +17,11 @@
 		<Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE"		Atlas="ICON_ATLAS_GREATWORKOBJECT_TYPES" Index="8"/>
 		<Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE"		Atlas="ICON_ATLAS_GREATWORKOBJECT_TYPES" Index="8"/>
 		<!-- TO DO: swap these out -->
+
+
+
+		<Row Name="Honey_Passive_Macguffin"										 Atlas="ICON_ATLAS_FONT_PASSIVE_MACGUFFIN"  Index="0"/>
+		<Row Name="Honey_Active_Macguffin"										 Atlas="ICON_ATLAS_FONT_ACTIVE_MACGUFFIN"  Index="0"/>
 
 
 		<Row Name="ICON_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE" Atlas="ICON_ATLAS_HONEY_MACGUFFINS" Index="0"/>

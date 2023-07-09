@@ -147,27 +147,33 @@ function GreatWorkCreatedCheck(playerID, unitID, cityPlotX, cityPlotY, buildingI
 	print(" qbug great work created!");
 end
 
---in the case of a swap this should be called twice and it should be fine
+--in the case of a swap this should be called twice and it should be fine TO DO get this working
 function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex)
 
-	for MacguffinEntry in Game:GetProperty("HoneyMacguffinIndexSystem") do
+	for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
 
 		--the great work that just moved was previously registered as a macguffin
-		if MacguffinEntry[2] == greatWorkTypeIndex then 
-
+		if MacguffinEntry[2] == greatWorkTypeIndex then
+		
+			local fromCityObject = CityManager.GetCity( fromCityPlayerID, fromCityID )
+			local toCityObject = CityManager.GetCity( toCityPlayerID, toCityID )
 
 			--if the building the macguffin was moved FROM was an altar (as opposed to palace, storage, or museum) we should destroy the pseudobuilding in the city it was moved from
 			if MacguffinEntry[3] == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
 
-				fromCityID:RemoveBuilding(oldBuilding);
+				fromCityObject:GetBuildings():RemoveBuilding(MacguffinEntry[4]);
+				fromCityObject:GetBuildQueue():RemoveBuilding(MacguffinEntry[4]);
 
 			end
+			--fi the building the macguffin is moved TO is an altar, we should create the pseudo building in the city it was moved to
+			if buildingID == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
 
+				print("macguffin entry 4: "..MacguffinEntry[4])
+				placeMacguffinAltar(toCityObject, MacguffinEntry[4])
+
+			end
 		end
-
 	end
-
-
 
 end
 
@@ -207,7 +213,7 @@ CityProjectCompleted
 --]]
 --Events.GreatWorkCreated.Add(changeAltarForNewMacguffin)
 Events.GreatWorkCreated.Add(GreatWorkCreatedCheck)
-Events.GreatWorkMoved.Add(presto)
+Events.GreatWorkMoved.Add(GreatWorkMovedCheck)
 Events.UnitGreatPersonActivated.Add(GreatPersonActivatedCheck)
 --Events.TurnEnd.Add(getOuttaHere)
 --Events.GreatWorkMoved.Add(AltarCheck)

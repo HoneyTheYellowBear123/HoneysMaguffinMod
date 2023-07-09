@@ -54,6 +54,18 @@
     <Content Include="lua\HoneyMacguffin.lua">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Textures\FontIcons_Active_Macguffin.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\FontIcons_Active_Macguffin.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\FontIcons_Passive_Macguffin.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\FontIcons_Passive_Macguffin.tex">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Textures\HoneyMacguffins256.dds">
       <SubType>Content</SubType>
     </Content>
