@@ -67,26 +67,13 @@ end;
 
 
 
-
-
---local theCity = ""
---local theindex = 0
 function placeMacguffinAltar(cityObject, newBuildingID)
 
 	print("replacing altar function");
 	local plotC = Map.GetPlot(cityObject:GetX(), cityObject:GetY());
 	cityObject:GetBuildQueue():CreateIncompleteBuilding(newBuildingID, plotC:GetIndex(), 100); --create the new one and destroy the old one. 
-	--cityObject:GetBuildings():RemoveBuilding(oldBuilding); --TO DO If this was a custom slot there would be no problems but it might slide into the palace or museum.
-	--cityObject:GetBuildQueue():RemoveBuilding(oldBuilding);
 
-	--theCity=cityObject
-	--theindex=newBuildingID
 end
-
-
-
-
-
 
 
 local macguffinThatWasJustMade = ""
@@ -169,10 +156,6 @@ function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCit
 				fromCityObject:GetBuildings():RemoveBuilding(associatedAltarIndex);
 				fromCityObject:GetBuildQueue():RemoveBuilding(associatedAltarIndex);
 
-				if fromCityObject:GetBuildings():HasBuilding(associatedAltarIndex) then
-					print("but we failed to remove the building!");
-				end
-
 			end
 			--fi the building the macguffin is moved TO is an altar, we should create the pseudo building in the city it was moved to
 			if buildingID == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
@@ -195,20 +178,6 @@ end
 
 
 
-function presto(fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex)
-
-	print("presto dump fromcityplayerid "..fromCityPlayerID.." fromcityid "..fromCityID.." tocityplayerid "..toCityPlayerID.." tocityid "..toCityID.." buildingID "..buildingID.." greatworktypeindex "..greatWorkTypeIndex);
-
-end
-
-
-
-
-
---function getOuttaHere()
---	theCity:GetBuildings():RemoveBuilding(theindex); --TO DO If this was a custom slot there would be no problems but it might slide into the palace or museum.
---	theCity:GetBuildQueue():RemoveBuilding(theindex);
---end
 
 
 
@@ -226,10 +195,11 @@ CityProjectCompleted
 	y
 	isCancelled
 --]]
---Events.GreatWorkCreated.Add(changeAltarForNewMacguffin)
+
 Events.GreatWorkCreated.Add(GreatWorkCreatedCheck)
 Events.GreatWorkMoved.Add(GreatWorkMovedCheck)
 Events.UnitGreatPersonActivated.Add(GreatPersonActivatedCheck)
---Events.TurnEnd.Add(getOuttaHere)
---Events.GreatWorkMoved.Add(AltarCheck)
+
+
+--to do: delete debug code
 Events.CityInitialized.Add(grantDebugGreatPerson)
