@@ -33,7 +33,41 @@
 			<m_ObjectName text="FontIcons_Passive_Macguffin"/>
 		</Element>
 
-		
+		<Element>
+			<m_EntryID text="HoneyMacguffins_emptyaltar256"/>
+			<m_ObjectName text="HoneyMacguffins_emptyaltar256"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins_emptyaltar128"/>
+			<m_ObjectName text="HoneyMacguffins_emptyaltar128"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins_emptyaltar80"/>
+			<m_ObjectName text="HoneyMacguffins_emptyaltar80"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins_emptyaltar70"/>
+			<m_ObjectName text="HoneyMacguffins_emptyaltar70"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins_emptyaltar50"/>
+			<m_ObjectName text="HoneyMacguffins_emptyaltar50"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins_emptyaltar38"/>
+			<m_ObjectName text="HoneyMacguffins_emptyaltar38"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins_emptyaltar32"/>
+			<m_ObjectName text="HoneyMacguffins_emptyaltar32"/>
+		</Element>
+
+
+
+
+
+
+
 
 	</m_Entries>
 	<m_AllowedPlatforms>

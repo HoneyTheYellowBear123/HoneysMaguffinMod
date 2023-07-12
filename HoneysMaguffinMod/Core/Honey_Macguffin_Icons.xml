@@ -10,6 +10,14 @@
 		<Row Name="ICON_ATLAS_FONT_PASSIVE_MACGUFFIN"       Baseline="6" IconSize="22"   IconsPerRow="11" IconsPerColumn="25" Filename="FontIcons_Passive_Macguffin.dds"/>
 		<Row Name="ICON_ATLAS_FONT_ACTIVE_MACGUFFIN"       Baseline="6" IconSize="22"   IconsPerRow="11" IconsPerColumn="25" Filename="FontIcons_Active_Macguffin.dds"/>
 
+		<Row Name="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR"       Baseline="6" IconSize="256"   IconsPerRow="11" IconsPerColumn="25" Filename="HoneyMacguffins_emptyaltar256.dds"/>
+		<Row Name="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR"       Baseline="6" IconSize="128"   IconsPerRow="11" IconsPerColumn="25" Filename="HoneyMacguffins_emptyaltar128.dds"/>
+		<Row Name="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR"       Baseline="6" IconSize="80"   IconsPerRow="11" IconsPerColumn="25" Filename="HoneyMacguffins_emptyaltar80.dds"/>
+		<Row Name="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR"       Baseline="6" IconSize="70"   IconsPerRow="11" IconsPerColumn="25" Filename="HoneyMacguffins_emptyaltar70.dds"/>
+		<Row Name="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR"       Baseline="6" IconSize="50"   IconsPerRow="11" IconsPerColumn="25" Filename="HoneyMacguffins_emptyaltar50.dds"/>
+		<Row Name="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR"       Baseline="6" IconSize="38"   IconsPerRow="11" IconsPerColumn="25" Filename="HoneyMacguffins_emptyaltar38.dds"/>
+		<Row Name="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR"       Baseline="6" IconSize="32"   IconsPerRow="11" IconsPerColumn="25" Filename="HoneyMacguffins_emptyaltar32.dds"/>
+
 	</IconTextureAtlases>
 
 	<IconDefinitions>
@@ -25,12 +33,13 @@
 
 
 		<Row Name="ICON_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE" Atlas="ICON_ATLAS_HONEY_MACGUFFINS" Index="0"/>
+		
+	    <Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY" Atlas="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR" Index="0"/>
 
 	</IconDefinitions>
 
 	<IconAliases>
-		<!-- to do: change the thing below this -->
-		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY" OtherName="ICON_BUILDING_MONUMENT"/>
+		
 		<!-- to do: change the thing below this -->
 		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE" OtherName="ICON_BUILDING_MONUMENT"/>
 		<Row Name="ICON_GENERIC_GREAT_PERSON_HONEY_MACGUFFIN_GP" OtherName="ICON_GENERIC_GREAT_PERSON_INDIVIDUAL_PROPHET"/>

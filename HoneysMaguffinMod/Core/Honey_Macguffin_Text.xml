@@ -20,6 +20,7 @@
 	</BaseGameText>
 	<LocalizedText>
 		
+		<!-- base -->
 		
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME" Language="en_US">
 			<Text>Macguffin Altar</Text>
@@ -39,6 +40,8 @@
 		
 
 
+		
+		<!-- passive yields -->
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_NAME" Language="en_US">
 			<Text>The Ponderer's Orb</Text>
@@ -46,7 +49,11 @@
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_NAME" Language="en_US">
 			<Text>Altar of the Ponderer's Orb</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_DESC" Language="en_US">
+			<Text>The effects of the Ponderer's Orb being place in this city's Macguffin Altar.</Text>
+		</Row>
 		
+
 
 	</LocalizedText>
 </GameData>

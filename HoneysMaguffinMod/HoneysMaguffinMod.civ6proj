@@ -21,7 +21,7 @@
 </Associations>]]></AssociationData>
     <AssemblyName>HoneysMaguffinMod</AssemblyName>
     <RootNamespace>HoneysMaguffinMod</RootNamespace>
-    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="NewAction"><File>Core/Honey_Macguffin_Base.sql</File></UpdateDatabase><AddGameplayScripts id="NewAction"><File>lua/HoneyMacguffin.lua</File></AddGameplayScripts><UpdateIcons id="NewAction"><File>Core/Honey_Macguffin_Icons.xml</File></UpdateIcons><ImportFiles id="NewAction"><Properties><LoadOrder>200</LoadOrder></Properties><File>UI/GreatWorksOverview_HoneyMacguffins.lua</File><File>UI/GreatWorkShowcase_HoneyMacguffins.lua</File><File>UI/DiplomacyDealView_HoneyMacguffins.lua</File><File>UI/Overrides/ToolTipHelper.lua</File><File>UI/Overrides/CivilopediaPage_Building.lua</File></ImportFiles><UpdateText id="NewAction"><File>Core/Honey_Macguffin_Text.xml</File></UpdateText><ImportFiles id="NewAction"><Properties><LoadOrder>202</LoadOrder></Properties><File>UI/Overrides/PlotTooltip_Expansion2.lua</File></ImportFiles><ImportFiles id="NewAction"><Properties><LoadOrder>201</LoadOrder></Properties><File>UI/Overrides/PlotToolTip.lua</File></ImportFiles><UpdateArt id="NewAction"><File>HoneysMaguffinMod.Art.xml</File><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="BaseDatabase"><Properties><LoadOrder>200</LoadOrder></Properties><File>Core/Honey_Macguffin_Base.sql</File></UpdateDatabase><AddGameplayScripts id="NewAction"><Properties><LoadOrder>209</LoadOrder></Properties><File>lua/HoneyMacguffin.lua</File></AddGameplayScripts><UpdateIcons id="NewAction"><File>Core/Honey_Macguffin_Icons.xml</File></UpdateIcons><ImportFiles id="NewAction"><Properties><LoadOrder>200</LoadOrder></Properties><File>UI/GreatWorksOverview_HoneyMacguffins.lua</File><File>UI/GreatWorkShowcase_HoneyMacguffins.lua</File><File>UI/DiplomacyDealView_HoneyMacguffins.lua</File><File>UI/Overrides/ToolTipHelper.lua</File><File>UI/Overrides/CivilopediaPage_Building.lua</File></ImportFiles><UpdateText id="NewAction"><File>Core/Honey_Macguffin_Text.xml</File></UpdateText><ImportFiles id="NewAction"><Properties><LoadOrder>202</LoadOrder></Properties><File>UI/Overrides/PlotTooltip_Expansion2.lua</File></ImportFiles><ImportFiles id="NewAction"><Properties><LoadOrder>201</LoadOrder></Properties><File>UI/Overrides/PlotToolTip.lua</File></ImportFiles><UpdateArt id="NewAction"><File>HoneysMaguffinMod.Art.xml</File><File>(Mod Art Dependency File)</File></UpdateArt><UpdateDatabase id="SpecialtyDatabases"><Properties><LoadOrder>201</LoadOrder></Properties><File>Core/Honey_Macguffin_Passive_FlatYields.sql</File></UpdateDatabase></InGameActions>]]></InGameActionData>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
@@ -42,6 +42,9 @@
     <Content Include="ArtDefs\UserInterface.artdef">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Core\Honey_Macguffin_Passive_FlatYields.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Core\Honey_Macguffin_Text.xml">
       <SubType>Content</SubType>
     </Content>
@@ -52,6 +55,18 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="lua\HoneyMacguffin.lua">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar128.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar128.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar256.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar256.tex">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Textures\FontIcons_Active_Macguffin.dds">
@@ -85,6 +100,36 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Textures\HoneyMacguffins64.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar32.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar32.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar38.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar38.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar50.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar50.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar70.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar70.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar80.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins_emptyaltar80.tex">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UI\DiplomacyDealView_HoneyMacguffins.lua">

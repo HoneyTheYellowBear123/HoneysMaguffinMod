@@ -3,7 +3,8 @@
 -- DateCreated: 6/24/2023 7:38:23 PM
 --------------------------------------------------------------
 
---Base file for the kinds and such that I don't want to deal with elsewhere
+--Base file for the kinds and such that I don't want to deal with elsewhere.
+--should be loaded before all the other database files in the mod, which should just include macguffin specific information.
 -- TO DO require the monopoly dlc too just to avoid any gray areas (kublikhan and vietnam)
 
 
@@ -11,42 +12,31 @@
 
 --      -------------------------- HEAVY FEATURES ---------------------------------
 	-- game starts, everybody gets free storage (just add a bunch to palace). 
-	-- turn individual artifacts on/off
+	-- actual custom great slot 
+	-- turn individual macguffins on/off
 	-- great people granted via lua and too expensive otherwise
-	-- building that transforms
 	-- override for greatworksoverview
+	-- macguffin awakening , ascension via a special building and special project
+	-- project handling for active macguffins in lua
+	-- single use mega macguffins
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-INSERT INTO Types --TO DO this will be seperated for each category for easiness
+INSERT INTO Types 
 
 		(Type, Kind)
 VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',						'KIND_BUILDING'),
+		('BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2',						'KIND_BUILDING'),
+		('BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3',						'KIND_BUILDING'),
 		('BUILDING_HONEY_MACGUFFIN_STORAGE_PSEUDOBUILDING',			    'KIND_BUILDING'),
 		('HONEY_MACGUFFIN_DUMMY_ERA',                           'KIND_ERA'),
 		('GREAT_PERSON_HONEY_MACGUFFIN_GP',                                  'KIND_GREAT_PERSON_CLASS'),
 		('UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP',                             'KIND_UNIT'),
-		('PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP',					'KIND_PSEUDOYIELD'),
+		('PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP',					'KIND_PSEUDOYIELD');
 
 
 
-
-		('GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE',				'KIND_GREATWORK'),
-		('GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP',				'KIND_GREAT_PERSON_INDIVIDUAL'),
-		('BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE',          'KIND_BUILDING');
 
 
 --Really expensive dummy era so the great people cannot be bought
@@ -72,11 +62,9 @@ INSERT INTO PseudoYields
 VALUES  ('PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 0.5); --TO DO a pseudoyield for the macguffin itself. AI doesn't need to know how to use them but they should value them regardless.
 
 INSERT INTO GreatWorkObjectTypes
-		(GreatWorkObjectType,		Value,		PseudoYieldType,						 Name,									IconString)
+		(GreatWorkObjectType,						Value,		PseudoYieldType,											 Name,									IconString)
 VALUES  ('GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE',	 69420, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_NAME',  '[ICON_Honey_Passive_Macguffin]'), --TO DO change iconstring
 		('GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE',   69421, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_NAME',    '[ICON_Honey_Active_Macguffin]'); --TO DO change iconstring
-
-
 
 --unobtainable great person for giving out macguffins. I can't great macguffins via lua script, but I can grant great people who grant macguffins so whatever I guess
 INSERT INTO GreatPersonClasses
@@ -84,13 +72,42 @@ INSERT INTO GreatPersonClasses
 VALUES  ('GREAT_PERSON_HONEY_MACGUFFIN_GP',           'LOC_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME',           'UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP',    'DISTRICT_CITY_CENTER', 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP',       '[ICON_GreatEngineer]',       'ICON_UNITOPERATION_ENGINEER_ACTION'); --TO DO Icons
 
 INSERT INTO Buildings
-		(BuildingType,									Name,						Description,							  PrereqDistrict,					PurchaseYield,		Cost,	AdvisorType    )  --TO DO add back in a prereq tech probably astrology
-VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC'); --TO DO make it scale heavily
+		(BuildingType,									Name,														Description,							  PrereqDistrict,		PurchaseYield,		        Cost,	AdvisorType    )  
+VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC'), --TO DO make it scale heavily? --TO DO add back in a prereq tech probably astrology --TO DO prevent steel
+		('BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC'),
+		('BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC'); 
+
+
 --TO DO the small medium and large rockets have a field called internal only, could be useful for macguffin storage.
 
-INSERT INTO Building_YieldChanges
-		(BuildingType,								YieldType,			YieldChange)
-VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY', 'YIELD_FAITH',              1 );
+
+
+
+
+-- TO PREVENT STEEL URBAN DEFENSES 
+-- add a requirement to the modifier that the city does NOT have the macguffin altar :)
+--Modifiers where ModifierID is STEEL_UNLOCK_URBAN_DEFENSES add SubjectRequirementSetId
+INSERT INTO Requirements
+		(RequirementId,										RequirementType,				Reverse)
+VALUES  ('REQUIREMENT_CITY_DOES_NOT_HAVE_MACGUFFIN_ALTAR', 'REQUIREMENT_CITY_HAS_BUILDING',       1 );
+
+INSERT INTO RequirementArguments
+		(RequirementId,										Name,			Value)
+VALUES  ('REQUIREMENT_CITY_DOES_NOT_HAVE_MACGUFFIN_ALTAR', 'BuildingType', 'BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY');
+
+INSERT INTO RequirementSets
+		(RequirementSetId,							 RequirementSetType)
+VALUES  ('REQUIREMENTSET_STEEL_NO_MACGUFFIN_ALTAR', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO RequirementSetRequirements
+		(RequirementSetId, RequirementId)
+VALUES  ('REQUIREMENTSET_STEEL_NO_MACGUFFIN_ALTAR', 'REQUIREMENT_CITY_DOES_NOT_HAVE_MACGUFFIN_ALTAR');
+
+UPDATE Modifiers
+SET SubjectRequirementSetId = 'REQUIREMENTSET_STEEL_NO_MACGUFFIN_ALTAR'
+WHERE ModifierID = 'STEEL_UNLOCK_URBAN_DEFENSES';
+
+
 
 
 INSERT INTO GreatWorkSlotTypes
@@ -126,45 +143,3 @@ VALUES	('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',  'GREATWORKSLOT_ARTIFACT',     
 --VALUES  ('BUILDING_HONEY_MACGUFFIN_STORAGE_PSEUDOBUILDING',  'GREATWORKSLOT_HONEY_MACGUFFIN',      1 );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
------------------------------------------------------------------------------------------------------------------------------ INDIVIDUAL BREAKOUT --------------------------------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO GreatPersonIndividuals
-			(GreatPersonIndividualType,						Name,						GreatPersonClassType,			 eraType,					Gender,		 ActionCharges,            ActionEffectTextOverride)
-VALUES ('GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP', 'LOC_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME',  'GREAT_PERSON_HONEY_MACGUFFIN_GP' ,     'HONEY_MACGUFFIN_DUMMY_ERA',        'M',            0,					'LOC_GREAT_PERSON_HONEY_MACGUFFIN_ACTION');
-
-INSERT INTO GreatWorks
-		(GreatWorkType,										 Name,									      GreatPersonIndividualType,							 GreatWorkObjectType, Quote  )
-VALUES  ('GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE',     'LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_NAME',   'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP',			'GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE', 'LOC_GREATWORK_HOMER_2_QUOTE');
-
-INSERT INTO GreatWork_YieldChanges
-		(GreatWorkType,							 YieldType, YieldChange)
-VALUES  ('GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE', 'YIELD_GOLD', 1);
-
-
-INSERT INTO Buildings
-		(BuildingType,									Name,						Description,							  PrereqDistrict,					 AdvisorType, Cost, InternalOnly)
-VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_DESC',    'DISTRICT_CITY_CENTER',      'ADVISOR_GENERIC', 200, 1); --TO DO make it UNBUILDABLE and UNPURCHASEABLE
-
-INSERT INTO Building_YieldChanges
-		(BuildingType,												YieldType,			YieldChange)
-VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE', 'YIELD_SCIENCE',              10 );
-
-
---INSERT INTO MutuallyExclusiveBuildings
---		(Building,									MutuallyExclusiveBuilding)
---VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE', 'BUILDING_WALLS');
-
---INSERT INTO Building_GreatWorks
---		(BuildingType,								GreatWorkSlotType,				NumSlots)
---VALUES	('BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE',  'GREATWORKSLOT_ARTIFACT',      1 );
