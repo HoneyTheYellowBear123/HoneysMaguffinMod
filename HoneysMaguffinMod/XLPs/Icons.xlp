@@ -62,6 +62,31 @@
 			<m_ObjectName text="HoneyMacguffins_emptyaltar32"/>
 		</Element>
 
+		<Element>
+			<m_EntryID text="MacguffinSageUnitIcon256"/>
+			<m_ObjectName text="MacguffinSageUnitIcon256"/>
+		</Element>
+		<Element>
+			<m_EntryID text="MacguffinSageUnitIcon80"/>
+			<m_ObjectName text="MacguffinSageUnitIcon80"/>
+		</Element>
+		<Element>
+			<m_EntryID text="MacguffinSageUnitIcon50"/>
+			<m_ObjectName text="MacguffinSageUnitIcon50"/>
+		</Element>
+		<Element>
+			<m_EntryID text="MacguffinSageUnitIcon38"/>
+			<m_ObjectName text="MacguffinSageUnitIcon38"/>
+		</Element>
+		<Element>
+			<m_EntryID text="MacguffinSageUnitIcon32"/>
+			<m_ObjectName text="MacguffinSageUnitIcon32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="MacguffinSageUnitIcon22"/>
+			<m_ObjectName text="MacguffinSageUnitIcon22"/>
+		</Element>
+
 
 
 

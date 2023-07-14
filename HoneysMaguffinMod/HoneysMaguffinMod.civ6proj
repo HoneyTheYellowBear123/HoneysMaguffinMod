@@ -39,6 +39,12 @@
     <Folder Include="UI\Overrides" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArtDefs\Units.artdef">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ArtDefs\Units_Great_People.artdef">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ArtDefs\UserInterface.artdef">
       <SubType>Content</SubType>
     </Content>
@@ -130,6 +136,42 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Textures\HoneyMacguffins_emptyaltar80.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon22.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon22.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon256.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon256.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon32.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon32.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon38.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon38.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon50.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon50.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon80.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSageUnitIcon80.tex">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UI\DiplomacyDealView_HoneyMacguffins.lua">

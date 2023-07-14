@@ -8,6 +8,8 @@
 		<Element>
 			<consumerName text="Units"/>
 			<relativeArtDefPaths>
+				<Element text="Units.artdef"/>
+				<Element text="Units_Great_People.artdef"/>
 			</relativeArtDefPaths>
 			<libraryDependencies>
 				<Element text="Unit"/>
@@ -302,6 +304,8 @@
 		<Element>
 			<consumerName text="Audio"/>
 			<relativeArtDefPaths>
+				<Element text="Units.artdef"/>
+				<Element text="Units_Great_People.artdef"/>
 			</relativeArtDefPaths>
 			<libraryDependencies>
 			</libraryDependencies>
