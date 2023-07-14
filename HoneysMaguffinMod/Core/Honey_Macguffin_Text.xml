@@ -28,6 +28,19 @@
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC" Language="en_US">
 			<Text>A mysterious device capable of harnessing the power of a macguffin. As it is partially powered by absolute confidence in its divine purpose, protective walls cannot be built around any city it is located in.</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_NAME" Language="en_US">
+			<Text>Macguffin Awakener</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_DESC" Language="en_US">
+			<Text>Grants a special project that awakens a macguffin to increase its power.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_NAME" Language="en_US">
+			<Text>Macguffin Ascender</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_DESC" Language="en_US">
+			<Text>Grants a special project that allows an awakened macguffin to achieve ascension, further increasing its power.</Text>
+		</Row>
+
 		<Row Tag="LOC_GREAT_PERSON_HONEY_MACGUFFIN_ACTION" Language="en_US">
 			<Text>This sage will entrust us with a mysterious and powerful macguffin.</Text>
 		</Row>
