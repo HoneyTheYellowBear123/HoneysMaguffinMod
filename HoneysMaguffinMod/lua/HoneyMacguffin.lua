@@ -17,8 +17,14 @@ local richesBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_
 
 local macguffinEra = GameInfo.Eras["HONEY_MACGUFFIN_DUMMY_ERA"].Index;
 local justMe = true;
+--local rememberMeBuilding = ""
 
 function grantDebugGreatPerson(playerID, cityID, x, y)
+
+	print("playerID "..playerID)
+	print("cityID "..cityID)
+	print("plot x "..x)
+	print("plot y "..y)
 
 	if (justMe) then
 		--Game.GetGreatPeople:GrantPerson(DebugGreatPerson, DebugGreatPersonClass,macguffinEra,0,playerID,false);
@@ -40,6 +46,26 @@ function grantDebugGreatPerson(playerID, cityID, x, y)
 		end
 		justMe = false;
 	end
+
+	local rememberMeBuilding = CityManager.GetCity( playerID, CityID )
+	local thename = rememberMeBuilding:GetName()
+	
+
+
+	local playerCityMembers = Players[playerID]:GetCities()
+	for i, cityObject in playerCityMembers:Members() do
+		print("the name of the city "..cityObject:GetName());
+		local plotC = Map.GetPlot(cityObject:GetX(), cityObject:GetY());
+		--tyObject:GetBuildQueue():CreateIncompleteBuilding(richesBuildingIndex, plotC:GetIndex(), 100);
+		cityObject:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_WALLS"].Index);
+		cityObject:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_CASTLE"].Index);
+		--cityObject:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_STAR_FORT"].Index);
+		cityObject:GetBuildings():RemoveBuilding(GameInfo.Buildings["BUILDING_WALLS"].Index);
+		cityObject:GetBuildings():RemoveBuilding(GameInfo.Buildings["BUILDING_CASTLE"].Index);
+		--cityObject:GetBuildings():RemoveBuilding(GameInfo.Buildings["BUILDING_STAR_FORT"].Index);
+	end
+
+	
 
 end
 
@@ -191,6 +217,18 @@ initHoneyMacguffinIndexSystem();
 setupMacguffinGreatPeople();
 
 
+
+
+function getThoseBuildingsGone()
+	rememberMeBuilding:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_WALLS"].Index);
+	rememberMeBuilding:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_CASTLE"].Index);
+	rememberMeBuilding:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_STAR_FORT"].Index);
+	rememberMeBuilding:GetBuildings():RemoveBuilding(GameInfo.Buildings["BUILDING_WALLS"].Index);
+	rememberMeBuilding:GetBuildings():RemoveBuilding(GameInfo.Buildings["BUILDING_CASTLE"].Index);
+	rememberMeBuilding:GetBuildings():RemoveBuilding(GameInfo.Buildings["BUILDING_STAR_FORT"].Index);
+
+end
+
 --[[ event
 CityProjectCompleted	
 	playerID
@@ -207,5 +245,9 @@ Events.GreatWorkMoved.Add(GreatWorkMovedCheck)
 Events.UnitGreatPersonActivated.Add(GreatPersonActivatedCheck)
 
 
+--new plan: delete the shrine with turn end by looping through players
+
+
 --to do: delete debug code
 Events.CityInitialized.Add(grantDebugGreatPerson)
+Events.TurnEnd.Add(getThoseBuildingsGone)

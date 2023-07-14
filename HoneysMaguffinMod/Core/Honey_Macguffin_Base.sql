@@ -128,7 +128,8 @@ VALUES  ('GREATWORKSLOT_ARTIFACT',	'GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE'),
 		--TO DO: make sure steel doesn't cause problems. Probably some modifier can be used to reduce the strength of the defenses.
 INSERT INTO MutuallyExclusiveBuildings
 		(Building,							 MutuallyExclusiveBuilding)
-VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',     'BUILDING_WALLS');
+VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',     'BUILDING_WALLS'),
+		('BUILDING_WALLS',   'BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'  );
 
 --TO DO: switch back to artifact slot after testing is done
 INSERT INTO Building_GreatWorks
