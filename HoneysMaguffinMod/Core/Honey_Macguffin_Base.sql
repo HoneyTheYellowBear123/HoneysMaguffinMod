@@ -19,6 +19,8 @@
 	-- macguffin awakening , ascension via a special building and special project
 	-- project handling for active macguffins in lua
 	-- single use mega macguffins
+	-- District for epic macguffins
+	-- Macguffin Ahnilator for victory
 
 
 

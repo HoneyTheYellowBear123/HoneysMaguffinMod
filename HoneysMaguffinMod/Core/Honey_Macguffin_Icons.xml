@@ -24,6 +24,14 @@
 		<Row Name="ICON_ATLAS_MACGUFFIN_SAGE"       Baseline="6" IconSize="38"   IconsPerRow="1" IconsPerColumn="1" Filename="MacguffinSageUnitIcon38.dds"/>
 		<Row Name="ICON_ATLAS_MACGUFFIN_SAGE"       Baseline="6" IconSize="32"   IconsPerRow="1" IconsPerColumn="1" Filename="MacguffinSageUnitIcon32.dds"/>
 		<Row Name="ICON_ATLAS_MACGUFFIN_SAGE"       Baseline="6" IconSize="22"   IconsPerRow="1" IconsPerColumn="1" Filename="MacguffinSageUnitIcon22.dds"/>
+
+		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="256"   IconsPerRow="2" IconsPerColumn="1" Filename="HoneyMacguffinProjects256.dds"/>
+		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="80"   IconsPerRow="2" IconsPerColumn="1" Filename="HoneyMacguffinProjects80.dds"/>
+		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="70"   IconsPerRow="2" IconsPerColumn="1" Filename="HoneyMacguffinProjects70.dds"/>
+		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="50"   IconsPerRow="2" IconsPerColumn="1" Filename="HoneyMacguffinProjects50.dds"/>
+		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="38"   IconsPerRow="2" IconsPerColumn="1" Filename="HoneyMacguffinProjects38.dds"/>
+		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="32"   IconsPerRow="2" IconsPerColumn="1" Filename="HoneyMacguffinProjects32.dds"/>
+		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="30"   IconsPerRow="2" IconsPerColumn="1" Filename="HoneyMacguffinProjects30.dds"/>
 		
 		
 
@@ -51,6 +59,12 @@
 	    <Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY" Atlas="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR" Index="0"/>
 		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2" Atlas="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR" Index="1"/>
 		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3" Atlas="ICON_ATLAS_EMPTY_MACGUFFIN_ALTAR" Index="2"/>
+		<Row Name="ICON_PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2" Atlas="ICON_ATLAS_MACGUFFIN_PROJECTS" Index="0"/>
+		<!-- TO DO: scoot the awakening project icon a little to the left-->
+		<Row Name="ICON_PROJECT_HONEY_MACGUFFIN_TIER2_TO_TIER3" Atlas="ICON_ATLAS_MACGUFFIN_PROJECTS" Index="1"/>
+		
+		
+		
 
 		<Row Name="ICON_UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP"          Atlas="ICON_ATLAS_MACGUFFIN_SAGE"   Index="0"/>
 		

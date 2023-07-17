@@ -236,7 +236,7 @@ function MacguffinImprove(playerID, cityID, projectID, buildingIndex, x, y, isCa
 
 	if (not isCancelled) and (projectID == tier1totier2project) then
 		for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
-			if MacguffinEntry[5] == cityID and MacguffinEntry[3] == tier1totier2building then
+			if MacguffinEntry[5] == cityID and MacguffinEntry[3] == tier1totier2building and (not string.match(MacguffinEntry[1],"TIER2")) and (not string.match(MacguffinEntry[1],"TIER3")) then
 
 				local CityObject = CityManager.GetCity( fromCityPlayerID, fromCityID )
 				CityObject:GetBuildings():RemoveBuilding(tier1totier2building);

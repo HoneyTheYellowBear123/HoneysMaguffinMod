@@ -87,6 +87,36 @@
 			<m_ObjectName text="MacguffinSageUnitIcon22"/>
 		</Element>
 
+		<Element>
+			<m_EntryID text="HoneyMacguffinProjects256"/>
+			<m_ObjectName text="HoneyMacguffinProjects256"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffinProjects80"/>
+			<m_ObjectName text="HoneyMacguffinProjects80"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffinProjects70"/>
+			<m_ObjectName text="HoneyMacguffinProjects70"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffinProjects50"/>
+			<m_ObjectName text="HoneyMacguffinProjects50"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffinProjects38"/>
+			<m_ObjectName text="HoneyMacguffinProjects38"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffinProjects32"/>
+			<m_ObjectName text="HoneyMacguffinProjects32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffinProjects30"/>
+			<m_ObjectName text="HoneyMacguffinProjects30"/>
+		</Element>
+		
+
 
 
 

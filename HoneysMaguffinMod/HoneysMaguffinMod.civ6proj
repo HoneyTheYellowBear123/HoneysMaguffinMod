@@ -66,6 +66,48 @@
     <Content Include="lua\HoneyMacguffinProjects.lua">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Textures\HoneyMacguffinProjects256.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects256.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects30.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects30.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects32.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects32.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects38.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects38.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects50.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects50.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects70.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects70.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects80.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinProjects80.tex">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Textures\HoneyMacguffins_emptyaltar128.dds">
       <SubType>Content</SubType>
     </Content>

@@ -50,10 +50,30 @@
 		<Row Tag="LOC_UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME" Language="en_US">
 			<Text>Macguffin Sage</Text>
 		</Row>
-		
+
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2_NAME" Language="en_US">
+			<Text>Macguffin Awakening</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2_SHORTNAME" Language="en_US">
+			<Text>Macguffin Awakening</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2_DESC" Language="en_US">
+			<Text>Transform a regular macguffin located in this city's macguffin awakener into a more powerful awakened form. The awakener building is destroyed upon a succesful awakening. Fails if a macguffin is not located in the awakener.</Text>
+		</Row>
+
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_TIER2_TO_TIER3_NAME" Language="en_US">
+			<Text>Macguffin Ascension</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_TIER2_TO_TIER3_SHORTNAME" Language="en_US">
+			<Text>Macguffin Ascension</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_TIER2_TO_TIER3_DESC" Language="en_US">
+			<Text>Transform an awakened macguffin located in this city's macguffin ascender into a more powerful ascended form. The ascender building is destroyed upon a succesful ascension.  Fails if an awakened macguffin is not located in the ascender.</Text>
+		</Row>
 
 
-		
+
+
 		<!-- passive yields -->
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_NAME" Language="en_US">
