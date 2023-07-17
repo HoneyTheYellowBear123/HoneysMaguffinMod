@@ -259,17 +259,20 @@ function MacguffinImprove(playerID, cityID, projectID, buildingIndex, x, y, isCa
 	end
 
 
-	if not isCancelled and projectID == tier2totier3project then
+	if (not isCancelled) and (projectID == tier2totier3project) then
+		
 		for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
-			if MacguffinEntry[5] == cityID and MacguffinEntry[3] == tier2totier3building then
+
+			if MacguffinEntry[5] == cityID and MacguffinEntry[3] == tier2totier3building and string.match(MacguffinEntry[1],"TIER2") then
 
 				local CityObject = CityManager.GetCity( fromCityPlayerID, fromCityID )
 				CityObject:GetBuildings():RemoveBuilding(tier2totier3building);
 				CityObject:GetBuildQueue():RemoveBuilding(tier2totier3building);
 				
-				local stringTransform = string.sub(macguffinEntry[1],43) --cut off the GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_
+				local stringTransform = string.sub(MacguffinEntry[1],43) --cut off the GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_
 				local stringTransform = string.sub(stringTransform,0,-6) --cut off the _TIER2
 				stringTransform = "GREAT_PERSON_HONEY_MACGUFFIN_"..stringTransform.."TIER3_GP"
+
 				local tier3GreatPerson = GameInfo.GreatPersonIndividuals[stringTransform].Index;
 				Game.GetGreatPeople():CreatePerson(playerID, tier3GreatPerson, CityObject:GetX(), CityObject:GetY());
 				
