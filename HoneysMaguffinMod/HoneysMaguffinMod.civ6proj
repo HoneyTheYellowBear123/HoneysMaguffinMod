@@ -63,6 +63,9 @@
     <Content Include="lua\HoneyMacguffin.lua">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="lua\HoneyMacguffinProjects.lua">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Textures\HoneyMacguffins_emptyaltar128.dds">
       <SubType>Content</SubType>
     </Content>
