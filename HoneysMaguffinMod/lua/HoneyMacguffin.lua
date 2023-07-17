@@ -234,49 +234,23 @@ local tier2totier3building = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_TIER2_
 --to do: add a check to make sure the macguffins inside are the correct tier before moving them up
 function MacguffinImprove(playerID, cityID, projectID, buildingIndex, x, y, isCancelled)
 
-	print("macguffin improve was called!")
 	if (not isCancelled) and (projectID == tier1totier2project) then
-		print("macguffin improve: its a tier 1 to tier 2 project!")
-
 		for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
-
-			print("macguffin improve cityID "..cityID)
-			print("macguffin improve buildingIndex "..buildingIndex) 
-			print("macguffin improve macguffinentry5 "..MacguffinEntry[5])
-			print("macguffin improve macguffinentry3 "..MacguffinEntry[3]) 
-			print("macguffin improve tier1totier2buildingindex: "..tier1totier2building)
-
-			--could maybe try get great work in slot from get buildings. We have our buildingindex we want and slot ID is hopefully zero?
-			local CityObject = CityManager.GetCity( fromCityPlayerID, fromCityID )
-
 			if MacguffinEntry[5] == cityID and MacguffinEntry[3] == tier1totier2building then
-			--if CityObject:GetBuildings():HasBuilding( tier1totier2building) then
 
-				print("macguffin improve: we have the building ")
-				
-				--local greatWorkReturned = CityObject:GetBuildings():GetGreatWorkInSlot(tier1totier2building,1) UI only :(
-				--I already know what every macguffin building and city is duhhhhhhhhhh just loop through macguffins and cities and see if there is a macguffin in this city in an awakener
-				--print("macguffin improve: great work returned "..greatWorkReturned)
-				--print("macguffin improve: a matching macguffin was found!")
-
-				--local CityObject = CityManager.GetCity( fromCityPlayerID, fromCityID )
+				local CityObject = CityManager.GetCity( fromCityPlayerID, fromCityID )
 				CityObject:GetBuildings():RemoveBuilding(tier1totier2building);
 				CityObject:GetBuildQueue():RemoveBuilding(tier1totier2building);
 				
 				local stringTransform = string.sub(MacguffinEntry[1],43) --cut off the GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_
 				stringTransform = "GREAT_PERSON_HONEY_MACGUFFIN_"..stringTransform.."_TIER2_GP"
-				print("macguffin improve tier 2 great person name: "..stringTransform)
 				local tier2GreatPerson = GameInfo.GreatPersonIndividuals[stringTransform].Index;
-				print("macguffin improve tier 2 great person index: "..tier2GreatPerson)
-				print("macguffin improve tier 2 x: "..x)
-				print("macguffin improve tier 2 y: "..y)
-				print("macguffin improve tier 2 cityx: "..CityObject:GetX())
-				print("macguffin improve tier 2 cityy: "..CityObject:GetY())
+
 				Game.GetGreatPeople():CreatePerson(playerID, tier2GreatPerson, CityObject:GetX(), CityObject:GetY());
 				
 				local tempTable = Game:GetProperty("HoneyMacguffinIndexSystem")
 				tempTable[i] = tempMacguffinEntry
-				MacguffinEntry[2] = GameInfo.Buildings["BUILDING_HANGAR"].Index --some building that we know will never house a macguffin.
+				MacguffinEntry[3] = GameInfo.Buildings["BUILDING_HANGAR"].Index --some building that we know will never house a macguffin.
 				Game:SetProperty("HoneyMacguffinIndexSystem", tempTable)
 				--change entry buildingID to something impossible so we never consider this macguffin again.
 			
@@ -286,9 +260,8 @@ function MacguffinImprove(playerID, cityID, projectID, buildingIndex, x, y, isCa
 
 
 	if not isCancelled and projectID == tier2totier3project then
-
 		for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
-			if MacguffinEntry[4] == cityID and MacguffinEntry[2] == buildingIndex then
+			if MacguffinEntry[5] == cityID and MacguffinEntry[3] == tier2totier3building then
 
 				local CityObject = CityManager.GetCity( fromCityPlayerID, fromCityID )
 				CityObject:GetBuildings():RemoveBuilding(tier2totier3building);
@@ -296,13 +269,13 @@ function MacguffinImprove(playerID, cityID, projectID, buildingIndex, x, y, isCa
 				
 				local stringTransform = string.sub(macguffinEntry[1],43) --cut off the GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_
 				local stringTransform = string.sub(stringTransform,0,-6) --cut off the _TIER2
-				stringTransform = "GREAT_PERSON_"..stringTransform.."TIER3_GP"
+				stringTransform = "GREAT_PERSON_HONEY_MACGUFFIN_"..stringTransform.."TIER3_GP"
 				local tier3GreatPerson = GameInfo.GreatPersonIndividuals[stringTransform].Index;
-				Game.GetGreatPeople():CreatePerson(playerID, tier3GreatPerson, x, y);
+				Game.GetGreatPeople():CreatePerson(playerID, tier3GreatPerson, CityObject:GetX(), CityObject:GetY());
 				
 				local tempTable = Game:GetProperty("HoneyMacguffinIndexSystem")
 				tempTable[i] = tempMacguffinEntry
-				MacguffinEntry[2] = GameInfo.Buildings["BUILDING_HANGAR"].Index --some building that we know will never house a macguffin.
+				MacguffinEntry[3] = GameInfo.Buildings["BUILDING_HANGAR"].Index --some building that we know will never house a macguffin.
 				Game:SetProperty("HoneyMacguffinIndexSystem", tempTable)
 				--change entry buildingID to something impossible so we never consider this macguffin again.
 			
