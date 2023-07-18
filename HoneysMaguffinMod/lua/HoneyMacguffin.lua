@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local richesBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -149,6 +149,11 @@ function GreatWorkCreatedCheck(playerID, unitID, cityPlotX, cityPlotY, buildingI
 
 		local macguffinCity = CityManager.GetCityAt(cityPlotX, cityPlotY):GetID() --CityManager.GetCity( playerID, CityID )
 		
+		--all active macguffins should use the same building TO DO: maybe a different building for each tier?
+		if string.match(stringTransform,"ACTIVE") then
+			stringTransform = "BUILDING_HONEY_MACGUFFIN_ACTIVE_MACGUFFIN"
+		end
+		    
 
 		table.insert(MacguffinindexTable , {macguffinThatWasJustMade, greatWorkID, buildingID, stringTransform, macguffinCity}) --track each individual macguffin and what building it is currently located in, its associated bonus building, and what city it is currently located in for convenient access later.
 		
