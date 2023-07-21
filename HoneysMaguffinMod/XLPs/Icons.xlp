@@ -15,12 +15,40 @@
 			<m_ObjectName text="HoneyMacguffins256"/>
 		</Element>
 		<Element>
+			<m_EntryID text="HoneyMacguffins128"/>
+			<m_ObjectName text="HoneyMacguffins128"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins80"/>
+			<m_ObjectName text="HoneyMacguffins80"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins70"/>
+			<m_ObjectName text="HoneyMacguffins70"/>
+		</Element>
+		<Element>
 			<m_EntryID text="HoneyMacguffins64"/>
 			<m_ObjectName text="HoneyMacguffins64"/>
 		</Element>
 		<Element>
+			<m_EntryID text="HoneyMacguffins50"/>
+			<m_ObjectName text="HoneyMacguffins50"/>
+		</Element>
+		<Element>
 			<m_EntryID text="HoneyMacguffins45"/>
 			<m_ObjectName text="HoneyMacguffins45"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins38"/>
+			<m_ObjectName text="HoneyMacguffins38"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins32"/>
+			<m_ObjectName text="HoneyMacguffins32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffins22"/>
+			<m_ObjectName text="HoneyMacguffins22"/>
 		</Element>
 
 

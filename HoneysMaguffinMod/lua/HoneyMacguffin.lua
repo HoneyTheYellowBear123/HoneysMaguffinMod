@@ -75,9 +75,32 @@ end
 -- fine, whatever, we can be clever and link the order to an actual greatworkobject ourselves.
 function initHoneyMacguffinIndexSystem()
 
-	if Game:GetProperty("HoneyMacguffinIndexSystem") == nil then                                    --{      1                     2                            3                            4                                         5             }
-		Game:SetProperty("HoneyMacguffinIndexSystem",{}); --empty table for now. The entries will be { greatworkID, greatworkobjecttypename, buildingIndexThatItIsCurrentlyIn, TypeNameOfTheBonusPseudoBuildingItGrants, cityIndexThatItIsCUrrentlyIn } as great works are created.
+	if Game:GetProperty("HoneyMacguffinIndexSystem") == nil then                                    --{      1                     2                            3                            4                                         5                                  6                         7                          8      }
+		Game:SetProperty("HoneyMacguffinIndexSystem",{}); --empty table for now. The entries will be { greatworkID, greatworkobjecttypename, buildingIndexThatItIsCurrentlyIn, TypeNameOfTheBonusPseudoBuildingItGrants, cityObjectThatItIsCUrrentlyIn,         activeMacguffinCooldown,     activeMacguffinProjectID,   ownerPlayerID} as great works are created.
 	end
+
+	--debt system to allow macguffin trading of active macguffins without allowing collusion or scamming
+	if Game:GetProperty("HoneyMacguffinCooldownDebtSystem") == nil then                                    --{      1          2             3           )
+		Game:SetProperty("HoneyMacguffinCooldownDebtSystem",{}); --empty table for now. The entries will be { greatworkID,	playerID,  remainingCooldown }
+	end
+
+	--each player will have a global cooldown that slowly increases with each macguffin activation so activating slowly becomes more "expensive" via extended cooldowns
+	if Game:GetProperty("HoneyMacguffinGlobalCooldownSystem") == nil then                                  
+		
+		local cooldownTable = {}
+
+		for playerid, playerobject in pairs(Players) do
+
+			if playerobject:IsMajor() then
+
+				cooldownTable[playerid] = 0
+
+			end
+		end
+
+		Game:SetProperty("HoneyMacguffinGlobalCooldownSystem",cooldownTable)
+	end
+
 end
 
 
@@ -145,24 +168,31 @@ function GreatWorkCreatedCheck(playerID, unitID, cityPlotX, cityPlotY, buildingI
 	   
 		local MacguffinindexTable = Game:GetProperty("HoneyMacguffinIndexSystem")
 		local stringTransform = string.sub(macguffinThatWasJustMade,43) --cut off the GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_
+		local projectIndex = -2
+
+		if string.match(stringTransform, "ACTIVE") then
+			local projectname1 = "PROJECT_HONEY_MACGUFFIN_"..stringTransform
+			print("projectname1 "..projectname1)
+			projectIndex = GameInfo.Projects["PROJECT_HONEY_MACGUFFIN_"..stringTransform].Index
+		end
+
+
 		stringTransform = "BUILDING_HONEY_MACGUFFIN_HOLDER_"..stringTransform
 
 		local macguffinCity = CityManager.GetCityAt(cityPlotX, cityPlotY):GetID() --CityManager.GetCity( playerID, CityID )
-		
-		--all active macguffins should use the same building TO DO: maybe a different building for each tier?
-		if string.match(stringTransform,"ACTIVE") then
-			stringTransform = "BUILDING_HONEY_MACGUFFIN_ACTIVE_MACGUFFIN"
-		end
 		    
 
-		table.insert(MacguffinindexTable , {macguffinThatWasJustMade, greatWorkID, buildingID, stringTransform, macguffinCity}) --track each individual macguffin and what building it is currently located in, its associated bonus building, and what city it is currently located in for convenient access later.
+		table.insert(MacguffinindexTable , {macguffinThatWasJustMade, greatWorkID, buildingID, stringTransform, macguffinCity, 0, projectIndex, playerID}) --track each individual macguffin and what building it is currently located in, its associated bonus building, and what city it is currently located in for convenient access later.
 		
-		local trex = {macguffinThatWasJustMade, greatWorkID, buildingID, stringTransform, macguffinCity}
+		local trex = {macguffinThatWasJustMade, greatWorkID, buildingID, stringTransform, macguffinCity, 0, projectIndex, playerID}
 		print("tableinfo "..trex[1])
 		print("tableinfo "..trex[2])
 		print("tableinfo "..trex[3])
 		print("tableinfo "..trex[4])
 		print("tableinfo "..trex[5])
+		print("tableinfo "..trex[6])
+		print("tableinfo "..trex[7])
+		print("tableinfo "..trex[8])
 		Game:SetProperty("HoneyMacguffinIndexSystem",MacguffinindexTable)
 		print("The great work ID "..greatWorkID.." is now associated with the macguffin "..macguffinThatWasJustMade)
 
@@ -202,6 +232,8 @@ function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCit
 				print("we removed a macguffin from an altar!");
 				fromCityObject:GetBuildings():RemoveBuilding(associatedAltarIndex);
 				fromCityObject:GetBuildQueue():RemoveBuilding(associatedAltarIndex);
+				local sName = fromCityObject:GetName()
+				fromCityObject:SetName(sName) --forces UI update!
 
 			end
 			--fi the building the macguffin is moved TO is an altar, we should create the pseudo building in the city it was moved to
@@ -215,6 +247,7 @@ function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCit
 			-- update the table so we know our macguffin is in a new building
 			tempMacguffinEntry[3] = buildingID
 			tempMacguffinEntry[5] = toCityID
+			tempMacguffinEntry[8] = toCityPlayerID
 
 			print("macguffin moved 3 "..buildingID)
 			print("macguffin moved 5 "..toCityID)
@@ -236,7 +269,7 @@ local tier2totier3project = GameInfo.Projects["PROJECT_HONEY_MACGUFFIN_TIER2_TO_
 local tier1totier2building = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2"].Index
 local tier2totier3building = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3"].Index
 
---to do: add a check to make sure the macguffins inside are the correct tier before moving them up
+
 function MacguffinImprove(playerID, cityID, projectID, buildingIndex, x, y, isCancelled)
 
 	if (not isCancelled) and (projectID == tier1totier2project) then
@@ -297,13 +330,110 @@ end
 
 
 
+----------------------------------------------------- ACTIVE MACGUFFINS ---------------------------------------------
+
+local tActiveMacguffinProjects = {}
+
+function setupActiveMacguffinProjects()
 
 
+	for i, tRow in ipairs(DB.Query("SELECT * from Projects WHERE ProjectType LIKE 'HONEY_MACGUFFIN_ACTIVE'")) do 
+			 tActiveMacguffinProjects[i] = tRow
+
+			print("active macguffin project was discovered");
+
+			print(tRow.ProjectType);
+	end
+	return tActiveMacguffinProjects
+
+end;
 
 
+local coolDownAltarIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_COOLDOWN"].Index
+local globalCoolDownIncrease = 3 --TO DO make this configurable
 
+function ActivateActiveMacguffin(playerID, cityID, projectID, buildingIndex, x, y, isCancelled)
 
+	
+	if (not isCancelled) then
+		for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
 
+			if projectID == MacguffinEntry[7] then --an active macguffin project was completed!
+
+				local tempglobalcooldowntable = Game:GetProperty("HoneyMacguffinGlobalCooldownSystem")
+				local globalcooldownValue = tempglobalcooldowntable[playerID]
+				
+				local projectCooldown = grantHoneyMacguffinActiveEffect(MacguffinEntry[7])
+				
+				local associatedAltarIndex = GameInfo.Buildings[MacguffinEntry[4]].Index
+				local CityObject = CityManager.GetCity( playerID, cityID )
+				CityObject:GetBuildings():RemoveBuilding(associatedAltarIndex);
+				CityObject:GetBuildQueue():RemoveBuilding(associatedAltarIndex);
+				
+				--CityObject:GetX(), CityObject:GetY()
+
+				placeMacguffinAltar(CityObject, coolDownAltarIndex)
+				
+
+				MacguffinEntry[6] = projectCooldown + globalcooldownValue
+				MacguffinEntry[4] = coolDownAltarIndex
+				tempglobalcooldowntable[playerID] = globalcooldownValue + globalCoolDownIncrease
+				
+				Game:SetProperty("HoneyMacguffinGlobalCooldownSystem",  tempglobalcooldowntable)
+
+				local tempindexsystem= Game:GetProperty("HoneyMacguffinIndexSystem")
+				tempindexsystem[i] = MacguffinEntry
+				Game:SetProperty("HoneyMacguffinIndexSystem", tempindexsystem)
+
+			end
+		end
+	end
+
+end
+
+function grantHoneyMacguffinActiveEffect(projectID) --grant each reward and return associated number of cooldown
+	print("placeholder XD")
+	return 1
+end
+
+--function that loops through every city at the beggining of the turn to see if it has the cooldown building, if so reduce the cooldown by one. If cooldown is zero, replace the building and change MacguffinEntry[4].
+function reduceHoneyMacguffinCooldown()
+
+	local temptable = {}
+	for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
+
+		
+
+		if (not( MacguffinEntry[6] == 0 )) then
+
+			MacguffinEntry[6] = MacguffinEntry[6] - 1
+			print("cooldown turns left "..MacguffinEntry[6])
+			if MacguffinEntry[6] == 0 then
+
+				local CityObject = CityManager.GetCity( MacguffinEntry[8], MacguffinEntry[5]  )
+
+				CityObject :GetBuildings():RemoveBuilding(MacguffinEntry[4])
+				CityObject :GetBuildQueue():RemoveBuilding(MacguffinEntry[4])
+				
+				local stringTransform = string.sub(MacguffinEntry[1],43)  --cut off the GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_
+				stringTransform = "BUILDING_HONEY_MACGUFFIN_HOLDER_"..stringTransform
+				local altarIndex = GameInfo.Buildings[stringTransform].Index
+				placeMacguffinAltar(CityObject , altarIndex )
+				
+				MacguffinEntry[4] = stringTransform
+
+			end
+		end
+
+		temptable[i] = MacguffinEntry
+
+	end
+
+	Game:SetProperty("HoneyMacguffinIndexSystem",temptable)
+
+end
+
+----------------------------------------------  END ACTIVE MACGUFFINS --------------------------------------
 
 
 
@@ -316,6 +446,7 @@ end
 
 initHoneyMacguffinIndexSystem();
 setupMacguffinGreatPeople();
+setupActiveMacguffinProjects();
 
 
 
@@ -330,21 +461,15 @@ setupMacguffinGreatPeople();
 
 --end
 
---[[ event
-CityProjectCompleted	
-	playerID
-	cityID
-	projectID
-	buildingIndex
-	x
-	y
-	isCancelled
---]]
+
 
 Events.GreatWorkCreated.Add(GreatWorkCreatedCheck)
 Events.GreatWorkMoved.Add(GreatWorkMovedCheck)
 Events.UnitGreatPersonActivated.Add(GreatPersonActivatedCheck)
 Events.CityProjectCompleted.Add(MacguffinImprove)
+Events.CityProjectCompleted.Add(ActivateActiveMacguffin)
+Events.TurnBegin.Add(reduceHoneyMacguffinCooldown)
+
 
 
 --new plan: delete the shrine with turn end by looping through players

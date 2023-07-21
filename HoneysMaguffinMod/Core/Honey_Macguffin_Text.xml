@@ -71,6 +71,13 @@
 			<Text>Transform an awakened macguffin located in this city's macguffin ascender into a more powerful ascended form. The ascender building is destroyed upon a succesful ascension.  Fails if an awakened macguffin is not located in the ascender.</Text>
 		</Row>
 
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_NAME" Language="en_US">
+			<Text>Activate Macguffin</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_SHORTNAME" Language="en_US">
+			<Text>Activate Macguffin</Text>
+		</Row>
+
 
 
 

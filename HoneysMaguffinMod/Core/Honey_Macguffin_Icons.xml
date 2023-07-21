@@ -4,8 +4,15 @@
 		<!--Row Name="ICON_ATLAS_GREATWORKOBJECT_TYPES" IconSize="40" IconsPerRow="4" IconsPerColumn="4" Filename="GreatWorksSlotTypes40"/ -->
 		<!-- TO DO: swap these out -->
 		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="256" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins256"/>
+		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="128" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins128"/>
+		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="80" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins80"/>
+		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="70" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins70"/>
 		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="64" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins64"/>
+		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="50" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins50"/>
 		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="45" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins45"/>
+		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="38" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins38"/>
+		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="32" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins32"/>
+		<Row Name="ICON_ATLAS_HONEY_MACGUFFINS" IconSize="22" IconsPerRow="8" IconsPerColumn="8" Filename="HoneyMacguffins22"/>
 
 		<Row Name="ICON_ATLAS_FONT_PASSIVE_MACGUFFIN"       Baseline="6" IconSize="22"   IconsPerRow="11" IconsPerColumn="25" Filename="FontIcons_Passive_Macguffin.dds"/>
 		<Row Name="ICON_ATLAS_FONT_ACTIVE_MACGUFFIN"       Baseline="6" IconSize="22"   IconsPerRow="11" IconsPerColumn="25" Filename="FontIcons_Active_Macguffin.dds"/>
@@ -53,6 +60,9 @@
 		<Row Name="ICON_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE" Atlas="ICON_ATLAS_HONEY_MACGUFFINS" Index="0"/>
 		<Row Name="ICON_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_TIER2" Atlas="ICON_ATLAS_HONEY_MACGUFFINS" Index="0"/>
 		<Row Name="ICON_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_TIER3" Atlas="ICON_ATLAS_HONEY_MACGUFFINS" Index="0"/>
+		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE"  Atlas="ICON_ATLAS_HONEY_MACGUFFINS" Index="0"/>
+		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_TIER2"  Atlas="ICON_ATLAS_HONEY_MACGUFFINS" Index="0"/>
+		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_TIER3"  Atlas="ICON_ATLAS_HONEY_MACGUFFINS" Index="0"/>
 		
 		
 		
@@ -81,10 +91,6 @@
 
 	<IconAliases>
 		
-		<!-- to do: change the thing below this -->
-		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE" OtherName="ICON_BUILDING_MONUMENT"/>
-		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_TIER2" OtherName="ICON_BUILDING_MONUMENT"/>
-		<Row Name="ICON_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_TIER3" OtherName="ICON_BUILDING_MONUMENT"/>
 
 		
 		

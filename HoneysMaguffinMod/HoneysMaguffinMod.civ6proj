@@ -114,6 +114,48 @@
     <Content Include="Textures\HoneyMacguffinProjects80.tex">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Textures\HoneyMacguffins128.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins128.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins22.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins22.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins32.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins32.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins38.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins38.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins50.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins50.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins70.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins70.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins80.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffins80.tex">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Textures\HoneyMacguffins_emptyaltar128.dds">
       <SubType>Content</SubType>
     </Content>
