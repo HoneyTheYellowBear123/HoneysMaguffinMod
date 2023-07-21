@@ -7,11 +7,11 @@
 
 
 -- to do
-	-- culture
-	-- gold
-	-- faith
-	-- production
-	-- food
+	-- culture 2
+	-- gold 3
+	-- faith 4
+	-- production 5
+	-- food 6
 
 
 INSERT INTO Types 

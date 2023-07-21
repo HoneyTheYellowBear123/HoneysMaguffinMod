@@ -78,6 +78,13 @@
 			<Text>Activate Macguffin</Text>
 		</Row>
 
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_NAME" Language="en_US">
+			<Text>Macguffin on Cooldown</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_DESC" Language="en_US">
+			<Text>The active macguffin in this city's Macguffin Altar is on Cooldown! Check back later! (Macguffin will only cool down while inside a Macguffin Altar)</Text>
+		</Row>
+
 
 
 
@@ -109,6 +116,17 @@
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_TIER3_DESC" Language="en_US">
 			<Text>The effects of the Ascended Ponderer's Orb being place in this city's Macguffin Altar.</Text>
+		</Row>
+
+
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_DESC" Language="en_US">
+			<Text>Activate the Nexus of Knowledge, granting 100 [ICON_Science] Science.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER2_DESC" Language="en_US">
+			<Text>Activate the Nexus of Knowledge, granting 200 [ICON_Science] Science.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER3_DESC" Language="en_US">
+			<Text>Activate the Nexus of Knowledge, granting 300 [ICON_Science] Science.</Text>
 		</Row>
 		
 
