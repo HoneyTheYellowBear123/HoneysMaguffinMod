@@ -78,6 +78,12 @@
 			<Text>Activate Macguffin</Text>
 		</Row>
 
+		<Row Tag="LOC_HONEY_MACGUFFIN_REMINDER_LAUNCH_NAME" Language="en_US">
+			<Text>Activate Macguffin Info</Text>
+		</Row>
+
+		
+
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_NAME" Language="en_US">
 			<Text>Macguffin on Cooldown</Text>
 		</Row>

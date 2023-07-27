@@ -16,9 +16,9 @@
 	-- turn individual macguffins on/off
 	-- great people granted events via lua and too expensive otherwise
 	-- override for greatworksoverview
-	-- project handling for active macguffins in lua
+	-- UI for cooldown of projects
 	-- single use mega macguffins
-	-- District for epic macguffins
+	-- District for epic macguffins with popups for enemies
 	-- Macguffin Ahnilator for victory
 
 

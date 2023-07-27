@@ -51,6 +51,17 @@
 			<m_ObjectName text="HoneyMacguffins22"/>
 		</Element>
 
+		<Element>
+			<m_EntryID text="HoneyMacguffinCooldownButton40"/>
+			<m_ObjectName text="HoneyMacguffinCooldownButton40"/>
+		</Element>
+
+		<Element>
+			<m_EntryID text="LaunchBar_HoneyMacguffinActiveCooldown"/>
+			<m_ObjectName text="LaunchBar_HoneyMacguffinActiveCooldown"/>
+		</Element>
+		
+
 
 		<Element>
 			<m_EntryID text="FontIcons_Active_Macguffin"/>
