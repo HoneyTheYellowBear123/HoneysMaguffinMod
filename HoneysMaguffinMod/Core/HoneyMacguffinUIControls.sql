@@ -1,3 +1,4 @@
+
 INSERT OR IGNORE INTO InputCategories
 		(CategoryId,		Name,							Visible,		SortIndex)
 VALUES	('KNM_DWR',			'LOC_KNM_REMINDER_TITLE',		1,				'0');

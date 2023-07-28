@@ -6,7 +6,7 @@
 local m_LaunchButtonInstance = {};
 
 function ToggleReminderPopup()
-	LuaEvents.DetailedWonderReminderButton_TogglePopup()
+	LuaEvents.HoneyMacguffinActiveCooldown_TogglePopup()
 end
 
 function AttachLaunchButton()

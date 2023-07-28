@@ -10,7 +10,7 @@
 
 	<Container ID="ReminderContainer" Anchor="C,C"	Size="parent,768" MinSize="1024,768">
 
-		<Image Size="parent,parent" Texture="DetailedWonderReminderBackground.dds"/>
+		<Image Size="parent,parent" Texture="HoneyMacguffinActiveCooldownUIBackground.dds"/>
 
 		<!-- Governor Header -->
 		<Grid	Size="parent,32" Offset="0,40" Texture="Governors_SubHeaderTile" SliceCorner="128,2" SliceTextureSize="0,40"/>
@@ -73,7 +73,7 @@
 		<Container ID="WonderInstanceContainer" Anchor="C,T" Size="150,145" Style="FontFlair12">
 			<GridButton ID="WonderButton" Anchor="C,T" Offset="5,25" Size="100,100" SliceCorner="0,0" SliceTextureSize="100,100" StateOffsetIncrement="0,0">
 				<Image ID="Icon" Anchor="L,T" Offset="0,0" Size="parent,parent" Alpha="0.3" />
-				<Image ID="HighlightIcon" Anchor="L,T" Offset="0,0" Size="parent,parent" Alpha="1" MaskTexture="Mask_DetailedWonderReminder.dds"/>
+				<Image ID="HighlightIcon" Anchor="L,T" Offset="0,0" Size="parent,parent" Alpha="1" MaskTexture="Mask_HoneyMacguffinActiveCooldownUI.dds"/>
 			</GridButton>
 			<Container ID="PortraitContainer" Anchor="L,T" Offset="8,20" Size="auto,auto" Hidden="1">
 				<Image Texture="Controls_CircleBacking28" Size="35,35" Anchor="C,C" Offset="0,1"/>

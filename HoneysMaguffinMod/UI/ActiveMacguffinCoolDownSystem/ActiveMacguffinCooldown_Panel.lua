@@ -333,10 +333,12 @@ end
 function Refresh()
 	local localplayer = Game.GetLocalPlayer()
 	local pPlayer = Players[localplayer]
+	print("DEBUG3 refresh was called!")
 
-	m_eraIM:ResetInstances()
-	m_wonderIM:ResetInstances()
+	--m_eraIM:ResetInstances()
+	--m_wonderIM:ResetInstances()
 
+	--[[
 	local wonderProgressMap = GetWonderProgress()
 	local builtSum = 0
 	local buildingSum = 0
@@ -687,12 +689,13 @@ function Refresh()
 
 		end
 	end
+	--]]
 	Controls.ReminderContainerStack:CalculateSize()
 	Controls.ReminderScrollPanel:CalculateSize()
 
-	Controls.BuiltCheckBox:GetTextButton():SetText(Locale.Lookup('LOC_KNM_REMINDER_CHECK_BUILT') .. '(' .. tostring(builtSum) .. ')')
-	Controls.BuildingCheckBox:GetTextButton():SetText(Locale.Lookup('LOC_HUD_MAP_SEARCH_TERMS_UNDER_CONSTRUCTION') .. '(' .. tostring(buildingSum) .. ')')
-	Controls.ToBuildCheckBox:GetTextButton():SetText(Locale.Lookup('LOC_KNM_REMINDER_CHECK_TO_BUILD') .. '(' .. tostring(toBuildSum) .. ')')
+	--Controls.BuiltCheckBox:GetTextButton():SetText(Locale.Lookup('LOC_KNM_REMINDER_CHECK_BUILT') .. '(' .. tostring(builtSum) .. ')')
+	--Controls.BuildingCheckBox:GetTextButton():SetText(Locale.Lookup('LOC_HUD_MAP_SEARCH_TERMS_UNDER_CONSTRUCTION') .. '(' .. tostring(buildingSum) .. ')')
+	--Controls.ToBuildCheckBox:GetTextButton():SetText(Locale.Lookup('LOC_KNM_REMINDER_CHECK_TO_BUILD') .. '(' .. tostring(toBuildSum) .. ')')
 
 	if Controls.ReminderContainer:GetSizeX() > PANEL_MAX_WIDTH then
 		Controls.ReminderContainer:SetSizeX(PANEL_MAX_WIDTH);
@@ -701,22 +704,27 @@ function Refresh()
 	if not RefreshYields() then
 		Controls.Vignette:SetSizeY(m_TopPanelConsideredHeight);
 	end
+	print("DEBUG3 it made it to the end of refresh!")
 end
 -- ===========================================================================
 function Open(playerID:number, cityID:number)
 	local localplayer = Game.GetLocalPlayer()
 	local pPlayer = Players[localplayer]
+	print("DEBUG3 open was called");
 	if pPlayer == nil then
+		print("DEBUG3 player was nil :(");
 		return
 	end
+	print("DEBUG3 player was NOT nil :)");
 	CloseOtherPanels()
 	
-	GetEraWonderMap()
-	GetBuiltWonders()
+	--GetEraWonderMap()
+	--GetBuiltWonders()
 	
 	Refresh();
 	Controls.ReminderDetailPanel:SetHide(true);
 	if not UIManager:IsInPopupQueue(ContextPtr) then
+		print("DEBUG3 were not in popupqueue but now we will be");
 		-- Queue the screen as a popup, but we want it to render at a desired location in the hierarchy, not on top of everything.
 		local kParameters = {};
 		kParameters.RenderAtCurrentParent = true;
@@ -725,7 +733,7 @@ function Open(playerID:number, cityID:number)
 		UIManager:QueuePopup(ContextPtr, PopupPriority.Low, kParameters);
 		UI.PlaySound("UI_Screen_Open");
 	end
-	
+	print("DEBUG3 made it past the popup queue block!");
 	-- From Civ6_styles: FullScreenVignetteConsumer
 	Controls.ScreenAnimIn:SetToBeginning();
 	Controls.ScreenAnimIn:Play();
@@ -756,26 +764,7 @@ function CloseDetailOrPanel()
 		Close()
 	end
 end
--- ===========================================================================
---	GAME Event
--- ===========================================================================
-function OnWonderCompleted(iX, iY, buildingIndex, playerIndex, cityID, iPercerntComplete, iUnknown)
-	local buildingInfo = GameInfo.Buildings[buildingIndex]
-	if buildingInfo then
-		GetBuiltWonders()
-		m_BuiltWonders[buildingInfo.BuildingType] = {
-			X = iX,
-			Y = iY,
-			PlayerID = playerIndex,
-			--CityID = cityID,
-			Turn = Game.GetCurrentGameTurn(),
-			--Index = buildingIndex,
-		}
-	end
-	if ContextPtr:IsVisible() then
-		Refresh();
-	end	
-end
+
 -- ===========================================================================
 function OnLocalPlayerTurnBegin()
 	if ContextPtr:IsVisible() then
@@ -864,21 +853,24 @@ function OnInputActionTriggered(actionId:number)
 end
 -- ===========================================================================
 function OnTogglePanel()
+	print("DEBUG3 on toggle panel called!")
 	if ContextPtr:IsHidden() then
+		print("DEBUG3 context was hidden we will call open!")
 		Open()
 	else
+		print("DEBUG3 context was NOT hidden we will call close!")
 		Close()
 	end
 end
 -- ===========================================================================
 function Initialize()
-	local startEra = GameConfiguration.GetValue("GAME_START_ERA")
-	local eraInfo = GameInfo.Eras[startEra]
-	if eraInfo then
-		m_StartEraChronology = tonumber(eraInfo.ChronologyIndex)
-	else
-		m_StartEraChronology = -100
-	end
+	--local startEra = GameConfiguration.GetValue("GAME_START_ERA")
+	--local eraInfo = GameInfo.Eras[startEra]
+	--if eraInfo then
+	--	m_StartEraChronology = tonumber(eraInfo.ChronologyIndex)
+	--else
+	--	m_StartEraChronology = -100
+	--end
 	
 	m_ScreenWidth, m_ScreenHeight = UIManager:GetScreenSizeVal()
 	m_HeightOffset = (m_ScreenHeight - Controls.ReminderContainer:GetSizeY()) / 2
@@ -890,7 +882,6 @@ function Initialize()
 	ContextPtr:SetInputHandler( OnInputHandler, true );
 
 	-- GAME EVENTS --
-	Events.WonderCompleted.Add(OnWonderCompleted)
 	Events.LocalPlayerTurnBegin.Add(OnLocalPlayerTurnBegin)
 	Events.BuildingAddedToMap.Add(OnBuildingAddedToMap)
 	Events.InputActionTriggered.Add(OnInputActionTriggered)
@@ -900,7 +891,7 @@ function Initialize()
 	Controls.ToBuildCheckBox:RegisterCallback(Mouse.eLClick, Refresh)
 
 	-- UI EVENTS THIS IS IMPORTANT MITCHELL--
-	LuaEvents.DetailedWonderReminderButton_TogglePopup.Add(OnTogglePanel);
+	LuaEvents.HoneyMacguffinActiveCooldown_TogglePopup.Add(OnTogglePanel);
 	
 	LuaEvents.WonderBuiltPopup_Shown.Add(OnClose)
 	LuaEvents.DiploScene_SceneOpened.Add(OnClose)

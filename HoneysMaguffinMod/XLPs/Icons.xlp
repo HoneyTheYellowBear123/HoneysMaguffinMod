@@ -60,7 +60,18 @@
 			<m_EntryID text="LaunchBar_HoneyMacguffinActiveCooldown"/>
 			<m_ObjectName text="LaunchBar_HoneyMacguffinActiveCooldown"/>
 		</Element>
+
+		<Element>
+			<m_EntryID text="Mask_HoneyMacguffinActiveCooldownUI"/>
+			<m_ObjectName text="Mask_HoneyMacguffinActiveCooldownUI"/>
+		</Element>
 		
+		<Element>
+			<m_EntryID text="HoneyMacguffinActiveCooldownUIBackground"/>
+			<m_ObjectName text="HoneyMacguffinActiveCooldownUIBackground"/>
+		</Element>
+		
+
 
 
 		<Element>
