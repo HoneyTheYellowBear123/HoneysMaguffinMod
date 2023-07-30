@@ -403,15 +403,23 @@ function Refresh()
 				-- check if its in an altar
 				if MacguffinEntry[3] == altarBuildingIndex then
 					if MacguffinEntry[6] > 0 then
-						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is currently cooling down")
+						ActiveMacguffinInstance.InAltarInfo:SetText("")
+						ActiveMacguffinInstance.CoolingInAltarInfo:SetText("Macguffin is currently cooling down")
+						ActiveMacguffinInstance.NotInAltarInfo:SetText("")
 					else
 						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is ready to activate")
+						ActiveMacguffinInstance.CoolingInAltarInfo:SetText("")
+						ActiveMacguffinInstance.NotInAltarInfo:SetText("")
 					end
 				else
 					if MacguffinEntry[6] > 0 then
-						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is NOT cooling down! place in an altar to cool down!")
+						ActiveMacguffinInstance.InAltarInfo:SetText("")
+						ActiveMacguffinInstance.CoolingInAltarInfo:SetText("")
+						ActiveMacguffinInstance.NotInAltarInfo:SetText("Place in an altar to cool down!")
 					else
 						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is ready to activate")
+						ActiveMacguffinInstance.CoolingInAltarInfo:SetText("")
+						ActiveMacguffinInstance.NotInAltarInfo:SetText("")
 					end
 				end
 				print("DEBUG3 5")
