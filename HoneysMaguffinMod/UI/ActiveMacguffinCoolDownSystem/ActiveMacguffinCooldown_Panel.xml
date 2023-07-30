@@ -105,7 +105,7 @@
 
 	<Instance	Name="ActiveMacguffinInstance">
 		<Container ID="MacguffinInstanceContainer" Anchor="C,T" Size="150,145" Style="FontFlair12">
-			<GridButton ID="MacguffinButton" Anchor="C,T" Offset="5,25" Size="100,100" SliceCorner="0,0" SliceTextureSize="100,100" StateOffsetIncrement="0,0">
+			<GridButton ID="MacguffinButton" Anchor="C,T" Offset="0,15" Size="100,100" SliceCorner="0,0" SliceTextureSize="100,100" StateOffsetIncrement="0,0">
 				<Image ID="Icon" Anchor="L,T" Offset="0,0" Size="parent,parent" Alpha="0.3" />
 				<Image ID="HighlightIcon" Anchor="L,T" Offset="0,0" Size="parent,parent" Alpha="1" MaskTexture="Mask_HoneyMacguffinActiveCooldownUI.dds"/>
 			</GridButton>
@@ -114,9 +114,9 @@
 				<Image ID="Portrait" Anchor="C,C" Offset="0,0" Size="32,32" Texture="Leaders32" />
 			</Container>
 			<Label ID="Title" Anchor="C,T" Offset="0,0" FontSize="14" FontStyle="Shadow" WrapWidth="540" Color0="133,205,235,255" Color1="203,215,225,100" Color2="254,254,254,255" Align="Center"/>
-			<Label ID="CityInfo" Anchor="C,B" Offset="0,7" FontSize="13" FontStyle="Stroke" WrapWidth="250" Align="Center"/>
-			<Label ID="CoolingTurnsInfo" Anchor="C,B" Offset="0,14" FontSize="13" FontStyle="Stroke" WrapWidth="250" Align="Center"/>
-			<Label ID="InAltarInfo" Anchor="C,B" Offset="0,21" FontSize="13" FontStyle="Stroke" WrapWidth="250" Align="Center"/>
+			<Label ID="CityInfo" Anchor="C,B" Offset="0,0" FontSize="13" FontStyle="Stroke" WrapWidth="250" Align="Center"/>
+			<Label ID="CoolingTurnsInfo" Anchor="C,B" Offset="0,7" FontSize="13" FontStyle="Stroke" WrapWidth="250" Align="Center"/>
+			<Label ID="InAltarInfo" Anchor="C,B" Offset="0,17" FontSize="13" FontStyle="Stroke" WrapWidth="250" Align="Center"/>
 		</Container>
 	</Instance>
 

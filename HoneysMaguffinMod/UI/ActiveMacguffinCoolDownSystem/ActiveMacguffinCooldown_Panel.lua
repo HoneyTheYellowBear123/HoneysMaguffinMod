@@ -378,6 +378,8 @@ function Refresh()
 				print("DEBUG3 relevant active macguffin found!")
 
 				--set icon
+				ActiveMacguffinInstance.Icon:SetIcon("ICON_" .. MacguffinEntry[1])
+				ActiveMacguffinInstance.HighlightIcon:SetIcon("ICON_" .. MacguffinEntry[1])
 				ActiveMacguffinInstance.Portrait:SetIcon("ICON_" .. MacguffinEntry[1])
 				print("DEBUG3 1")
 				print("DEBUG3 Icon name: ".."ICON_" .. MacguffinEntry[1])
