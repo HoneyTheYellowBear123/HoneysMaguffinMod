@@ -37,18 +37,27 @@ local m_HeightOffset:number = 0
 local m_IsXP1Active:boolean = Modding.IsModActive("1B28771A-C749-434B-9053-D1380C553DE9")
 local m_IsXP2Active:boolean = Modding.IsModActive("4873eb62-8ccc-4574-b784-dda455e74e68")
 
-local m_EraWonderMap = nil
-local m_EraChronology = nil
-local m_BuiltWonders = nil
+--local m_EraWonderMap = nil
+--local m_EraChronology = nil
+--local m_BuiltWonders = nil
 
-local m_DWRHash = DB.MakeHash("NOTIFICATION_KNM_DWR_OTHER_START_BUILD")
+local m_Macguffins = nil
 
-local m_eraIM:table = InstanceManager:new("EraWonderInstance",	"EraWonderInstanceContainer", Controls.ReminderContainerStack);
-local m_wonderIM:table = InstanceManager:new("WonderInstance",	"WonderInstanceContainer");
+--local m_DWRHash = DB.MakeHash("NOTIFICATION_KNM_DWR_OTHER_START_BUILD")
+
+--local m_eraIM:table = InstanceManager:new("EraWonderInstance",	"EraWonderInstanceContainer", Controls.ReminderContainerStack);
+--local m_wonderIM:table = InstanceManager:new("WonderInstance",	"WonderInstanceContainer");
 local m_wonderDetailIM:table = InstanceManager:new("WonderDetailInstance",	"BuildInfoDetail", Controls.ReminderDetailStack);
-
 local m_WonderReminerID:number = Input.GetActionId("ToggleKnmWonderReminder");
+
+
+local m_macguffinstackIM:table = InstanceManager:new("MacguffinStackInstance",	"MacguffinStackContainer", Controls.ReminderContainerStack);
+local m_honeymacguffinIM:table = InstanceManager:new("ActiveMacguffinInstance",	"MacguffinInstanceContainer");
+
+
+
 -- ===========================================================================
+--[[
 function GetProperty(key)
 	local params = {}
 	GameEvents.ReadWonderData.Call(params)
@@ -74,7 +83,7 @@ function IsInternalNationalWonder(buildingType)
 end
 -- ===========================================================================
 function InitializeWonderEra()
-	--[[
+	
 	eraWonderMap: [
 		eraChronology = {
 			EraType = eraType,
@@ -82,7 +91,7 @@ function InitializeWonderEra()
 		},
 		......
 	]
-	]]--
+	
 	local eraWonderMap = {}  
 	local eraChronologyMap = {}
 	for row in GameInfo.Buildings() do
@@ -130,6 +139,7 @@ function InitializeWonderEra()
 	end
 	return eraWonderMap, eraChronologyMap
 end
+--]]
 -- ===========================================================================
 function GetEraWonderMap()
 	if m_EraWonderMap == nil or m_EraChronology == nil then
@@ -146,6 +156,7 @@ function GetBuiltWonders()
 	end
 end
 -- ===========================================================================
+--[[
 function GetCivName(playerID, isTitle:boolean)
 	if Game.GetLocalPlayer() == playerID then
 		return Locale.Lookup('LOC_HUD_CITY_YOU')
@@ -204,7 +215,10 @@ function GetCityProductionString(city:table)
 		return Locale.Lookup('LOC_KNM_REMINDER_CITY', Locale.Lookup(city.Name), city.TurnsLeft, GetProductionName(city.CurrentlyBuildingHash))
 	end
 end
+--]]
 -- ===========================================================================
+
+--[[
 function GetWonderProgress()
 	local localplayer = Game.GetLocalPlayer()
 	if localplayer == -1 then
@@ -251,7 +265,10 @@ function GetWonderProgress()
 	end
 	return wonderProgressMap
 end
+--]]
 -- ===========================================================================
+
+--[[
 function GetBuildableCities(buildingIndex)
 	local cities = {}
 	local pPlayer = Players[Game.GetLocalPlayer()]
@@ -286,6 +303,7 @@ function GetBuildableCities(buildingIndex)
 	)
 	return cities
 end
+--]]
 -- ===========================================================================
 function GetDetailPanelOffset()
 	Controls.ReminderDetailPanel:CalculateVisibilityBox()
@@ -330,10 +348,80 @@ function CloseOtherPanels()
     end
 end
 -- ===========================================================================
+
+local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
+
 function Refresh()
 	local localplayer = Game.GetLocalPlayer()
 	local pPlayer = Players[localplayer]
 	print("DEBUG3 refresh was called!")
+
+
+	m_macguffinstackIM:ResetInstances()
+    m_honeymacguffinIM:ResetInstances()
+
+
+	print("DEBUG3 localplayer: "..localplayer)
+	if not (Game:GetProperty("HoneyMacguffinIndexSystem") == nil) then
+
+		local stackInstance = m_macguffinstackIM:GetInstance()
+
+		for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
+
+			print("DEBUG3 macguffin playerid: "..MacguffinEntry[8])
+
+			--get all active macguffins for this player
+			if string.match(MacguffinEntry[1], "ACTIVE") and MacguffinEntry[8] == localplayer then
+
+				local ActiveMacguffinInstance =  m_honeymacguffinIM:GetInstance(stackInstance.MacguffinStackInstanceStack);
+
+				print("DEBUG3 relevant active macguffin found!")
+
+				--set icon
+				ActiveMacguffinInstance.Portrait:SetIcon("ICON_" .. MacguffinEntry[1])
+				print("DEBUG3 1")
+				print("DEBUG3 Icon name: ".."ICON_" .. MacguffinEntry[1])
+
+				--set macguffin name
+				ActiveMacguffinInstance.Title:SetText(Locale.Lookup("LOC_"..MacguffinEntry[1].."_NAME"))
+				print("DEBUG3 2")
+
+				print("DEBUG3 3 entry 5"..MacguffinEntry[5])
+
+				
+				--set city name
+				ActiveMacguffinInstance.CityInfo:SetText("City: "..Locale.Lookup(CityManager.GetCity( localplayer, MacguffinEntry[5] ):GetName()))
+				print("DEBUG3 3")
+
+
+				--print cooldown
+				ActiveMacguffinInstance.CoolingTurnsInfo:SetText("Turns of cooldown left: "..MacguffinEntry[6])
+				print("DEBUG3 4")
+
+				-- check if its in an altar
+				if MacguffinEntry[3] == altarBuildingIndex then
+					if MacguffinEntry[6] > 0 then
+						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is currently cooling down")
+					else
+						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is ready to activate")
+					end
+				else
+					if MacguffinEntry[6] > 0 then
+						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is NOT cooling down! place in an altar to cool down!")
+					else
+						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is ready to activate")
+					end
+				end
+				print("DEBUG3 5")
+				
+			end 
+
+		end
+
+		stackInstance.MacguffinStackInstanceStack:CalculateSize()
+
+	end 
+
 
 	--m_eraIM:ResetInstances()
 	--m_wonderIM:ResetInstances()
@@ -793,7 +881,7 @@ function OnBuildingAddedToMap(iX, iY, buildingID, playerID, misc2, misc3)
 					if pAddedCity then
 						local otherTurnsLeft = pAddedCity:GetBuildQueue():GetTurnsLeft()
 						if otherTurnsLeft <= localTurnsLeft then
-							NotificationManager.SendNotification(localplayer, m_DWRHash, Locale.Lookup('LOC_KNM_REMINDER_TITLE'), Locale.Lookup('LOC_NOTIFICATION_KNM_DWR_OTHER_START_BUILD_SUM', buildingInfo.Name, otherTurnsLeft));
+							NotificationManager.SendNotification(localplayer, m_DWRHash, Locale.Lookup('LOC_HONEY_MACGUFFIN_UI_TITLE'), Locale.Lookup('LOC_NOTIFICATION_KNM_DWR_OTHER_START_BUILD_SUM', buildingInfo.Name, otherTurnsLeft));
 							return
 						end
 					end
@@ -886,9 +974,9 @@ function Initialize()
 	Events.BuildingAddedToMap.Add(OnBuildingAddedToMap)
 	Events.InputActionTriggered.Add(OnInputActionTriggered)
 	
-	Controls.BuiltCheckBox:RegisterCallback(Mouse.eLClick, Refresh)
-	Controls.BuildingCheckBox:RegisterCallback(Mouse.eLClick, Refresh)
-	Controls.ToBuildCheckBox:RegisterCallback(Mouse.eLClick, Refresh)
+	--Controls.BuiltCheckBox:RegisterCallback(Mouse.eLClick, Refresh)
+	--Controls.BuildingCheckBox:RegisterCallback(Mouse.eLClick, Refresh)
+	--Controls.ToBuildCheckBox:RegisterCallback(Mouse.eLClick, Refresh)
 
 	-- UI EVENTS THIS IS IMPORTANT MITCHELL--
 	LuaEvents.HoneyMacguffinActiveCooldown_TogglePopup.Add(OnTogglePanel);

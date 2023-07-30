@@ -78,12 +78,6 @@
 			<Text>Activate Macguffin</Text>
 		</Row>
 
-		<Row Tag="LOC_HONEY_MACGUFFIN_REMINDER_LAUNCH_NAME" Language="en_US">
-			<Text>Activate Macguffin Info</Text>
-		</Row>
-
-		
-
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_NAME" Language="en_US">
 			<Text>Macguffin on Cooldown</Text>
 		</Row>
@@ -93,8 +87,21 @@
 
 
 
+		<!--  ###########################               UI                ################################# -->
 
-		<!-- passive yields -->
+		<Row Tag="LOC_HONEY_MACGUFFIN_REMINDER_LAUNCH_NAME" Language="en_US">
+			<Text>Active Macguffin Info</Text>
+		</Row>
+		<Row Tag="LOC_HONEY_MACGUFFIN_UI_TITLE" Language="en_US">
+			<Text>Active Macguffins</Text>
+		</Row>
+		
+
+	
+
+
+
+		<!-- #######################         passive yields ################################   -->
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_NAME" Language="en_US">
 			<Text>The Ponderer's Orb</Text>
@@ -125,6 +132,16 @@
 		</Row>
 
 
+		<!-- #######################        active yields ################################   -->
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_NAME" Language="en_US">
+			<Text>Nexus of Knowledge</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER2_NAME" Language="en_US">
+			<Text>Awakened Nexus of Knowledge</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER3_NAME" Language="en_US">
+			<Text>Ascended Nexus of Knowledge</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_DESC" Language="en_US">
 			<Text>Activate the Nexus of Knowledge, granting 100 [ICON_Science] Science.</Text>
 		</Row>

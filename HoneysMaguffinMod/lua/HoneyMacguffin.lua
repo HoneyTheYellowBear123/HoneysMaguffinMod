@@ -9,7 +9,7 @@
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
 local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
-local richesBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
+local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
 
 --TO DO: macguffin awakening could be performed via optional technology that changes the pseudobuilding list. We can worry about this later.
@@ -33,9 +33,9 @@ function grantDebugGreatPerson(playerID, cityID, x, y)
 
 		capital = Players[playerID]:GetCities():GetCapitalCity();
 		if capital ~= nil then
-			if capital:GetBuildings():HasBuilding(richesBuildingIndex) ~= true then
+			if capital:GetBuildings():HasBuilding(altarBuildingIndex) ~= true then
 				local plotCapital = Map.GetPlot(capital:GetX(), capital:GetY());
-				capital:GetBuildQueue():CreateIncompleteBuilding(richesBuildingIndex, plotCapital:GetIndex(), 100);
+				capital:GetBuildQueue():CreateIncompleteBuilding(altarBuildingIndex, plotCapital:GetIndex(), 100);
 				capital:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_WALLS"].Index);
 				capital:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_CASTLE"].Index);
 				capital:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_STAR_FORT"].Index);
@@ -56,7 +56,7 @@ function grantDebugGreatPerson(playerID, cityID, x, y)
 	for i, cityObject in playerCityMembers:Members() do
 		print("the name of the city "..cityObject:GetName());
 		local plotC = Map.GetPlot(cityObject:GetX(), cityObject:GetY());
-		--tyObject:GetBuildQueue():CreateIncompleteBuilding(richesBuildingIndex, plotC:GetIndex(), 100);
+		--tyObject:GetBuildQueue():CreateIncompleteBuilding(altarBuildingIndex, plotC:GetIndex(), 100);
 		cityObject:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_WALLS"].Index);
 		cityObject:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_CASTLE"].Index);
 		--cityObject:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_STAR_FORT"].Index);

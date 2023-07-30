@@ -1,7 +1,7 @@
 
 INSERT OR IGNORE INTO InputCategories
 		(CategoryId,		Name,							Visible,		SortIndex)
-VALUES	('KNM_DWR',			'LOC_KNM_REMINDER_TITLE',		1,				'0');
+VALUES	('KNM_DWR',			'LOC_HONEY_MACGUFFIN_UI_TITLE',		1,				'0');
 
 INSERT INTO InputActions
 		(ActionId,					Name,							Description,							CategoryId,		ContextId)
