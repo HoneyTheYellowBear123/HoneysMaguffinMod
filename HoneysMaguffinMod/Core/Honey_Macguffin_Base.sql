@@ -15,11 +15,16 @@
 	-- actual custom great slot 
 	-- turn individual macguffins on/off
 	-- great people granted events via lua and too expensive otherwise
+	-- global cooldown in active macguffin UI
+	-- Macguffin Debt in active macguffin UI
 	-- override for greatworksoverview
-	-- UI for cooldown of projects
 	-- single use mega macguffins
 	-- District for epic macguffins with popups for enemies
 	-- Macguffin Ahnilator for victory
+
+
+	-- Only cooldown in altar? If not you'll need to change the UI
+	-- cleanup
 
 
 
@@ -161,5 +166,8 @@ VALUES	('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',  'GREATWORKSLOT_ARTIFACT',     
 --INSERT INTO Building_GreatWorks
 --		(BuildingType,								GreatWorkSlotType,				NumSlots)
 --VALUES  ('BUILDING_HONEY_MACGUFFIN_STORAGE_PSEUDOBUILDING',  'GREATWORKSLOT_HONEY_MACGUFFIN',      1 );
+
+
+
 
 

@@ -1,0 +1,16 @@
+<GameData>
+	<IconTextureAtlases>
+
+
+		<Row Name="ICON_ATLAS_FONT_PASSIVE_MACGUFFIN"       Baseline="6" IconSize="22"   IconsPerRow="11" IconsPerColumn="25" Filename="FontIcons_Passive_Macguffin.dds"/>
+		<Row Name="ICON_ATLAS_FONT_ACTIVE_MACGUFFIN"       Baseline="6" IconSize="22"   IconsPerRow="11" IconsPerColumn="25" Filename="FontIcons_Active_Macguffin.dds"/>
+
+	</IconTextureAtlases>
+
+
+
+	<IconDefinitions>
+		<Row Name="Honey_Passive_Macguffin"										 Atlas="ICON_ATLAS_FONT_PASSIVE_MACGUFFIN"  Index="0"/>
+		<Row Name="Honey_Active_Macguffin"										 Atlas="ICON_ATLAS_FONT_ACTIVE_MACGUFFIN"  Index="0"/>
+	</IconDefinitions>
+</GameData>
