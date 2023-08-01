@@ -16,26 +16,6 @@
 
 	-- content
 
-	-- great people granted events via lua and too expensive otherwise
-		--discover civs
-		--uncover a certain amount of the map
-		--declare freindship for the first time
-		--first alliance
-		--first wonder
-		--population reaches number
-		--some number of cities
-		--first boat
-		--Techs:
-			--flight
-			--mathematics
-			--iron working? ehhh
-		--civics:
-			--code of laws
-			--political philosophy
-			--The enlightenment
-			--conservation
-			--enviornmentalism
-
 
 	-- global cooldown in active macguffin UI
 	-- Macguffin Debt in active macguffin UI

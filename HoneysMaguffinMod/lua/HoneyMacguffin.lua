@@ -456,7 +456,7 @@ function initAvailableHoneyMacguffinGreatPeople()
 		tempTable = {}
 		i=0
 
-
+		print("DEBUG4 init available called!")
 		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_FLAT_YIELD') then
 
 			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP'
@@ -473,16 +473,20 @@ end
 --grant a random macguffin. Call this in a different function after some criteria has been fufilled.
 function grantMacguffinGreatPerson(playerID)
 
-	if not( Game:GetProperty("AvailableHoneyMacguffinGreatPeople")[1] == "all out :(") then
+	print("DEBUG4 grant macguffin great person called!")
+	if not ( Game:GetProperty("AvailableHoneyMacguffinGreatPeople")[1] == "all out :(") then
 
+		print("DEBUG4 we have great people to grant")
 		local xspot  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetX();
 		local yspot  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetY();
 
 		local temptable = Game:GetProperty("AvailableHoneyMacguffinGreatPeople")
 
 		local count = 0
-		for _ in pairs(temptable) do count = count + 1 end
-		return count
+		for _ in pairs(temptable) do
+			count = count + 1
+		end
+
 
 		math.randomseed(os.time())
 		math.random(); math.random(); math.random()
@@ -494,6 +498,7 @@ function grantMacguffinGreatPerson(playerID)
 		if count > 1 then
 			table.remove(temptable,randomIndex)
 		else
+			print("DEBUG4 we are all out of great people to grant now")
 			temptable[1] = "all out :("
 		end
 
@@ -525,7 +530,7 @@ function grantAstronomyMacguffin(playerID, technologyIndex)
 	end
 end
 function grantAstronomyMacguffin(playerID, technologyIndex)
-	if technologyIndex == GameInfo.Civics['TECH_ASTRONOMY'].Index then
+	if technologyIndex == GameInfo.Technologies['TECH_ASTRONOMY'].Index then
 		grantMacguffinGreatPerson(playerID)
 	end
 end
@@ -541,8 +546,9 @@ end
 
 
 
-function initMacguffinGrantingFunctions(grantPantheonMacguffin)
+function initMacguffinGrantingFunctions()
 
+	print("DEBUG4 setting up macguffin granting functions")
 	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_PANTHEON') then
 		Events.PantheonFounded.Add(grantPantheonMacguffin) --only happens once!
 	end
@@ -605,8 +611,8 @@ end
 --end
 
 
-
-
+initMacguffinGrantingFunctions()
+initAvailableHoneyMacguffinGreatPeople();
 initHoneyMacguffinIndexSystem();
 setupMacguffinGreatPeople();
 setupActiveMacguffinProjects();
