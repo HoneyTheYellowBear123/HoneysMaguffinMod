@@ -504,22 +504,78 @@ end
 function grantPantheonMacguffin(playerID)
 	grantMacguffinGreatPerson(playerID)
 end
+function grantPolPhilMacguffin(playerID, civicIndex, isCancelled)
+	if civicIndex == GameInfo.Civics['CIVIC_POLITICAL_PHILOSOPHY'].Index then
+		grantMacguffinGreatPerson(playerID)
+	end
+end
+function grantEnlightenmentMacguffin(playerID, civicIndex, isCancelled)
+	if civicIndex == GameInfo.Civics['CIVIC_THE_ENLIGHTENMENT'].Index then
+		grantMacguffinGreatPerson(playerID)
+	end
+end
+function grantEnviornmentalismMacguffin(playerID, civicIndex, isCancelled)
+	if civicIndex == GameInfo.Civics['CIVIC_ENVIRONMENTALISM'].Index then
+		grantMacguffinGreatPerson(playerID)
+	end
+end
+function grantAstronomyMacguffin(playerID, technologyIndex)
+	if technologyIndex == GameInfo.Civics['TECH_ASTRONOMY'].Index then
+		grantMacguffinGreatPerson(playerID)
+	end
+end
+function grantAstronomyMacguffin(playerID, technologyIndex)
+	if technologyIndex == GameInfo.Civics['TECH_ASTRONOMY'].Index then
+		grantMacguffinGreatPerson(playerID)
+	end
+end
+--function grantWonderMacguffin(x, y, buildingIndex, playerIndex, cityID, percentComplete, unknown)
+	
+	--just the first one
+
+
+--end
+
+
+
 
 
 
 function initMacguffinGrantingFunctions(grantPantheonMacguffin)
-	Events.PantheonFounded.Add(grantPantheonMacguffin) --only happens once!
+
+	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_PANTHEON') then
+		Events.PantheonFounded.Add(grantPantheonMacguffin) --only happens once!
+	end
+
 	--Events.DiplomacyRelationshipChanged --friendship or alliance would be cool
-	Events.CivicCompleted --there's a couple here
-	Events.ResearchCompleted --there's a couple here
-	Events.ReligionFounded --eh
-	Events.WonderCompleted --probably just first wonder
-	GameEvents.CityBuilt --build x number of cities, probably also first city
-	GameEvents.UnitAddedToMap --for flight and boats
+	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_POLITICAL_PHILOSOPHY') then
+		Events.CivicCompleted.Add(grantPolPhilMacguffin) 
+	end 
+	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_ENLIGHTENMENT') then
+		Events.CivicCompleted.Add(grantPolPhilMacguffin) 
+	end 
+	if GameConfiguration.GetValue('CCONFIG_HONEY_MACGUFFIN_GRANT_ON_ENVIORNMENTALISM') then
+		Events.CivicCompleted.Add(grantPolPhilMacguffin) 
+	end 
+	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_ASTRONOMY') then
+		Events.ResearchCompleted.Add(grantAstronomyMacguffin) 
+	end 
+	
+	--Events.ReligionFounded --eh
+
+	--to do: come back to these other ones
+	--if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_WONDER_COMPLETED') then
+	--	Events.ResearchCompleted.Add(grantAstronomyMacguffin) 
+	--end 
+	--Events.WonderCompleted --probably just first wonder
+	--GameEvents.CityBuilt --build x number of cities, probably also first city
+	--GameEvents.UnitAddedToMap --for flight and boats
 end
 
 
-
+--#####################################################################################################################
+----------------------------------------------------- END GRANTING GREAT PEOPLE ---------------------------------------------
+--#####################################################################################################################
 
 
 
