@@ -11,20 +11,46 @@
 
 
 --      -------------------------- HEAVY FEATURES ---------------------------------
-	-- game starts, everybody gets free storage? (just add a bunch to palace). 
 	-- actual custom great slot 
-	-- turn individual macguffins on/off
+		-- override for greatworksoverview
+
+	-- content
+
 	-- great people granted events via lua and too expensive otherwise
+		--discover civs
+		--uncover a certain amount of the map
+		--declare freindship for the first time
+		--first alliance
+		--first wonder
+		--population reaches number
+		--some number of cities
+		--first boat
+		--Techs:
+			--flight
+			--mathematics
+			--iron working? ehhh
+		--civics:
+			--code of laws
+			--political philosophy
+			--The enlightenment
+			--conservation
+			--enviornmentalism
+
+
 	-- global cooldown in active macguffin UI
 	-- Macguffin Debt in active macguffin UI
-	-- override for greatworksoverview
-	-- single use mega macguffins
-	-- District for epic macguffins with popups for enemies
-	-- Macguffin Ahnilator for victory
+	
+	-- District for epic macguffins
+		-- single use mega macguffins
+		--  popups for enemies
 
 
+
+------------------------ FUTURE/END ---------------------
 	-- Only cooldown in altar? If not you'll need to change the UI
 	-- cleanup
+	-- Macguffin Ahnilator for victory
+	-- config
 
 
 

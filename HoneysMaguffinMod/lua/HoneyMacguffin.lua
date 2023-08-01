@@ -329,8 +329,9 @@ end
 
 
 
-
+--#####################################################################################################################
 ----------------------------------------------------- ACTIVE MACGUFFINS ---------------------------------------------
+--#####################################################################################################################
 
 local tActiveMacguffinProjects = {}
 
@@ -433,7 +434,89 @@ function reduceHoneyMacguffinCooldown()
 
 end
 
+--#####################################################################################################################
 ----------------------------------------------  END ACTIVE MACGUFFINS --------------------------------------
+--#####################################################################################################################
+
+
+
+--#####################################################################################################################
+----------------------------------------------------- GRANTING GREAT PEOPLE ---------------------------------------------
+--#####################################################################################################################
+
+--To Do set up config and great people after all the macguffins have been added
+--To Do I could check the start era and grant different tiers of great people in later eras if I really feel like it
+--To Do I could add an option so only human players get macguffins (or only AI players ooooooo spicy)
+
+
+function initAvailableHoneyMacguffinGreatPeople()
+
+	if Game:GetProperty("AvailableHoneyMacguffinGreatPeople") == nil then                                 
+		Game:SetProperty("AvailableHoneyMacguffinGreatPeople",{});
+		tempTable = {}
+		i=0
+
+
+		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_FLAT_YIELD') then
+
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP'
+			i = i + 1
+
+		end
+
+		Game:SetProperty("AvailableHoneyMacguffinGreatPeople",tempTable);
+	end
+
+end
+
+
+--grant a random macguffin. Call this in a different function after some criteria has been fufilled.
+function grantMacguffinGreatPerson(playerID)
+
+	if not( Game:GetProperty("AvailableHoneyMacguffinGreatPeople")[1] == "all out :(") then
+
+		local xspot  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetX();
+		local yspot  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetY();
+
+		local temptable = Game:GetProperty("AvailableHoneyMacguffinGreatPeople")
+
+		local count = 0
+		for _ in pairs(temptable) do count = count + 1 end
+		return count
+
+		math.randomseed(os.time())
+		math.random(); math.random(); math.random()
+		local randomIndex = math.random(1,count)
+		local randomMacguffinGreatPerson = temptable[randomIndex]
+
+		Game.GetGreatPeople():CreatePerson(playerID, randomMacguffinGreatPerson, xspot, yspot);
+
+		if count > 1 then
+			table.remove(temptable,randomIndex)
+		else
+			temptable[1] = "all out :("
+		end
+
+		Game:SetProperty("AvailableHoneyMacguffinGreatPeople", temptable)
+	end
+end
+
+function grantPantheonMacguffin(playerID)
+	grantMacguffinGreatPerson(playerID)
+end
+
+
+
+function initMacguffinGrantingFunctions(grantPantheonMacguffin)
+	Events.PantheonFounded.Add(grantPantheonMacguffin) --only happens once!
+	--Events.DiplomacyRelationshipChanged --friendship or alliance would be cool
+	Events.CivicCompleted --there's a couple here
+	Events.ResearchCompleted --there's a couple here
+	Events.ReligionFounded --eh
+	Events.WonderCompleted --probably just first wonder
+	GameEvents.CityBuilt --build x number of cities, probably also first city
+	GameEvents.UnitAddedToMap --for flight and boats
+end
 
 
 
@@ -444,9 +527,13 @@ end
 
 
 
-initHoneyMacguffinIndexSystem();
-setupMacguffinGreatPeople();
-setupActiveMacguffinProjects();
+
+
+
+
+
+
+
 
 
 
@@ -463,6 +550,13 @@ setupActiveMacguffinProjects();
 
 
 
+
+initHoneyMacguffinIndexSystem();
+setupMacguffinGreatPeople();
+setupActiveMacguffinProjects();
+
+
+
 Events.GreatWorkCreated.Add(GreatWorkCreatedCheck)
 Events.GreatWorkMoved.Add(GreatWorkMovedCheck)
 Events.UnitGreatPersonActivated.Add(GreatPersonActivatedCheck)
@@ -472,9 +566,6 @@ Events.TurnBegin.Add(reduceHoneyMacguffinCooldown)
 
 
 
---new plan: delete the shrine with turn end by looping through players
-
 
 --to do: delete debug code
 Events.CityInitialized.Add(grantDebugGreatPerson)
---Events.TurnEnd.Add(getThoseBuildingsGone)
