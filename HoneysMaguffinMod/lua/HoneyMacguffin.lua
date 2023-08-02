@@ -453,8 +453,8 @@ function initAvailableHoneyMacguffinGreatPeople()
 
 	if Game:GetProperty("AvailableHoneyMacguffinGreatPeople") == nil then                                 
 		Game:SetProperty("AvailableHoneyMacguffinGreatPeople",{});
-		tempTable = {}
-		i=0
+		local tempTable = {}
+		local i=1
 
 		print("DEBUG4 init available called!")
 		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_FLAT_YIELD') then
@@ -477,8 +477,8 @@ function grantMacguffinGreatPerson(playerID)
 	if not ( Game:GetProperty("AvailableHoneyMacguffinGreatPeople")[1] == "all out :(") then
 
 		print("DEBUG4 we have great people to grant")
-		local xspot  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetX();
-		local yspot  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetY();
+		local xspot =  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetX();
+		local yspot =  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetY();
 
 		local temptable = Game:GetProperty("AvailableHoneyMacguffinGreatPeople")
 
@@ -491,7 +491,13 @@ function grantMacguffinGreatPerson(playerID)
 		math.randomseed(os.time())
 		math.random(); math.random(); math.random()
 		local randomIndex = math.random(1,count)
-		local randomMacguffinGreatPerson = temptable[randomIndex]
+		local randomMacguffinGreatPerson = temptable[randomIndex] --GameInfo.GreatPersonIndividuals[temptable[randomIndex]].Index
+
+		print("DEBUG4 x: "..xspot)
+		print("DEBUG4 y: "..yspot)
+		print("DEBUG4 playerID: "..playerID)
+		print("DEBUG4 randomIndex: "..randomIndex)
+		print("DEBUG4 macguffingreatperson: "..temptable[1])
 
 		Game.GetGreatPeople():CreatePerson(playerID, randomMacguffinGreatPerson, xspot, yspot);
 
@@ -530,7 +536,7 @@ function grantAstronomyMacguffin(playerID, technologyIndex)
 	end
 end
 function grantAstronomyMacguffin(playerID, technologyIndex)
-	if technologyIndex == GameInfo.Technologies['TECH_ASTRONOMY'].Index then
+	if technologyIndex == GameInfo.Technologies['TECH_MINING'].Index then
 		grantMacguffinGreatPerson(playerID)
 	end
 end
