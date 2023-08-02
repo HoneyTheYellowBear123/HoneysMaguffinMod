@@ -448,7 +448,6 @@ end
 --To Do I could check the start era and grant different tiers of great people in later eras if I really feel like it
 --To Do I could add an option so only human players get macguffins (or only AI players ooooooo spicy)
 
-
 function initAvailableHoneyMacguffinGreatPeople()
 
 	if Game:GetProperty("AvailableHoneyMacguffinGreatPeople") == nil then                                 
@@ -536,7 +535,7 @@ function grantAstronomyMacguffin(playerID, technologyIndex)
 	end
 end
 function grantAstronomyMacguffin(playerID, technologyIndex)
-	if technologyIndex == GameInfo.Technologies['TECH_MINING'].Index then
+	if technologyIndex == GameInfo.Technologies['TECH_ASTRONOMY'].Index then
 		grantMacguffinGreatPerson(playerID)
 	end
 end
