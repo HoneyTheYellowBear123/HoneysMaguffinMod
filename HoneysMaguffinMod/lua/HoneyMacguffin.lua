@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_CULTURE_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_PRODUCTION_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -461,6 +461,14 @@ function initAvailableHoneyMacguffinGreatPeople()
 			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP'
 			i = i + 1
 			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_CULTURE_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_GOLD_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_FAITH_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_FOOD_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_PRODUCTION_GP'
 			i = i + 1
 
 		end

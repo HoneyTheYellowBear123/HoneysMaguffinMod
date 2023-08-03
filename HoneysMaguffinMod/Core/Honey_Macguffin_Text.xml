@@ -198,7 +198,7 @@
 			<Text>Ascended Beholder's Eye</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_CULTURE_DESC" Language="en_US">
-			<Text>The effects of the Beholder's Eye being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Beholder's Eye being place in this city's Macguffin Altar. Beauty is within it.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_CULTURE_TIER2_DESC" Language="en_US">
 			<Text>The effects of the Awakened Beholder's Eye being place in this city's Macguffin Altar.</Text>
@@ -207,6 +207,84 @@
 			<Text>The effects of the Ascended Beholder's Eye being place in this city's Macguffin Altar.</Text>
 		</Row>
 
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_GOLD_NAME" Language="en_US">
+			<Text>Midas Prismon</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_GOLD_TIER2_NAME" Language="en_US">
+			<Text>Awakened Midas Prismon</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_GOLD_TIER3_NAME" Language="en_US">
+			<Text>Ascended Midas Prismon</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_GOLD_DESC" Language="en_US">
+			<Text>The effects of the Midas Prismon being place in this city's Macguffin Altar.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_GOLD_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Midas Prismon being place in this city's Macguffin Altar.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_GOLD_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Midas Prismon being place in this city's Macguffin Altar.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_FAITH_NAME" Language="en_US">
+			<Text>Venerated Pauldrate</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_FAITH_TIER2_NAME" Language="en_US">
+			<Text>Awakened Venerated Pauldrate</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_FAITH_TIER3_NAME" Language="en_US">
+			<Text>Ascended Venerated Pauldrate</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FAITH_DESC" Language="en_US">
+			<Text>The effects of the Venerated Pauldrate being place in this city's Macguffin Altar.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FAITH_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Venerated Pauldrate being place in this city's Macguffin Altar.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FAITH_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Venerated Pauldrate being place in this city's Macguffin Altar.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_FOOD_NAME" Language="en_US">
+			<Text>Verduroot</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_FOOD_TIER2_NAME" Language="en_US">
+			<Text>Awakened Verduroot</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_FOOD_TIER3_NAME" Language="en_US">
+			<Text>Ascended Verduroot</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FOOD_DESC" Language="en_US">
+			<Text>The effects of the Verduroot being place in this city's Macguffin Altar.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FOOD_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Verduroot being place in this city's Macguffin Altar.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FOOD_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Verduroot being place in this city's Macguffin Altar.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_PRODUCTION_NAME" Language="en_US">
+			<Text>Optomator</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_PRODUCTION_TIER2_NAME" Language="en_US">
+			<Text>Awakened Optomator</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_PRODUCTION_TIER3_NAME" Language="en_US">
+			<Text>Ascended Optomator</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_PRODUCTION_DESC" Language="en_US">
+			<Text>The effects of the Optomator being place in this city's Macguffin Altar.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_PRODUCTION_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Optomator being place in this city's Macguffin Altar.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_PRODUCTION_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Optomator being place in this city's Macguffin Altar.</Text>
+		</Row>
+
+
+		
 
 		<!-- #######################        active yields ################################   -->
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_NAME" Language="en_US">
