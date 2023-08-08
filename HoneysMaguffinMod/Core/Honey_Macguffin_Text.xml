@@ -179,13 +179,13 @@
 			<Text>The Ascended Ponderer's Orb</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_DESC" Language="en_US">
-			<Text>The effects of the Ponderer's Orb being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Ponderer's Orb being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_TIER2_DESC" Language="en_US">
-			<Text>The effects of the Awakened Ponderer's Orb being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Awakened Ponderer's Orb being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_TIER3_DESC" Language="en_US">
-			<Text>The effects of the Ascended Ponderer's Orb being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Ascended Ponderer's Orb being placed in this city's Macguffin Altar.</Text>
 		</Row>
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_CULTURE_NAME" Language="en_US">
@@ -198,13 +198,13 @@
 			<Text>Ascended Beholder's Eye</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_CULTURE_DESC" Language="en_US">
-			<Text>The effects of the Beholder's Eye being place in this city's Macguffin Altar. Beauty is within it.</Text>
+			<Text>The effects of the Beholder's Eye being placed in this city's Macguffin Altar. Beauty is within it.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_CULTURE_TIER2_DESC" Language="en_US">
-			<Text>The effects of the Awakened Beholder's Eye being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Awakened Beholder's Eye being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_CULTURE_TIER3_DESC" Language="en_US">
-			<Text>The effects of the Ascended Beholder's Eye being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Ascended Beholder's Eye being placed in this city's Macguffin Altar.</Text>
 		</Row>
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_GOLD_NAME" Language="en_US">
@@ -217,13 +217,13 @@
 			<Text>Ascended Midas Prismon</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_GOLD_DESC" Language="en_US">
-			<Text>The effects of the Midas Prismon being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Midas Prismon being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_GOLD_TIER2_DESC" Language="en_US">
-			<Text>The effects of the Awakened Midas Prismon being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Awakened Midas Prismon being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_GOLD_TIER3_DESC" Language="en_US">
-			<Text>The effects of the Ascended Midas Prismon being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Ascended Midas Prismon being placed in this city's Macguffin Altar.</Text>
 		</Row>
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_FAITH_NAME" Language="en_US">
@@ -236,13 +236,13 @@
 			<Text>Ascended Venerated Pauldrate</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FAITH_DESC" Language="en_US">
-			<Text>The effects of the Venerated Pauldrate being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Venerated Pauldrate being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FAITH_TIER2_DESC" Language="en_US">
-			<Text>The effects of the Awakened Venerated Pauldrate being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Awakened Venerated Pauldrate being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FAITH_TIER3_DESC" Language="en_US">
-			<Text>The effects of the Ascended Venerated Pauldrate being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Ascended Venerated Pauldrate being placed in this city's Macguffin Altar.</Text>
 		</Row>
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_FOOD_NAME" Language="en_US">
@@ -255,13 +255,13 @@
 			<Text>Ascended Verduroot</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FOOD_DESC" Language="en_US">
-			<Text>The effects of the Verduroot being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Verduroot being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FOOD_TIER2_DESC" Language="en_US">
-			<Text>The effects of the Awakened Verduroot being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Awakened Verduroot being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_FOOD_TIER3_DESC" Language="en_US">
-			<Text>The effects of the Ascended Verduroot being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Ascended Verduroot being placed in this city's Macguffin Altar.</Text>
 		</Row>
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_PRODUCTION_NAME" Language="en_US">
@@ -274,17 +274,60 @@
 			<Text>Ascended Optomator</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_PRODUCTION_DESC" Language="en_US">
-			<Text>The effects of the Optomator being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Optomator being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_PRODUCTION_TIER2_DESC" Language="en_US">
-			<Text>The effects of the Awakened Optomator being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Awakened Optomator being placed in this city's Macguffin Altar.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_PRODUCTION_TIER3_DESC" Language="en_US">
-			<Text>The effects of the Ascended Optomator being place in this city's Macguffin Altar.</Text>
+			<Text>The effects of the Ascended Optomator being placed in this city's Macguffin Altar.</Text>
 		</Row>
 
 
-		
+
+
+		<!-- #######################         passive military  ################################   -->
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_NAME" Language="en_US">
+			<Text>Leorozón</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Awakened Leorozón</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Ascended Leorozón</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_MELEE_BUFF_DESC" Language="en_US">
+			<Text>The effects of the Leorozón being placed in this city's Macguffin Altar. Melee Units will gain +4 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_MELEE_BUFF_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Leorozón being placed in this city's Macguffin Altar. Melee Units will gain +6 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_MELEE_BUFF_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Leorozón being placed in this city's Macguffin Altar. Melee Units will gain +9 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_NAME" Language="en_US">
+			<Text>Heart of the Lion</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Heart of the Lion</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Heart of the Lion</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_DESC" Language="en_US">
+			<Text>+4 [ICON_Strength] (Leorozón)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_TIER2_DESC" Language="en_US">
+			<Text>+6 [ICON_Strength] (Awakened Leorozón)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_TIER3_DESC" Language="en_US">
+			<Text>+9 [ICON_Strength] (Ascended Leorozón)</Text>
+		</Row>
+
+
+
+
 
 		<!-- #######################        active yields ################################   -->
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_NAME" Language="en_US">
