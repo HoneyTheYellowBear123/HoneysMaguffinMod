@@ -24,6 +24,10 @@
 		-- single use mega macguffins
 		--  popups for enemies
 
+	--option to destroy macguffins of AI when capturing cities
+	--option to only have AI get macguffins
+	--option of only have humans get macguffins
+
 
 
 ------------------------ FUTURE/END ---------------------
