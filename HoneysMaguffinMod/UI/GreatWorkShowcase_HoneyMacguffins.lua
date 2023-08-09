@@ -22,7 +22,7 @@ local SIZE_BANNER_MIN:number = 506;
 -- ===========================================================================
 function HandleCustomGreatWorkTypes( greatWorkType:string, greatWorkIndex:number )
 
-	print("handle customgreatworktypes was called");
+	print("HoneyDebugShowcasehandle customgreatworktypes was called");
 
 	local kGreatWorkInfo:table = GameInfo.GreatWorks[greatWorkType];
 	local greatWorkType:string = kGreatWorkInfo.GreatWorkType;
@@ -52,4 +52,4 @@ function HandleCustomGreatWorkTypes( greatWorkType:string, greatWorkIndex:number
 	return true;
 end
 
-print("UI showcase script was loaded");
+print("HoneyDebugShowcaseUI showcase script was loaded");

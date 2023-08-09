@@ -520,7 +520,9 @@ function GetDetails(data)
 						table.insert(details, "- " .. Locale.Lookup(v));
 					end
 				end
+				print("honeyDebug we're gonna try to call GetNumGreatWorkSlots")
 				local iSlots = cityBuildings:GetNumGreatWorkSlots(data.BuildingTypes[i]);
+				print("honeyDebug we called GetNumGreatWorkSlots")
 				for j = 0, iSlots - 1, 1 do
 					local greatWorkIndex:number = cityBuildings:GetGreatWorkInSlot(data.BuildingTypes[i], j);
 					if (greatWorkIndex ~= -1) then

@@ -129,6 +129,8 @@ end
 
 -------------------------------------------------------------------------------
 ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
+
+	print("honeydebug building tooltip was called!")
 	
 	-- ToolTip Format
 	-- <Name>
@@ -142,6 +144,7 @@ ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
 	local buildingType:string = "";
 	if (building ~= nil) then
 		buildingType = building.BuildingType;
+		print("honeydebug buildingtype is "..buildingType)
 	end
 
 	local name = building.Name;
@@ -218,7 +221,7 @@ ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
 		end
 	end
 	
-	print("building tooltip was called!")
+	
 	local slotStrings = {
 		["GREATWORKSLOT_PALACE"] = "LOC_TYPE_TRAIT_GREAT_WORKS_PALACE_SLOTS";
 		["GREATWORKSLOT_ART"] = "LOC_TYPE_TRAIT_GREAT_WORKS_ART_SLOTS";
@@ -227,8 +230,8 @@ ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
 		["GREATWORKSLOT_RELIC"] = "LOC_TYPE_TRAIT_GREAT_WORKS_RELIC_SLOTS";
 		["GREATWORKSLOT_ARTIFACT"] = "LOC_TYPE_TRAIT_GREAT_WORKS_ARTIFACT_SLOTS";
 		["GREATWORKSLOT_CATHEDRAL"] = "LOC_TYPE_TRAIT_GREAT_WORKS_CATHEDRAL_SLOTS";
-		["GREATWORKSLOT_PRODUCT"] = "LOC_TYPE_TRAIT_GREAT_WORKS_PRODUCT_SLOTS";
-		["GREATWORKSLOT_HONEY_MACGUFFIN"] = "LOC_TYPE_TRAIT_GREAT_WORKS_HONEY_MACGUFFIN_SLOTS"; 
+		["GREATWORKSLOT_PRODUCT"] = "LOC_TYPE_TRAIT_GREAT_WORKS_PRODUCT_SLOTS";			
+		["GREATWORKSLOT_HONEY_MACGUFFIN"] =  "LOC_TYPE_TRAIT_GREAT_WORKS_HONEY_MACGUFFIN_SLOTS"; 
 	};
 	print("HoneyDebug tooltiphelper building type: " ..name);
 
@@ -244,6 +247,7 @@ ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
 			end
 		end
 	end
+	print("HoneyDebug we made it past the great works line");
 	
 	if(not Locale.IsNilOrWhitespace(description)) then
 		table.insert(toolTipLines, "[NEWLINE]" .. Locale.Lookup(description));	
@@ -391,6 +395,7 @@ ToolTipHelper.GetBuildingToolTip = function(buildingHash, playerId, city)
 		end
 	end
 
+	print("honeydebug building tooltip finished!")
 	-- Return the composite tooltip!
 	return table.concat(toolTipLines, "[NEWLINE]");
 
