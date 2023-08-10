@@ -130,6 +130,8 @@ function UpdateGreatWorks()
 
 					print("honeydebugdebug a building found");
 					print("honeydebugdebug a building is "..Locale.ToUpper(Locale.Lookup(buildingInfo.Name)));
+
+					--IMPORTANT working theory is that get numgreatworkslots does not work, may possibly be hardcoded. Its possible that there may be modifiers that it looks for that could be abused.
 					local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
 					print("honeydebugdebug a greatworkslot returned is "..numSlots);
 
@@ -144,6 +146,10 @@ function UpdateGreatWorks()
 						local greatWorks:number = PopulateGreatWorkSlot(instance, pCity, pCityBldgs, buildingInfo);
 						table.insert(m_GreatWorkBuildings, {Instance=instance, Type=buildingType, Index=buildingIndex, CityBldgs=pCityBldgs});
 						numDisplaySpaces = numDisplaySpaces + pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
+						if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+							print("honeydebugdebug a artificially increasing macguffin holder slots a second time");
+							numDisplaySpaces = numDisplaySpaces + 1
+						end
 						numGreatWorks = numGreatWorks + greatWorks;
 					end
 				end
@@ -216,6 +222,10 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	local instanceCache:table = {};
 	local firstGreatWork:table = nil;
 	local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
+	if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+		print("honeydebugdebug b artificially increasing macguffin holder slots");
+		numSlots = 1
+	end
 
 	if (numSlots ~= nil and numSlots > 0) then
 		print("honeydebugdebug b looping through slots");
@@ -223,8 +233,17 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 			print("honeydebugdebug b slot loop started");
 			local instance:table = greatWorkIM:GetInstance();
 			local greatWorkIndex:number = pCityBldgs:GetGreatWorkInSlot(buildingIndex, index);
+			print("honeydebugdebug b great work index "..greatWorkIndex);
+
+			--IMPORTANT GetGreatWorkSlotType also does not work
 			local greatWorkSlotType:number = pCityBldgs:GetGreatWorkSlotType(buildingIndex, index);
+
+			if (buildingInd
+
+
+			print("honeydebugdebug b slottypenumber "..greatWorkSlotType);
 			local greatWorkSlotString:string = GameInfo.GreatWorkSlotTypes[greatWorkSlotType].GreatWorkSlotType;
+			print("honeydebugdebug b slotstring "..greatWorkSlotString);
 
 			PopulateGreatWork(instance, pCityBldgs, pBuildingInfo, index, greatWorkIndex, greatWorkSlotString);
 			index = index + 1;
@@ -692,15 +711,19 @@ function GetFirstGreatWorkInBuilding(pCityBldgs:table, pBuildingInfo:table)
 	local index:number = 0;
 	local buildingIndex:number = pBuildingInfo.Index;
 	local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
+	if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+		print("honeydebugdebug l artificially increasing macguffin holder slots");
+		numSlots = 1
+	end
 	for _:number=0, numSlots - 1 do
 		local greatWorkIndex:number = pCityBldgs:GetGreatWorkInSlot(buildingIndex, index);
 		if greatWorkIndex ~= -1 then
-			print("honeydebugdebug l END");
+			print("honeydebugdebug l END a");
 			return greatWorkIndex;
 		end
 		index = index + 1;
 	end
-	print("honeydebugdebug l END");
+	print("honeydebugdebug l END b");
 	return -1;
 end
 
@@ -710,6 +733,10 @@ function GetGreatWorksInBuilding(pCityBldgs:table, pBuildingInfo:table)
 	local results:table = {};
 	local buildingIndex:number = pBuildingInfo.Index;
 	local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
+	if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+		print("honeydebugdebug m artificially increasing macguffin holder slots");
+		numSlots = 1
+	end
 	for _:number=0, numSlots - 1 do
 		local greatWorkIndex:number = pCityBldgs:GetGreatWorkInSlot(buildingIndex, index);
 		if greatWorkIndex ~= -1 then
@@ -795,6 +822,10 @@ function OnClickGreatWork(kDragStruct:table, pCityBldgs:table, buildingIndex:num
 		local dstBldgs:table = destination.CityBldgs;
 		local slotCache:table = instance[DATA_FIELD_SLOT_CACHE];
 		local numSlots:number = dstBldgs:GetNumGreatWorkSlots(dstBuilding);
+		if dstBuilding == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+			print("honeydebugdebug p artificially increasing macguffin holder slots");
+			numSlots = 1
+		end
 		for index:number = 0, numSlots - 1 do
 			if CanMoveGreatWork(pCityBldgs, buildingIndex, slotIndex, dstBldgs, dstBuilding, index) then
 				if firstValidSlot == -1 then
@@ -862,6 +893,10 @@ end
 function IsBuildingFull( pBuildings:table, buildingIndex:number )
 	print("honeydebugdebug r");
 	local numSlots:number = pBuildings:GetNumGreatWorkSlots(buildingIndex);
+	if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+		print("honeydebugdebug r artificially increasing macguffin holder slots");
+		numSlots = 1
+	end
 	for index:number = 0, numSlots - 1 do
 		local greatWorkIndex:number = pBuildings:GetGreatWorkInSlot(buildingIndex, index);
 		if (greatWorkIndex == -1) then
@@ -895,14 +930,18 @@ function CanMoveToSlot(destBldgs:table, destBuilding:number)
 
 	-- Don't allow moving artifacts if the museum is not full
 	local numSlots:number = destBldgs:GetNumGreatWorkSlots(destBuilding);
+	if destBuilding == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+		print("honeydebugdebug t artificially increasing macguffin holder slots");
+		numSlots = 1
+	end
 	for index:number = 0, numSlots - 1 do
 		local greatWorkIndex:number = destBldgs:GetGreatWorkInSlot(destBuilding, index);
 		if (greatWorkIndex == -1) then
-			print("honeydebugdebug t END");
+			print("honeydebugdebug t END a");
 			return false;
 		end
 	end
-	print("honeydebugdebug t END");
+	print("honeydebugdebug t END b");
 	return true;
 end
 
