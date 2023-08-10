@@ -97,6 +97,61 @@ function GetGreatWorkSlotTypeIcon(slotType:string)
 end
 
 
+
+function CanMoveGreatWork(srcBldgs:table, srcBuilding:number, srcSlot:number, dstBldgs:table, dstBuilding:number, dstSlot:number)
+
+	local srcGreatWork:number = srcBldgs:GetGreatWorkInSlot(srcBuilding, srcSlot);
+	local srcGreatWorkType:number = srcBldgs:GetGreatWorkTypeFromIndex(srcGreatWork);
+	local srcGreatWorkObjectType:string = GameInfo.GreatWorks[srcGreatWorkType].GreatWorkObjectType;
+
+	local dstGreatWork:number = dstBldgs:GetGreatWorkInSlot(dstBuilding, dstSlot);
+	local dstSlotType:number = dstBldgs:GetGreatWorkSlotType(dstBuilding, dstSlot);
+
+	if dstBuilding ==GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+			dstSlotType = GameInfo.GreatWorkSlotTypes['GREATWORKSLOT_HONEY_MACGUFFIN'].Index
+	end
+
+	local dstSlotTypeString:string = GameInfo.GreatWorkSlotTypes[dstSlotType].GreatWorkSlotType;
+
+	for row in GameInfo.GreatWork_ValidSubTypes() do
+		-- Ensure source great work can be placed into destination slot
+		if dstSlotTypeString == row.GreatWorkSlotType and srcGreatWorkObjectType == row.GreatWorkObjectType then
+			if dstGreatWork == -1 then
+				-- Artifacts can never be moved to an empty slot as
+				-- they can only be swapped between other full museums
+				return row.GreatWorkObjectType ~= GREAT_WORK_ARTIFACT_TYPE;
+			else -- If destination slot has a great work, ensure it can be swapped to the source slot
+				local srcSlotType:number = srcBldgs:GetGreatWorkSlotType(srcBuilding, srcSlot);
+
+				if srcBuilding ==GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+					srcSlotType = GameInfo.GreatWorkSlotTypes['GREATWORKSLOT_HONEY_MACGUFFIN'].Index
+				end
+
+				local srcSlotTypeString:string = GameInfo.GreatWorkSlotTypes[srcSlotType].GreatWorkSlotType;
+
+				local dstGreatWorkType:number = dstBldgs:GetGreatWorkTypeFromIndex(dstGreatWork);
+				local dstGreatWorkObjectType:string = GameInfo.GreatWorks[dstGreatWorkType].GreatWorkObjectType;
+				
+				for row in GameInfo.GreatWork_ValidSubTypes() do
+					if srcSlotTypeString == row.GreatWorkSlotType and dstGreatWorkObjectType == row.GreatWorkObjectType then
+						return CanMoveWorkAtAll(dstBldgs, dstBuilding, dstSlot);
+					end
+				end
+			end
+		end
+	end
+	return false;
+end
+
+
+
+
+
+
+
+
+
+--taken care of by expansion 2 
 --[[
 function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pBuildingInfo:table)
 
