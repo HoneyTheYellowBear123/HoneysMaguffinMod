@@ -58,6 +58,46 @@ end
 
 
 
+function UpdateGalleryData()
+	if (m_LocalPlayer == nil) then
+		return;
+	end
+
+	m_GreatWorks = {};
+	m_GalleryIndex = -1;
+	local pCities:table = m_LocalPlayer:GetCities();
+	for i, pCity in pCities:Members() do
+		if pCity ~= nil and pCity:GetOwner() == m_LocalPlayerID then
+			local pCityBldgs:table = pCity:GetBuildings();
+			for buildingInfo in GameInfo.Buildings() do
+				local buildingIndex:number = buildingInfo.Index;
+				if(pCityBldgs:HasBuilding(buildingIndex)) then
+					local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
+
+					if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+						numSlots = 1
+					end
+
+
+					for index:number = 0, numSlots - 1 do
+						local greatWorkIndex:number = pCityBldgs:GetGreatWorkInSlot(buildingIndex, index);
+						if greatWorkIndex ~= -1 then
+							table.insert(m_GreatWorks, {Index=greatWorkIndex, Building=buildingIndex, City=pCity});
+							if greatWorkIndex == m_GreatWorkIndex then
+								m_GalleryIndex = table.count(m_GreatWorks);
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+
+	local canCycleGreatWorks:boolean = m_GalleryIndex ~= -1 and table.count(m_GreatWorks) > 1;
+	Controls.PreviousGreatWork:SetHide(not canCycleGreatWorks);
+	Controls.NextGreatWork:SetHide(not canCycleGreatWorks);
+end
+
 
 --[[
 function UpdateGreatWork()

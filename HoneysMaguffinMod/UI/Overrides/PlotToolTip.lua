@@ -521,6 +521,11 @@ function GetDetails(data)
 					end
 				end
 				local iSlots = cityBuildings:GetNumGreatWorkSlots(data.BuildingTypes[i]);
+
+				if data.BuildingTypes[i] == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+						iSlots = 1
+				end
+
 				for j = 0, iSlots - 1, 1 do
 					local greatWorkIndex:number = cityBuildings:GetGreatWorkInSlot(data.BuildingTypes[i], j);
 					if (greatWorkIndex ~= -1) then
