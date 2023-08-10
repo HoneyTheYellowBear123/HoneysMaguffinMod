@@ -323,10 +323,19 @@
     <Content Include="UI\GreatWorksOverview_HoneyMacguffins.lua">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UI\Overrides\Civ6Common.lua">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UI\Overrides\CivilopediaPage_Building.lua">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UI\Overrides\GreatWorksOverview_Expansion2.lua">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UI\Overrides\LaunchBar.lua">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UI\Overrides\MapSearchPanel.lua">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UI\Overrides\PlotToolTip.lua">
