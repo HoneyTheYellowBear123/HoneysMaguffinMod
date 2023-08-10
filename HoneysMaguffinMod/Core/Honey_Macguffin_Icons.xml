@@ -150,8 +150,10 @@
 		
 		
 		<Row Name="ICON_GREAT_PERSON_HONEY_MACGUFFIN_GP_ACTION" OtherName="ICON_UNITOPERATION_ENGINEER_ACTION"/>
-		
-		
+
+		<!-- to do: change this. this is used sometimes by UI code for blank slots.-->
+		<Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE"  OtherName="ICON_GREATWORKOBJECT_RELIC"/>
+		<Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE"  OtherName="ICON_GREATWORKOBJECT_RELIC"/>
 		
 		
 	</IconAliases>

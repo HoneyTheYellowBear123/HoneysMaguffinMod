@@ -97,7 +97,7 @@ function GetGreatWorkSlotTypeIcon(slotType:string)
 end
 
 
-
+--[[
 function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pBuildingInfo:table)
 
 	--print("PopulateGreatWorkSlot was called");
@@ -258,7 +258,7 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	--print("HoneyDebug c");
 	return numGreatWorks;
 end
-
+--]]
 
 print("UI overview script was loaded");
 

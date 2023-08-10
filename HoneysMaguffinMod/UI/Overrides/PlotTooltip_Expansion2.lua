@@ -520,6 +520,14 @@ function GetDetails(data)
 					end
 				end
 				local iSlots = cityBuildings:GetNumGreatWorkSlots(data.BuildingTypes[i]);
+
+
+				if (data.BuildingTypes[i] == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index ) then
+					iSlots = 1
+				end
+
+
+
 				--print("honeydebug number of great work slots detected: "..tostring(iSlots));
 				for j = 0, iSlots - 1, 1 do
 					--print("HoneyDebug plottooltip slots found!");
