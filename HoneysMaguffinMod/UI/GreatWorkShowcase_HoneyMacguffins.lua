@@ -313,7 +313,7 @@ end
 
 
 
-unction CanMoveToSlot(destBldgs:table, destBuilding:number)
+function CanMoveToSlot(destBldgs:table, destBuilding:number)
 
 	-- Don't allow moving artifacts if the museum is not full
 	local srcGreatWorkType:number = m_GreatWorkSelected.CityBldgs:GetGreatWorkTypeFromIndex(m_GreatWorkSelected.Index);
