@@ -38,9 +38,9 @@ function popupInfoForMe(a,b,c,d,e,f)
 
 	print("HONEYDEBUGbase building was added to map!")
 
-	for greatw in GameInfo.GreatWorkSlotTypes do
-		print("HoneyDebugBase greatwork slots "..greatw)
-	end
+	--for greatw in GameInfo.GreatWorkSlotTypes do
+	--	print("HoneyDebugBase greatwork slots "..greatw)
+	--end
 
 end
 

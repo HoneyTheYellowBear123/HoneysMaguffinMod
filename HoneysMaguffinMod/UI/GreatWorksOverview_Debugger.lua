@@ -127,8 +127,19 @@ function UpdateGreatWorks()
 				local buildingIndex:number = buildingInfo.Index;
 				local buildingType:string = buildingInfo.BuildingType;
 				if(pCityBldgs:HasBuilding(buildingIndex)) then
+
+					print("honeydebugdebug a building found");
+					print("honeydebugdebug a building is "..Locale.ToUpper(Locale.Lookup(buildingInfo.Name)));
 					local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
+					print("honeydebugdebug a greatworkslot returned is "..numSlots);
+
+					if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+						print("honeydebugdebug a artificially increasing macguffin holder slots");
+						numSlots = 1
+					end
+
 					if (numSlots ~= nil and numSlots > 0) then
+						print("honeydebugdebug a AT LEAST ONE GREAT WORK SLOT FOUND");
 						local instance:table = m_GreatWorkSlotsIM:GetInstance();
 						local greatWorks:number = PopulateGreatWorkSlot(instance, pCity, pCityBldgs, buildingInfo);
 						table.insert(m_GreatWorkBuildings, {Instance=instance, Type=buildingType, Index=buildingIndex, CityBldgs=pCityBldgs});
@@ -186,6 +197,7 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	local themeDescription = GetThemeDescription(buildingType);
 	instance.CityName:SetText(Locale.Lookup(pCity:GetName()));
 	instance.BuildingName:SetText(Locale.ToUpper(Locale.Lookup(pBuildingInfo.Name)));
+	print("honeydebugdebug b building is"..Locale.ToUpper(Locale.Lookup(pBuildingInfo.Name)));
 
 	-- Ensure we have Instance Managers for the great works
 	print("honeydebugdebug b problem?");
@@ -206,7 +218,9 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
 
 	if (numSlots ~= nil and numSlots > 0) then
+		print("honeydebugdebug b looping through slots");
 		for _:number=0, numSlots - 1 do
+			print("honeydebugdebug b slot loop started");
 			local instance:table = greatWorkIM:GetInstance();
 			local greatWorkIndex:number = pCityBldgs:GetGreatWorkInSlot(buildingIndex, index);
 			local greatWorkSlotType:number = pCityBldgs:GetGreatWorkSlotType(buildingIndex, index);
@@ -268,6 +282,7 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	end
 
 	if numGreatWorks == 0 then
+		print("honeydebugdebug b there is at least one great work here");
 		if themeDescription ~= nil then
 			instance.ThemingLabel:SetText(Locale.Lookup("LOC_GREAT_WORKS_THEME_BONUS_PROGRESS", numThemedGreatWorks, numSlots));
 			instance.ThemingLabel:SetToolTipString(themeDescription);
@@ -421,13 +436,13 @@ function GetThemeDescription(buildingType:string)
 		for row in GameInfo.Building_GreatWorks() do
 			if row.BuildingType == buildingType then
 				if row.ThemingBonusDescription ~= nil then
-					print("honeydebugdebug e END");
+					print("honeydebugdebug e END a");
 					return Locale.Lookup(row.ThemingBonusDescription);
 				end		
 			end
 		end
 	end
-	print("honeydebugdebug e END");
+	print("honeydebugdebug e END b");
 	return nil;
 end
 
@@ -445,8 +460,10 @@ function PopulateGreatWork(instance:table, pCityBldgs:table, pBuildingInfo:table
 
 	local textureOffsetX:number, textureOffsetY:number, textureSheet:string = IconManager:FindIconAtlas(slotTypeIcon, SIZE_SLOT_TYPE_ICON);
 	if(textureSheet == nil or textureSheet == "") then
+		print("honeydebugdebug g no slot type icon found for "..slotType);
 		UI.DataError("Could not find slot type icon in PopulateGreatWork: icon=\""..slotTypeIcon.."\", iconSize="..tostring(SIZE_SLOT_TYPE_ICON));
 	else
+		print("honeydebugdebug g  slot type icon WAS found for "..slotType);
 		instance.SlotTypeIcon:SetTexture(textureOffsetX, textureOffsetY, textureSheet);
 	end
 
@@ -457,6 +474,7 @@ function PopulateGreatWork(instance:table, pCityBldgs:table, pBuildingInfo:table
 	instance[DATA_FIELD_GREAT_WORK_TYPE] = -1;
 	
 	if greatWorkIndex == -1 then
+		print("honeydebugdebug g great work index is -1 which I think means no great work");
 		instance.GreatWorkIcon:SetHide(true);
 
 		local validWorks:string = "";
@@ -472,6 +490,7 @@ function PopulateGreatWork(instance:table, pCityBldgs:table, pBuildingInfo:table
 		instance.EmptySlot:ClearCallback(Mouse.eLClick);
 		instance.EmptySlot:SetToolTipString(Locale.Lookup("LOC_GREAT_WORKS_EMPTY_TOOLTIP", validWorks));
 	else
+		print("honeydebugdebug g great work index is NOT -1");
 		instance.GreatWorkIcon:SetHide(false);
 
 		local srcGreatWork:number = pCityBldgs:GetGreatWorkInSlot(buildingIndex, slotIndex);

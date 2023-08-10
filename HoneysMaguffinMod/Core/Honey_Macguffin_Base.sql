@@ -72,9 +72,9 @@ INSERT INTO PseudoYields
 VALUES  ('PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 0.5); --TO DO a pseudoyield for the macguffin itself. AI doesn't need to know how to use them but they should value them regardless.
 
 INSERT INTO GreatWorkObjectTypes
-		(GreatWorkObjectType,		Value,		PseudoYieldType,						 Name,									IconString)
-VALUES  ('GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE',	 69420, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_NAME',  '[ICON_GreatWork_Relic]'), --TO DO change iconstring
-		('GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE',   69421, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_NAME',    '[ICON_GreatWork_Relic]'); --TO DO change iconstring
+		(GreatWorkObjectType,							Value,		PseudoYieldType,											 Name,									IconString)
+VALUES  ('GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE',		 8, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_NAME',  '[ICON_GreatWork_Relic]'), --TO DO change iconstring
+		('GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE',		9, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_NAME',    '[ICON_GreatWork_Relic]'); --TO DO change iconstring
 
 
 
