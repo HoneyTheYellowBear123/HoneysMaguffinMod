@@ -98,10 +98,34 @@ function UpdatePlayerData()
 	print("honeydebugdebug 0 END");
 end
 
+
+function megaCheck()
+
+	local index = 1
+	for building in GameInfo.Buildings() do
+
+		for buildinggreatworkslots in GameInfo.Building_GreatWorks() do
+
+			if building.BuildingType == buildinggreatworkslots.BuildingType then
+
+				print("Honeydebug wow BuildingType "..building.BuildingType)
+				print("Honeydebug wow Slottype "..buildinggreatworkslots.GreatWorkSlotType)
+				print("Honeydebug wow number of slots "..buildinggreatworkslots.NumSlots)
+
+			end
+
+		end
+
+	end
+
+end
+
 -- ===========================================================================
 --	Called every time screen is shown
 -- ===========================================================================
 function UpdateGreatWorks()
+
+	megaCheck()
 	
 	print("honeydebugdebug a");
 	m_FirstGreatWork = nil;
