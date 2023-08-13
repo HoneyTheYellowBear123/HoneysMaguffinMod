@@ -15,6 +15,12 @@ g_DEFAULT_GREAT_WORKS_ICONS["GREATWORKSLOT_HONEY_MACGUFFIN"] = "ICON_GREATWORKOB
 --	CONSTANTS Shoul probably switch the base game to just use globals.
 -- ===========================================================================
 
+local NUM_RELIC_TEXTURES:number = 48;
+local NUM_ARIFACT_TEXTURES:number = 25;
+local GREAT_WORK_RELIC_TYPE:string = "GREATWORKOBJECT_RELIC";
+local GREAT_WORK_ARTIFACT_TYPE:string = "GREATWORKOBJECT_ARTIFACT";
+
+
 local SIZE_SLOT_TYPE_ICON:number = 40;
 local MIN_PADDING_SLOTS:number = 2;
 local MAX_PADDING_SLOTS:number = 30;
@@ -701,12 +707,15 @@ function OnClickGreatWork(kDragStruct:table, pCityBldgs:table, buildingIndex:num
 		local dstBldgs:table = destination.CityBldgs;
 		local slotCache:table = instance[DATA_FIELD_SLOT_CACHE];
 		local numSlots:number = dstBldgs:GetNumGreatWorkSlots(dstBuilding);
+		print("honeydebugdebug p looping great work destination buildings! this building index is "..dstBuilding);
+		print("honeydebugdebug p looping macguffin holder index is "..GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index);
 		if dstBuilding == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
 			print("honeydebugdebug p artificially increasing macguffin holder slots");
 			numSlots = 1
 		end
 		for index:number = 0, numSlots - 1 do
-			if CanMoveGreatWork(pCityBldgs, buildingIndex, slotIndex, dstBldgs, dstBuilding, index) then
+			if CanMoveGreatWork(pCityBldgs, buildingIndex, slotIndex, dstBldgs, dstBuilding, index) then -- u
+				print("honeydebugdebug p we can move to the destination building");
 				if firstValidSlot == -1 then
 					firstValidSlot = index;
 				end
@@ -731,6 +740,41 @@ function OnClickGreatWork(kDragStruct:table, pCityBldgs:table, buildingIndex:num
 	-- Add ViewGreatWorks button to drop targets so we can view specific works
 	table.insert(m_kViableDropTargets, Controls.ViewGreatWork);
 	print("honeydebugdebug p END");
+end
+
+
+function CanMoveWorkAtAll(srcBldgs:table, srcBuilding:number, srcSlot:number)
+	print("honeydebugdebug q");
+	local srcGreatWork:number = srcBldgs:GetGreatWorkInSlot(srcBuilding, srcSlot);
+	local srcGreatWorkType:number = srcBldgs:GetGreatWorkTypeFromIndex(srcGreatWork);
+	local srcGreatWorkObjectType:string = GameInfo.GreatWorks[srcGreatWorkType].GreatWorkObjectType;
+
+	-- Don't allow moving artifacts if the museum is not full
+	if (srcGreatWorkObjectType == GREAT_WORK_ARTIFACT_TYPE) then
+		if not IsBuildingFull(srcBldgs, srcBuilding) then
+			print("honeydebugdebug q END a");
+			return false;
+		end
+	end
+
+	-- Don't allow moving art that has been recently created
+	if (srcGreatWorkObjectType == "GREATWORKOBJECT_SCULPTURE" or
+	    srcGreatWorkObjectType == "GREATWORKOBJECT_LANDSCAPE" or
+		srcGreatWorkObjectType == "GREATWORKOBJECT_PORTRAIT" or
+		srcGreatWorkObjectType == "GREATWORKOBJECT_RELIGIOUS") then
+
+		local iTurnCreated:number = srcBldgs:GetTurnFromIndex(srcGreatWork);
+		local iCurrentTurn:number = Game.GetCurrentGameTurn();
+		local iTurnsBeforeMove:number = GlobalParameters.GREATWORK_ART_LOCK_TIME or DEFAULT_LOCK_TURNS;
+		local iTurnsToWait = iTurnCreated + iTurnsBeforeMove - iCurrentTurn;
+		if iTurnsToWait > 0 then
+			print("honeydebugdebug q END b");
+			return false;
+		end
+	end
+
+	print("honeydebugdebug q END c");
+	return true;
 end
 
 
@@ -806,8 +850,19 @@ function CanMoveGreatWork(srcBldgs:table, srcBuilding:number, srcSlot:number, ds
 			if dstGreatWork == -1 then
 				-- Artifacts can never be moved to an empty slot as
 				-- they can only be swapped between other full museums
-				print("honeydebugdebug u END");
-				return row.GreatWorkObjectType ~= GREAT_WORK_ARTIFACT_TYPE;
+				print("honeydebugdebug u END a");
+				print("honeydebugdebug great work slot type of destination "..dstSlotTypeString)
+				print("honeydebugdebug great work object type? "..row.GreatWorkObjectType)
+				print("honeydebugdebug artifact type "..GREAT_WORK_ARTIFACT_TYPE)
+
+				local middleman1 = tostring( row.GreatWorkObjectType )
+				local middleman2 = tostring( GREAT_WORK_ARTIFACT_TYPE )
+
+				local thebool = not (middleman1 == middleman2)
+				thebool = tostring( thebool )
+				print("honeydebugdebug strings converted")
+				print("honeydebugdebug u value being returned "..thebool)
+				return tostring(row.GreatWorkObjectType) ~= tostring(GREAT_WORK_ARTIFACT_TYPE);
 			else -- If destination slot has a great work, ensure it can be swapped to the source slot
 				local srcSlotType:number = srcBldgs:GetGreatWorkSlotType(srcBuilding, srcSlot);
 
@@ -824,13 +879,13 @@ function CanMoveGreatWork(srcBldgs:table, srcBuilding:number, srcSlot:number, ds
 				
 				for row in GameInfo.GreatWork_ValidSubTypes() do
 					if srcSlotTypeString == row.GreatWorkSlotType and dstGreatWorkObjectType == row.GreatWorkObjectType then
-						print("honeydebugdebug u END");
+						print("honeydebugdebug u END b");
 						return CanMoveWorkAtAll(dstBldgs, dstBuilding, dstSlot);
 					end
 				end
 			end
 		end
 	end
-	print("honeydebugdebug u END");
+	print("honeydebugdebug u END c");
 	return false;
 end
