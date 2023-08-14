@@ -6,7 +6,8 @@
 include("GreatWorksOverview");
 
 include("InstanceManager");
-include("PopupDialog")
+include("PopupDialog");
+include("GameCapabilities");
 include("GreatWorksSupport");
 
 g_DEFAULT_GREAT_WORKS_ICONS["GREATWORKSLOT_HONEY_MACGUFFIN"] = "ICON_GREATWORKOBJECT_ARTIFACT_ERA_ANCIENT"; --TO DO: replace this right side of this
@@ -22,17 +23,27 @@ local GREAT_WORK_ARTIFACT_TYPE:string = "GREATWORKOBJECT_ARTIFACT";
 
 
 local SIZE_SLOT_TYPE_ICON:number = 40;
+local SIZE_GREAT_WORK_ICON:number = 64;
+local PADDING_PROVIDING_LABEL:number = 10;
 local MIN_PADDING_SLOTS:number = 2;
 local MAX_PADDING_SLOTS:number = 30;
 local MAX_NUM_SLOTS:number = 6;
+local DEFAULT_LOCK_TURNS:number = 10;
 
 local LOC_TOURISM:string = Locale.Lookup("LOC_GREAT_WORKS_TOURISM");
 local LOC_THEME_BONUS:string = Locale.Lookup("LOC_GREAT_WORKS_THEMED_BONUS");
+local LOC_SCREEN_TITLE:string = Locale.Lookup("LOC_GREAT_WORKS_SCREEN_TITLE");
 
 local DATA_FIELD_SLOT_CACHE:string = "SlotCache";
 local DATA_FIELD_GREAT_WORK_IM:string = "GreatWorkIM";
 local DATA_FIELD_TOURISM_YIELD:string = "TourismYield";
 local DATA_FIELD_THEME_BONUS_IM:string = "ThemeBonusIM";
+
+local DATA_FIELD_CITY_ID			:string = "DataField_CityID";
+local DATA_FIELD_BUILDING_ID		:string = "DataField_BuildingID";
+local DATA_FIELD_GREAT_WORK_INDEX	:string = "DataField_GreatWorkIndex";
+local DATA_FIELD_SLOT_INDEX			:string = "DataField_SlotIndex";
+local DATA_FIELD_GREAT_WORK_TYPE	:string = "DataField_GreatWorkType";
 
 local YIELD_FONT_ICONS:table = {
 	YIELD_FOOD				= "[ICON_FoodLarge]",
@@ -44,6 +55,16 @@ local YIELD_FONT_ICONS:table = {
 	TourismYield			= "[ICON_TourismLarge]"
 };
 
+g_DEFAULT_GREAT_WORKS_ICONS = {
+	GREATWORKSLOT_WRITING	= "ICON_GREATWORKOBJECT_WRITING",
+	GREATWORKSLOT_PALACE	= "ICON_GREATWORKOBJECT_SCULPTURE",
+	GREATWORKSLOT_ART		= "ICON_GREATWORKOBJECT_PORTRAIT",
+	GREATWORKSLOT_CATHEDRAL	= "ICON_GREATWORKOBJECT_RELIGIOUS",
+	GREATWORKSLOT_ARTIFACT	= "ICON_GREATWORKOBJECT_ARTIFACT_ERA_ANCIENT",
+	GREATWORKSLOT_MUSIC		= "ICON_GREATWORKOBJECT_MUSIC",
+	GREATWORKSLOT_RELIC		= "ICON_GREATWORKOBJECT_RELIC",
+	GREATWORKSLOT_HONEY_MACGUFFIN = "ICON_GREATWORKOBJECT_RELIC",
+};
 
 local BASE_GetGreatWorkTooltip = GetGreatWorkTooltip;
 
@@ -115,7 +136,111 @@ function UpdatePlayerData()
 end
 
 -- ===========================================================================
+
+function UpdateGreatWorks()
+
+	--megaCheck()
+	
+	print("honeydebugdebug a1");
+	m_FirstGreatWork = nil;
+	print("honeydebugdebug a2");
+	m_GreatWorkSelected = nil;
+	print("honeydebugdebug a3");
+	m_GreatWorkSlotsIM:ResetInstances();
+	print("honeydebugdebug a4");
+	Controls.PlacingContainer:SetHide(true);
+	print("honeydebugdebug a5");
+	Controls.HeaderStatsContainer:SetHide(false);
+	print("honeydebugdebug a6");
+
+	if (m_LocalPlayer == nil) then
+		return;
+	end
+	print("honeydebugdebug a7");
+
+	m_GreatWorkYields = {};
+	m_GreatWorkBuildings = {};
+	local numGreatWorks:number = 0;
+	local numDisplaySpaces:number = 0;
+
+	print("honeydebugdebug a8");
+
+	local pCities:table = m_LocalPlayer:GetCities();
+	for i, pCity in pCities:Members() do
+		if pCity ~= nil and pCity:GetOwner() == m_LocalPlayerID then
+			local pCityBldgs:table = pCity:GetBuildings();
+			for buildingInfo in GameInfo.Buildings() do
+				print("honeydebugdebug a9");
+				local buildingIndex:number = buildingInfo.Index;
+				local buildingType:string = buildingInfo.BuildingType;
+				if(pCityBldgs:HasBuilding(buildingIndex)) then
+
+					print("honeydebugdebug a building found");
+					print("honeydebugdebug a building is "..Locale.ToUpper(Locale.Lookup(buildingInfo.Name)));
+
+					--IMPORTANT working theory is that get numgreatworkslots does not work, may possibly be hardcoded. Its possible that there may be modifiers that it looks for that could be abused.
+					local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
+					print("honeydebugdebug a greatworkslot returned is "..numSlots);
+
+					if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+						print("honeydebugdebug a artificially increasing macguffin holder slots");
+						numSlots = 1
+					end
+
+					if (numSlots ~= nil and numSlots > 0) then
+						print("honeydebugdebug a AT LEAST ONE GREAT WORK SLOT FOUND");
+						local instance:table = m_GreatWorkSlotsIM:GetInstance();
+						local greatWorks:number = PopulateGreatWorkSlot(instance, pCity, pCityBldgs, buildingInfo);
+						table.insert(m_GreatWorkBuildings, {Instance=instance, Type=buildingType, Index=buildingIndex, CityBldgs=pCityBldgs});
+						numDisplaySpaces = numDisplaySpaces + pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
+						if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+							print("honeydebugdebug a artificially increasing macguffin holder slots a second time");
+							numDisplaySpaces = numDisplaySpaces + 1
+						end
+						numGreatWorks = numGreatWorks + greatWorks;
+					end
+				end
+			end
+		end
+	end
+
+	Controls.NumGreatWorks:SetText(numGreatWorks);
+	Controls.NumDisplaySpaces:SetText(numDisplaySpaces);
+
+	-- Realize stack and scrollbar
+	Controls.GreatWorksStack:CalculateSize();
+	Controls.GreatWorksStack:ReprocessAnchoring();
+	Controls.GreatWorksScrollPanel:CalculateInternalSize();
+	Controls.GreatWorksScrollPanel:ReprocessAnchoring();
+
+	m_TotalResourcesIM:ResetInstances();
+
+	if table.count(m_GreatWorkYields) > 0 then
+		table.sort(m_GreatWorkYields, function(a,b) return a.Name < b.Name; end);
+
+		for _, data in ipairs(m_GreatWorkYields) do
+			local instance:table = m_TotalResourcesIM:GetInstance();
+			instance.Resource:SetText(data.Icon .. data.Value);
+			instance.Resource:SetToolTipString(data.Name);
+		end
+
+		Controls.TotalResources:CalculateSize();
+		Controls.TotalResources:ReprocessAnchoring();
+		Controls.ProvidingLabel:SetOffsetX(Controls.TotalResources:GetOffsetX() + Controls.TotalResources:GetSizeX() + PADDING_PROVIDING_LABEL);
+		Controls.ProvidingLabel:SetHide(false);
+	else
+		Controls.ProvidingLabel:SetHide(true);
+	end
+
+	-- Hide "View Gallery" button if we don't have a single great work
+	Controls.ViewGallery:SetHide(m_FirstGreatWork == nil);
+	print("honeydebugdebug a END");
+end
+
+
 function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pBuildingInfo:table)
+
+	print("honeydebugdebug b")
 	
 	instance.DefaultBG:SetHide(false);
 	instance.DisabledBG:SetHide(true);
@@ -294,9 +419,64 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	instance.ThemeBonuses:CalculateSize();
 	instance.ThemeBonuses:ReprocessAnchoring();
 
+	print("honeydebugdebug b END")
 	return numGreatWorks;
 end
 
+
+-- IMPORTANT: This logic is largely derived from GetGreatWorkTooltip() - if you make an update here, make sure to update that function as well
+function GreatWorkFitsTheme(pCityBldgs:table, pBuildingInfo:table, greatWorkIndex:number, greatWorkInfo:table)
+	print("honeydebugdebug c");
+	local firstGreatWork:number = GetFirstGreatWorkInBuilding(pCityBldgs, pBuildingInfo);
+	if firstGreatWork < 0 then
+		return false;
+	end
+
+	local firstGreatWorkObjectTypeID:number = pCityBldgs:GetGreatWorkTypeFromIndex(firstGreatWork);
+	local firstGreatWorkObjectType:string = GameInfo.GreatWorks[firstGreatWorkObjectTypeID].GreatWorkObjectType;
+	
+	if pCityBldgs:IsBuildingThemedCorrectly(GameInfo.Buildings[pBuildingInfo.BuildingType].Index) then
+		return true;
+	else
+		if pBuildingInfo.BuildingType == "BUILDING_MUSEUM_ART" then
+
+			if firstGreatWork == greatWorkIndex then
+				return true;
+			elseif not IsFirstGreatWorkByArtist(greatWorkIndex, pCityBldgs, pBuildingInfo) then
+				return false;
+			else
+				return firstGreatWorkObjectType == greatWorkInfo.GreatWorkObjectType;
+			end
+		elseif pBuildingInfo.BuildingType == "BUILDING_MUSEUM_ARTIFACT" then
+
+			if firstGreatWork == greatWorkIndex then
+				return true;
+			else
+				if greatWorkInfo.EraType ~= GameInfo.GreatWorks[firstGreatWorkObjectTypeID].EraType then
+					return false;
+				else
+					local greatWorkPlayer:number = Game.GetGreatWorkPlayer(greatWorkIndex);
+					local greatWorks:table = GetGreatWorksInBuilding(pCityBldgs, pBuildingInfo);
+					
+					-- Find duplicates for theming description
+					local hash:table = {}
+					local duplicates:table = {}
+					for _,index in ipairs(greatWorks) do
+						local gwPlayer:number = Game.GetGreatWorkPlayer(index);
+						if (not hash[gwPlayer]) then
+							hash[gwPlayer] = true;
+						else
+							table.insert(duplicates, gwPlayer);
+						end
+					end
+
+					return table.count(duplicates) == 0;
+				end
+			end
+		end
+	end
+	print("honeydebugdebug c END");
+end
 
 --TO DO edit this to show the different tiers of macguffins
 function GetGreatWorkTooltip(pCityBldgs:table, greatWorkIndex:number, greatWorkType:number, pBuildingInfo:table)
@@ -352,106 +532,6 @@ function megaCheck()
 
 end
 
-
-function UpdateGreatWorks()
-
-	--megaCheck()
-	
-	print("honeydebugdebug a1");
-	m_FirstGreatWork = nil;
-	print("honeydebugdebug a2");
-	m_GreatWorkSelected = nil;
-	print("honeydebugdebug a3");
-	m_GreatWorkSlotsIM:ResetInstances();
-	print("honeydebugdebug a4");
-	Controls.PlacingContainer:SetHide(true);
-	print("honeydebugdebug a5");
-	Controls.HeaderStatsContainer:SetHide(false);
-	print("honeydebugdebug a6");
-
-	if (m_LocalPlayer == nil) then
-		return;
-	end
-	print("honeydebugdebug a7");
-
-	m_GreatWorkYields = {};
-	m_GreatWorkBuildings = {};
-	local numGreatWorks:number = 0;
-	local numDisplaySpaces:number = 0;
-
-	print("honeydebugdebug a8");
-
-	local pCities:table = m_LocalPlayer:GetCities();
-	for i, pCity in pCities:Members() do
-		if pCity ~= nil and pCity:GetOwner() == m_LocalPlayerID then
-			local pCityBldgs:table = pCity:GetBuildings();
-			for buildingInfo in GameInfo.Buildings() do
-				print("honeydebugdebug a9");
-				local buildingIndex:number = buildingInfo.Index;
-				local buildingType:string = buildingInfo.BuildingType;
-				if(pCityBldgs:HasBuilding(buildingIndex)) then
-
-					print("honeydebugdebug a building found");
-					print("honeydebugdebug a building is "..Locale.ToUpper(Locale.Lookup(buildingInfo.Name)));
-
-					--IMPORTANT working theory is that get numgreatworkslots does not work, may possibly be hardcoded. Its possible that there may be modifiers that it looks for that could be abused.
-					local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
-					print("honeydebugdebug a greatworkslot returned is "..numSlots);
-
-					if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
-						print("honeydebugdebug a artificially increasing macguffin holder slots");
-						numSlots = 1
-					end
-
-					if (numSlots ~= nil and numSlots > 0) then
-						print("honeydebugdebug a AT LEAST ONE GREAT WORK SLOT FOUND");
-						local instance:table = m_GreatWorkSlotsIM:GetInstance();
-						local greatWorks:number = PopulateGreatWorkSlot(instance, pCity, pCityBldgs, buildingInfo);
-						table.insert(m_GreatWorkBuildings, {Instance=instance, Type=buildingType, Index=buildingIndex, CityBldgs=pCityBldgs});
-						numDisplaySpaces = numDisplaySpaces + pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
-						if buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
-							print("honeydebugdebug a artificially increasing macguffin holder slots a second time");
-							numDisplaySpaces = numDisplaySpaces + 1
-						end
-						numGreatWorks = numGreatWorks + greatWorks;
-					end
-				end
-			end
-		end
-	end
-
-	Controls.NumGreatWorks:SetText(numGreatWorks);
-	Controls.NumDisplaySpaces:SetText(numDisplaySpaces);
-
-	-- Realize stack and scrollbar
-	Controls.GreatWorksStack:CalculateSize();
-	Controls.GreatWorksStack:ReprocessAnchoring();
-	Controls.GreatWorksScrollPanel:CalculateInternalSize();
-	Controls.GreatWorksScrollPanel:ReprocessAnchoring();
-
-	m_TotalResourcesIM:ResetInstances();
-
-	if table.count(m_GreatWorkYields) > 0 then
-		table.sort(m_GreatWorkYields, function(a,b) return a.Name < b.Name; end);
-
-		for _, data in ipairs(m_GreatWorkYields) do
-			local instance:table = m_TotalResourcesIM:GetInstance();
-			instance.Resource:SetText(data.Icon .. data.Value);
-			instance.Resource:SetToolTipString(data.Name);
-		end
-
-		Controls.TotalResources:CalculateSize();
-		Controls.TotalResources:ReprocessAnchoring();
-		Controls.ProvidingLabel:SetOffsetX(Controls.TotalResources:GetOffsetX() + Controls.TotalResources:GetSizeX() + PADDING_PROVIDING_LABEL);
-		Controls.ProvidingLabel:SetHide(false);
-	else
-		Controls.ProvidingLabel:SetHide(true);
-	end
-
-	-- Hide "View Gallery" button if we don't have a single great work
-	Controls.ViewGallery:SetHide(m_FirstGreatWork == nil);
-	print("honeydebugdebug a END");
-end
 
 function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pBuildingInfo:table)
 
@@ -701,6 +781,7 @@ function OnClickGreatWork(kDragStruct:table, pCityBldgs:table, buildingIndex:num
 	Controls.PlacingIcon:SetTexture(textureOffsetX, textureOffsetY, textureSheet);
 
 	for _:number, destination:table in ipairs(m_GreatWorkBuildings) do
+		print("honeydebugdebug p==========================================================================================================================")
 		local firstValidSlot:number = -1;
 		local instance:table = destination.Instance;
 		local dstBuilding:number = destination.Index;
