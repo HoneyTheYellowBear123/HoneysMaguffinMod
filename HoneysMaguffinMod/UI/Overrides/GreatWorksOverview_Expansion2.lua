@@ -3,7 +3,7 @@
 -- This file is being included into the base GreatWorksOverview file using the wildcard include setup in GreatWorksOverview.lua
 -- Refer to the bottom of GreatWorksOverview.lua to see how that's happening
 -- DO NOT include any GreatWorksOverview files here or it will cause problems
-include("GreatWorksOverview");
+--include("GreatWorksOverview");
 
 include("InstanceManager");
 include("PopupDialog");
@@ -246,7 +246,8 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	local themeDescription = GetThemeDescription(buildingType);
 	instance.CityName:SetText(Locale.Lookup(pCity:GetName()));
 	instance.BuildingName:SetText(Locale.ToUpper(Locale.Lookup(pBuildingInfo.Name)));
-
+	print("honeydebugdebug b PopulateGreatWorkSlot BuildingType "..buildingType)
+	print("honeydebugdebug b 1")
 	-- Ensure we have Instance Managers for the great works
 	local greatWorkIM:table = instance[DATA_FIELD_GREAT_WORK_IM];
 	if(greatWorkIM == nil) then
@@ -255,6 +256,7 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	else
 		greatWorkIM:ResetInstances();
 	end
+	print("honeydebugdebug b 2")
 
 	local index:number = 0;
 	local numGreatWorks:number = 0;
@@ -263,8 +265,8 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 	local firstGreatWork:table = nil;
 	local numSlots:number = pCityBldgs:GetNumGreatWorkSlots(buildingIndex);
 
-	print("HoneyDebug Q PopulateGreatWorkSlot BuildingType "..buildingType)
-	print("HoneyDebug Q PopulateGreatWorkSlot numslots before artificial increase "..numSlots)
+	
+	print("honeydebugdebug b PopulateGreatWorkSlot numslots before artificial increase "..numSlots)
 	--if (buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index ) then
 	--	numSlots = 1
 	--end
@@ -284,9 +286,14 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 			local greatWorkIndex:number = pCityBldgs:GetGreatWorkInSlot(buildingIndex, index);
 			local greatWorkSlotType:number = pCityBldgs:GetGreatWorkSlotType(buildingIndex, index);
 
-			--if (buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index ) then
-			--	greatWorkSlotType = GameInfo.GreatWorkSlotTypes['GREATWORKSLOT_HONEY_MACGUFFIN'].Index
-			--end
+			print("honeydebugdebug b greatworkslottype number "..greatWorkSlotType)
+
+			if (buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index ) then
+				greatWorkSlotType = GameInfo.GreatWorkSlotTypes['GREATWORKSLOT_HONEY_MACGUFFIN'].Index
+				print("honeydebugdebug b greatworkslottype number AFTER MAGIC UPDATE "..greatWorkSlotType)
+			end
+
+
 
 
 
@@ -556,8 +563,11 @@ function PopulateGreatWork(instance:table, pCityBldgs:table, pBuildingInfo:table
 
 	instance[DATA_FIELD_CITY_ID] = pCityBldgs:GetCity():GetID();
 	instance[DATA_FIELD_BUILDING_ID] = buildingIndex;
+	print("honeydebugdebug g building Index "..buildingIndex);
 	instance[DATA_FIELD_SLOT_INDEX]	= slotIndex;
+	print("honeydebugdebug g slot Index "..slotIndex);
 	instance[DATA_FIELD_GREAT_WORK_INDEX] = greatWorkIndex;
+	print("honeydebugdebug g greatworkIndex "..greatWorkIndex);
 	instance[DATA_FIELD_GREAT_WORK_TYPE] = -1;
 	
 	if greatWorkIndex == -1 then
@@ -988,9 +998,9 @@ function CanMoveGreatWork(srcBldgs:table, srcBuilding:number, srcSlot:number, ds
 				-- Artifacts can never be moved to an empty slot as
 				-- they can only be swapped between other full museums
 				print("honeydebugdebug u END a");
-				print("honeydebugdebug great work slot type of destination "..dstSlotTypeString)
-				print("honeydebugdebug great work object type? "..row.GreatWorkObjectType)
-				print("honeydebugdebug artifact type "..GREAT_WORK_ARTIFACT_TYPE)
+				print("honeydebugdebug u great work slot type of destination "..dstSlotTypeString)
+				print("honeydebugdebug u great work object type? "..row.GreatWorkObjectType)
+				print("honeydebugdebug u artifact type "..GREAT_WORK_ARTIFACT_TYPE)
 
 				local middleman1 = tostring( row.GreatWorkObjectType )
 				local middleman2 = tostring( GREAT_WORK_ARTIFACT_TYPE )
