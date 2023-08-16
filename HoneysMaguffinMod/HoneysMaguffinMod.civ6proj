@@ -179,6 +179,18 @@
     <Content Include="Textures\HoneyMacguffins80.tex">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Textures\HoneyMacguffinSlotTypeIcon20.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinSlotTypeIcon20.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinSlotTypeIcon40.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\HoneyMacguffinSlotTypeIcon40.tex">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Textures\HoneyMacguffins_emptyaltar128.dds">
       <SubType>Content</SubType>
     </Content>

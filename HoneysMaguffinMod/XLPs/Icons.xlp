@@ -113,6 +113,16 @@
 		</Element>
 
 		<Element>
+			<m_EntryID text="HoneyMacguffinSlotTypeIcon20"/>
+			<m_ObjectName text="HoneyMacguffinSlotTypeIcon20"/>
+		</Element>
+		<Element>
+			<m_EntryID text="HoneyMacguffinSlotTypeIcon40"/>
+			<m_ObjectName text="HoneyMacguffinSlotTypeIcon40"/>
+		</Element>
+		
+
+		<Element>
 			<m_EntryID text="MacguffinSageUnitIcon256"/>
 			<m_ObjectName text="MacguffinSageUnitIcon256"/>
 		</Element>

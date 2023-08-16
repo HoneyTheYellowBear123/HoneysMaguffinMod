@@ -16,6 +16,8 @@
 
 	-- content
 
+	-- great person UI big icon when you open the great person screen (or find a way to ignore it)
+
 
 	-- global cooldown in active macguffin UI
 	-- Macguffin Debt in active macguffin UI
