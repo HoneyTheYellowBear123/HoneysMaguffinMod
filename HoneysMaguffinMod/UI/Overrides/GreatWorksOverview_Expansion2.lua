@@ -288,7 +288,7 @@ function PopulateGreatWorkSlot(instance:table, pCity:table, pCityBldgs:table, pB
 
 			print("honeydebugdebug b greatworkslottype number "..greatWorkSlotType)
 
-			if (buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index ) then
+			if ((buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index) or (buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2'].Index) or (buildingIndex == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3'].Index)) then
 				greatWorkSlotType = GameInfo.GreatWorkSlotTypes['GREATWORKSLOT_HONEY_MACGUFFIN'].Index
 				print("honeydebugdebug b greatworkslottype number AFTER MAGIC UPDATE "..greatWorkSlotType)
 			end
@@ -983,7 +983,7 @@ function CanMoveGreatWork(srcBldgs:table, srcBuilding:number, srcSlot:number, ds
 	local dstGreatWork:number = dstBldgs:GetGreatWorkInSlot(dstBuilding, dstSlot);
 	local dstSlotType:number = dstBldgs:GetGreatWorkSlotType(dstBuilding, dstSlot);
 
-	if dstBuilding ==GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+	if ((dstBuilding == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index) or (dstBuilding == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2'].Index) or (dstBuilding == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3'].Index)) then
 			dstSlotType = GameInfo.GreatWorkSlotTypes['GREATWORKSLOT_HONEY_MACGUFFIN'].Index
 	end
 
@@ -1013,7 +1013,7 @@ function CanMoveGreatWork(srcBldgs:table, srcBuilding:number, srcSlot:number, ds
 			else -- If destination slot has a great work, ensure it can be swapped to the source slot
 				local srcSlotType:number = srcBldgs:GetGreatWorkSlotType(srcBuilding, srcSlot);
 
-				if srcBuilding ==GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index then
+				if ((srcBuilding == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'].Index) or (srcBuilding == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2'].Index) or (srcBuilding == GameInfo.Buildings['BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3'].Index)) then
 					srcSlotType = GameInfo.GreatWorkSlotTypes['GREATWORKSLOT_HONEY_MACGUFFIN'].Index
 				end
 
