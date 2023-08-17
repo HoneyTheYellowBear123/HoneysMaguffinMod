@@ -39,6 +39,9 @@
 		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="38"   IconsPerRow="3" IconsPerColumn="1" Filename="HoneyMacguffinProjects38.dds"/>
 		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="32"   IconsPerRow="3" IconsPerColumn="1" Filename="HoneyMacguffinProjects32.dds"/>
 		<Row Name="ICON_ATLAS_MACGUFFIN_PROJECTS"       Baseline="6" IconSize="30"   IconsPerRow="3" IconsPerColumn="1" Filename="HoneyMacguffinProjects30.dds"/>
+
+		<Row Name="ICON_ATLAS_GREATWORKSLOT_HM"       Baseline="6" IconSize="40"   IconsPerRow="1" IconsPerColumn="1" Filename="HoneyMacguffinSlotTypeIcon40.dds"/>
+		<Row Name="ICON_ATLAS_GREATWORKSLOT_HM"       Baseline="6" IconSize="20"   IconsPerRow="1" IconsPerColumn="1" Filename="HoneyMacguffinSlotTypeIcon20.dds"/>
 		
 		
 
@@ -49,6 +52,11 @@
 		<Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE"		Atlas="ICON_ATLAS_GREATWORKOBJECT_TYPES" Index="8"/>
 		<Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE"		Atlas="ICON_ATLAS_GREATWORKOBJECT_TYPES" Index="8"/>
 		<!-- TO DO: swap these out -->
+
+		<Row Name="ICON_GREATWORKSLOT_HONEY_MACGUFFIN"		Atlas="ICON_ATLAS_GREATWORKSLOT_HM" Index="0"/>
+		
+
+		<!-- Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE"  OtherName="ICON_GREATWORKOBJECT_RELIC"/ -->
 
 
 
@@ -152,8 +160,8 @@
 		<Row Name="ICON_GREAT_PERSON_HONEY_MACGUFFIN_GP_ACTION" OtherName="ICON_UNITOPERATION_ENGINEER_ACTION"/>
 
 		<!-- to do: change this. this is used sometimes by UI code for blank slots.-->
-		<Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE"  OtherName="ICON_GREATWORKOBJECT_RELIC"/>
-		<Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE"  OtherName="ICON_GREATWORKOBJECT_RELIC"/>
+		<!-- Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE"  OtherName="ICON_GREATWORKOBJECT_RELIC"/ -->
+		<!-- Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE"  OtherName="ICON_GREATWORKOBJECT_RELIC"/ -->
 		
 		
 	</IconAliases>
