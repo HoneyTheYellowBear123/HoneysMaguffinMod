@@ -11,8 +11,6 @@
 
 
 --      -------------------------- HEAVY FEATURES ---------------------------------
-	-- actual custom great slot 
-		-- override for greatworksoverview
 
 	-- content
 
@@ -22,21 +20,20 @@
 	-- global cooldown in active macguffin UI
 	-- Macguffin Debt in active macguffin UI
 	
-	-- District for epic macguffins
-		-- single use mega macguffins
-		--  popups for enemies
 
 	--option to destroy macguffins of AI when capturing cities
 	--option to only have AI get macguffins
 	--option of only have humans get macguffins
+	-- config
 
-
+	-- cleanup
 
 ------------------------ FUTURE/END ---------------------
-	-- Only cooldown in altar? If not you'll need to change the UI
-	-- cleanup
-	-- Macguffin Ahnilator for victory
-	-- config
+	-- Only cooldown in altar? If not you'll need to change the UI	
+	-- Macguffin Ahnilator for victory	
+	-- District for epic macguffins
+	-- single use mega macguffins
+	--  popups for enemies
 
 
 

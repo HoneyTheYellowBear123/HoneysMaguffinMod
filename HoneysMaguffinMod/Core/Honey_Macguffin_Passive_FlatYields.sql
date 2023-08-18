@@ -5,13 +5,15 @@
 
 --simplest possible, passive macguffins that just give a nice yield.
 
+-- ###################### 6 ########################
 
 -- to do
-	-- culture 2
-	-- gold 3
-	-- faith 4
-	-- production 5
-	-- food 6
+	-- science 0
+	-- culture 1
+	-- gold 2
+	-- faith 3
+	-- production 4
+	-- food 5
 
 
 INSERT INTO Types 
