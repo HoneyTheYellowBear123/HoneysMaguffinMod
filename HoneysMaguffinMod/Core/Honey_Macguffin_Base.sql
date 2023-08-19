@@ -16,26 +16,33 @@
 
 	-- great person UI big icon when you open the great person screen (or find a way to ignore it)
 
+	-- make steel not work? or give a big negative to defensive strength
 
 	-- global cooldown in active macguffin UI
 	-- Macguffin Debt in active macguffin UI
 	
 
-	--option to destroy macguffins of AI when capturing cities
-	--option to only have AI get macguffins
-	--option of only have humans get macguffins
-	-- config
+	--config option to destroy macguffins of AI when capturing cities
+	--config option to only have AI get macguffins
+	--config option of only have humans get macguffins
+	
 
-	-- cleanup
 
------------------------- FUTURE/END ---------------------
+------------------------ END ---------------------
 	-- Only cooldown in altar? If not you'll need to change the UI	
+	-- select which great persons can spawn config
+	-- add these great people to lists in lua
+	-- if the start era is different, macguffin peeps will be greater
+	-- cleanup
+	
+
+
+------ future ----------
 	-- Macguffin Ahnilator for victory	
 	-- District for epic macguffins
 	-- single use mega macguffins
 	--  popups for enemies
-
-
+	-- unique art for different tiers
 
 
 INSERT INTO Types
