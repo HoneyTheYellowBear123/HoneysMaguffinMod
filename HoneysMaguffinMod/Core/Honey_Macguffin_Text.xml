@@ -452,6 +452,46 @@
 
 
 
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_NAME" Language="en_US">
+			<Text>Spectavian</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Awakened Spectavian</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Ascended Spectavian</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_RANGED_BUFF_DESC" Language="en_US">
+			<Text>The effects of the Spectavian being placed in this city's Macguffin Altar. Light Cavalry Units will gain +4 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_RANGED_BUFF_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Spectavian being placed in this city's Macguffin Altar. Light Cavalry Units will gain +6 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_RANGED_BUFF_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Spectavian being placed in this city's Macguffin Altar. Light Cavalry Units will gain +9 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_NAME" Language="en_US">
+			<Text>Bird's Eye View</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Bird's Eye View</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Bird's Eye View</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_DESC" Language="en_US">
+			<Text>+4 [ICON_Strength] (Spectavian)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_TIER2_DESC" Language="en_US">
+			<Text>+6 [ICON_Strength] (Awakened Spectavian)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_TIER3_DESC" Language="en_US">
+			<Text>+9 [ICON_Strength] (Ascended Spectavian)</Text>
+		</Row>
+
+
+
+
 
 
 		<!-- #######################        active yields ################################   -->
