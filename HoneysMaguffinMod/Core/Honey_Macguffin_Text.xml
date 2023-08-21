@@ -431,13 +431,13 @@
 			<Text>The effects of the Ascended Brick Breaker being placed in this city's Macguffin Altar. Siege Units will gain +9 [ICON_Strength] Strength in combat</Text>
 		</Row>
 		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_SIEGE_BUFF_NAME" Language="en_US">
-			<Text>Hoofish</Text>
+			<Text>Siegemeister</Text>
 		</Row>
 		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_SIEGE_BUFF_TIER2_NAME" Language="en_US">
-			<Text>Hoofish</Text>
+			<Text>Siegemeister</Text>
 		</Row>
 		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_SIEGE_BUFF_TIER3_NAME" Language="en_US">
-			<Text>Hoofish</Text>
+			<Text>Siegemeister</Text>
 		</Row>
 		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_SIEGE_BUFF_DESC" Language="en_US">
 			<Text>+4 [ICON_Strength] (Brick Breaker)</Text>
@@ -512,13 +512,13 @@
 			<Text>The effects of the Ascended Wispwalker being placed in this city's Macguffin Altar. Recon Units will gain +10 [ICON_Strength] Strength in combat</Text>
 		</Row>
 		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RECON_BUFF_NAME" Language="en_US">
-			<Text>Bird's Eye View</Text>
+			<Text>Wispwalking</Text>
 		</Row>
 		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RECON_BUFF_TIER2_NAME" Language="en_US">
-			<Text>Bird's Eye View</Text>
+			<Text>Wispwalking</Text>
 		</Row>
 		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RECON_BUFF_TIER3_NAME" Language="en_US">
-			<Text>Bird's Eye View</Text>
+			<Text>Wispwalking</Text>
 		</Row>
 		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RECON_BUFF_DESC" Language="en_US">
 			<Text>+4 [ICON_Strength] (Wispwalker)</Text>
@@ -528,6 +528,45 @@
 		</Row>
 		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_RECON_BUFF_TIER3_DESC" Language="en_US">
 			<Text>+9 [ICON_Strength] (Ascended Wispwalker)</Text>
+		</Row>
+
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_NAME" Language="en_US">
+			<Text>Haelblaudt</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Awakened Haelblaudt</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Ascended Haelblaudt</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ANTI_CAVALRY_BUFF_DESC" Language="en_US">
+			<Text>The effects of the Haelblaudt being placed in this city's Macguffin Altar. Anti-Cavalry Units will gain +4 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ANTI_CAVALRY_BUFF_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Haelblaudt being placed in this city's Macguffin Altar. Anti-Cavalry Units will gain +6 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ANTI_CAVALRY_BUFF_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Haelblaudt being placed in this city's Macguffin Altar. Anti-Cavalry Units will gain +9 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_NAME" Language="en_US">
+			<Text>Defiance of the Horse God</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Defiance of the Horse God</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Defiance of the Horse God</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_DESC" Language="en_US">
+			<Text>+4 [ICON_Strength] (Haelblaudt)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_TIER2_DESC" Language="en_US">
+			<Text>+6 [ICON_Strength] (Awakened Haelblaudt)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_TIER3_DESC" Language="en_US">
+			<Text>+9 [ICON_Strength] (Ascended Haelblaudt)</Text>
 		</Row>
 
 
