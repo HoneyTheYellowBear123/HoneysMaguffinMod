@@ -571,6 +571,46 @@
 
 
 
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_NAME" Language="en_US">
+			<Text>Ultra Violent Light</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Awakened Ultra Violent Light</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Ascended Ultra Violent Light</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ALL_LAND_COMBAT_BUFF_DESC" Language="en_US">
+			<Text>The effects of the Ultra Violent Light being placed in this city's Macguffin Altar. All land combat units will gain +2 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ALL_LAND_COMBAT_BUFF_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Ultra Violent Light being placed in this city's Macguffin Altar. All land combat units will gain +3 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ALL_LAND_COMBAT_BUFF_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Ultra Violent Light being placed in this city's Macguffin Altar. All land combat units will gain +5 [ICON_Strength] Strength in combat</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_NAME" Language="en_US">
+			<Text>VIOLENCE</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_TIER2_NAME" Language="en_US">
+			<Text>VIOLENCE</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_TIER3_NAME" Language="en_US">
+			<Text>VIOLENCE</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_DESC" Language="en_US">
+			<Text>+2 [ICON_Strength] (Ultra Violent Light)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_TIER2_DESC" Language="en_US">
+			<Text>+3 [ICON_Strength] (Awakened Ultra Violent Light)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_TIER3_DESC" Language="en_US">
+			<Text>+5 [ICON_Strength] (Ascended Ultra Violent Light)</Text>
+		</Row>
+
+
+
+
 
 
 
