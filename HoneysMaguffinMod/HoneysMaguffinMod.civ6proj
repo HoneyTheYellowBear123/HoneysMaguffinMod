@@ -62,6 +62,9 @@
     <Content Include="Core\Honey_Macguffin_Icons_Fonts.xml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Core\Honey_Macguffin_Passive_Building_Bonuses.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Core\Honey_Macguffin_Passive_FlatYields.sql">
       <SubType>Content</SubType>
     </Content>
@@ -69,6 +72,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Core\Honey_Macguffin_Passive_Land_Military.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\Honey_Macguffin_Passive_Religion.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Core\Honey_Macguffin_Text.xml">

@@ -13,6 +13,8 @@
 --      -------------------------- HEAVY FEATURES ---------------------------------
 
 	-- content
+		-- geneva style poeacemonger bonuses passive
+		-- capture city warmonger bonuses passive
 
 	-- great person UI big icon when you open the great person screen (or find a way to ignore it)
 

@@ -7,11 +7,11 @@
 -- + economic slots
 -- + diplomatic slots
 -- + wildcard slots
--- nice military policy 1
+-- nice military policy 1 -- bonus damage to barbarians and city states, gain lots of prizes for raiding encampment
 -- nice military policy 2
 -- nice economic policy 1 -- more trade routes, trade routes offer more gold
--- nice economic policy 2 -- all districts 150% adjacency bonus
+-- nice economic policy 2 -- all districts 100%, 125%, 150% adjacency bonus
 -- nice diplomatic policy 1 -- spy bonus
 -- nice diplomatic policy 2
--- nice wildcard 1
--- nice wildcard 2
+-- nice wildcard 1 -- every great person points
+-- nice wildcard 2 -- border growth?
