@@ -170,13 +170,13 @@
 		<!-- #######################         passive yields ################################   -->
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_NAME" Language="en_US">
-			<Text>The Ponderer's Orb</Text>
+			<Text>Ponderer's Orb</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_TIER2_NAME" Language="en_US">
-			<Text>The Awakened Ponderer's Orb</Text>
+			<Text>Awakened Ponderer's Orb</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_TIER3_NAME" Language="en_US">
-			<Text>The Ascended Ponderer's Orb</Text>
+			<Text>Ascended Ponderer's Orb</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_FLAT_SCIENCE_DESC" Language="en_US">
 			<Text>The effects of the Ponderer's Orb being placed in this city's Macguffin Altar.</Text>
@@ -609,7 +609,146 @@
 		</Row>
 
 
+		<!-- #######################        passive building bonuses  ################################   -->
 
+		
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_SCIENCE_NAME" Language="en_US">
+			<Text>Blue Bricks</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_SCIENCE_TIER2_NAME" Language="en_US">
+			<Text>Awakened Blue Bricks</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_SCIENCE_TIER3_NAME" Language="en_US">
+			<Text>Ascended Blue Bricks</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_SCIENCE_DESC" Language="en_US">
+			<Text>The effects of the Blue Bricks being placed in this city's Macguffin Altar. Libraries in all cities will provide +1 [Icon_Science] Science.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_SCIENCE_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Blue Bricks being placed in this city's Macguffin Altar. Libraries and Universities in all cities will provide +1 [Icon_Science] Science and +2 [Icon_Science] Science respectfully.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_SCIENCE_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Blue Bricks being placed in this city's Macguffin Altar. Libraries, Universities, and Research Labs in all cities will provide +1 [Icon_Science] Science, +2 [Icon_Science] Science, and +3 [Icon_Science] Science respectfully.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_CULTURE_NAME" Language="en_US">
+			<Text>Magenta Masonry</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_CULTURE_TIER2_NAME" Language="en_US">
+			<Text>Awakened Magenta Masonry</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_CULTURE_TIER3_NAME" Language="en_US">
+			<Text>Ascended Magenta Masonry</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_CULTURE_DESC" Language="en_US">
+			<Text>The effects of the Magenta Masonry being placed in this city's Macguffin Altar. Ampitheatres in all cities will provide +1 [Icon_Culture] Culture.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_CULTURE_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Magenta Masonry being placed in this city's Macguffin Altar. Ampitheatres and Museums in all cities will provide +1 [Icon_Culture] Culture and +2 [Icon_Culture] Culture respectfully.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_CULTURE_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Magenta Masonry being placed in this city's Macguffin Altar. Ampitheatres, Museums, and Broadcast Stations in all cities will provide +1 [Icon_Culture] Culture, +2 [Icon_Culture] Culture, and +3 [Icon_Culture] Culture respectfully.</Text>
+		</Row>
+
+		
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_GOLD_NAME" Language="en_US">
+			<Text>Citrine Column</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_GOLD_TIER2_NAME" Language="en_US">
+			<Text>Awakened Citrine Column</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_GOLD_TIER3_NAME" Language="en_US">
+			<Text>Ascended Citrine Column</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_GOLD_DESC" Language="en_US">
+			<Text>The effects of the Citrine Column being placed in this city's Macguffin Altar. Markets in all cities will provide +1 [Icon_Gold] Gold.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_GOLD_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Citrine Column being placed in this city's Macguffin Altar. Markets and Banks in all cities will provide +1 [Icon_Gold] Gold and +2 [Icon_Gold] Gold respectfully.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_GOLD_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Citrine Column being placed in this city's Macguffin Altar. Markets, Banks, and Stock Exchanges in all cities will provide +1 [Icon_Gold] Gold, +2 [Icon_Gold] Gold, and +3 [Icon_Gold] Gold respectfully.</Text>
+		</Row>
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_FAITH_NAME" Language="en_US">
+			<Text>Alabaster Plaster</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_FAITH_TIER2_NAME" Language="en_US">
+			<Text>Awakened Alabaster Plaster</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_FAITH_TIER3_NAME" Language="en_US">
+			<Text>Ascended Alabaster Plaster</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_FAITH_DESC" Language="en_US">
+			<Text>The effects of the Alabaster Plaster being placed in this city's Macguffin Altar. Shrines in all cities will provide +1 [Icon_Faith] Faith.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_FAITH_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Alabaster Plaster being placed in this city's Macguffin Altar. Shrines and Temples in all cities will provide +1 [Icon_Faith] Faith and +2 [Icon_Faith] Faith respectfully.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_FAITH_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Alabaster Plaster being placed in this city's Macguffin Altar. Shrines, Temples, and Tier 3 Religious Buildings in all cities will provide +1 [Icon_Faith] Faith, +2 [Icon_Faith] Faith, and +3 [Icon_Faith] Faith respectfully.</Text>
+		</Row>
+
+		
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_HARBOR_NAME" Language="en_US">
+			<Text>Aquamarine Driftwood</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_HARBOR_TIER2_NAME" Language="en_US">
+			<Text>Awakened Aquamarine Driftwood</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_HARBOR_TIER3_NAME" Language="en_US">
+			<Text>Ascended Aquamarine Driftwood</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_HARBOR_DESC" Language="en_US">
+			<Text>The effects of the Aquamarine Driftwood being placed in this city's Macguffin Altar. Lighthouses in all cities will provide +1 [Icon_Food] Food.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_HARBOR_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Aquamarine Driftwood being placed in this city's Macguffin Altar. Lighthouses and Shipyards in all cities will provide +1 [Icon_Food] Food and +2 [Icon_Production] Production respectfully.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_HARBOR_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Aquamarine Driftwood being placed in this city's Macguffin Altar. Lighthouses, Shipyards, and Seaports in all cities will provide +1 [Icon_Food] Food, +2 [Icon_Production] Production, and +3 [Icon_Gold] Gold respectfully.</Text>
+		</Row>
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_MILITARY_NAME" Language="en_US">
+			<Text>Crimson Clay</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_MILITARY_TIER2_NAME" Language="en_US">
+			<Text>Awakened Crimson Clay</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_MILITARY_TIER3_NAME" Language="en_US">
+			<Text>Ascended Crimson Clay</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_MILITARY_DESC" Language="en_US">
+			<Text>The effects of the Crimson Clay being placed in this city's Macguffin Altar. Barracks or Stables in all cities will provide +1 [Icon_Production] Production.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_MILITARY_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Crimson Clay being placed in this city's Macguffin Altar. Barracks or Stables, and Armories in all cities will provide +1 [Icon_Production] Production and +2 [Icon_Production] Production respectfully.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_MILITARY_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Crimson Clay being placed in this city's Macguffin Altar. Barracks or Stables, Armories, and Military Academies in all cities will provide +1 [Icon_Production] Production, +2 [Icon_Production] Production, and +3 [Icon_Production] Production respectfully.</Text>
+		</Row>
+		
+		
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_PRODUCTION_NAME" Language="en_US">
+			<Text>Amber Adobe</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_PRODUCTION_TIER2_NAME" Language="en_US">
+			<Text>Awakened Amber Adobe</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_PRODUCTION_TIER3_NAME" Language="en_US">
+			<Text>Ascended Amber Adobe</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_PRODUCTION_DESC" Language="en_US">
+			<Text>The effects of the Amber Adobe being placed in this city's Macguffin Altar. Workshops in all cities will provide +1 [Icon_Production] Production.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_PRODUCTION_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Amber Adobe being placed in this city's Macguffin Altar. Workshops, and Factories in all cities will provide +1 [Icon_Production] Production and +2 [Icon_Production] Production respectfully.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_BUILDING_BONUS_PRODUCTION_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Amber Adobe being placed in this city's Macguffin Altar. Workshops, Factories, and Power Plants in all cities will provide +1 [Icon_Production] Production, +2 [Icon_Production] Production, and +3 [Icon_Production] Production respectfully.</Text>
+		</Row>
 
 
 
