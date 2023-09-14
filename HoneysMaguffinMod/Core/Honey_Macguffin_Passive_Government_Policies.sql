@@ -15,3 +15,5 @@
 -- nice diplomatic policy 2
 -- nice wildcard 1 -- every great person points
 -- nice wildcard 2 -- border growth?
+
+--I could have these as policies or I could just have them as building bonuses

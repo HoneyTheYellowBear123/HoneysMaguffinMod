@@ -53,7 +53,13 @@
     <Content Include="Core\HoneyMacguffinUIControls.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Core\Honey_Macguffin_Active_Construction.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Core\Honey_Macguffin_Active_FlatYields.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\Honey_Macguffin_Active_War.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Core\Honey_Macguffin_Config.sql">
@@ -66,6 +72,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Core\Honey_Macguffin_Passive_FlatYields.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\Honey_Macguffin_Passive_FlatYields_Cursed.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Core\Honey_Macguffin_Passive_Government_Policies.sql">
