@@ -1,6 +1,14 @@
 
 
 
+Macguffin_Cooldown_Multiple = 1 --TO DO add this as a configurable variables
+
+
+---------------------------------------------------------------------------------------------------------------------
+------------------------------------ HELPERS ------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+--[[
 --returns relevent tiles for an effect to be applied to
 function chooseRandomTiles( playerID, target, feature, terrains, resources, number, allowCities, withImprovement )
 
@@ -28,13 +36,18 @@ function chooseRandomTiles( playerID, target, feature, terrains, resources, numb
 	--choose a few from this mega list randomly based on number
 	--return
 
-	playerGroup = []
-	if target == 0:
+
+
+	--playerGroup = []
+	if target == 0 then
 		playerGroup = [playerID]
-	if target == 1:
+	end
+	if target == 1 then
 		--get war enemies
-	if target == 2:
+	end
+	if target == 2 then
 		-- get everybody except player
+	end
 
 	relevant_tiles = []
 	for player in playerGroup do
@@ -93,6 +106,64 @@ function chooseRandomTiles( playerID, target, feature, terrains, resources, numb
 	
 	return relevant_tiles
 end
+--]]
+
+
+
+
+
+
+function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each reward and return associated number of cooldown
+	--efficiency can increase if I check the name and split it up as much as possible
+
+	print("HoneyDebug active grant effect was called")
+
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT'].Index then
+	print("HoneyDebug active we did the first builder thing")
+		return free_builder_reward(playerID, 1, x, y)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER2'].Index then
+		return free_builder_reward(playerID, 2, x, y)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER3'].Index then
+		return free_builder_reward(playerID, 3, x, y)
+	end
+	
+	
+
+	print("placeholder XD")
+	return 1
+end
+
+
+-------------------------------------------------------------------------------------------------------
+------------------------------------------ REWARD FUNCTIONS ------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+-- all functions apply some reward and return the BASE cooldown for that macguffin.
+
+
+
+
+function free_builder_reward(player, tier, x, y)
+
+	print("HoneyDebug active free builder reward was called")
+
+	builderID = GameInfo.Units['UNIT_BUILDER'].Index;
+	
+	player:GetUnits():Create(UnitID, x , y)
+
+	if tier == 1 then
+		return 30
+	end
+	if tier == 2 then
+		return 15
+	end
+	if tier == 3 then
+		return 6
+	end
+end
+
 
 
 

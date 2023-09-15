@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_HARBOR_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -333,6 +333,8 @@ end
 ----------------------------------------------------- ACTIVE MACGUFFINS ---------------------------------------------
 --#####################################################################################################################
 
+include("HoneyMacguffinProjects");
+
 local tActiveMacguffinProjects = {}
 
 function setupActiveMacguffinProjects()
@@ -364,7 +366,7 @@ function ActivateActiveMacguffin(playerID, cityID, projectID, buildingIndex, x, 
 				local tempglobalcooldowntable = Game:GetProperty("HoneyMacguffinGlobalCooldownSystem")
 				local globalcooldownValue = tempglobalcooldowntable[playerID]
 				
-				local projectCooldown = grantHoneyMacguffinActiveEffect(MacguffinEntry[7])
+				local projectCooldown = grantHoneyMacguffinActiveEffect(MacguffinEntry[7], playerID, x, y)
 				
 				local associatedAltarIndex = GameInfo.Buildings[MacguffinEntry[4]].Index
 				local CityObject = CityManager.GetCity( playerID, cityID )
@@ -392,10 +394,7 @@ function ActivateActiveMacguffin(playerID, cityID, projectID, buildingIndex, x, 
 
 end
 
-function grantHoneyMacguffinActiveEffect(projectID) --grant each reward and return associated number of cooldown
-	print("placeholder XD")
-	return 1
-end
+
 
 --function that loops through every city at the beggining of the turn to see if it has the cooldown building, if so reduce the cooldown by one. If cooldown is zero, replace the building and change MacguffinEntry[4].
 function reduceHoneyMacguffinCooldown()
@@ -433,6 +432,81 @@ function reduceHoneyMacguffinCooldown()
 	Game:SetProperty("HoneyMacguffinIndexSystem",temptable)
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each reward and return associated number of cooldown
+	--efficiency can increase if I check the name and split it up as much as possible
+
+	print("HoneyDebug active grant effect was called")
+
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT'].Index then
+	print("HoneyDebug active we did the first builder thing")
+		return free_builder_reward(playerID, 1, x, y)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER2'].Index then
+		return free_builder_reward(playerID, 2, x, y)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER3'].Index then
+		return free_builder_reward(playerID, 3, x, y)
+	end
+	
+	
+
+	print("placeholder XD")
+	return 1
+end
+
+
+-------------------------------------------------------------------------------------------------------
+------------------------------------------ REWARD FUNCTIONS ------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+-- all functions apply some reward and return the BASE cooldown for that macguffin.
+
+
+
+
+function free_builder_reward(playerid, tier, x, y)
+
+	print("HoneyDebug active free builder reward was called")
+
+	--builderID = GameInfo.Units['UNIT_BUILDER'].Index;
+	
+	--Players[playerid]:GetUnits():Create(UnitID, x , y)
+	--UnitManager.InitUnit(playerid, builderID, x, y);
+
+	if tier == 1 then
+		return 30
+	end
+	if tier == 2 then
+		return 15
+	end
+	if tier == 3 then
+		return 6
+	end
+end
+
+
+
+
+
+
+
+
 
 --#####################################################################################################################
 ----------------------------------------------  END ACTIVE MACGUFFINS --------------------------------------
@@ -555,10 +629,6 @@ end
 
 
 --end
-
-
-
-
 
 
 function initMacguffinGrantingFunctions()
