@@ -3,7 +3,7 @@
 -- DateCreated: 9/1/2023 2:30:16 PM
 --------------------------------------------------------------
 
---grant builder # Motivatinator (whip with spikes on the end)
+--grant builder # Motivatinator (whip with spikes on the end) --21
 --splatter improvement on random valid tile
 	--#mine/quarry # Notched Pickaxe
 	--#farm/plantation # Farm Hand

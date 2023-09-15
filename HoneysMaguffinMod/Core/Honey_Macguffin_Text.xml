@@ -772,6 +772,30 @@
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER3_DESC" Language="en_US">
 			<Text>Activate the Nexus of Knowledge, granting 300 [ICON_Science] Science.</Text>
 		</Row>
+
+
+
+		<!-- #######################        active construction  ################################   -->
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_NAME" Language="en_US">
+			<Text>Motivatinator</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER2_NAME" Language="en_US">
+			<Text>Awakened Motivatinator</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER3_NAME" Language="en_US">
+			<Text>Ascended Motivatinator</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_DESC" Language="en_US">
+			<Text>Activate the Motivatinator, granting a Builder unit.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER2_DESC" Language="en_US">
+			<Text>Activate the Motivatinator, granting a Builder unit.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER3_DESC" Language="en_US">
+			<Text>Activate the Motivatinator, granting a Builder unit.</Text>
+		</Row>
+		
+		
 		
 
 
