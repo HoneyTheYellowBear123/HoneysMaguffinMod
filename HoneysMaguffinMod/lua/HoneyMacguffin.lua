@@ -459,7 +459,7 @@ end
 
 
 --returns relevent tiles for an effect to be applied to
-function chooseRandomTiles( playerID, target, features, terrains, resources, number, DontAllowCities, withImprovement, noWater )
+function chooseRandomTiles( playerID, target, features, terrains, resources, number, DontAllowCities, withImprovementOk, noWater )
 
 	-- whichPlayer
 	-- playerID of whoever activated macguffin
@@ -477,9 +477,9 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 	--all tiles with these resources will be considered
 
 	-- number
-	-- how many tiles do we want
+	-- how many tiles do we want ITS BETTER TO SOLVE THIS LATER DONT WORRY ABOUT IT
 
-	-- withImprovement
+	-- withImprovementOk
 	-- 0 no improvements on this tile yet please, 1 only tiles with improvements, 2 we dont care
 
 	-- noWater
@@ -542,6 +542,10 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 
 				if (DontAllowCities and plot:IsCity()) then
 					print("honeydebug reward tile is considered a city")
+					continue = true
+				end
+
+				if (not withImprovementOk) and (plot:GetImprovementType() ~= -1) then
 					continue = true
 				end
 
@@ -609,8 +613,22 @@ end
 
 
 
+--choose num number things from a list at random
+function ChooseNumFromList(listin, num)
+	
+	local returnlist = {}
+	while ( ( #returnlist < num ) and ( #listin > 0 ) ) do
+		
+		math.randomseed(os.time())
+		math.random(); math.random(); math.random()
+		randomindex = math.random(1, #listin)
+		table.insert(returnlist, listin[randomindex])
+		table.remove(listin, randomindex)
 
-
+	end
+	return returnlist
+end
+	
 
 
 
@@ -681,20 +699,54 @@ end
 
 function mine_quarry_reward(playerid, tier)
 
-	features = {'FEATURE_VOLCANIC_SOIL'}
-	terrains = {'TERRAIN_GRASS_HILLS','TERRAIN_PLAINS_HILLS','TERRAIN_DESERT_HILLS','TERRAIN_TUNDRA_HILLS','TERRAIN_SNOW_HILLS'}
-	resources = {'RESOURCE_COPPER', 'RESOURCE_STONE', 'RESOURCE_IRON', 'RESOURCE_NITER', 'RESOURCE_COAL', 'RESOURCE_ALUMINUM', 'RESOURCE_URANIUM', 'RESOURCE_AMBER', 'RESOURCE_DIAMONDS', 'RESOURCE_JADE', 'RESOURCE_MERCURY', 'RESOURCE_SALT', 'RESOURCE_SILVER', 'RESOURCE_MARBLE', 'RESOURCE_GYPSUM'}
+	local minefeatures = {'FEATURE_VOLCANIC_SOIL'}
+	local mineterrains = {'TERRAIN_GRASS_HILLS','TERRAIN_PLAINS_HILLS','TERRAIN_DESERT_HILLS','TERRAIN_TUNDRA_HILLS','TERRAIN_SNOW_HILLS'}
+	local mineresources = {'RESOURCE_COPPER', 'RESOURCE_IRON', 'RESOURCE_NITER', 'RESOURCE_COAL', 'RESOURCE_ALUMINUM', 'RESOURCE_URANIUM', 'RESOURCE_AMBER', 'RESOURCE_DIAMONDS', 'RESOURCE_JADE', 'RESOURCE_MERCURY', 'RESOURCE_SALT', 'RESOURCE_SILVER'}
 	
-	plots = chooseRandomTiles(playerid, 0, features, terrains, resources, 1, 1, 0, 1)
+	local quarryfeatures = {}
+	local quarryterrains = {}
+	local quarryresources = {'RESOURCE_STONE', 'RESOURCE_MARBLE', 'RESOURCE_GYPSUM'}
+	
+	local mineplots = chooseRandomTiles(playerid, 0, minefeatures, mineterrains, mineresources, 1, 1, 0, 1)
+	local quarryplots = chooseRandomTiles(playerid, 0, quarryfeatures, quarryterrains, quarryresources, 1, 1, 0, 1)
 
-	mineindex = GameInfo.Improvements['IMPROVEMENT_MINE'].Index;
-
-	for i, plot in ipairs(plots) do
-		print("honeydebug mine we have plots that could contain mines or quarries within the empire")
-		ImprovementBuilder.SetImprovementType(plot,  mineindex   ,playerid)
+	local masterplotlist = {}
+	for i, item in ipairs(mineplots) do
+		table.insert( masterplotlist , {item, 'mine'} )
+	end
+	for i, item in ipairs(quarryplots) do
+		table.insert( masterplotlist, {item, 'quarry'} )
 	end
 
-	return 1
+	local plots = ChooseNumFromList(masterplotlist, tier)
+
+	mineindex = GameInfo.Improvements['IMPROVEMENT_MINE'].Index;
+	quarryindex = GameInfo.Improvements['IMPROVEMENT_QUARRY'].Index;
+	if #plots > 0 then
+		for i, plot in ipairs(plots) do
+			if plot[2] == 'mine' then
+				print("honeydebug mine we have plots that could contain mines within the empire")
+				ImprovementBuilder.SetImprovementType(plot[1],  mineindex   ,playerid)
+			end
+			if plot[2] == 'quarry' then
+				print("honeydebug mine we have plots that could contain quarries within the empire")
+				ImprovementBuilder.SetImprovementType(plot[1],  quarryindex   ,playerid)
+			end
+		end
+	else
+		print("honeydebug mine we have found NO plots that could contain quarries or mines within the empire")
+		return 0 --no more spots to improve
+	end
+
+	if tier == 1 then
+		return 10
+	end
+	if tier == 2 then
+		return 15
+	end
+	if tier == 3 then
+		return 20
+	end
 
 end
 

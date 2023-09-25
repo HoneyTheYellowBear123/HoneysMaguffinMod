@@ -5,9 +5,9 @@ C:\Users\mitch\Documents\Firaxis ModBuddy\Civilization VI\HoneysMaguffinMod\Hone
 Opened output file: C:\Users\mitch\Documents\My Games\Sid Meier's Civilization VI\Mods\HoneysMaguffinMod\Platforms\MacOS\BLPs/Icons.blp    For XLP: 'C:\Users\mitch\Documents\Firaxis ModBuddy\Civilization VI\HoneysMaguffinMod\HoneysMaguffinMod\XLPs\Icons.xlp'
 Could not load digest key: ''.  Using mod key to sign BLP.
 Starting 'Icons'
-Load finished for: 'Icons' in 0.044 seconds
-Cook finished for: 'Icons' in 0.743 seconds
-Disk write finished for: 'Icons' in 0.048 seconds
-Cleanup finished for: 'Icons' in 0.006 seconds
+Load finished for: 'Icons' in 0.040 seconds
+Cook finished for: 'Icons' in 0.734 seconds
+Disk write finished for: 'Icons' in 0.051 seconds
+Cleanup finished for: 'Icons' in 0.007 seconds
 XLP cook completed with success.
-Cook completed in 0.849 seconds
+Cook completed in 0.841 seconds
