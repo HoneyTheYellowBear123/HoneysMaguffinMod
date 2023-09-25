@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -433,10 +433,179 @@ function reduceHoneyMacguffinCooldown()
 
 end
 
+Macguffin_Cooldown_Multiple = 1 --TO DO add this as a configurable variables
 
 
 
+function intable(table,val)
+	
+	if (val == -1) or (val == nil) then
+		print("honeydebug intable val was -1 so we are returning false")
+		return false
+	end
 
+	for i=1,#table do
+		print("honeydebug intable value: "..val)
+		print("honeydebug intable tablevalue: "..table[i])
+		if table[i]==val then
+			print("honeydebug intable returning true")
+			return true
+		end
+	end
+	print("honeydebug intable returning false")
+	return false
+end
+
+
+
+--returns relevent tiles for an effect to be applied to
+function chooseRandomTiles( playerID, target, features, terrains, resources, number, DontAllowCities, withImprovement, noWater )
+
+	-- whichPlayer
+	-- playerID of whoever activated macguffin
+
+	--target
+	--0 for self, 1 for war enemies, 2 for random someone else, 3 for random anybody (I don't think I'll ever use 3 )
+
+	-- features
+	-- all tiles that contain these features will be considered
+
+	--terrains
+	--all tiles with this terrain will be considered
+
+	--resources
+	--all tiles with these resources will be considered
+
+	-- number
+	-- how many tiles do we want
+
+	-- withImprovement
+	-- 0 no improvements on this tile yet please, 1 only tiles with improvements, 2 we dont care
+
+	-- noWater
+	-- 1 if we dont want to consider water, 0 if water is A-OK --TERRAIN_COAST TERRAIN_OCEAN
+
+
+	--Pseudocode
+	--for player index
+		-- for cities
+			-- check tiles within 3 of city center
+			-- make sure to check ownership so that city centers dont get grabbed and close cities dont get doubled up
+	--choose a few from this mega list randomly based on number
+	--return
+
+
+
+	--playerGroup = []
+	if target == 0 then
+		playerGroupar = {Players[playerID]}
+	end
+	if target == 1 then
+		--get war enemies
+	end
+	if target == 2 then
+		-- get everybody except player
+	end
+
+	relevant_tiles = {}
+	for i, player in ipairs(playerGroupar) do
+
+
+		print("honeydebug reward playertype: "..type(player));
+		--print("honeydebug reward playervalue: "..player);
+
+		
+		--player = playerGroupar[index]
+		for cit in player:GetCities():Members() do
+
+			print("honeydebug reward cit type: "..type(cit));
+			print("honeydebug reward cit value: "..cit);
+
+			city = CityManager.GetCity(player, cit)
+
+			print("honeydebug reward city type: "..type(city));
+
+
+			cityTileX = city:GetX()
+			cityTileY = city:GetY()
+			print("honeydebug reward chose a city for tile searching!")
+
+			cityPlots = city:GetOwnedPlots()
+
+			for ito, plot in ipairs(cityPlots) do
+
+				continue = false --meant to represent a continue statement
+
+				print("honeydebug reward plot X "..plot:GetX());
+				print("honeydebug reward plot Y "..plot:GetY());
+
+
+				if (DontAllowCities and plot:IsCity()) then
+					print("honeydebug reward tile is considered a city")
+					continue = true
+				end
+
+				if ( (plot:GetFeatureType() ~= -1) and (not continue) ) then
+					if ( ( features ~= {} ) and ( intable(features, GameInfo.Features[plot:GetFeatureType()].FeatureType) ) ) then
+						print("honeydebug reward tile has been selected due to feature")
+						table.insert(relevant_tiles, plot)
+						continue = true
+					end
+				end
+
+				if ( (plot:GetTerrainType() ~= -1) and (not continue) ) then
+					if ((terrains ~= {}) and ( intable(terrains, GameInfo.Terrains[plot:GetTerrainType()].TerrainType) ) ) then
+						print("honeydebug reward tile has been selected due to terrain")
+						table.insert(relevant_tiles, plot)
+						continue = true
+					end
+				end
+
+				--print("honeydebug reward resource type: "..plot:GetResourceType())
+				if ( (plot:GetResourceType() ~= -1 ) and (not continue) ) then
+					if ((resources ~= {}) and ( intable(resources, GameInfo.Resources[plot:GetResourceType()].ResourceType) ) ) then
+						print("honeydebug reward tile has been selected due to resource")
+						table.insert(relevant_tiles, plot)
+						continue = true
+					end
+				end
+				
+				
+
+				--if features != [] then --floodplains, forest, jungle, reef, marsh (in xp2 there is also flooplains grassland and floodplains plains, volcanic soil, burning forest, burnt forest)
+					-- if not (plot:GetFeatureType() in features) then
+					--   break
+					-- end
+				--end
+
+				--if terrains != [] then  --grass, desert tundra
+				--	if not (plot:GetTerrainType() in terrains) then
+				--	  break
+				--	end
+				--end
+
+				--if resources != [] then --strategic, luxuries, bonus resources
+				--	if not (plot:GetResourceType() in resources) then
+				--	  break
+				--	end
+				--end
+
+				--if withImprovement == 0 and plot:GetImprovementType() then  --farm, mines, quarries
+					-- break
+				--end
+				--if withImprovement == 1 and not plot:GetImprovementType() then
+				--  break
+				--end
+				--plot:GetFeatureType() 
+
+				--relevant_tiles = [relevant_tiles[:] plot]										 							
+			end
+		end
+	end
+		
+	--randomly select some number of them
+	return relevant_tiles
+end
 
 
 
@@ -453,8 +622,8 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 
 	print("HoneyDebug active grant effect was called")
 
+	--Motivatinator
 	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT'].Index then
-	print("HoneyDebug active we did the first builder thing")
 		return free_builder_reward(playerID, 1, x, y)
 	end
 	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER2'].Index then
@@ -463,6 +632,22 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER3'].Index then
 		return free_builder_reward(playerID, 3, x, y)
 	end
+
+
+	--Notched Pickaxe
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY'].Index then
+		return mine_quarry_reward(playerID, 1)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_TIER2'].Index then
+		return mine_quarry_reward(playerID, 2)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_TIER3'].Index then
+		return mine_quarry_reward(playerID, 3)
+	end
+
+
+
+
 	
 	
 
@@ -482,13 +667,6 @@ end
 
 function free_builder_reward(playerid, tier, x, y)
 
-	print("HoneyDebug active free builder reward was called")
-
-	--builderID = GameInfo.Units['UNIT_BUILDER'].Index;
-	
-	--Players[playerid]:GetUnits():Create(UnitID, x , y)
-	--UnitManager.InitUnit(playerid, builderID, x, y);
-
 	if tier == 1 then
 		return 30
 	end
@@ -500,6 +678,25 @@ function free_builder_reward(playerid, tier, x, y)
 	end
 end
 
+
+function mine_quarry_reward(playerid, tier)
+
+	features = {'FEATURE_VOLCANIC_SOIL'}
+	terrains = {'TERRAIN_GRASS_HILLS','TERRAIN_PLAINS_HILLS','TERRAIN_DESERT_HILLS','TERRAIN_TUNDRA_HILLS','TERRAIN_SNOW_HILLS'}
+	resources = {'RESOURCE_COPPER', 'RESOURCE_STONE', 'RESOURCE_IRON', 'RESOURCE_NITER', 'RESOURCE_COAL', 'RESOURCE_ALUMINUM', 'RESOURCE_URANIUM', 'RESOURCE_AMBER', 'RESOURCE_DIAMONDS', 'RESOURCE_JADE', 'RESOURCE_MERCURY', 'RESOURCE_SALT', 'RESOURCE_SILVER', 'RESOURCE_MARBLE', 'RESOURCE_GYPSUM'}
+	
+	plots = chooseRandomTiles(playerid, 0, features, terrains, resources, 1, 1, 0, 1)
+
+	mineindex = GameInfo.Improvements['IMPROVEMENT_MINE'].Index;
+
+	for i, plot in ipairs(plots) do
+		print("honeydebug mine we have plots that could contain mines or quarries within the empire")
+		ImprovementBuilder.SetImprovementType(plot,  mineindex   ,playerid)
+	end
+
+	return 1
+
+end
 
 
 

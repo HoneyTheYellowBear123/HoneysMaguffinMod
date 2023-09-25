@@ -1,7 +1,7 @@
 
 
 
-Macguffin_Cooldown_Multiple = 1 --TO DO add this as a configurable variables
+
 
 
 ---------------------------------------------------------------------------------------------------------------------
