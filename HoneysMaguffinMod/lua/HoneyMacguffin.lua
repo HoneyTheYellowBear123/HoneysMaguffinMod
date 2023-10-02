@@ -792,7 +792,7 @@ function mine_quarry_reward(playerid, tier)
 		end
 	else
 		print("honeydebug mine we have found NO plots that could contain quarries or mines within the empire")
-		return 0 --no more spots to improve
+		return 1 --no more spots to improve
 	end
 
 	if tier == 1 then
@@ -848,7 +848,7 @@ function farm_plantation_reward(playerid, tier)
 			end
 		end
 	else
-		return 0 --no more spots to improve
+		return 1 --no more spots to improve
 	end
 	
 	--cooldown a little higher for this macguffin because so many tiles can have farms
@@ -906,7 +906,7 @@ function camp_mill_reward(playerid, tier)
 			end
 		end
 	else
-		return 0 --no more spots to improve
+		return 1 --no more spots to improve
 	end
 	
 	--cooldown a little higher for this macguffin because so many tiles can have mills
@@ -962,7 +962,7 @@ function pasture_fishing_reward(playerid, tier)
 			end
 		end
 	else
-		return 0 --no more spots to improve
+		return 1 --no more spots to improve
 	end
 	
 	

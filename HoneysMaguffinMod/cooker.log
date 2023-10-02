@@ -6,8 +6,8 @@ Opened output file: C:\Users\mitch\Documents\My Games\Sid Meier's Civilization V
 Could not load digest key: ''.  Using mod key to sign BLP.
 Starting 'Icons'
 Load finished for: 'Icons' in 0.043 seconds
-Cook finished for: 'Icons' in 0.385 seconds
-Disk write finished for: 'Icons' in 0.048 seconds
+Cook finished for: 'Icons' in 0.357 seconds
+Disk write finished for: 'Icons' in 0.041 seconds
 Cleanup finished for: 'Icons' in 0.005 seconds
 XLP cook completed with success.
-Cook completed in 0.489 seconds
+Cook completed in 0.455 seconds
