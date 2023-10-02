@@ -7,7 +7,7 @@
 --splatter improvement on random valid tile
 	--#mine/quarry # Notched Pickaxe --22
 	--#farm/plantation # Farm Hand
-	--camp/lumber mill # Resinator
+	--#camp/lumber mill # Resinator
 	--#pasture/fishing boat # live stock (living bowl of soup)
 
 	--Add in late game improvements at a later time, probably give them massive cooldowns

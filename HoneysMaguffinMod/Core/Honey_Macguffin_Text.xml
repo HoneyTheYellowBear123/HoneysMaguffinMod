@@ -853,6 +853,25 @@
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_TIER3_DESC" Language="en_US">
 			<Text>Activate the Ascended Resinator, granting three of either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
 		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_NAME" Language="en_US">
+			<Text>Live Stock</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_TIER2_NAME" Language="en_US">
+			<Text>Awakened Live Stock</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_TIER3_NAME" Language="en_US">
+			<Text>Ascended Live Stock</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_DESC" Language="en_US">
+			<Text>Activate the Live Stock, granting either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Live Stock, granting two of either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Live Stock, granting three of either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
 		
 		
 

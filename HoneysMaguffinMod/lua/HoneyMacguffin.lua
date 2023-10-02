@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -703,6 +703,16 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 		return camp_mill_reward(playerID, 3)
 	end
 
+	--live stock
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING'].Index then
+		return pasture_fishing_reward(playerID, 1)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_TIER2'].Index then
+		return pasture_fishing_reward(playerID, 2)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_TIER3'].Index then
+		return pasture_fishing_reward(playerID, 3)
+	end
 
 
 
@@ -863,7 +873,7 @@ function camp_mill_reward(playerid, tier)
 
 	local campfeatures = {}
 	local campterrains = {}
-	local campresources = {}
+	local campresources = {'RESOURCE_DEER','RESOURCE_FURS','RESOURCE_IVORY','RESOURCE_TRUFFLES','RESOURCE_HONEY'}
 	local bannedcampfeatures = {}
 	local bannedcampterrains = {} 
 	
@@ -913,6 +923,60 @@ function camp_mill_reward(playerid, tier)
 end
 
 
+
+function pasture_fishing_reward(playerid, tier)
+
+	local pasturefeatures = {}
+	local pastureterrains = {}
+	local pastureresources = {'RESOURCE_HORSES','RESOURCE_CATTLE','RESOURCE_SHEEP'}
+	local bannedpasturefeatures = {}
+	local bannedpastureterrains = {} 
+	
+	local fishingfeatures = {}
+	local fishingterrains = {}
+	local fishingresources = {'RESOURCE_FISH','RESOURCE_CRABS','RESOURCE_WHALES','RESOURCE_PEARLS','RESOURCE_AMBER','RESOURCE_TURTLES'}
+	local bannedfishingterrains = {'TERRAIN_GRASS','TERRAIN_GRASS_HILLS','TERRAIN_PLAINS','TERRAIN_PLAINS_HILLS','TERRAIN_DESERT','TERRAIN_DESERT_HILLS','TERRAIN_TUNDRA','TERRAIN_TUNDRA_HILLS','TERRAIN_SNOW','TERRAIN_SNOW_HILLS'} --amber dont get boats on land
+	
+	local pastureplots = chooseRandomTiles(playerid, 0, pasturefeatures, pastureterrains, pastureresources, 1, 1, 0, bannedpasturefeatures, {})
+	local fishingplots = chooseRandomTiles(playerid, 0, fishingfeatures, fishingterrains, fishingresources, 1, 1, 0, {}, bannedfishingterrains )
+
+	local masterplotlist = {}
+	for i, item in ipairs(pastureplots) do
+		table.insert( masterplotlist , {item, 'pasture'} )
+	end
+	for i, item in ipairs(fishingplots) do	
+		table.insert( masterplotlist, {item, 'fishing'} )
+	end
+
+	local plots = ChooseNumFromList(masterplotlist, tier)
+
+	pastureindex = GameInfo.Improvements['IMPROVEMENT_PASTURE'].Index;
+	fishingindex = GameInfo.Improvements['IMPROVEMENT_FISHING_BOATS'].Index;
+	if #plots > 0 then
+		for i, plot in ipairs(plots) do
+			if plot[2] == 'pasture' then
+				ImprovementBuilder.SetImprovementType(plot[1],  pastureindex   ,playerid)
+			end
+			if plot[2] == 'fishing' then
+				ImprovementBuilder.SetImprovementType(plot[1],  fishingindex   ,playerid)
+			end
+		end
+	else
+		return 0 --no more spots to improve
+	end
+	
+	
+	if tier == 1 then
+		return 10
+	end
+	if tier == 2 then
+		return 15
+	end
+	if tier == 3 then
+		return 20
+	end
+
+end
 
 
 
