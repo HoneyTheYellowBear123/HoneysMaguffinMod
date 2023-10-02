@@ -10,6 +10,12 @@
 	--camp/lumber mill # Resinator
 	--#pasture/fishing boat # live stock (living bowl of soup)
 
+	--Add in late game improvements at a later time, probably give them massive cooldowns
+		--one for ski resorts and beach resorts
+		--one for solar farms and wind farms and offshore wind farms
+		--one for sea steads?
+	--Could also have one that randomly does any improvement, just randomly choose one of the reward functions for the other macguffin projects
+
 
 
 

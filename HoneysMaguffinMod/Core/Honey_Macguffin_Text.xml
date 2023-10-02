@@ -833,7 +833,26 @@
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_TIER3_DESC" Language="en_US">
 			<Text>Activate the Ascended Farm Hand, granting three of either a farm or plantation on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
 		</Row>
-		
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_NAME" Language="en_US">
+			<Text>Resinator</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_TIER2_NAME" Language="en_US">
+			<Text>Awakened Resinator</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_TIER3_NAME" Language="en_US">
+			<Text>Ascended Resinator</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_DESC" Language="en_US">
+			<Text>Activate the Resinator, granting either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Resinator, granting two of either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Resinator, granting three of either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
 		
 		
 

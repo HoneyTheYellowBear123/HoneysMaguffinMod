@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -692,6 +692,17 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 		return farm_plantation_reward(playerID, 3)
 	end
 
+	--Resinator
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL'].Index then
+		return camp_mill_reward(playerID, 1)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_TIER2'].Index then
+		return camp_mill_reward(playerID, 2)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_TIER3'].Index then
+		return camp_mill_reward(playerID, 3)
+	end
+
 
 
 
@@ -843,6 +854,63 @@ function farm_plantation_reward(playerid, tier)
 
 end
 
+
+
+
+
+
+function camp_mill_reward(playerid, tier)
+
+	local campfeatures = {}
+	local campterrains = {}
+	local campresources = {}
+	local bannedcampfeatures = {}
+	local bannedcampterrains = {} 
+	
+	local millfeatures = {'FEATURE_JUNGLE','FEATURE_FOREST'}
+	local millterrains = {}
+	local millresources = {}
+	
+	local campplots = chooseRandomTiles(playerid, 0, campfeatures, campterrains, campresources, 1, 1, 0, bannedcampfeatures, {})
+	local millplots = chooseRandomTiles(playerid, 0, millfeatures, millterrains, millresources, 1, 1, 0, {}, {})
+
+	local masterplotlist = {}
+	for i, item in ipairs(campplots) do
+		table.insert( masterplotlist , {item, 'camp'} )
+	end
+	for i, item in ipairs(millplots) do	
+		table.insert( masterplotlist, {item, 'mill'} )
+	end
+
+	local plots = ChooseNumFromList(masterplotlist, tier)
+
+	campindex = GameInfo.Improvements['IMPROVEMENT_CAMP'].Index;
+	millindex = GameInfo.Improvements['IMPROVEMENT_LUMBER_MILL'].Index;
+	if #plots > 0 then
+		for i, plot in ipairs(plots) do
+			if plot[2] == 'camp' then
+				ImprovementBuilder.SetImprovementType(plot[1],  campindex   ,playerid)
+			end
+			if plot[2] == 'mill' then
+				ImprovementBuilder.SetImprovementType(plot[1],  millindex   ,playerid)
+			end
+		end
+	else
+		return 0 --no more spots to improve
+	end
+	
+	--cooldown a little higher for this macguffin because so many tiles can have mills
+	if tier == 1 then
+		return 15
+	end
+	if tier == 2 then
+		return 20
+	end
+	if tier == 3 then
+		return 25
+	end
+
+end
 
 
 
