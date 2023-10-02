@@ -617,6 +617,7 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 				--####################################### add it :)
 
 				if add_it then
+					print("honeydebug reward tile we found a plot that works")
 					table.insert(relevant_tiles, plot)
 				end
 
@@ -871,6 +872,7 @@ end
 
 function camp_mill_reward(playerid, tier)
 
+
 	local campfeatures = {}
 	local campterrains = {}
 	local campresources = {'RESOURCE_DEER','RESOURCE_FURS','RESOURCE_IVORY','RESOURCE_TRUFFLES','RESOURCE_HONEY'}
@@ -924,7 +926,12 @@ end
 
 
 
+
+
 function pasture_fishing_reward(playerid, tier)
+
+
+	print("honey debug pasture fishing function was called!")
 
 	local pasturefeatures = {}
 	local pastureterrains = {}
