@@ -13,8 +13,7 @@
 --      -------------------------- HEAVY FEATURES ---------------------------------
 
 	-- content
-		-- geneva style poeacemonger bonuses passive
-		-- capture city warmonger bonuses passive
+		-- capture city warmonger bonuses passive?
 
 	-- great person UI big icon when you open the great person screen (or find a way to ignore it)
 
@@ -22,10 +21,12 @@
 
 	-- global cooldown in active macguffin UI
 	-- Macguffin Debt in active macguffin UI
+		--I dont ever recall implementing the debt system but I guess we'll see
 	
 
-	--config option to destroy macguffins of AI when capturing cities
+	--config option to destroy macguffins of AI when capturing their cities
 	--config option to only have AI get macguffins
+		--I think this would require code to grant AI a special storage building, or code to get them to build an altar
 	--config option of only have humans get macguffins
 	
 
@@ -38,11 +39,10 @@
 	-- cleanup
 	
 
-
 ------ future ----------
 	-- Macguffin Ahnilator for victory	
 	-- District for epic macguffins
-	-- single use mega macguffins
+		-- single use epic macguffins
 	--  popups for enemies
 	-- unique art for different tiers
 

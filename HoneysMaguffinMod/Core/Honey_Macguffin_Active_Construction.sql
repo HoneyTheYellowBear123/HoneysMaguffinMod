@@ -5,9 +5,9 @@
 
 --grant builder # Motivatinator (whip with spikes on the end) --21
 --splatter improvement on random valid tile
-	--#mine/quarry # Notched Pickaxe
+	--#mine/quarry # Notched Pickaxe --22
 	--#farm/plantation # Farm Hand
-	--camp/lumber mill # developer
+	--camp/lumber mill # Resinator
 	--#pasture/fishing boat # live stock (living bowl of soup)
 
 

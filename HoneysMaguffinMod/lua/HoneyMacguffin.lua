@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -459,7 +459,7 @@ end
 
 
 --returns relevent tiles for an effect to be applied to
-function chooseRandomTiles( playerID, target, features, terrains, resources, number, DontAllowCities, withImprovementOk, noWater )
+function chooseRandomTiles( playerID, target, features, terrains, resources, number, DontAllowCities, withImprovementOk, bannedFeatures, bannedTerrains)
 
 	-- whichPlayer
 	-- playerID of whoever activated macguffin
@@ -482,8 +482,13 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 	-- withImprovementOk
 	-- 0 no improvements on this tile yet please, 1 only tiles with improvements, 2 we dont care
 
-	-- noWater
-	-- 1 if we dont want to consider water, 0 if water is A-OK --TERRAIN_COAST TERRAIN_OCEAN
+	-- bannedFeatures
+	-- features that disqualify this tile
+
+	-- bannedTerrains
+	-- terrains that disqualify this tile
+
+	
 
 
 	--Pseudocode
@@ -534,11 +539,16 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 
 			for ito, plot in ipairs(cityPlots) do
 
-				continue = false --meant to represent a continue statement
+				continue = false --simple means of speeding it up, since the table search will take longer than a continue check
+
+				add_it = false
 
 				print("honeydebug reward plot X "..plot:GetX());
 				print("honeydebug reward plot Y "..plot:GetY());
 
+
+
+				--################################## initial checks, lets us skip additive checks possibly #########################
 
 				if (DontAllowCities and plot:IsCity()) then
 					print("honeydebug reward tile is considered a city")
@@ -549,10 +559,26 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 					continue = true
 				end
 
+				--####################### Additive checks if any of these pass we're good to go ###########################
+
+				--print("honeydebug reward resource type: "..plot:GetResourceType())
+				--resources are a special case. Cattle can exist on hills but it is assumed we want a pasture there rather than a mine. However, Macguffin placement is not removing resource, so its fine I guess? You can always remove the improvement if you want something else to be there.
+				if ( (plot:GetResourceType() ~= -1 ) and (not continue) ) then
+					if ((resources ~= {}) and ( intable(resources, GameInfo.Resources[plot:GetResourceType()].ResourceType) ) ) then
+						print("honeydebug reward tile has been selected due to resource") 
+						add_it = true
+						continue = true
+					else
+						print("honeydebug reward tile has been SKIPPED due to resource") 
+						continue = true
+					end
+				end
+
+
 				if ( (plot:GetFeatureType() ~= -1) and (not continue) ) then
 					if ( ( features ~= {} ) and ( intable(features, GameInfo.Features[plot:GetFeatureType()].FeatureType) ) ) then
 						print("honeydebug reward tile has been selected due to feature")
-						table.insert(relevant_tiles, plot)
+						add_it = true
 						continue = true
 					end
 				end
@@ -560,49 +586,42 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 				if ( (plot:GetTerrainType() ~= -1) and (not continue) ) then
 					if ((terrains ~= {}) and ( intable(terrains, GameInfo.Terrains[plot:GetTerrainType()].TerrainType) ) ) then
 						print("honeydebug reward tile has been selected due to terrain")
-						table.insert(relevant_tiles, plot)
+						add_it = true
 						continue = true
 					end
 				end
 
-				--print("honeydebug reward resource type: "..plot:GetResourceType())
-				if ( (plot:GetResourceType() ~= -1 ) and (not continue) ) then
-					if ((resources ~= {}) and ( intable(resources, GameInfo.Resources[plot:GetResourceType()].ResourceType) ) ) then
-						print("honeydebug reward tile has been selected due to resource")
-						table.insert(relevant_tiles, plot)
-						continue = true
+				--############################# subtractive checks, if any of these show a bad value, switch add_it back to false ####################################
+				--########## makes sure mines dont end up in the water just because we found amber
+
+				if ( (plot:GetFeatureType() ~= -1) and add_it) then
+					if ( ( bannedFeatures ~= {} ) and ( intable(bannedFeatures, GameInfo.Features[plot:GetFeatureType()].FeatureType) ) ) then
+						print("honeydebug reward tile has been SKIPPED due to feature")
+						add_it = false
 					end
 				end
+
+				if ( (plot:GetTerrainType() ~= -1) and add_it) then
+					if ( ( bannedTerrains ~= {} ) and ( intable(bannedTerrains, GameInfo.Features[plot:GetTerrainType()].TerrainType) ) ) then
+						print("honeydebug reward tile has been SKIPPED due to terrain")
+						add_it = false
+					end
+				end
+
+
+
+
+
+
+
+				--####################################### add it :)
+
+				if add_it then
+					table.insert(relevant_tiles, plot)
+				end
+
 				
-				
-
-				--if features != [] then --floodplains, forest, jungle, reef, marsh (in xp2 there is also flooplains grassland and floodplains plains, volcanic soil, burning forest, burnt forest)
-					-- if not (plot:GetFeatureType() in features) then
-					--   break
-					-- end
-				--end
-
-				--if terrains != [] then  --grass, desert tundra
-				--	if not (plot:GetTerrainType() in terrains) then
-				--	  break
-				--	end
-				--end
-
-				--if resources != [] then --strategic, luxuries, bonus resources
-				--	if not (plot:GetResourceType() in resources) then
-				--	  break
-				--	end
-				--end
-
-				--if withImprovement == 0 and plot:GetImprovementType() then  --farm, mines, quarries
-					-- break
-				--end
-				--if withImprovement == 1 and not plot:GetImprovementType() then
-				--  break
-				--end
-				--plot:GetFeatureType() 
-
-				--relevant_tiles = [relevant_tiles[:] plot]										 							
+							 							
 			end
 		end
 	end
@@ -651,7 +670,6 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 		return free_builder_reward(playerID, 3, x, y)
 	end
 
-
 	--Notched Pickaxe
 	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY'].Index then
 		return mine_quarry_reward(playerID, 1)
@@ -661,6 +679,17 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 	end
 	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_TIER3'].Index then
 		return mine_quarry_reward(playerID, 3)
+	end
+
+	--Farm Hand
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION'].Index then
+		return farm_plantation_reward(playerID, 1)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_TIER2'].Index then
+		return farm_plantation_reward(playerID, 2)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_TIER3'].Index then
+		return farm_plantation_reward(playerID, 3)
 	end
 
 
@@ -697,24 +726,30 @@ function free_builder_reward(playerid, tier, x, y)
 end
 
 
+--TO DO I think we need every natural wonder to be a banned feature
+
 function mine_quarry_reward(playerid, tier)
 
 	local minefeatures = {'FEATURE_VOLCANIC_SOIL'}
 	local mineterrains = {'TERRAIN_GRASS_HILLS','TERRAIN_PLAINS_HILLS','TERRAIN_DESERT_HILLS','TERRAIN_TUNDRA_HILLS','TERRAIN_SNOW_HILLS'}
 	local mineresources = {'RESOURCE_COPPER', 'RESOURCE_IRON', 'RESOURCE_NITER', 'RESOURCE_COAL', 'RESOURCE_ALUMINUM', 'RESOURCE_URANIUM', 'RESOURCE_AMBER', 'RESOURCE_DIAMONDS', 'RESOURCE_JADE', 'RESOURCE_MERCURY', 'RESOURCE_SALT', 'RESOURCE_SILVER'}
+	local bannedminefeatures = {}
+	local bannedmineterrains = {'TERRAIN_COAST','TERRAIN_OCEAN'} --amber in the ocean gets fishing boats
 	
 	local quarryfeatures = {}
 	local quarryterrains = {}
 	local quarryresources = {'RESOURCE_STONE', 'RESOURCE_MARBLE', 'RESOURCE_GYPSUM'}
+	local bannedquarryfeatures = {}
+	local bannedquarryterrains = {}
 	
-	local mineplots = chooseRandomTiles(playerid, 0, minefeatures, mineterrains, mineresources, 1, 1, 0, 1)
-	local quarryplots = chooseRandomTiles(playerid, 0, quarryfeatures, quarryterrains, quarryresources, 1, 1, 0, 1)
+	local mineplots = chooseRandomTiles(playerid, 0, minefeatures, mineterrains, mineresources, 1, 1, 0, {}, bannedmineterrains)
+	local quarryplots = chooseRandomTiles(playerid, 0, quarryfeatures, quarryterrains, quarryresources, 1, 1, 0, {}, {})
 
 	local masterplotlist = {}
 	for i, item in ipairs(mineplots) do
 		table.insert( masterplotlist , {item, 'mine'} )
 	end
-	for i, item in ipairs(quarryplots) do
+	for i, item in ipairs(quarryplots) do	
 		table.insert( masterplotlist, {item, 'quarry'} )
 	end
 
@@ -722,6 +757,7 @@ function mine_quarry_reward(playerid, tier)
 
 	mineindex = GameInfo.Improvements['IMPROVEMENT_MINE'].Index;
 	quarryindex = GameInfo.Improvements['IMPROVEMENT_QUARRY'].Index;
+	print("honeydebug reward total plots chosen: "..#plots)
 	if #plots > 0 then
 		for i, plot in ipairs(plots) do
 			if plot[2] == 'mine' then
@@ -746,6 +782,63 @@ function mine_quarry_reward(playerid, tier)
 	end
 	if tier == 3 then
 		return 20
+	end
+
+end
+
+
+
+
+
+function farm_plantation_reward(playerid, tier)
+
+	local farmfeatures = {'FEATURE_VOLCANIC_SOIL', 'FEATURE_FLOODPLAINS'}
+	local farmterrains = {'TERRAIN_GRASS_HILLS','TERRAIN_PLAINS_HILLS','TERRAIN_GRASS','TERRAIN_PLAINS'}
+	local farmresources = {'RESOURCE_WHEAT', 'RESOURCE_RICE', 'RESOURCE_CORN'}
+	local bannedfarmfeatures = {'FEATURE_JUNGLE','FEATURE_FOREST','FEATURE_BURNING_FOREST','FEATURE_BURNING_JUNGLE','FEATURE_BURNT_JUNGLE','FEATURE_BURNT_FOREST'}
+	local bannedfarmterrains = {} 
+	
+	local plantationfeatures = {}
+	local plantationterrains = {}
+	local plantationresources = {'RESOURCE_BANANAS', 'RESOURCE_CITRUS', 'RESOURCE_CHOCOLATE', 'RESOURCE_COFFEE', 'RESOURCE_COTTON', 'RESOURCE_DYES', 'RESOURCE_INCENSE', 'RESOURCE_TEA', 'RESOURCE_SILK', 'RESOURCE_SPICES', 'RESOURCE_SUGAR', 'RESOURCE_OLIVES', 'RESOURCE_TOBACCO', 'RESOURCE_WINE'}
+	
+	local farmplots = chooseRandomTiles(playerid, 0, farmfeatures, farmterrains, farmresources, 1, 1, 0, bannedfarmfeatures, {})
+	local plantationplots = chooseRandomTiles(playerid, 0, plantationfeatures, plantationterrains, plantationresources, 1, 1, 0, {}, {})
+
+	local masterplotlist = {}
+	for i, item in ipairs(farmplots) do
+		table.insert( masterplotlist , {item, 'farm'} )
+	end
+	for i, item in ipairs(plantationplots) do	
+		table.insert( masterplotlist, {item, 'plantation'} )
+	end
+
+	local plots = ChooseNumFromList(masterplotlist, tier)
+
+	farmindex = GameInfo.Improvements['IMPROVEMENT_FARM'].Index;
+	plantationindex = GameInfo.Improvements['IMPROVEMENT_PLANTATION'].Index;
+	if #plots > 0 then
+		for i, plot in ipairs(plots) do
+			if plot[2] == 'farm' then
+				ImprovementBuilder.SetImprovementType(plot[1],  farmindex   ,playerid)
+			end
+			if plot[2] == 'plantation' then
+				ImprovementBuilder.SetImprovementType(plot[1],  plantationindex   ,playerid)
+			end
+		end
+	else
+		return 0 --no more spots to improve
+	end
+	
+	--cooldown a little higher for this macguffin because so many tiles can have farms
+	if tier == 1 then
+		return 15
+	end
+	if tier == 2 then
+		return 20
+	end
+	if tier == 3 then
+		return 25
 	end
 
 end

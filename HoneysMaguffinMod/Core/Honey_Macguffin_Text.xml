@@ -789,10 +789,49 @@
 			<Text>Activate the Motivatinator, granting a Builder unit.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER2_DESC" Language="en_US">
-			<Text>Activate the Motivatinator, granting a Builder unit.</Text>
+			<Text>Activate the Awakened Motivatinator, granting a Builder unit.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER3_DESC" Language="en_US">
-			<Text>Activate the Motivatinator, granting a Builder unit.</Text>
+			<Text>Activate the Ascended Motivatinator, granting a Builder unit.</Text>
+		</Row>
+		
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_NAME" Language="en_US">
+			<Text>Notched Pickaxe</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_TIER2_NAME" Language="en_US">
+			<Text>Awakened Notched Pickaxe</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_TIER3_NAME" Language="en_US">
+			<Text>Ascended Notched Pickaxe</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_DESC" Language="en_US">
+			<Text>Activate the Notched Pickaxe, granting either a mine or a quarry on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Notched Pickaxe, granting two of either a mine or a quarry on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Notched Pickaxe, granting three of either a mine or a quarry on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_NAME" Language="en_US">
+			<Text>Farm Hand</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_TIER2_NAME" Language="en_US">
+			<Text>Awakened Farm Hand</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_TIER3_NAME" Language="en_US">
+			<Text>Ascended Farm Hand</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_DESC" Language="en_US">
+			<Text>Activate the Farm Hand, granting either a farm or plantation on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Farm Hand, granting two of either a farm or plantation on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Farm Hand, granting three of either a farm or plantation on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
 		</Row>
 		
 		
