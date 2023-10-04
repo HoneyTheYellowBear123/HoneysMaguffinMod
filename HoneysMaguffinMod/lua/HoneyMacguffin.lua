@@ -457,6 +457,37 @@ function intable(table,val)
 end
 
 
+--Thank you Master of the Galaxy
+--The Modding discord is a blessing
+function GetCityPlots(pCity)
+    local tTempTable = {}
+    if pCity ~= nil then
+        local iCityRadius = 3
+        local iTableCount = 1
+        local iCityOwner = pCity:GetOwner()
+        local iCityX, iCityY = pCity:GetX(), pCity:GetY()
+        for dx = (iCityRadius * -1), iCityRadius do
+            for dy = (iCityRadius * -1), iCityRadius do
+                local pPlotNearCity = Map.GetPlotXYWithRangeCheck(iCityX, iCityY, dx, dy, iCityRadius);
+                if pPlotNearCity and (pPlotNearCity:GetOwner() == iCityOwner) then
+                    local iPlotIndex, bAddToTable = pPlotNearCity:GetIndex(), false
+                    if ((Cities.GetPlotWorkingCity(iPlotIndex) ~= nil) and (pCity == Cities.GetPlotWorkingCity(iPlotIndex))) then
+                        bAddToTable = true
+                    elseif ((Cities.GetPlotWorkingCity(iPlotIndex) == nil) and (pCity == Cities.GetPlotPurchaseCity(iPlotIndex))) then
+                        bAddToTable = true
+                    end
+                    if (bAddToTable == true) then
+                        tTempTable[iTableCount] = pPlotNearCity
+                        iTableCount = iTableCount + 1
+                    end
+                end
+            end
+        end
+    end
+    return tTempTable
+end
+
+
 
 --returns relevent tiles for an effect to be applied to
 function chooseRandomTiles( playerID, target, features, terrains, resources, number, DontAllowCities, withImprovementOk, bannedFeatures, bannedTerrains)
@@ -535,7 +566,9 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 			cityTileY = city:GetY()
 			print("honeydebug reward chose a city for tile searching!")
 
-			cityPlots = city:GetOwnedPlots()
+			cityPlots = GetCityPlots(city)
+
+			--cityPlots = city:GetOwnedPlots()
 
 			for ito, plot in ipairs(cityPlots) do
 
