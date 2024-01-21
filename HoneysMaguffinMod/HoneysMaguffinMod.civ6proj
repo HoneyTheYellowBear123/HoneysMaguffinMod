@@ -59,6 +59,9 @@
     <Content Include="Core\Honey_Macguffin_Active_FlatYields.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Core\Honey_Macguffin_Active_Misc.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Core\Honey_Macguffin_Active_War.sql">
       <SubType>Content</SubType>
     </Content>

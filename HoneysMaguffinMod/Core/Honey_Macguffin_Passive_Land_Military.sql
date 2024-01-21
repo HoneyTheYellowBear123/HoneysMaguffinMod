@@ -18,13 +18,14 @@
 --$ ranged # spectavian 10 (offers a birds eye view!)
 --$ recon # wispwalker 11 
 --$ anti-cavalry # Haelblaudt 12
--- all land combat # ultra violent light
+--$ all land combat # ultra violent light
 
 
 
---planes?
---naval?
---resist specific classes?
+--planes? too specific
+--naval? not useful enough
+--resist specific classes? kinda boring. This would require your opponents to play in a certain way, rather than incentivizing something in your own civilization.
+
 
 INSERT INTO Types
 		(Type,													Kind)

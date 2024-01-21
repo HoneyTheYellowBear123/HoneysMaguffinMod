@@ -1,0 +1,11 @@
+-- Honey_Macguffin_Active_Misc
+-- Author: mitch
+-- DateCreated: 10/5/2023 10:44:47 AM
+--------------------------------------------------------------
+
+-- era score blast
+-- border expansion
+-- Multiply current great person points by 1.2, 1.4, 1.7
+	--Player:GetGreatPeoplePoints() GetPointsTotal and ChangePointsTotal
+-- flat great person point increase
+-- govenor title

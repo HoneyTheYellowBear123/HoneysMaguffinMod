@@ -12,3 +12,4 @@
 -- steal gold
 -- steal faith
 -- remove envoys?
+-- combat drugs: boost all units stats for x turns
