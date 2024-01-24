@@ -753,6 +753,89 @@
 
 
 
+		<!-- #######################        passive religious  ################################   -->
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_NAME" Language="en_US">
+			<Text>Spearit</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Awakened Spearit</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Ascended Spearit</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_THEOLOGICAL_COMBAT_BUFF_DESC" Language="en_US">
+			<Text>The effects of the Spearit being placed in this city's Macguffin Altar. Religious units will gain +2 [ICON_Strength] Strength in theological combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_THEOLOGICAL_COMBAT_BUFF_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Spearit being placed in this city's Macguffin Altar. Religiousunits will gain +4 [ICON_Strength] Strength in theological combat</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_THEOLOGICAL_COMBAT_BUFF_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Spearit being placed in this city's Macguffin Altar. Religious units will gain +7 [ICON_Strength] Strength in theological combat</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_NAME" Language="en_US">
+			<Text>Holey Spearit</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Holey Spearit</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Holey Spearit</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_DESC" Language="en_US">
+			<Text>+2 [ICON_Strength] (Spearit)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_TIER2_DESC" Language="en_US">
+			<Text>+4 [ICON_Strength] (Awakened Spearit)</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_TIER3_DESC" Language="en_US">
+			<Text>+7 [ICON_Strength] (Ascended Spearit)</Text>
+		</Row>
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_RELIGIOUS_PRESSURE_STRENGTH_BUFF_NAME" Language="en_US">
+			<Text>Cuniformation</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_RELIGIOUS_PRESSURE_STRENGTH_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Awakened Cuniformation</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_RELIGIOUS_PRESSURE_STRENGTH_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Ascended Cuniformation</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_RELIGIOUS_PRESSURE_STRENGTH_BUFF_DESC" Language="en_US">
+			<Text>The effects of the Cuniformation being placed in this city's Macguffin Altar. Religious pressure from your cities to adjacent cities is 25% stronger.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_RELIGIOUS_PRESSURE_STRENGTH_BUFF_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Cuniformation being placed in this city's Macguffin Altar. Religious pressure from your cities to adjacent cities is 50% stronger.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_RELIGIOUS_PRESSURE_STRENGTH_BUFF_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Cuniformation being placed in this city's Macguffin Altar. Religious pressure from your cities to adjacent cities is 75% stronger.</Text>
+		</Row>
+		
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_RELIGIOUS_PRESSURE_DISTANCE_BUFF_NAME" Language="en_US">
+			<Text>High Note</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_RELIGIOUS_PRESSURE_DISTANCE_BUFF_TIER2_NAME" Language="en_US">
+			<Text>Awakened High Note</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_RELIGIOUS_PRESSURE_DISTANCE_BUFF_TIER3_NAME" Language="en_US">
+			<Text>Ascended High Note</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_RELIGIOUS_PRESSURE_DISTANCE_BUFF_DESC" Language="en_US">
+			<Text>The effects of the High Note being placed in this city's Macguffin Altar. Religious pressure from your cities reaches 50% further away.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_RELIGIOUS_PRESSURE_DISTANCE_BUFF_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened High Note being placed in this city's Macguffin Altar. Religious pressure from your cities reaches 80% further away.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_RELIGIOUS_PRESSURE_DISTANCE_BUFF_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended High Note being placed in this city's Macguffin Altar. Religious pressure from your cities reaches 120% further away.</Text>
+		</Row>
+
+
+
+
+
 		<!-- #######################        active yields ################################   -->
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_NAME" Language="en_US">
 			<Text>Nexus of Knowledge</Text>
