@@ -3,5 +3,9 @@
 -- DateCreated: 9/14/2023 4:51:19 PM
 --------------------------------------------------------------
 
--- grants electricity without fuel. upgrades increase radius and power.
+-- grants electricity without fuel. upgrades increase radius and power. (highest level removes c02?)
 -- grants strategic resources # first horse iron, then niter coal, then oil aluminum uranium (cumulatively)
+-- Unique luxury resource (hopefully cloves has a modifier we can use)
+-- influence point gain
+-- diplomatic favor gain
+-- passive tourism?

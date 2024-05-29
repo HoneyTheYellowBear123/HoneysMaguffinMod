@@ -10,24 +10,44 @@
 
 
 
---      -------------------------- HEAVY FEATURES ---------------------------------
+---------------------------- HEAVY FEATURES ---------------------------------
 
-	-- content
-		-- capture city warmonger bonuses passive?
-
+	
 	-- great person UI big icon when you open the great person screen (or find a way to ignore it)
 
 	-- make steel not work? or give a big negative to defensive strength
+		/*
+		In script,
+		 every city that has a macguffin altar
+		City:GetDistricts():SetDamage(defenseType,damage)
+		presumably defenseType is walls/body?
+		it is an enumerator so I need defenseType
+
+		pDistrict:GetDamage(DefenseTypes.DISTRICT_OUTER);
+		pDistrict:GetMaxDamage(DefenseTypes.DISTRICT_OUTER);
+
+
+		At the beginning of every turn:
+		loop through all players
+			loop through all cities
+				Get city center district
+				if city center district has building macguffin altar
+					set damage
+
+
+
+
+		*/
+
+
+
 
 	-- global cooldown in active macguffin UI
 	-- Macguffin Debt in active macguffin UI
 		--I dont ever recall implementing the debt system but I guess we'll see
 	
 
-	--config option to destroy macguffins of AI when capturing their cities
-	--config option to only have AI get macguffins
-		--I think this would require code to grant AI a special storage building, or code to get them to build an altar
-	--config option of only have humans get macguffins
+	
 	
 
 
@@ -40,11 +60,18 @@
 	
 
 ------ future ----------
-	-- Macguffin Ahnilator for victory	
+	
 	-- District for epic macguffins
 		-- single use epic macguffins
-	--  popups for enemies
+	--  popups for enemies obtaining macguffins
 	-- unique art for different tiers
+	--config option to destroy macguffins of AI when capturing their cities
+	--config option to only have AI get macguffins
+		--I think this would require code to grant AI a special storage building, or code to get them to build an altar
+	--config option of only have humans get macguffins
+	--Macguffin victory condition
+	-- content
+		-- capture city warmonger bonuses passive?
 
 
 INSERT INTO Types
@@ -118,6 +145,11 @@ INSERT INTO Projects_XP2
 		(ProjectType,								 RequiredBuilding)
 VALUES  ('PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2', 'BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2'),
 		('PROJECT_HONEY_MACGUFFIN_TIER2_TO_TIER3', 'BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3');
+
+
+
+
+
 
 
 

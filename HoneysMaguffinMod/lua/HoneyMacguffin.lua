@@ -1194,6 +1194,43 @@ end
 
 
 
+--################################################################################################################
+----------------------------------------- Damage Walls -------------------------------------------------------
+--#######################################################################################################
+
+local ms_cityCenterDistrict :number		= GameInfo.Districts["DISTRICT_CITY_CENTER"].Index;
+
+function macguffinDamageWalls() --should function even if building is pillaged
+
+	print("DAMAGE WALLS CALLED")
+	for playerid, playerobject in pairs(Players) do
+		if playerobject:IsMajor() then
+			playerCityMembers = playerobject:GetCities()
+		    for i, cityObject in playerCityMembers:Members() do
+				if cityObject:GetBuildings():HasBuilding(altarBuildingIndex) == true then
+					print("DAMAGE WALLS ACTIVATED")
+					--local outerdef = cityObject:GetDistricts():GetDistrictByType('DISTRICT_CITY_CENTER'):GetMaxDamage(DefenseTypes.DISTRICT_OUTER)
+					--split this up into several steps so I can see where it be failing
+					local step1 = cityObject:GetDistricts()--:GetDistrictByType('DISTRICT_CITY_CENTER'):SetDamage(DefenseTypes.DISTRICT_OUTER,999)
+					local districtObject = step1:GetDistrict(ms_cityCenterDistrict)
+					--for i, districtObject in step1:Members() do
+						--local step2 = step1:GetDistrict(0) --GetDistrictByType('DISTRICT_CITY_CENTER')
+						--if districtObject:GetType() == ms_cityCenterDistrict then
+					--local mh = districtObject:GetMaxDamage(DefenseTypes.DISTRICT_OUTER)
+					districtObject:SetDamage(DefenseTypes.DISTRICT_OUTER,9999)
+							--local step3 = step2:SetDamage(DefenseTypes.DISTRICT_GARRISON,30)
+						--end
+					--end
+				end
+			end
+		end
+	end
+end
+
+
+
+
+
 
 
 
@@ -1224,6 +1261,7 @@ Events.UnitGreatPersonActivated.Add(GreatPersonActivatedCheck)
 Events.CityProjectCompleted.Add(MacguffinImprove)
 Events.CityProjectCompleted.Add(ActivateActiveMacguffin)
 Events.TurnBegin.Add(reduceHoneyMacguffinCooldown)
+Events.TurnBegin.Add(macguffinDamageWalls)
 
 
 
