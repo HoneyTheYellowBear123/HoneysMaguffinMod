@@ -15,30 +15,6 @@
 	
 	-- great person UI big icon when you open the great person screen (or find a way to ignore it)
 
-	-- make steel not work? or give a big negative to defensive strength
-		/*
-		In script,
-		 every city that has a macguffin altar
-		City:GetDistricts():SetDamage(defenseType,damage)
-		presumably defenseType is walls/body?
-		it is an enumerator so I need defenseType
-
-		pDistrict:GetDamage(DefenseTypes.DISTRICT_OUTER);
-		pDistrict:GetMaxDamage(DefenseTypes.DISTRICT_OUTER);
-
-
-		At the beginning of every turn:
-		loop through all players
-			loop through all cities
-				Get city center district
-				if city center district has building macguffin altar
-					set damage
-
-
-
-
-		*/
-
 
 
 
@@ -158,6 +134,8 @@ VALUES  ('PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2', 'BUILDING_HONEY_MACGUFFIN_TIE
 -- TO PREVENT STEEL URBAN DEFENSES 
 -- add a requirement to the modifier that the city does NOT have the macguffin altar :)
 --Modifiers where ModifierID is STEEL_UNLOCK_URBAN_DEFENSES add SubjectRequirementSetId
+--Doesn't quite work with the UI, manually remove wall health in script instead.
+/*
 INSERT INTO Requirements
 		(RequirementId,										RequirementType,				Reverse)
 VALUES  ('REQUIREMENT_CITY_DOES_NOT_HAVE_MACGUFFIN_ALTAR', 'REQUIREMENT_CITY_HAS_BUILDING',       1 );
@@ -177,6 +155,11 @@ VALUES  ('REQUIREMENTSET_STEEL_NO_MACGUFFIN_ALTAR', 'REQUIREMENT_CITY_DOES_NOT_H
 UPDATE Modifiers
 SET SubjectRequirementSetId = 'REQUIREMENTSET_STEEL_NO_MACGUFFIN_ALTAR'
 WHERE ModifierID = 'STEEL_UNLOCK_URBAN_DEFENSES';
+*/
+
+
+
+
 
 
 INSERT INTO Modifiers
