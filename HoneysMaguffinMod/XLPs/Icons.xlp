@@ -175,7 +175,21 @@
 			<m_EntryID text="HoneyMacguffinProjects30"/>
 			<m_ObjectName text="HoneyMacguffinProjects30"/>
 		</Element>
+
+
+
+
+		<Element>
+			<m_EntryID text="MacguffinSymbolGrand105"/>
+			<m_ObjectName text="MacguffinSymbolGrand105"/>
+		</Element>
+		<Element>
+			<m_EntryID text="MacguffinSymbolGrand216"/>
+			<m_ObjectName text="MacguffinSymbolGrand216"/>
+		</Element>
+
 		
+
 
 
 

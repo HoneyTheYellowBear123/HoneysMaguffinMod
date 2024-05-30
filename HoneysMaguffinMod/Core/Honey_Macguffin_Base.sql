@@ -12,12 +12,8 @@
 
 ---------------------------- HEAVY FEATURES ---------------------------------
 
-	
-	-- great person UI big icon when you open the great person screen (or find a way to ignore it)
 
-
-
-
+	-- Double check active projects to make sure they work
 	-- global cooldown in active macguffin UI
 	-- Macguffin Debt in active macguffin UI
 		--I dont ever recall implementing the debt system but I guess we'll see
@@ -27,11 +23,9 @@
 	
 
 
------------------------- END ---------------------
-	-- Only cooldown in altar? If not you'll need to change the UI	
+------------------------ END ---------------------	
 	-- select which great persons can spawn config
 	-- add these great people to lists in lua
-	-- if the start era is different, macguffin peeps will be greater
 	-- cleanup
 	
 

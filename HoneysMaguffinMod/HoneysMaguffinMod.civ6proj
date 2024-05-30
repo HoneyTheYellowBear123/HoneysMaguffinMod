@@ -335,6 +335,18 @@
     <Content Include="Textures\MacguffinSageUnitIcon80.tex">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Textures\MacguffinSymbolGrand105.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSymbolGrand105.tex">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSymbolGrand216.dds">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Textures\MacguffinSymbolGrand216.tex">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Textures\Mask_HoneyMacguffinActiveCooldownUI.dds">
       <SubType>Content</SubType>
     </Content>

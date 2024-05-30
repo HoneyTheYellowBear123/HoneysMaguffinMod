@@ -42,6 +42,9 @@
 
 		<Row Name="ICON_ATLAS_GREATWORKSLOT_HM"       Baseline="6" IconSize="40"   IconsPerRow="1" IconsPerColumn="1" Filename="HoneyMacguffinSlotTypeIcon40.dds"/>
 		<Row Name="ICON_ATLAS_GREATWORKSLOT_HM"       Baseline="6" IconSize="20"   IconsPerRow="1" IconsPerColumn="1" Filename="HoneyMacguffinSlotTypeIcon20.dds"/>
+
+		<Row Name="ICON_ATLAS_GRAND_MACGUFFIN_SYMBOL"	IconSize="105"	IconsPerRow="1" IconsPerColumn="1" Filename="MacguffinSymbolGrand105"/>
+		<Row Name="ICON_ATLAS_GRAND_MACGUFFIN_SYMBOL"	IconSize="216"	IconsPerRow="1" IconsPerColumn="1" Filename="MacguffinSymbolGrand216"/>
 		
 		
 
@@ -54,6 +57,8 @@
 		<!-- TO DO: swap these out -->
 
 		<Row Name="ICON_GREATWORKSLOT_HONEY_MACGUFFIN"		Atlas="ICON_ATLAS_GREATWORKSLOT_HM" Index="0"/>
+
+
 		
 
 		<!-- Row Name="ICON_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE"  OtherName="ICON_GREATWORKOBJECT_RELIC"/ -->
@@ -331,7 +336,9 @@
 		<Row Name="ICON_UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP_PORTRAIT_ERA_MODERN" Atlas="ICON_ATLAS_UNIT_PORTRAITS" Index="12"/>
 		<Row Name="ICON_UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP_PORTRAIT_ERA_MORDERN_F" Atlas="ICON_ATLAS_UNIT_PORTRAITS" Index="12"/>
 		<!-- to do: change the thing below this THIS is the big symbol that shows up on the great person screen-->
-		<Row Name="ICON_GENERIC_GREAT_PERSON_HONEY_MACGUFFIN_GP" Atlas="ICON_ATLAS_GREAT_PERSON_INDIVIDUAL" Index="3"/>
+		<!--Row Name="ICON_GENERIC_GREAT_PERSON_HONEY_MACGUFFIN_GP" Atlas="ICON_ATLAS_GREAT_PERSON_INDIVIDUAL" Index="3"/-->
+		<Row Name="ICON_GENERIC_GREAT_PERSON_HONEY_MACGUFFIN_GP"				Atlas="ICON_ATLAS_GRAND_MACGUFFIN_SYMBOL"	Index="0"/>
+		
 		
 		
 

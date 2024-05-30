@@ -360,6 +360,8 @@ function Refresh()
 	m_macguffinstackIM:ResetInstances()
     m_honeymacguffinIM:ResetInstances()
 
+	Controls.GlobalCooldownInfo:SetText(Locale.Lookup("LOC_HONEY_MACGUFFIN_GLOBAL_COOLDOWN_INFO", Game.GetProperty("HoneyMacguffinGlobalCooldownSystem")[localplayer]));
+
 
 	print("DEBUG3 localplayer: "..localplayer)
 	if not (Game:GetProperty("HoneyMacguffinIndexSystem") == nil) then

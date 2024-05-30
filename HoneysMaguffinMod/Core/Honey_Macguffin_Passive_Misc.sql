@@ -5,7 +5,9 @@
 
 -- grants electricity without fuel. upgrades increase radius and power. (highest level removes c02?)
 -- grants strategic resources # first horse iron, then niter coal, then oil aluminum uranium (cumulatively)
--- Unique luxury resource (hopefully cloves has a modifier we can use)
+-- Unique luxury resource? (hopefully cloves has a modifier we can use)
+	--this would be complicated because I'd like it to be traded. I guess if I use script I can keep track of who has what and when it needs to be destroyed
+	--basically anyone you trade it to should not lose it if you destroy the macguffin
 -- influence point gain
 -- diplomatic favor gain
 -- passive tourism?

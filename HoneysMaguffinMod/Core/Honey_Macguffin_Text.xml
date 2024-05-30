@@ -84,8 +84,14 @@
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_DESC" Language="en_US">
 			<Text>The active macguffin in this city's Macguffin Altar is on Cooldown! Check back later! (Macguffin will only cool down while inside a Macguffin Altar)</Text>
 		</Row>
+
+		<Row Tag="LOC_HONEY_MACGUFFIN_GLOBAL_COOLDOWN_INFO" Language="en_US">
+			<Text>Global Additional Cooldown Cost (Increased With Every Macguffin Activated): {1_PointsAvailable}</Text>
+		</Row>
+
 		
-		
+
+
 		<!-- ################################## Config #####################################-->
 
 		

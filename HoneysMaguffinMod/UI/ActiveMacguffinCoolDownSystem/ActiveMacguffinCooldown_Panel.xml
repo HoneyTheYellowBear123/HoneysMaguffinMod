@@ -16,16 +16,17 @@
 		<Grid	Size="parent,32" Offset="0,40" Texture="Governors_SubHeaderTile" SliceCorner="128,2" SliceTextureSize="0,40"/>
 		<Grid	Size="parent,40" Texture="Controls_SubHeader2" ConsumeMouse="1" SliceCorner="20,2" SliceTextureSize="40,40">
 			<Label Anchor="C,C"	Style="FontFlair24" FontStyle="glow" ColorSet="ShellHeader" SmallCaps="28" SmallCapsLeading="0" SmallCapsType="EveryWord" String="LOC_HONEY_MACGUFFIN_UI_TITLE"/>
+			<!--Label ID="GlobalCooldownInfo" Anchor="C,B" Offset="0,25" FontSize="13" FontStyle="Shadow" WrapWidth="250" Align="Center" Color1="255,20,20,100" Color2="255,20,20,100"/-->
 		</Grid>
 
 		<Grid	Anchor="C,C" Size="parent+16,parent+16"	Style="ScreenFrame"/>
 
 		<!-- Governor Titles -->
-		<!--Container Anchor="C,T" Offset="0,42" Size="auto,22" AutoSizePadding="30">
-			<CheckBox ID="BuiltCheckBox" Anchor="C,C" Offset="-220,0" BoxOnLeft="1" TextOffset="-4,0" ConsumeMouse="1" String="LOC_KNM_REMINDER_CHECK_BUILT"  ButtonSize="35,35" ButtonTexture="Controls_CheckboxCircle" CheckTexture="Controls_CheckboxCircle" CheckSize="35,35" CheckTextureOffset="0,35" NoStateChange="1" Style="FontNormal16" IsChecked="1" ToolTip="LOC_KNM_REMINDER_CHECKBOX1_TT"/>
-			<CheckBox ID="BuildingCheckBox" Anchor="C,C" Offset="0,0" BoxOnLeft="1" TextOffset="-4,0" ConsumeMouse="1" String="LOC_HUD_MAP_SEARCH_TERMS_UNDER_CONSTRUCTION" ButtonSize="35,35" ButtonTexture="Controls_CheckboxCircle" CheckTexture="Controls_CheckboxCircle" CheckSize="35,35" CheckTextureOffset="0,35" NoStateChange="1" Style="FontNormal16" IsChecked="1" ToolTip="LOC_KNM_REMINDER_CHECKBOX2_TT"/>
-			<CheckBox ID="ToBuildCheckBox" Anchor="C,C" Offset="220,0" BoxOnLeft="1" TextOffset="-4,0" ConsumeMouse="1" String="LOC_KNM_REMINDER_CHECK_TO_BUILD" ButtonSize="35,35" ButtonTexture="Controls_CheckboxCircle" CheckTexture="Controls_CheckboxCircle" CheckSize="35,35" CheckTextureOffset="0,35" NoStateChange="1" Style="FontNormal16" IsChecked="1" ToolTip="LOC_KNM_REMINDER_CHECKBOX3_TT"/>
-		</Container -->
+		<Stack Anchor="C,T" Offset="0,42" StackGrowth="Right">
+			<Container Size="auto,22" AutoSizePadding="30">
+				<Label ID="GlobalCooldownInfo" Anchor="C,C" Style="FontFlair16" Color="230,230,230,255"/>
+			</Container>
+		</Stack>
 
 		<ScrollPanel ID="ReminderScrollPanel" Anchor="C,T" Size="parent,parent-70" Offset="0,70" Vertical="1" AutoScrollBar="1" FullClip="1">
 
