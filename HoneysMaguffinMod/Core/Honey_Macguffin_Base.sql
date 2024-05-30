@@ -13,10 +13,10 @@
 ---------------------------- HEAVY FEATURES ---------------------------------
 
 
-	-- Double check active projects to make sure they work
-	-- global cooldown in active macguffin UI
-	-- Macguffin Debt in active macguffin UI
-		--I dont ever recall implementing the debt system but I guess we'll see
+	
+	-- have global cooldown system reduce over time
+	
+	--Make sure active debt system works
 	
 
 	
