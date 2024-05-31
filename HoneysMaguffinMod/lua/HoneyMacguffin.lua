@@ -431,10 +431,33 @@ function reduceHoneyMacguffinCooldown()
 
 	Game:SetProperty("HoneyMacguffinIndexSystem",temptable)
 
+
+	--reduce each player's global cooldown every couple of turns
+	--local modulusValue = math.floor( Game.GetMaxGameTurns() / Macguffin_Global_Cooldown_Reductions_Per_Game ) --Modulus value is how often we will reduce global cooldown values
+	--print("MAX TURNS")
+	--print(Game.GetMaxGameTurns())
+	--print("MODULUS VALUE")
+	--print(modulusValue)
+	--print("CURRENT TURN")
+	--print(Game.GetCurrentGameTurn())
+
+	if (Game.GetCurrentGameTurn() % Macguffin_Global_Cooldown_Frequency == 0) then
+		print("REDUCING GLOBAL COOLDOWN")
+		local temptable2 = {}
+		for i, GlobalCooldownEntry in ipairs(Game:GetProperty("HoneyMacguffinGlobalCooldownSystem")) do
+			temptable2[i] = GlobalCooldownEntry
+			if temptable2[i] > 0 then
+				temptable2[i] = temptable2[i] - 1
+			end
+		end
+		Game:SetProperty("HoneyMacguffinGlobalCooldownSystem",temptable2)
+	end
+
+
 end
 
 Macguffin_Cooldown_Multiple = 1 --TO DO add this as a configurable variables
-
+Macguffin_Global_Cooldown_Frequency = 5 --TO DO make this configurable
 
 
 function intable(table,val)

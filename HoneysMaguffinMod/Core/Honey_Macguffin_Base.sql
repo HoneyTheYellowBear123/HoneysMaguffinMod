@@ -16,12 +16,6 @@
 	
 	-- have global cooldown system reduce over time
 	
-	--Make sure active debt system works
-	
-
-	
-	
-
 
 ------------------------ END ---------------------	
 	-- select which great persons can spawn config
@@ -31,6 +25,7 @@
 
 ------ future ----------
 	
+	--Active macguffin cooldown debt system such that you can't abuse trading them.
 	-- District for epic macguffins
 		-- single use epic macguffins
 	--  popups for enemies obtaining macguffins
