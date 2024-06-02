@@ -5,10 +5,10 @@
 
 	-- science # nexus of thought
 	-- culture # pantiest brush
-	-- gold # gold rush
+	-- gold # Treasure Tonic
 	-- faith # irrationalizer
-	-- food 5 # hottest pot (food in all cities, essentially a growth spurt)
-	-- production (small spurt in all cities)
+	-- food 5 # LofesanFish (food in all cities, essentially a growth spurt)
+	-- production # Sezedmeens (small spurt in all cities)
 
 INSERT INTO Types 
 

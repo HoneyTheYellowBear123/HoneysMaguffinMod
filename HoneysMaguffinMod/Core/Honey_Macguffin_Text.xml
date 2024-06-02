@@ -853,13 +853,13 @@
 			<Text>Ascended Nexus of Knowledge</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_DESC" Language="en_US">
-			<Text>Activate the Nexus of Knowledge, granting 100 [ICON_Science] Science.</Text>
+			<Text>Activate the Nexus of Knowledge, granting three times this city's [ICON_Science] Science yield.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER2_DESC" Language="en_US">
-			<Text>Activate the Nexus of Knowledge, granting 200 [ICON_Science] Science.</Text>
+			<Text>Activate the Awakened Nexus of Knowledge, granting six times this city's [ICON_Science] Science yield.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER3_DESC" Language="en_US">
-			<Text>Activate the Nexus of Knowledge, granting 300 [ICON_Science] Science.</Text>
+			<Text>Activate the Ascended Nexus of Knowledge, granting ten times this city's [ICON_Science] Science yield.</Text>
 		</Row>
 
 

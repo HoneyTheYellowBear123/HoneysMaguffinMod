@@ -13,8 +13,7 @@
 ---------------------------- HEAVY FEATURES ---------------------------------
 
 
-	
-	-- have global cooldown system reduce over time
+	-- make sure entries are removed from the macguffin index system when awakened/ascended
 	
 
 ------------------------ END ---------------------	

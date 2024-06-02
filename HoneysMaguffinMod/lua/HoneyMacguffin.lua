@@ -441,7 +441,11 @@ function reduceHoneyMacguffinCooldown()
 	--print("CURRENT TURN")
 	--print(Game.GetCurrentGameTurn())
 
-	if (Game.GetCurrentGameTurn() % Macguffin_Global_Cooldown_Frequency == 0) then
+	local baseUpdateRate =  math.floor( 500 / Approx_Global_Cooldown_Updates_Per_Game )
+	local scaledUpdateRate = math.ceil(baseUpdateRate / (100 / speedCostMultiplier))
+
+
+	if (Game.GetCurrentGameTurn() % scaledUpdateRate == 0) then
 		print("REDUCING GLOBAL COOLDOWN")
 		local temptable2 = {}
 		for i, GlobalCooldownEntry in ipairs(Game:GetProperty("HoneyMacguffinGlobalCooldownSystem")) do
@@ -457,7 +461,22 @@ function reduceHoneyMacguffinCooldown()
 end
 
 Macguffin_Cooldown_Multiple = 1 --TO DO add this as a configurable variables
-Macguffin_Global_Cooldown_Frequency = 5 --TO DO make this configurable
+Approx_Global_Cooldown_Updates_Per_Game = 100 --TO DO make this configurable
+speedCostMultiplier = GameInfo.GameSpeeds[GameConfiguration.GetGameSpeedType()].CostMultiplier
+
+
+	--local spawnChance = math.max(GetBaseSCPChance() + extraChance, 0);
+    --local gameSpeed = GameConfiguration.GetGameSpeedType();
+    --local speedCostMultiplier = GameInfo.GameSpeeds[gameSpeed].CostMultiplier;
+    --Multiply everything by 100 to ensure even a gamespeed multiplier of 1 returns a useable value less than 100%
+    --if (math.random(1,(speedCostMultiplier * 100)) <= spawnChance * 100) then
+    --    canSpawn = true;
+    --end
+
+
+
+
+
 
 
 function intable(table,val)
@@ -772,6 +791,22 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 	end
 
 
+	--Nexus Of Knowledge
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE'].Index then
+		return grant_science_yield_reward(projectID, playerID, 1)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER2'].Index then
+		return grant_science_yield_reward(projectID, playerID, 2)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER3'].Index then
+		return grant_science_yield_reward(projectID, playerID, 3)
+	end
+
+
+
+
+
+
 
 	
 	
@@ -1041,6 +1076,40 @@ function pasture_fishing_reward(playerid, tier)
 
 end
 
+
+
+
+function grant_science_yield_reward(projectid, playerid, tier)
+
+
+	local scienceYield = 0
+	for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
+		if MacguffinEntry[7] == projectid then
+			local CityObject = CityManager.GetCity( MacguffinEntry[8], MacguffinEntry[5]  )
+			scienceYield = CityObject:GetYield('YIELD_SCIENCE')
+
+		end
+	end
+
+	local playerobject = Players[playerid]
+
+	if tier == 1 then
+		scienceYield = scienceYield * 3
+		playerobject:GrantYield(GameInfo.Yields['YIELD_SCIENCE'].Index,scienceYield)
+		return 10
+	end
+	if tier == 2 then
+		scienceYield = scienceYield * 6
+		playerobject:GrantYield(GameInfo.Yields['YIELD_SCIENCE'].Index,scienceYield)
+		return 15	
+	end
+	if tier == 3 then
+		scienceYield = scienceYield * 10
+		playerobject:GrantYield(GameInfo.Yields['YIELD_SCIENCE'].Index,scienceYield)
+		return 20
+	end
+
+end
 
 
 
