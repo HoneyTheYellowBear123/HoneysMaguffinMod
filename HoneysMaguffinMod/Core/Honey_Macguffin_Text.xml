@@ -864,6 +864,27 @@
 
 
 
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_CULTURE_NAME" Language="en_US">
+			<Text>Pain Brush</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_CULTURE_TIER2_NAME" Language="en_US">
+			<Text>Awakened Pain Brush</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_CULTURE_TIER3_NAME" Language="en_US">
+			<Text>Ascended Pain Brush</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_CULTURE_DESC" Language="en_US">
+			<Text>Activate the Pain Brush, granting three times this city's [ICON_Culture] Culture yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_CULTURE_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Pain Brush, granting six times this city's [ICON_Culture] Culture yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_CULTURE_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Pain Brush, granting ten times this city's [ICON_Culture] Culture yield.</Text>
+		</Row>
+
+
+
 		<!-- #######################        active construction  ################################   -->
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_NAME" Language="en_US">
 			<Text>Motivatinator</Text>
