@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_FAITH_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -826,6 +826,18 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 	end
 
 
+	--Irrationalizer
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FAITH'].Index then
+		return grant_faith_yield_reward(projectID, playerID, 1)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FAITH_TIER2'].Index then
+		return grant_faith_yield_reward(projectID, playerID, 2)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FAITH_TIER3'].Index then
+		return grant_faith_yield_reward(projectID, playerID, 3)
+	end
+
+
 
 
 
@@ -1196,6 +1208,42 @@ function grant_gold_yield_reward(projectid, playerid, tier)
 	if tier == 3 then
 		goldYield = goldYield * 10
 		playerobject:GrantYield(GameInfo.Yields['YIELD_GOLD'].Index,goldYield)
+		return 20
+	end
+
+end
+
+
+
+
+
+function grant_faith_yield_reward(projectid, playerid, tier)
+
+
+	local faithYield = 0
+	for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
+		if MacguffinEntry[7] == projectid then
+			local CityObject = CityManager.GetCity( MacguffinEntry[8], MacguffinEntry[5]  )
+			faithYield = CityObject:GetYield('YIELD_FAITH')
+
+		end
+	end
+
+	local playerobject = Players[playerid]
+
+	if tier == 1 then
+		faithYield = faithYield * 3
+		playerobject:GrantYield(GameInfo.Yields['YIELD_FAITH'].Index,faithYield)
+		return 10
+	end
+	if tier == 2 then
+		faithYield = faithYield * 6
+		playerobject:GrantYield(GameInfo.Yields['YIELD_FAITH'].Index,faithYield)
+		return 15	
+	end
+	if tier == 3 then
+		faithYield = faithYield * 10
+		playerobject:GrantYield(GameInfo.Yields['YIELD_FAITH'].Index,faithYield)
 		return 20
 	end
 
