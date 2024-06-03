@@ -884,6 +884,26 @@
 		</Row>
 
 
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_NAME" Language="en_US">
+			<Text>Treasure Tonic</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_TIER2_NAME" Language="en_US">
+			<Text>Awakened Treasure Tonic</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_TIER3_NAME" Language="en_US">
+			<Text>Ascended Treasure Tonic</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_DESC" Language="en_US">
+			<Text>Activate the Treasure Tonic, granting three times this city's [ICON_Gold] Gold yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Treasure Tonic, granting six times this city's [ICON_Gold] Gold yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Treasure Tonic, granting ten times this city's [ICON_Gold] Gold yield.</Text>
+		</Row>
+
+
 
 		<!-- #######################        active construction  ################################   -->
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_NAME" Language="en_US">
