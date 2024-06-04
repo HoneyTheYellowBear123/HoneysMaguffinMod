@@ -923,6 +923,46 @@
 		</Row>
 
 
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FOOD_NAME" Language="en_US">
+			<Text>LofesanFish</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FOOD_TIER2_NAME" Language="en_US">
+			<Text>Awakened LofesanFish</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FOOD_TIER3_NAME" Language="en_US">
+			<Text>Ascended LofesanFish</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FOOD_DESC" Language="en_US">
+			<Text>Activate the LofesanFish, giving a 33% chance to increase population in this city.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FOOD_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened LofesanFish, giving a 50% chance to increase population in this city.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FOOD_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended LofesanFish, giving a 75% chance to increase population in this city.</Text>
+		</Row>
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_PRODUCTION_NAME" Language="en_US">
+			<Text>Sezedmeens</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_PRODUCTION_TIER2_NAME" Language="en_US">
+			<Text>Awakened Sezedmeens</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_PRODUCTION_TIER3_NAME" Language="en_US">
+			<Text>Ascended Sezedmeens</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_PRODUCTION_DESC" Language="en_US">
+			<Text>Activate the Sezedmeens, granting two times this city's [ICON_Production] Production in all cities.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_PRODUCTION_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Sezedmeens, granting three times this city's [ICON_Production] Production in all cities.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_PRODUCTION_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Sezedmeens, granting four times this city's [ICON_Production] Production in all cities.</Text>
+		</Row>
+
+
 
 		<!-- #######################        active construction  ################################   -->
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_NAME" Language="en_US">
