@@ -1061,6 +1061,125 @@
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_TIER3_DESC" Language="en_US">
 			<Text>Activate the Ascended Live Stock, granting three of either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
 		</Row>
+
+
+
+
+		<!-- #######################         passive yields ################################   -->
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ELECTRICITY_NAME" Language="en_US">
+			<Text>Volt Orb</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ELECTRICITY_TIER2_NAME" Language="en_US">
+			<Text>Awakened Volt Orb</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ELECTRICITY_TIER3_NAME" Language="en_US">
+			<Text>Ascended Volt Orb</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ELECTRICITY_DESC" Language="en_US">
+			<Text>The effects of the Volt Orb being placed in this city's Macguffin Altar. Grants 2 [Icon_Power] Power in all cities.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ELECTRICITY_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Volt Orb being placed in this city's Macguffin Altar. Grants 4 [Icon_Power] Power in all cities.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ELECTRICITY_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Volt Orb being placed in this city's Macguffin Altar. Grants 6 [Icon_Power] Power in all cities.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_STRATEGIC_RESOURCES_NAME" Language="en_US">
+			<Text>Versatall</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_STRATEGIC_RESOURCES_TIER2_NAME" Language="en_US">
+			<Text>Awakened Versatall</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_STRATEGIC_RESOURCES_TIER3_NAME" Language="en_US">
+			<Text>Ascended Versatall</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_STRATEGIC_RESOURCES_DESC" Language="en_US">
+			<Text>The effects of the Versatall being placed in this city's Macguffin Altar. Grants 2 [ICON_RESOURCE_IRON] Iron and 2 [ICON_RESOURCE_HORSES] Horses.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_STRATEGIC_RESOURCES_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Versatall being placed in this city's Macguffin Altar. Grants 2 [ICON_RESOURCE_IRON] Iron, 2 [ICON_RESOURCE_HORSES] Horses, 2 [ICON_RESOURCE_NITER] Niter, and 2 [ICON_RESOURCE_COAL] Coal.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_STRATEGIC_RESOURCES_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Versatall being placed in this city's Macguffin Altar. Grants 2 [ICON_RESOURCE_IRON] Iron, 2 [ICON_RESOURCE_HORSES] Horses, 2 [ICON_RESOURCE_NITER] Niter, 2 [ICON_RESOURCE_COAL] Coal, 2 [ICON_RESOURCE_OIL] Oil, and 1 [ICON_RESOURCE_URANIUM] Uranium.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_INFLUENCE_NAME" Language="en_US">
+			<Text>Suzarizer</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_INFLUENCE_TIER2_NAME" Language="en_US">
+			<Text>Awakened Suzarizer</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_INFLUENCE_TIER3_NAME" Language="en_US">
+			<Text>Ascended Suzarizer</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_INFLUENCE_DESC" Language="en_US">
+			<Text>The effects of the Suzarizer being placed in this city's Macguffin Altar. Grants 1 influence point per turn towards [Icon_Envoy] Envoys.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_INFLUENCE_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Suzarizer being placed in this city's Macguffin Altar. Grants 2 influence points per turn towards [Icon_Envoy] Envoys.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_INFLUENCE_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Suzarizer being placed in this city's Macguffin Altar. Grants 3 influence points per turn towards [Icon_Envoy] Envoys.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_DIPLOMATIC_FAVOR_NAME" Language="en_US">
+			<Text>Black Mail</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_DIPLOMATIC_FAVOR_TIER2_NAME" Language="en_US">
+			<Text>Awakened Black Mail</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_DIPLOMATIC_FAVOR_TIER3_NAME" Language="en_US">
+			<Text>Ascended Black Mail</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_DIPLOMATIC_FAVOR_DESC" Language="en_US">
+			<Text>The effects of the Black Mail being placed in this city's Macguffin Altar. Grants 1 [Icon_Favor] Diplomatic Favor per turn.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_DIPLOMATIC_FAVOR_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Black Mail being placed in this city's Macguffin Altar. Grants 2 [Icon_Favor] Diplomatic Favor per turn.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_DIPLOMATIC_FAVOR_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Black Mail being placed in this city's Macguffin Altar. Grants 1 [Icon_Favor] Diplomatic Favor per turn.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_TOURISM_NAME" Language="en_US">
+			<Text>World's Largest Ball of Yarn</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_TOURISM_TIER2_NAME" Language="en_US">
+			<Text>Awakened World's Largest Ball of Yarn</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_TOURISM_TIER3_NAME" Language="en_US">
+			<Text>Ascended World's Largest Ball of Yarn</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_TOURISM_DESC" Language="en_US">
+			<Text>The effects of the World's Largest Ball of Yarn being placed in this city's Macguffin Altar. Grants +10% [Icon_Tourism] Tourism across your empire.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_TOURISM_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened World's Largest Ball of Yarn being placed in this city's Macguffin Altar. Grants +25% [Icon_Tourism] Tourism across your empire.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_TOURISM_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended World's Largest Ball of Yarn being placed in this city's Macguffin Altar. Grants +40% [Icon_Tourism] Tourism across your empire.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ENTERTAINMENT_NAME" Language="en_US">
+			<Text>Party Heart</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ENTERTAINMENT_TIER2_NAME" Language="en_US">
+			<Text>Party Heart</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ENTERTAINMENT_TIER3_NAME" Language="en_US">
+			<Text>Party Heart</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ENTERTAINMENT_DESC" Language="en_US">
+			<Text>The effects of the Party Heart being placed in this city's Macguffin Altar. Grants +1 [Icon_Amenities] Amenities from entertainment to all your cities within 7 tiles.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ENTERTAINMENT_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Party Heart being placed in this city's Macguffin Altar. Grants +1 [Icon_Amenities] Amenities from entertainment to all your cities within 11 tiles.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ENTERTAINMENT_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Party Heart being placed in this city's Macguffin Altar. Grants +1 [Icon_Amenities] Amenities from entertainment to all your cities within 16 tiles.</Text>
+		</Row>
 		
 		
 
