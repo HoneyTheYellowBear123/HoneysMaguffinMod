@@ -1065,7 +1065,7 @@
 
 
 
-		<!-- #######################         passive yields ################################   -->
+		<!-- #######################         passive misc ################################   -->
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ELECTRICITY_NAME" Language="en_US">
 			<Text>Volt Orb</Text>
@@ -1180,8 +1180,110 @@
 		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ENTERTAINMENT_TIER3_DESC" Language="en_US">
 			<Text>The effects of the Ascended Party Heart being placed in this city's Macguffin Altar. Grants +1 [Icon_Amenities] Amenities from entertainment to all your cities within 16 tiles.</Text>
 		</Row>
-		
-		
+
+
+
+		<!-- #######################        active war ################################   -->
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_NAME" Language="en_US">
+			<Text>Irradiator</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_TIER2_NAME" Language="en_US">
+			<Text>Awakened Irradiator</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_TIER3_NAME" Language="en_US">
+			<Text>Ascended Irradiator</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_DESC" Language="en_US">
+			<Text>Activate the Irradiator, splattering radiation fallout on two random tiles of each major civilization you are at war with.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Irradiator, splattering radiation fallout on four random tiles of each major civilization you are at war with.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Irradiator, splattering radiation fallout on six random tiles of each major civilization you are at war with.</Text>
+		</Row>
+
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_NAME" Language="en_US">
+			<Text>Pain Brush</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_TIER2_NAME" Language="en_US">
+			<Text>Awakened Pain Brush</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_TIER3_NAME" Language="en_US">
+			<Text>Ascended Pain Brush</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_DESC" Language="en_US">
+			<Text>Activate the Pain Brush, granting three times this city's [ICON_Culture] Culture yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Pain Brush, granting six times this city's [ICON_Culture] Culture yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Pain Brush, granting ten times this city's [ICON_Culture] Culture yield.</Text>
+		</Row>
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_NAME" Language="en_US">
+			<Text>Treasure Tonic</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER2_NAME" Language="en_US">
+			<Text>Awakened Treasure Tonic</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER3_NAME" Language="en_US">
+			<Text>Ascended Treasure Tonic</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_DESC" Language="en_US">
+			<Text>Activate the Treasure Tonic, granting three times this city's [ICON_Gold] Gold yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Treasure Tonic, granting six times this city's [ICON_Gold] Gold yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Treasure Tonic, granting ten times this city's [ICON_Gold] Gold yield.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_NAME" Language="en_US">
+			<Text>Irrationalizer</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER2_NAME" Language="en_US">
+			<Text>Awakened Irrationalizer</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER3_NAME" Language="en_US">
+			<Text>Ascended Irrationalizer</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_DESC" Language="en_US">
+			<Text>Activate the Irrationalizer, granting three times this city's [ICON_Faith] Faith yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened Irrationalizer, granting six times this city's [ICON_Faith] Faith yield.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended Irrationalizer, granting ten times this city's [ICON_Faith] Faith yield.</Text>
+		</Row>
+
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_NAME" Language="en_US">
+			<Text>LofesanFish</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_TIER2_NAME" Language="en_US">
+			<Text>Awakened LofesanFish</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_TIER3_NAME" Language="en_US">
+			<Text>Ascended LofesanFish</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_DESC" Language="en_US">
+			<Text>Activate the LofesanFish, giving a 33% chance to increase population in this city.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_TIER2_DESC" Language="en_US">
+			<Text>Activate the Awakened LofesanFish, giving a 50% chance to increase population in this city.</Text>
+		</Row>
+		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_TIER3_DESC" Language="en_US">
+			<Text>Activate the Ascended LofesanFish, giving a 75% chance to increase population in this city.</Text>
+		</Row>
+
+
 
 
 	</LocalizedText>

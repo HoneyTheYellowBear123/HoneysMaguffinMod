@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_ENTERTAINMENT_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -25,6 +25,11 @@ function grantDebugGreatPerson(playerID, cityID, x, y)
 	print("cityID "..cityID)
 	print("plot x "..x)
 	print("plot y "..y)
+
+	print("OVERHERE id test")
+	print(Players[0]:GetID())
+	print(Players[1]:GetID())
+	print(Players[2]:GetID())
 
 	if (justMe) then
 		--Game.GetGreatPeople:GrantPerson(DebugGreatPerson, DebugGreatPersonClass,macguffinEra,0,playerID,false);
@@ -586,26 +591,30 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 	end
 
 	relevant_tiles = {}
-	for i, player in ipairs(playerGroupar) do
+	for i, i_player in ipairs(playerGroupar) do
 
 
-		print("honeydebug reward playertype: "..type(player));
+		print("honeydebug reward playertype: "..type(i_player));
+		print("playerid for getting tiles: "..i_player:GetID())
 		--print("honeydebug reward playervalue: "..player);
 
 		
 		--player = playerGroupar[index]
-		for cit in player:GetCities():Members() do
+		for i, city in i_player:GetCities():Members() do
 
-			print("honeydebug reward cit type: "..type(cit));
-			print("honeydebug reward cit value: "..cit);
+			--print("honeydebug reward cit type: "..type(cit));
+			--print("honeydebug reward cit value: "..cit);
 
-			city = CityManager.GetCity(player, cit)
+			--city = CityManager.GetCity(i_player, cit)
 
-			print("honeydebug reward city type: "..type(city));
+			--print("honeydebug reward city type: "..type(city));
 
 
 			cityTileX = city:GetX()
 			cityTileY = city:GetY()
+			print("cityTileX")
+			print(cityTileX)
+			print(cityTileY)
 			print("honeydebug reward chose a city for tile searching!")
 
 			cityPlots = GetCityPlots(city)
@@ -862,6 +871,17 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 
 
 
+	--Irradiator
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION'].Index then
+		return radiation_splatter_reward(playerID, 1)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_TIER2'].Index then
+		return radiation_splatter_reward( playerID, 2)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_TIER3'].Index then
+		return radiation_splatter_reward( playerID, 3)
+	end
+	
 
 
 
@@ -1348,6 +1368,69 @@ function grant_production_yield_reward(projectid, playerid, tier)
 	end
 
 end
+
+
+
+
+
+
+--fallout
+--Game.GetFalloutManager():AddFallout(attackedPlot:GetIndex(),5)
+
+
+
+
+function radiation_splatter_reward(playerid, tier)
+
+	--TO DO select at war enemies
+	print("honey debug splatter radiation function was called! the playerid of the one who cast it is")
+	print(playerid)
+
+	local radterrains = {'TERRAIN_GRASS','TERRAIN_GRASS_HILLS','TERRAIN_PLAINS','TERRAIN_PLAINS_HILLS','TERRAIN_DESERT','TERRAIN_DESERT_HILLS','TERRAIN_TUNDRA','TERRAIN_TUNDRA_HILLS','TERRAIN_SNOW','TERRAIN_SNOW_HILLS'}
+	local attackingPlayer = Players[playerid]
+
+	local apDiplomacy = attackingPlayer:GetDiplomacy()
+	local used = false
+	
+	
+	for playerid_e, playerobject in pairs(Players) do
+		print("playerid_e")
+		print(playerid_e)
+		if (playerobject:IsMajor() and (playerid_e ~= playerid)) then
+			print("this is a major player")
+			if apDiplomacy:IsAtWarWith(playerid_e) then
+				print("we are at war with a major player")
+				used = true
+				local radplots = chooseRandomTiles(playerid_e, 0, {}, radterrains, {}, 1, 1, 0, {}, {})
+				local plots = ChooseNumFromList(radplots, tier * 2)
+				print("we have a plot 4 rad")
+				for i, plot in ipairs(plots) do
+					print("attempting to add fallout")
+					print("honeydebug radiation plot X "..plot:GetX());
+					print("honeydebug radiation plot Y "..plot:GetY());
+					Game.GetFalloutManager():AddFallout(plot:GetIndex(),5)
+				end
+			end
+		end
+	end
+
+	
+	if (not used) then
+		return 1
+	end
+
+	if tier == 1 then
+		return 10
+	end
+	if tier == 2 then
+		return 15
+	end
+	if tier == 3 then
+		return 20
+	end
+
+end
+
 
 
 

@@ -14,6 +14,7 @@
 
 
 	-- make sure entries are removed from the macguffin index system when awakened/ascended
+	--check Honey_Macguffin_Active_Construction.sql there's a section at the bottom that seems suspicious but maybe its fine
 	
 
 ------------------------ END ---------------------	
