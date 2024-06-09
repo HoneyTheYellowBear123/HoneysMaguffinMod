@@ -1245,22 +1245,22 @@
 		</Row>
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_NAME" Language="en_US">
-			<Text>Irrationalizer</Text>
+			<Text>Fraudder</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER2_NAME" Language="en_US">
-			<Text>Awakened Irrationalizer</Text>
+			<Text>Awakened Fraudder</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER3_NAME" Language="en_US">
-			<Text>Ascended Irrationalizer</Text>
+			<Text>Ascended Fraudder</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_DESC" Language="en_US">
-			<Text>Activate the Irrationalizer, granting three times this city's [ICON_Faith] Faith yield.</Text>
+			<Text>Activate the Fraudder, stealing up to 25 [Icon_Gold] Gold from each major civilization you are at war with.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER2_DESC" Language="en_US">
-			<Text>Activate the Awakened Irrationalizer, granting six times this city's [ICON_Faith] Faith yield.</Text>
+			<Text>Activate the Awakened Fraudder, stealing up to 75 [Icon_Gold] Gold from each major civilization you are at war with.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER3_DESC" Language="en_US">
-			<Text>Activate the Ascended Irrationalizer, granting ten times this city's [ICON_Faith] Faith yield.</Text>
+			<Text>Activate the Ascended Fraudder, stealing up to 150 [Icon_Gold] Gold from each major civilization you are at war with.</Text>
 		</Row>
 
 

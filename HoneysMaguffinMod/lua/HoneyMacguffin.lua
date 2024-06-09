@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -912,6 +912,20 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER3'].Index then
 		return damage_enemy_reward( playerID, 3)
 	end
+
+
+
+
+	--Fraudder
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD'].Index then
+		return steal_gold_reward(playerID, 1)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER2'].Index then
+		return steal_gold_reward( playerID, 2)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER3'].Index then
+		return steal_gold_reward( playerID, 3)
+	end
 	
 
 
@@ -1543,6 +1557,74 @@ function damage_enemy_reward(playerid, tier)
 					end
 					unitObject:ChangeDamage(damageChange)
 				end
+			end	
+		end
+	end
+
+	if (not used) then
+		return 1
+	end
+	if tier == 1 then
+		return 10
+	end
+	if tier == 2 then
+		return 15
+	end
+	if tier == 3 then
+		return 20
+	end
+
+end
+
+
+
+
+
+
+
+
+
+
+function steal_gold_reward(playerid, tier)
+
+
+	--local radterrains = {'TERRAIN_GRASS','TERRAIN_GRASS_HILLS','TERRAIN_PLAINS','TERRAIN_PLAINS_HILLS','TERRAIN_DESERT','TERRAIN_DESERT_HILLS','TERRAIN_TUNDRA','TERRAIN_TUNDRA_HILLS','TERRAIN_SNOW','TERRAIN_SNOW_HILLS'}
+	local attackingPlayer = Players[playerid]
+
+	local apDiplomacy = attackingPlayer:GetDiplomacy()
+	local used = false
+	local attackerTreasury = attackingPlayer:GetTreasury()
+
+	
+
+
+	for playerid_e, playerobject in pairs(Players) do
+		print("playerid_e")
+		print(playerid_e)
+		if (playerobject:IsMajor() and (playerid_e ~= playerid)) then
+			print("this is a major player")
+			if apDiplomacy:IsAtWarWith(playerid_e) then
+				used = true
+				local enemyTreasury = playerobject:GetTreasury()
+				local theftAmount = 0
+
+				if tier == 1 then
+					theftAmount = 25
+				end
+				if tier == 2 then
+					theftAmount = 75
+				end
+				if tier == 3 then
+					theftAmount = 150
+				end
+
+				if theftAmount > enemyTreasury:GetGoldBalance() then
+					theftAmount =  enemyTreasury:GetGoldBalance()
+				end
+
+				enemyTreasury:SetGoldBalance( enemyTreasury:GetGoldBalance() - theftAmount )
+				attackerTreasury:SetGoldBalance( attackerTreasury:GetGoldBalance() + theftAmount )
+
 			end	
 		end
 	end
