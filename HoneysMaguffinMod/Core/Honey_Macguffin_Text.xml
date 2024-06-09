@@ -1206,22 +1206,22 @@
 
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_NAME" Language="en_US">
-			<Text>Pain Brush</Text>
+			<Text>Dilapidater</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_TIER2_NAME" Language="en_US">
-			<Text>Awakened Pain Brush</Text>
+			<Text>Awakened Dilapidater</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_TIER3_NAME" Language="en_US">
-			<Text>Ascended Pain Brush</Text>
+			<Text>Ascended Dilapidater</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_DESC" Language="en_US">
-			<Text>Activate the Pain Brush, granting three times this city's [ICON_Culture] Culture yield.</Text>
+			<Text>Activate the Dilapidater, pillaging two random improvements from every major civilization you are at war with.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_TIER2_DESC" Language="en_US">
-			<Text>Activate the Awakened Pain Brush, granting six times this city's [ICON_Culture] Culture yield.</Text>
+			<Text>Activate the Awakened Dilapidater, pillaging four random improvements from every major civilization you are at war with.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_TIER3_DESC" Language="en_US">
-			<Text>Activate the Ascended Pain Brush, granting ten times this city's [ICON_Culture] Culture yield.</Text>
+			<Text>Activate the Ascended Dilapidater, pillaging six random improvements from every major civilization you are at war with.</Text>
 		</Row>
 
 
