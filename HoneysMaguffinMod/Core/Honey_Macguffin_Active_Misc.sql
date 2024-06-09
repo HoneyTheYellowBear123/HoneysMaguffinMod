@@ -8,4 +8,4 @@
 -- Multiply current great person points by 1.2, 1.4, 1.7
 	--Player:GetGreatPeoplePoints() GetPointsTotal and ChangePointsTotal
 -- flat great person point increase
--- govenor title
+-- govenor title?

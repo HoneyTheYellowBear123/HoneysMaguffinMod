@@ -1265,23 +1265,106 @@
 
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_NAME" Language="en_US">
-			<Text>LofesanFish</Text>
+			<Text>Wings of Rem</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_TIER2_NAME" Language="en_US">
-			<Text>Awakened LofesanFish</Text>
+			<Text>Awakened Wings of Rem</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_TIER3_NAME" Language="en_US">
-			<Text>Ascended LofesanFish</Text>
+			<Text>Ascended Wings of Rem</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_DESC" Language="en_US">
-			<Text>Activate the LofesanFish, giving a 33% chance to increase population in this city.</Text>
+			<Text>Activate the Wings of Rem, stealing up to 25 [Icon_Faith] Faith from each major civilization you are at war with.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_TIER2_DESC" Language="en_US">
-			<Text>Activate the Awakened LofesanFish, giving a 50% chance to increase population in this city.</Text>
+			<Text>Activate the Awakened Wings of Rem, stealing up to 75 [Icon_Faith] Faith from each major civilization you are at war with.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_TIER3_DESC" Language="en_US">
-			<Text>Activate the Ascended LofesanFish, giving a 75% chance to increase population in this city.</Text>
+			<Text>Activate the Ascended Wings of Rem, stealing up to 150 [Icon_Faith] Faith from each major civilization you are at war with.</Text>
 		</Row>
+
+
+
+
+		<!-- #######################         passive diplomatic cards ################################   -->
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_MILITARY_CARD_SLOTS_NAME" Language="en_US">
+			<Text>Trumpain</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_MILITARY_CARD_SLOTS_TIER2_NAME" Language="en_US">
+			<Text>Awakened Trumpain</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_MILITARY_CARD_SLOTS_TIER3_NAME" Language="en_US">
+			<Text>Ascended Trumpain</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_MILITARY_CARD_SLOTS_DESC" Language="en_US">
+			<Text>The effects of the Trumpain being placed in this city's Macguffin Altar. Grants an additional military card slot on the policy screen.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_MILITARY_CARD_SLOTS_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Trumpain being placed in this city's Macguffin Altar. Grants two additional military card slots on the policy screen.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_MILITARY_CARD_SLOTS_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Trumpain being placed in this city's Macguffin Altar. Grants three additional military card slots on the policy screen.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ECONOMIC_CARD_SLOTS_NAME" Language="en_US">
+			<Text>Pot Of Greed</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ECONOMIC_CARD_SLOTS_TIER2_NAME" Language="en_US">
+			<Text>Awakened Pot Of Greed</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_ECONOMIC_CARD_SLOTS_TIER3_NAME" Language="en_US">
+			<Text>Ascended Pot Of Greed</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ECONOMIC_CARD_SLOTS_DESC" Language="en_US">
+			<Text>The effects of the Pot Of Greed being placed in this city's Macguffin Altar. Grants an additional economic card slot on the policy screen.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ECONOMIC_CARD_SLOTS_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Pot Of Greed being placed in this city's Macguffin Altar. Grants two additional economic card slots on the policy screen.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_ECONOMIC_CARD_SLOTS_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Pot Of Greed being placed in this city's Macguffin Altar. Grants three additional economic card slots on the policy screen.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_DIPLOMATIC_CARD_SLOTS_NAME" Language="en_US">
+			<Text>All Love Branch</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_DIPLOMATIC_CARD_SLOTS_TIER2_NAME" Language="en_US">
+			<Text>Awakened All Love Branch</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_DIPLOMATIC_CARD_SLOTS_TIER3_NAME" Language="en_US">
+			<Text>Ascended All Love Branch</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_DIPLOMATIC_CARD_SLOTS_DESC" Language="en_US">
+			<Text>The effects of the All Love Branch being placed in this city's Macguffin Altar. Grants an additional diplomatic card slot on the policy screen.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_DIPLOMATIC_CARD_SLOTS_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened All Love Branch being placed in this city's Macguffin Altar. Grants two additional diplomatic card slots on the policy screen.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_DIPLOMATIC_CARD_SLOTS_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended All Love Branch being placed in this city's Macguffin Altar. Grants three additional diplomatic card slots on the policy screen.</Text>
+		</Row>
+
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_WILDCARD_CARD_SLOTS_NAME" Language="en_US">
+			<Text>Wildest Card</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_WILDCARD_CARD_SLOTS_TIER2_NAME" Language="en_US">
+			<Text>Awakened Wildest Card</Text>
+		</Row>
+		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_WILDCARD_CARD_SLOTS_TIER3_NAME" Language="en_US">
+			<Text>Ascended Wildest Card</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_WILDCARD_CARD_SLOTS_DESC" Language="en_US">
+			<Text>The effects of the Wildest Card being placed in this city's Macguffin Altar.  Grants an additional wildcard card slot on the policy screen.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_WILDCARD_CARD_SLOTS_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Wildest Card being placed in this city's Macguffin Altar. Grants two additional wildcard card slots on the policy screen</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_PASSIVE_WILDCARD_CARD_SLOTS_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Wildest Card being placed in this city's Macguffin Altar. Grants three additional wildcard card slots on the policy screen</Text>
+		</Row>
+
+
 
 
 
