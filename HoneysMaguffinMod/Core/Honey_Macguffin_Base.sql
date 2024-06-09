@@ -25,6 +25,7 @@
 
 ------ future ----------
 	
+	--Dilapidater is untested
 	--Active macguffin cooldown debt system such that you can't abuse trading them.
 	-- District for epic macguffins
 		-- single use epic macguffins

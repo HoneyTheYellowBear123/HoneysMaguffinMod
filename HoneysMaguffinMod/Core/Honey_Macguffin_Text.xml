@@ -1226,22 +1226,22 @@
 
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_NAME" Language="en_US">
-			<Text>Treasure Tonic</Text>
+			<Text>Voodall</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER2_NAME" Language="en_US">
-			<Text>Awakened Treasure Tonic</Text>
+			<Text>Awakened Voodall</Text>
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER3_NAME" Language="en_US">
-			<Text>Ascended Treasure Tonic</Text>
+			<Text>Ascended Voodall</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_DESC" Language="en_US">
-			<Text>Activate the Treasure Tonic, granting three times this city's [ICON_Gold] Gold yield.</Text>
+			<Text>Activate the Voodall, dealing up to 25 damage to a unit belonging to every major civilization you are at war with.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER2_DESC" Language="en_US">
-			<Text>Activate the Awakened Treasure Tonic, granting six times this city's [ICON_Gold] Gold yield.</Text>
+			<Text>Activate the Awakened Voodall, dealing up to 50 damage to two units belonging to every major civilization you are at war with.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER3_DESC" Language="en_US">
-			<Text>Activate the Ascended Treasure Tonic, granting ten times this city's [ICON_Gold] Gold yield.</Text>
+			<Text>Activate the Ascended Voodall, dealing up to 75 damage to three units belonging to every major civilization you are at war with.</Text>
 		</Row>
 
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_NAME" Language="en_US">

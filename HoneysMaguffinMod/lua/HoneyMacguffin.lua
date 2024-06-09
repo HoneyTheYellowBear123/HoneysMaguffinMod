@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -902,6 +902,19 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 	
 
 
+	--Voodall
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS'].Index then
+		return damage_enemy_reward(playerID, 1)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER2'].Index then
+		return damage_enemy_reward( playerID, 2)
+	end
+	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER3'].Index then
+		return damage_enemy_reward( playerID, 3)
+	end
+	
+
+
 
 	
 	
@@ -1416,11 +1429,12 @@ function radiation_splatter_reward(playerid, tier)
 			print("this is a major player")
 			if apDiplomacy:IsAtWarWith(playerid_e) then
 				print("we are at war with a major player")
-				used = true
+				
 				local radplots = chooseRandomTiles(playerid_e, 0, {}, radterrains, {}, 1, 1, 0, {}, {})
 				local plots = ChooseNumFromList(radplots, tier * 2)
 				print("we have a plot 4 rad")
 				for i, plot in ipairs(plots) do
+					used = true
 					print("attempting to add fallout")
 					print("honeydebug radiation plot X "..plot:GetX());
 					print("honeydebug radiation plot Y "..plot:GetY());
@@ -1464,11 +1478,12 @@ function pillage_splatter_reward(playerid, tier)
 			print("this is a major player")
 			if apDiplomacy:IsAtWarWith(playerid_e) then
 				print("we are at war with a major player")
-				used = true
+				
 				local radplots = chooseRandomTiles(playerid_e, 0, {}, radterrains, {}, 1, 1, 1, {}, {})
 				local plots = ChooseNumFromList(radplots, tier * 2)
 				print("we have a plot 4 rad")
 				for i, plot in ipairs(plots) do
+					used = true
 					print("attempting to add fallout")
 					print("honeydebug radiation plot X "..plot:GetX());
 					print("honeydebug radiation plot Y "..plot:GetY());
@@ -1476,6 +1491,59 @@ function pillage_splatter_reward(playerid, tier)
 					--Game.GetFalloutManager():AddFallout(plot:GetIndex(),10)
 				end
 			end
+		end
+	end
+
+	if (not used) then
+		return 1
+	end
+	if tier == 1 then
+		return 10
+	end
+	if tier == 2 then
+		return 15
+	end
+	if tier == 3 then
+		return 20
+	end
+
+end
+
+
+function damage_enemy_reward(playerid, tier)
+
+
+	--local radterrains = {'TERRAIN_GRASS','TERRAIN_GRASS_HILLS','TERRAIN_PLAINS','TERRAIN_PLAINS_HILLS','TERRAIN_DESERT','TERRAIN_DESERT_HILLS','TERRAIN_TUNDRA','TERRAIN_TUNDRA_HILLS','TERRAIN_SNOW','TERRAIN_SNOW_HILLS'}
+	local attackingPlayer = Players[playerid]
+
+	local apDiplomacy = attackingPlayer:GetDiplomacy()
+	local used = false
+	
+	for playerid_e, playerobject in pairs(Players) do
+		print("playerid_e")
+		print(playerid_e)
+		if (playerobject:IsMajor() and (playerid_e ~= playerid)) then
+			print("this is a major player")
+			if apDiplomacy:IsAtWarWith(playerid_e) then
+				print("we are at war with a major player")
+				
+
+				local playerUnits = playerobject:GetUnits()
+				local unitTable = {}
+				for i, unitObject in playerUnits:Members() do
+					table.insert(unitTable,unitObject)
+				end
+				local unluckyUnits = ChooseNumFromList(unitTable, tier)
+				for i, unitObject in ipairs(unluckyUnits) do
+					used = true
+					local cD = unitObject:GetDamage()
+					local damageChange = 25*tier
+					if (cD + damageChange > 99) then
+						damageChange = 99 - cD
+					end
+					unitObject:ChangeDamage(damageChange)
+				end
+			end	
 		end
 	end
 
