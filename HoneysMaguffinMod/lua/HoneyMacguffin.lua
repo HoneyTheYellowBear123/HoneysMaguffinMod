@@ -1842,6 +1842,53 @@ function initAvailableHoneyMacguffinGreatPeople()
 
 		end
 
+		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_ACTIVE_FLAT_YIELD') then
+
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_CULTURE_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_FAITH_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_FOOD_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FLAT_PRODUCTION_GP'
+			i = i + 1
+
+		end
+
+		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_ACTIVE_CONSTRUCTION') then
+
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_GP'
+			i = i + 1
+
+		end
+
+		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_ACTIVE_WAR') then
+
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_GP'
+			i = i + 1
+
+		end
+
 
 
 		Game:SetProperty("AvailableHoneyMacguffinGreatPeople",tempTable);

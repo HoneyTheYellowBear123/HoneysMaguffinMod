@@ -18,9 +18,8 @@
 	
 
 ------------------------ END ---------------------	
-	-- select which great persons can spawn config
-	-- add these great people to lists in lua
 
+	-- double check config for granting macguffins
 	-- proper techs/costs for awakener and ascender
 	-- Text for active buildings
 

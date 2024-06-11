@@ -137,7 +137,34 @@
 		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_MISC_DESCRIPTION" Language="en_US">
 			<Text>Allow the existence of [ICON_Honey_Passive_Macguffin] Passive Macguffins that don't quite fit into any of the previous passive categories. </Text>
 		</Row>
-		
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_ACTIVE_FLAT_YIELD_NAME" Language="en_US">
+			<Text>Active Yield Macguffins</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_ACTIVE_FLAT_YIELD_DESCRIPTION" Language="en_US">
+			<Text>Allow the existence of [ICON_Honey_Active_Macguffin] Active Macguffins that grant standard yields such as [Icon_Gold] Gold, [ICON_Science] Science, [ICON_Food] Food, etc. </Text>
+		</Row>
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_ACTIVE_CONSTRUCTION_NAME" Language="en_US">
+			<Text>Active Construction Macguffins</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_ACTIVE_CONSTRUCTION_DESCRIPTION" Language="en_US">
+			<Text>Allow the existence of [ICON_Honey_Active_Macguffin] Active Macguffins that help build tile improvements. </Text>
+		</Row>
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_ACTIVE_WAR_NAME" Language="en_US">
+			<Text>Active War Macguffins</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_ACTIVE_WAR_DESCRIPTION" Language="en_US">
+			<Text>Allow the existence of [ICON_Honey_Active_Macguffin] Active Macguffins that attack or steal from civilizations you are at war with. </Text>
+		</Row>
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_ACTIVE_MISC_NAME" Language="en_US">
+			<Text>Active Miscellaneous Macguffins</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_ACTIVE_MISC_DESCRIPTION" Language="en_US">
+			<Text>Allow the existence of [ICON_Honey_Active_Macguffin] Active Macguffins that don't quite fit into any of the previous active categories. </Text>
+		</Row>
 		
 		
 		
