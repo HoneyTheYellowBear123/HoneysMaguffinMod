@@ -102,6 +102,46 @@
 			<Text>Allow the existence of [ICON_Honey_Passive_Macguffin] Passive Macguffins that grant standard yields such as [Icon_Gold] Gold, [ICON_Science] Science, [ICON_Food] Food, etc. </Text>
 		</Row>
 
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUSES_NAME" Language="en_US">
+			<Text>Passive Building Bonus Macguffins</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUSES_DESCRIPTION" Language="en_US">
+			<Text>Allow the existence of [ICON_Honey_Passive_Macguffin] Passive Macguffins that grant bonus yields for each building in each district type. </Text>
+		</Row>
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_GOVERNMENT_POLICIES_NAME" Language="en_US">
+			<Text>Passive Goverment Policy Macguffins</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_GOVERNMENT_POLICIES_DESCRIPTION" Language="en_US">
+			<Text>Allow the existence of [ICON_Honey_Passive_Macguffin] Passive Macguffins that grant bonus policy slots.  </Text>
+		</Row>
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_LAND_MILITARY_NAME" Language="en_US">
+			<Text>Passive Land Military Macguffins</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_LAND_MILITARY_DESCRIPTION" Language="en_US">
+			<Text>Allow the existence of [ICON_Honey_Passive_Macguffin] Passive Macguffins that grant combat bonuses to land military units. </Text>
+		</Row>
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_RELIGION_NAME" Language="en_US">
+			<Text>Passive Religion Macguffins</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_RELIGION_DESCRIPTION" Language="en_US">
+			<Text>Allow the existence of [ICON_Honey_Passive_Macguffin] Passive Macguffins that grant bonuses towards religion. </Text>
+		</Row>
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_MISC_NAME" Language="en_US">
+			<Text>Passive Miscellaneous Macguffins</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_PASSIVE_MISC_DESCRIPTION" Language="en_US">
+			<Text>Allow the existence of [ICON_Honey_Passive_Macguffin] Passive Macguffins that don't quite fit into any of the previous passive categories. </Text>
+		</Row>
+		
+		
+		
+		
+
 		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_GRANT_ON_PANTHEON_NAME" Language="en_US">
 			<Text>Pantheon Grant Macguffin</Text>
 		</Row>

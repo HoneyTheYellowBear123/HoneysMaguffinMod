@@ -14,8 +14,8 @@
 -- nice military policy 2
 -- nice economic policy 1 -- more trade routes, trade routes offer more gold
 -- nice economic policy 2 -- all districts 100%, 125%, 150% adjacency bonus
--- nice diplomatic policy 1 -- spy bonus
--- nice diplomatic policy 2
+-- nice diplomatic policy 1 -- spy bonus?
+-- nice diplomatic policy 2 -- city state bonus?
 -- nice wildcard 1 -- every great person points
 -- nice wildcard 2 -- border growth?
 

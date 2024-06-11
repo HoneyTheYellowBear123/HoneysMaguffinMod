@@ -20,8 +20,9 @@
 ------------------------ END ---------------------	
 	-- select which great persons can spawn config
 	-- add these great people to lists in lua
-	-- cleanup
-	
+	-- comment all print commands
+	-- proper techs/costs for awakener and ascender
+	-- Text for active buildings
 
 ------ future ----------
 	

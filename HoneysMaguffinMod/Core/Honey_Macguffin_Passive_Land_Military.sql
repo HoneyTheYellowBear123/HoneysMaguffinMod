@@ -25,6 +25,7 @@
 --planes? too specific
 --naval? not useful enough
 --resist specific classes? kinda boring. This would require your opponents to play in a certain way, rather than incentivizing something in your own civilization.
+--specific terrain? maybeeee someday
 
 
 INSERT INTO Types

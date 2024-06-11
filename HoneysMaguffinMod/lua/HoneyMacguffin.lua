@@ -1743,6 +1743,7 @@ function initAvailableHoneyMacguffinGreatPeople()
 		local i=1
 
 		print("DEBUG4 init available called!")
+
 		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_FLAT_YIELD') then
 
 			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_FLAT_SCIENCE_GP'
@@ -1759,6 +1760,89 @@ function initAvailableHoneyMacguffinGreatPeople()
 			i = i + 1
 
 		end
+
+		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUSES') then
+
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_SCIENCE_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_CULTURE_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_GOLD_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_FAITH_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_HARBOR_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_PRODUCTION_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_BUILDING_BONUS_MILITARY_GP'
+			i = i + 1
+
+		end
+
+		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_GOVERNMENT_POLICIES') then
+
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_MILITARY_CARD_SLOTS_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_ECONOMIC_CARD_SLOTS_G'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_DIPLOMATIC_CARD_SLOTS_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_WILDCARD_CARD_SLOTS_GP'
+			i = i + 1
+
+		end
+
+		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_LAND_MILITARY') then
+
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_MELEE_BUFF_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_LIGHT_CAVALRY_BUFF_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_HEAVY_CAVALRY_BUFF_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_SIEGE_BUFF_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_RANGED_BUFF_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_RECON_BUFF_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_ANTI_CAVALRY_BUFF_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_ALL_LAND_COMBAT_BUFF_GP'
+			i = i + 1
+
+		end
+
+		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_RELIGION') then
+
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_THEOLOGICAL_COMBAT_BUFF_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_RELIGIOUS_PRESSURE_STRENGTH_BUFF_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_RELIGIOUS_PRESSURE_DISTANCE_BUFF_GP'
+			i = i + 1
+
+		end
+
+		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_MISC') then
+
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_ELECTRICITY_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_STRATEGIC_RESOURCES_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_INFLUENCE_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_DIPLOMATIC_FAVOR_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_TOURISM_GP'
+			i = i + 1
+			tempTable[i] = 'GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_ENTERTAINMENT_GP'
+			i = i + 1
+
+		end
+
+
 
 		Game:SetProperty("AvailableHoneyMacguffinGreatPeople",tempTable);
 	end
@@ -1926,18 +2010,6 @@ end
 
 
 
-
---function getThoseBuildingsGone()
---	rememberMeBuilding:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_WALLS"].Index);
---	rememberMeBuilding:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_CASTLE"].Index);
---	rememberMeBuilding:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_STAR_FORT"].Index);
---	rememberMeBuilding:GetBuildings():RemoveBuilding(GameInfo.Buildings["BUILDING_WALLS"].Index);
---	rememberMeBuilding:GetBuildings():RemoveBuilding(GameInfo.Buildings["BUILDING_CASTLE"].Index);
---	rememberMeBuilding:GetBuildings():RemoveBuilding(GameInfo.Buildings["BUILDING_STAR_FORT"].Index);
-
---end
-
-
 initMacguffinGrantingFunctions()
 initAvailableHoneyMacguffinGreatPeople();
 initHoneyMacguffinIndexSystem();
@@ -1958,4 +2030,4 @@ Events.TurnBegin.Add(macguffinDamageWalls)
 
 
 --to do: delete debug code
-Events.CityInitialized.Add(grantDebugGreatPerson)
+--Events.CityInitialized.Add(grantDebugGreatPerson)
