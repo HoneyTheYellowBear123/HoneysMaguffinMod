@@ -1100,5 +1100,5 @@ function Initialize()
 	LuaEvents.WorldInput_TouchPlotTooltipShow.Add( OnTouchPlotTooltipShow );
 	LuaEvents.WorldInput_TouchPlotTooltipHide.Add( OnTouchPlotTooltipHide );	
 end
-print("old plot tool tip override was loaded!");
+--print("old plot tool tip override was loaded!");
 Initialize();

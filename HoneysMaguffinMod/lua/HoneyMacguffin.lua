@@ -21,15 +21,15 @@ local justMe = true;
 
 function grantDebugGreatPerson(playerID, cityID, x, y)
 
-	print("playerID "..playerID)
-	print("cityID "..cityID)
-	print("plot x "..x)
-	print("plot y "..y)
+	--print("playerID "..playerID)
+	--print("cityID "..cityID)
+	--print("plot x "..x)
+	--print("plot y "..y)
 
-	print("OVERHERE id test")
-	print(Players[0]:GetID())
-	print(Players[1]:GetID())
-	print(Players[2]:GetID())
+	--print("OVERHERE id test")
+	--print(Players[0]:GetID())
+	--print(Players[1]:GetID())
+	--print(Players[2]:GetID())
 
 	if (justMe) then
 		--Game.GetGreatPeople:GrantPerson(DebugGreatPerson, DebugGreatPersonClass,macguffinEra,0,playerID,false);
@@ -59,7 +59,7 @@ function grantDebugGreatPerson(playerID, cityID, x, y)
 
 	local playerCityMembers = Players[playerID]:GetCities()
 	for i, cityObject in playerCityMembers:Members() do
-		print("the name of the city "..cityObject:GetName());
+		--print("the name of the city "..cityObject:GetName());
 		local plotC = Map.GetPlot(cityObject:GetX(), cityObject:GetY());
 		--tyObject:GetBuildQueue():CreateIncompleteBuilding(altarBuildingIndex, plotC:GetIndex(), 100);
 		cityObject:GetBuildQueue():RemoveBuilding(GameInfo.Buildings["BUILDING_WALLS"].Index);
@@ -117,9 +117,9 @@ function setupMacguffinGreatPeople()
 	for i, tRow in ipairs(DB.Query("SELECT * from GreatPersonIndividuals WHERE GreatPersonClassType='GREAT_PERSON_HONEY_MACGUFFIN_GP'")) do -- WHERE GreatPersonClassType IN (GREAT_PERSON_HONEY_MACGUFFIN_GP)")) do
 			tMacguffinGreatPeople[i] = tRow
 
-			print("macguffin great person discovered");
+			--print("macguffin great person discovered");
 
-			print(tRow.GreatPersonClassType);
+			--print(tRow.GreatPersonClassType);
 	end
 	return tMacguffinGreatPeople
 
@@ -129,7 +129,7 @@ end;
 
 function placeMacguffinAltar(cityObject, newBuildingID)
 
-	print("replacing altar function");
+	--print("replacing altar function");
 	local plotC = Map.GetPlot(cityObject:GetX(), cityObject:GetY());
 	cityObject:GetBuildQueue():CreateIncompleteBuilding(newBuildingID, plotC:GetIndex(), 100); --create the new one and destroy the old one. 
 
@@ -141,18 +141,18 @@ local macguffinWasMade = false
 
 function GreatPersonActivatedCheck(unitPlayerID, unitID, greatPersonClassID, greatPersonIndividualID, a, b, c, d)
 
-	print(" qbug great person activated!");
-	print(" qbug index of the macguffin great person "..DebugGreatPerson);
-	print(" qbug ndividual id from the great person activated function! "..greatPersonIndividualID);
-	--print(" qbug also d! "..d);
+	--print(" qbug great person activated!");
+	--print(" qbug index of the macguffin great person "..DebugGreatPerson);
+	--print(" qbug ndividual id from the great person activated function! "..greatPersonIndividualID);
+	----print(" qbug also d! "..d);
 
 
 
 	for i, trow in ipairs(tMacguffinGreatPeople) do
-		print(" right before the check: "..trow.GreatPersonClassType);
+		--print(" right before the check: "..trow.GreatPersonClassType);
 
 		if  GameInfo.GreatPersonIndividuals[tostring(trow.GreatPersonIndividualType)].Index ==  greatPersonIndividualID then
-			print("the following great macguffin person was activated: "..trow.Name);
+			--print("the following great macguffin person was activated: "..trow.Name);
 			local stringTransform = string.sub(trow.GreatPersonIndividualType, 14) --cut off the GREAT_PERSON_ part of the string
 			stringTransform = string.sub(stringTransform, 0, -4) --cut off the _GP part at the end
 			stringTransform = "GREATWORK_GREATWORKOBJECT_"..stringTransform;
@@ -160,7 +160,7 @@ function GreatPersonActivatedCheck(unitPlayerID, unitID, greatPersonClassID, gre
 			macguffinThatWasJustMade = stringTransform --to be used by great work created
 			macguffinWasMade = true
 
-			print("string transform: "..stringTransform);
+			--print("string transform: "..stringTransform);
 
 		end
 	end
@@ -177,7 +177,7 @@ function GreatWorkCreatedCheck(playerID, unitID, cityPlotX, cityPlotY, buildingI
 
 		if string.match(stringTransform, "ACTIVE") then
 			local projectname1 = "PROJECT_HONEY_MACGUFFIN_"..stringTransform
-			print("projectname1 "..projectname1)
+			--print("projectname1 "..projectname1)
 			projectIndex = GameInfo.Projects["PROJECT_HONEY_MACGUFFIN_"..stringTransform].Index
 		end
 
@@ -190,21 +190,21 @@ function GreatWorkCreatedCheck(playerID, unitID, cityPlotX, cityPlotY, buildingI
 		table.insert(MacguffinindexTable , {macguffinThatWasJustMade, greatWorkID, buildingID, stringTransform, macguffinCity, 0, projectIndex, playerID}) --track each individual macguffin and what building it is currently located in, its associated bonus building, and what city it is currently located in for convenient access later.
 		
 		local trex = {macguffinThatWasJustMade, greatWorkID, buildingID, stringTransform, macguffinCity, 0, projectIndex, playerID}
-		print("tableinfo "..trex[1])
-		print("tableinfo "..trex[2])
-		print("tableinfo "..trex[3])
-		print("tableinfo "..trex[4])
-		print("tableinfo "..trex[5])
-		print("tableinfo "..trex[6])
-		print("tableinfo "..trex[7])
-		print("tableinfo "..trex[8])
+		--print("tableinfo "..trex[1])
+		--print("tableinfo "..trex[2])
+		--print("tableinfo "..trex[3])
+		--print("tableinfo "..trex[4])
+		--print("tableinfo "..trex[5])
+		--print("tableinfo "..trex[6])
+		--print("tableinfo "..trex[7])
+		--print("tableinfo "..trex[8])
 		Game:SetProperty("HoneyMacguffinIndexSystem",MacguffinindexTable)
-		print("The great work ID "..greatWorkID.." is now associated with the macguffin "..macguffinThatWasJustMade)
+		--print("The great work ID "..greatWorkID.." is now associated with the macguffin "..macguffinThatWasJustMade)
 
 		--if this was created INTO an empty altar we should grant the pseudobuilding in that city
 		if buildingID == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
 
-			print("we will try to make the building "..stringTransform)
+			--print("we will try to make the building "..stringTransform)
 			local buildingToMake = GameInfo.Buildings[stringTransform].Index 
 			local cityToEdit = CityManager.GetCityAt(cityPlotX, cityPlotY)
 
@@ -213,14 +213,14 @@ function GreatWorkCreatedCheck(playerID, unitID, cityPlotX, cityPlotY, buildingI
 		macguffinWasMade = false --don't do any of this logic again until the next macguffin is created.
 	end
 
-	print(" qbug great work created!");
+	--print(" qbug great work created!");
 end
 
 --in the case of a swap this should be called twice and it should be fine TO DO get this working
 function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCityID, buildingID, greatWorkTypeIndex)
 
 	for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
-		print("macguffin entry! if you see three rework the temp table system!")
+		--print("macguffin entry! if you see three rework the temp table system!")
 
 		--the great work that just moved was previously registered as a macguffin
 		if MacguffinEntry[2] == greatWorkTypeIndex then
@@ -234,7 +234,7 @@ function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCit
 			--if the building the macguffin was moved FROM was an altar (as opposed to palace, storage, or museum) we should destroy the pseudobuilding in the city it was moved from
 			if MacguffinEntry[3] == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
 
-				print("we removed a macguffin from an altar!");
+				--print("we removed a macguffin from an altar!");
 				fromCityObject:GetBuildings():RemoveBuilding(associatedAltarIndex);
 				fromCityObject:GetBuildQueue():RemoveBuilding(associatedAltarIndex);
 				local sName = fromCityObject:GetName()
@@ -244,7 +244,7 @@ function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCit
 			--fi the building the macguffin is moved TO is an altar, we should create the pseudo building in the city it was moved to
 			if buildingID == GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index then
 
-				print("macguffin entry 4: "..MacguffinEntry[4])
+				--print("macguffin entry 4: "..MacguffinEntry[4])
 				placeMacguffinAltar(toCityObject, associatedAltarIndex)
 
 			end
@@ -254,8 +254,8 @@ function GreatWorkMovedCheck(fromCityPlayerID, fromCityID, toCityPlayerID, toCit
 			tempMacguffinEntry[5] = toCityID
 			tempMacguffinEntry[8] = toCityPlayerID
 
-			print("macguffin moved 3 "..buildingID)
-			print("macguffin moved 5 "..toCityID)
+			--print("macguffin moved 3 "..buildingID)
+			--print("macguffin moved 5 "..toCityID)
 
 			tempTable[i] = tempMacguffinEntry
 			
@@ -348,9 +348,9 @@ function setupActiveMacguffinProjects()
 	for i, tRow in ipairs(DB.Query("SELECT * from Projects WHERE ProjectType LIKE 'HONEY_MACGUFFIN_ACTIVE'")) do 
 			 tActiveMacguffinProjects[i] = tRow
 
-			print("active macguffin project was discovered");
+			--print("active macguffin project was discovered");
 
-			print(tRow.ProjectType);
+			--print(tRow.ProjectType);
 	end
 	return tActiveMacguffinProjects
 
@@ -412,7 +412,7 @@ function reduceHoneyMacguffinCooldown()
 		if (not( MacguffinEntry[6] == 0 )) then
 
 			MacguffinEntry[6] = MacguffinEntry[6] - 1
-			print("cooldown turns left "..MacguffinEntry[6])
+			--print("cooldown turns left "..MacguffinEntry[6])
 			if MacguffinEntry[6] == 0 then
 
 				local CityObject = CityManager.GetCity( MacguffinEntry[8], MacguffinEntry[5]  )
@@ -439,19 +439,19 @@ function reduceHoneyMacguffinCooldown()
 
 	--reduce each player's global cooldown every couple of turns
 	--local modulusValue = math.floor( Game.GetMaxGameTurns() / Macguffin_Global_Cooldown_Reductions_Per_Game ) --Modulus value is how often we will reduce global cooldown values
-	--print("MAX TURNS")
-	--print(Game.GetMaxGameTurns())
-	--print("MODULUS VALUE")
-	--print(modulusValue)
-	--print("CURRENT TURN")
-	--print(Game.GetCurrentGameTurn())
+	----print("MAX TURNS")
+	----print(Game.GetMaxGameTurns())
+	----print("MODULUS VALUE")
+	----print(modulusValue)
+	----print("CURRENT TURN")
+	----print(Game.GetCurrentGameTurn())
 
 	local baseUpdateRate =  math.floor( 500 / Approx_Global_Cooldown_Updates_Per_Game )
 	local scaledUpdateRate = math.ceil(baseUpdateRate / (100 / speedCostMultiplier))
 
 
 	if (Game.GetCurrentGameTurn() % scaledUpdateRate == 0) then
-		print("REDUCING GLOBAL COOLDOWN")
+		--print("REDUCING GLOBAL COOLDOWN")
 		local temptable2 = {}
 		for i, GlobalCooldownEntry in ipairs(Game:GetProperty("HoneyMacguffinGlobalCooldownSystem")) do
 			temptable2[i] = GlobalCooldownEntry
@@ -487,19 +487,19 @@ speedCostMultiplier = GameInfo.GameSpeeds[GameConfiguration.GetGameSpeedType()].
 function intable(table,val)
 	
 	if (val == -1) or (val == nil) then
-		print("honeydebug intable val was -1 so we are returning false")
+		--print("honeydebug intable val was -1 so we are returning false")
 		return false
 	end
 
 	for i=1,#table do
-		print("honeydebug intable value: "..val)
-		print("honeydebug intable tablevalue: "..table[i])
+		--print("honeydebug intable value: "..val)
+		--print("honeydebug intable tablevalue: "..table[i])
 		if table[i]==val then
-			print("honeydebug intable returning true")
+			--print("honeydebug intable returning true")
 			return true
 		end
 	end
-	print("honeydebug intable returning false")
+	--print("honeydebug intable returning false")
 	return false
 end
 
@@ -594,28 +594,28 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 	for i, i_player in ipairs(playerGroupar) do
 
 
-		print("honeydebug reward playertype: "..type(i_player));
-		print("playerid for getting tiles: "..i_player:GetID())
-		--print("honeydebug reward playervalue: "..player);
+		--print("honeydebug reward playertype: "..type(i_player));
+		--print("playerid for getting tiles: "..i_player:GetID())
+		----print("honeydebug reward playervalue: "..player);
 
 		
 		--player = playerGroupar[index]
 		for i, city in i_player:GetCities():Members() do
 
-			--print("honeydebug reward cit type: "..type(cit));
-			--print("honeydebug reward cit value: "..cit);
+			----print("honeydebug reward cit type: "..type(cit));
+			----print("honeydebug reward cit value: "..cit);
 
 			--city = CityManager.GetCity(i_player, cit)
 
-			--print("honeydebug reward city type: "..type(city));
+			----print("honeydebug reward city type: "..type(city));
 
 
 			cityTileX = city:GetX()
 			cityTileY = city:GetY()
-			print("cityTileX")
-			print(cityTileX)
-			print(cityTileY)
-			print("honeydebug reward chose a city for tile searching!")
+			--print("cityTileX")
+			--print(cityTileX)
+			--print(cityTileY)
+			--print("honeydebug reward chose a city for tile searching!")
 
 			cityPlots = GetCityPlots(city)
 
@@ -627,15 +627,15 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 
 				add_it = false
 
-				print("honeydebug reward plot X "..plot:GetX());
-				print("honeydebug reward plot Y "..plot:GetY());
+				--print("honeydebug reward plot X "..plot:GetX());
+				--print("honeydebug reward plot Y "..plot:GetY());
 
 
 
 				--################################## initial checks, lets us skip additive checks possibly #########################
 
 				if (DontAllowCities and plot:IsCity()) then
-					print("honeydebug reward tile is considered a city")
+					--print("honeydebug reward tile is considered a city")
 					continue = true
 				end
 
@@ -649,15 +649,15 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 
 				--####################### Additive checks if any of these pass we're good to go ###########################
 
-				--print("honeydebug reward resource type: "..plot:GetResourceType())
+				----print("honeydebug reward resource type: "..plot:GetResourceType())
 				--resources are a special case. Cattle can exist on hills but it is assumed we want a pasture there rather than a mine. However, Macguffin placement is not removing resource, so its fine I guess? You can always remove the improvement if you want something else to be there.
 				if ( (plot:GetResourceType() ~= -1 ) and (not continue) ) then
 					if ((resources ~= {}) and ( intable(resources, GameInfo.Resources[plot:GetResourceType()].ResourceType) ) ) then
-						print("honeydebug reward tile has been selected due to resource") 
+						--print("honeydebug reward tile has been selected due to resource") 
 						add_it = true
 						continue = true
 					else
-						print("honeydebug reward tile has been SKIPPED due to resource") 
+						--print("honeydebug reward tile has been SKIPPED due to resource") 
 						continue = true
 					end
 				end
@@ -665,7 +665,7 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 
 				if ( (plot:GetFeatureType() ~= -1) and (not continue) ) then
 					if ( ( features ~= {} ) and ( intable(features, GameInfo.Features[plot:GetFeatureType()].FeatureType) ) ) then
-						print("honeydebug reward tile has been selected due to feature")
+						--print("honeydebug reward tile has been selected due to feature")
 						add_it = true
 						continue = true
 					end
@@ -673,7 +673,7 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 
 				if ( (plot:GetTerrainType() ~= -1) and (not continue) ) then
 					if ((terrains ~= {}) and ( intable(terrains, GameInfo.Terrains[plot:GetTerrainType()].TerrainType) ) ) then
-						print("honeydebug reward tile has been selected due to terrain")
+						--print("honeydebug reward tile has been selected due to terrain")
 						add_it = true
 						continue = true
 					end
@@ -684,14 +684,14 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 
 				if ( (plot:GetFeatureType() ~= -1) and add_it) then
 					if ( ( bannedFeatures ~= {} ) and ( intable(bannedFeatures, GameInfo.Features[plot:GetFeatureType()].FeatureType) ) ) then
-						print("honeydebug reward tile has been SKIPPED due to feature")
+						--print("honeydebug reward tile has been SKIPPED due to feature")
 						add_it = false
 					end
 				end
 
 				if ( (plot:GetTerrainType() ~= -1) and add_it) then
 					if ( ( bannedTerrains ~= {} ) and ( intable(bannedTerrains, GameInfo.Features[plot:GetTerrainType()].TerrainType) ) ) then
-						print("honeydebug reward tile has been SKIPPED due to terrain")
+						--print("honeydebug reward tile has been SKIPPED due to terrain")
 						add_it = false
 					end
 				end
@@ -705,7 +705,7 @@ function chooseRandomTiles( playerID, target, features, terrains, resources, num
 				--####################################### add it :)
 
 				if add_it then
-					print("honeydebug reward tile we found a plot that works")
+					--print("honeydebug reward tile we found a plot that works")
 					table.insert(relevant_tiles, plot)
 				end
 
@@ -746,7 +746,7 @@ end
 function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each reward and return associated number of cooldown
 	--efficiency can increase if I check the name and split it up as much as possible
 
-	print("HoneyDebug active grant effect was called")
+	--print("HoneyDebug active grant effect was called")
 
 	--Motivatinator
 	if projectID == GameInfo.Projects['PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT'].Index then
@@ -944,7 +944,7 @@ function grantHoneyMacguffinActiveEffect(projectID, playerID, x, y) --grant each
 	
 	
 
-	print("placeholder XD")
+	--print("placeholder XD")
 	return 1
 end
 
@@ -1003,20 +1003,20 @@ function mine_quarry_reward(playerid, tier)
 
 	mineindex = GameInfo.Improvements['IMPROVEMENT_MINE'].Index;
 	quarryindex = GameInfo.Improvements['IMPROVEMENT_QUARRY'].Index;
-	print("honeydebug reward total plots chosen: "..#plots)
+	--print("honeydebug reward total plots chosen: "..#plots)
 	if #plots > 0 then
 		for i, plot in ipairs(plots) do
 			if plot[2] == 'mine' then
-				print("honeydebug mine we have plots that could contain mines within the empire")
+				--print("honeydebug mine we have plots that could contain mines within the empire")
 				ImprovementBuilder.SetImprovementType(plot[1],  mineindex   ,playerid)
 			end
 			if plot[2] == 'quarry' then
-				print("honeydebug mine we have plots that could contain quarries within the empire")
+				--print("honeydebug mine we have plots that could contain quarries within the empire")
 				ImprovementBuilder.SetImprovementType(plot[1],  quarryindex   ,playerid)
 			end
 		end
 	else
-		print("honeydebug mine we have found NO plots that could contain quarries or mines within the empire")
+		--print("honeydebug mine we have found NO plots that could contain quarries or mines within the empire")
 		return 1 --no more spots to improve
 	end
 
@@ -1155,7 +1155,7 @@ end
 function pasture_fishing_reward(playerid, tier)
 
 
-	print("honey debug pasture fishing function was called!")
+	--print("honey debug pasture fishing function was called!")
 
 	local pasturefeatures = {}
 	local pastureterrains = {}
@@ -1438,8 +1438,8 @@ end
 
 function radiation_splatter_reward(playerid, tier)
 
-	print("honey debug splatter radiation function was called! the playerid of the one who cast it is")
-	print(playerid)
+	--print("honey debug splatter radiation function was called! the playerid of the one who cast it is")
+	--print(playerid)
 
 	local radterrains = {'TERRAIN_GRASS','TERRAIN_GRASS_HILLS','TERRAIN_PLAINS','TERRAIN_PLAINS_HILLS','TERRAIN_DESERT','TERRAIN_DESERT_HILLS','TERRAIN_TUNDRA','TERRAIN_TUNDRA_HILLS','TERRAIN_SNOW','TERRAIN_SNOW_HILLS'}
 	local attackingPlayer = Players[playerid]
@@ -1448,21 +1448,21 @@ function radiation_splatter_reward(playerid, tier)
 	local used = false
 	
 	for playerid_e, playerobject in pairs(Players) do
-		print("playerid_e")
-		print(playerid_e)
+		--print("playerid_e")
+		--print(playerid_e)
 		if (playerobject:IsMajor() and (playerid_e ~= playerid)) then
-			print("this is a major player")
+			--print("this is a major player")
 			if apDiplomacy:IsAtWarWith(playerid_e) then
-				print("we are at war with a major player")
+				--print("we are at war with a major player")
 				
 				local radplots = chooseRandomTiles(playerid_e, 0, {}, radterrains, {}, 1, 1, 0, {}, {})
 				local plots = ChooseNumFromList(radplots, tier * 2)
-				print("we have a plot 4 rad")
+				--print("we have a plot 4 rad")
 				for i, plot in ipairs(plots) do
 					used = true
-					print("attempting to add fallout")
-					print("honeydebug radiation plot X "..plot:GetX());
-					print("honeydebug radiation plot Y "..plot:GetY());
+					--print("attempting to add fallout")
+					--print("honeydebug radiation plot X "..plot:GetX());
+					--print("honeydebug radiation plot Y "..plot:GetY());
 					Game.GetFalloutManager():AddFallout(plot:GetIndex(),10)
 				end
 			end
@@ -1497,21 +1497,21 @@ function pillage_splatter_reward(playerid, tier)
 	local used = false
 	
 	for playerid_e, playerobject in pairs(Players) do
-		print("playerid_e")
-		print(playerid_e)
+		--print("playerid_e")
+		--print(playerid_e)
 		if (playerobject:IsMajor() and (playerid_e ~= playerid)) then
-			print("this is a major player")
+			--print("this is a major player")
 			if apDiplomacy:IsAtWarWith(playerid_e) then
-				print("we are at war with a major player")
+				--print("we are at war with a major player")
 				
 				local radplots = chooseRandomTiles(playerid_e, 0, {}, radterrains, {}, 1, 1, 1, {}, {})
 				local plots = ChooseNumFromList(radplots, tier * 2)
-				print("we have a plot 4 rad")
+				--print("we have a plot 4 rad")
 				for i, plot in ipairs(plots) do
 					used = true
-					print("attempting to add fallout")
-					print("honeydebug radiation plot X "..plot:GetX());
-					print("honeydebug radiation plot Y "..plot:GetY());
+					--print("attempting to add fallout")
+					--print("honeydebug radiation plot X "..plot:GetX());
+					--print("honeydebug radiation plot Y "..plot:GetY());
 					ImprovementBuilder.SetImprovementPillaged(plot)
 					--Game.GetFalloutManager():AddFallout(plot:GetIndex(),10)
 				end
@@ -1545,12 +1545,12 @@ function damage_enemy_reward(playerid, tier)
 	local used = false
 	
 	for playerid_e, playerobject in pairs(Players) do
-		print("playerid_e")
-		print(playerid_e)
+		--print("playerid_e")
+		--print(playerid_e)
 		if (playerobject:IsMajor() and (playerid_e ~= playerid)) then
-			print("this is a major player")
+			--print("this is a major player")
 			if apDiplomacy:IsAtWarWith(playerid_e) then
-				print("we are at war with a major player")
+				--print("we are at war with a major player")
 				
 
 				local playerUnits = playerobject:GetUnits()
@@ -1610,10 +1610,10 @@ function steal_gold_reward(playerid, tier)
 
 
 	for playerid_e, playerobject in pairs(Players) do
-		print("playerid_e")
-		print(playerid_e)
+		--print("playerid_e")
+		--print(playerid_e)
 		if (playerobject:IsMajor() and (playerid_e ~= playerid)) then
-			print("this is a major player")
+			--print("this is a major player")
 			if apDiplomacy:IsAtWarWith(playerid_e) then
 				used = true
 				local enemyTreasury = playerobject:GetTreasury()
@@ -1672,10 +1672,10 @@ function steal_faith_reward(playerid, tier)
 
 
 	for playerid_e, playerobject in pairs(Players) do
-		print("playerid_e")
-		print(playerid_e)
+		--print("playerid_e")
+		--print(playerid_e)
 		if (playerobject:IsMajor() and (playerid_e ~= playerid)) then
-			print("this is a major player")
+			--print("this is a major player")
 			if apDiplomacy:IsAtWarWith(playerid_e) then
 				used = true
 				local enemyReligion = playerobject:GetReligion()
@@ -1742,7 +1742,7 @@ function initAvailableHoneyMacguffinGreatPeople()
 		local tempTable = {}
 		local i=1
 
-		print("DEBUG4 init available called!")
+		--print("DEBUG4 init available called!")
 
 		if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_PASSIVE_FLAT_YIELD') then
 
@@ -1853,10 +1853,10 @@ end
 --grant a random macguffin. Call this in a different function after some criteria has been fufilled.
 function grantMacguffinGreatPerson(playerID)
 
-	print("DEBUG4 grant macguffin great person called!")
+	--print("DEBUG4 grant macguffin great person called!")
 	if not ( Game:GetProperty("AvailableHoneyMacguffinGreatPeople")[1] == "all out :(") then
 
-		print("DEBUG4 we have great people to grant")
+		--print("DEBUG4 we have great people to grant")
 		local xspot =  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetX();
 		local yspot =  Players[playerID]:GetCities():GetCapitalCity():GetPlot():GetY();
 
@@ -1873,18 +1873,18 @@ function grantMacguffinGreatPerson(playerID)
 		local randomIndex = math.random(1,count)
 		local randomMacguffinGreatPerson = temptable[randomIndex] --GameInfo.GreatPersonIndividuals[temptable[randomIndex]].Index
 
-		print("DEBUG4 x: "..xspot)
-		print("DEBUG4 y: "..yspot)
-		print("DEBUG4 playerID: "..playerID)
-		print("DEBUG4 randomIndex: "..randomIndex)
-		print("DEBUG4 macguffingreatperson: "..temptable[1])
+		--print("DEBUG4 x: "..xspot)
+		--print("DEBUG4 y: "..yspot)
+		--print("DEBUG4 playerID: "..playerID)
+		--print("DEBUG4 randomIndex: "..randomIndex)
+		--print("DEBUG4 macguffingreatperson: "..temptable[1])
 
 		Game.GetGreatPeople():CreatePerson(playerID, randomMacguffinGreatPerson, xspot, yspot);
 
 		if count > 1 then
 			table.remove(temptable,randomIndex)
 		else
-			print("DEBUG4 we are all out of great people to grant now")
+			--print("DEBUG4 we are all out of great people to grant now")
 			temptable[1] = "all out :("
 		end
 
@@ -1930,7 +1930,7 @@ end
 
 function initMacguffinGrantingFunctions()
 
-	print("DEBUG4 setting up macguffin granting functions")
+	--print("DEBUG4 setting up macguffin granting functions")
 	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_PANTHEON') then
 		Events.PantheonFounded.Add(grantPantheonMacguffin) --only happens once!
 	end

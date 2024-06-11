@@ -22,7 +22,7 @@ local SIZE_BANNER_MIN:number = 506;
 -- ===========================================================================
 function HandleCustomGreatWorkTypes( greatWorkType:string, greatWorkIndex:number )
 
-	--print("handle customgreatworktypes was called");
+	----print("handle customgreatworktypes was called");
 
 	local kGreatWorkInfo:table = GameInfo.GreatWorks[greatWorkType];
 	local greatWorkType:string = kGreatWorkInfo.GreatWorkType;
@@ -185,4 +185,4 @@ end
 --]]
 
 
-print("UI showcase script was loaded");
+--print("UI showcase script was loaded");

@@ -354,7 +354,7 @@ local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_E
 function Refresh()
 	local localplayer = Game.GetLocalPlayer()
 	local pPlayer = Players[localplayer]
-	print("DEBUG3 refresh was called!")
+	--print("DEBUG3 refresh was called!")
 
 
 	m_macguffinstackIM:ResetInstances()
@@ -363,44 +363,44 @@ function Refresh()
 	Controls.GlobalCooldownInfo:SetText(Locale.Lookup("LOC_HONEY_MACGUFFIN_GLOBAL_COOLDOWN_INFO", Game.GetProperty("HoneyMacguffinGlobalCooldownSystem")[localplayer]));
 
 
-	print("DEBUG3 localplayer: "..localplayer)
+	--print("DEBUG3 localplayer: "..localplayer)
 	if not (Game:GetProperty("HoneyMacguffinIndexSystem") == nil) then
 
 		local stackInstance = m_macguffinstackIM:GetInstance()
 
 		for i, MacguffinEntry in ipairs(Game:GetProperty("HoneyMacguffinIndexSystem")) do
 
-			print("DEBUG3 macguffin playerid: "..MacguffinEntry[8])
+			--print("DEBUG3 macguffin playerid: "..MacguffinEntry[8])
 
 			--get all active macguffins for this player
 			if string.match(MacguffinEntry[1], "ACTIVE") and MacguffinEntry[8] == localplayer then
 
 				local ActiveMacguffinInstance =  m_honeymacguffinIM:GetInstance(stackInstance.MacguffinStackInstanceStack);
 
-				print("DEBUG3 relevant active macguffin found!")
+				--print("DEBUG3 relevant active macguffin found!")
 
 				--set icon
 				ActiveMacguffinInstance.Icon:SetIcon("ICON_" .. MacguffinEntry[1])
 				ActiveMacguffinInstance.HighlightIcon:SetIcon("ICON_" .. MacguffinEntry[1])
 				ActiveMacguffinInstance.Portrait:SetIcon("ICON_" .. MacguffinEntry[1])
-				print("DEBUG3 1")
-				print("DEBUG3 Icon name: ".."ICON_" .. MacguffinEntry[1])
+				--print("DEBUG3 1")
+				--print("DEBUG3 Icon name: ".."ICON_" .. MacguffinEntry[1])
 
 				--set macguffin name
 				ActiveMacguffinInstance.Title:SetText(Locale.Lookup("LOC_"..MacguffinEntry[1].."_NAME"))
-				print("DEBUG3 2")
+				--print("DEBUG3 2")
 
-				print("DEBUG3 3 entry 5"..MacguffinEntry[5])
+				--print("DEBUG3 3 entry 5"..MacguffinEntry[5])
 
 				
 				--set city name
 				ActiveMacguffinInstance.CityInfo:SetText("City: "..Locale.Lookup(CityManager.GetCity( localplayer, MacguffinEntry[5] ):GetName()))
-				print("DEBUG3 3")
+				--print("DEBUG3 3")
 
 
-				--print cooldown
+				----print cooldown
 				ActiveMacguffinInstance.CoolingTurnsInfo:SetText("Turns of cooldown left: "..MacguffinEntry[6])
-				print("DEBUG3 4")
+				--print("DEBUG3 4")
 
 				-- check if its in an altar
 				if MacguffinEntry[3] == altarBuildingIndex then
@@ -424,7 +424,7 @@ function Refresh()
 						ActiveMacguffinInstance.NotInAltarInfo:SetText("")
 					end
 				end
-				print("DEBUG3 5")
+				--print("DEBUG3 5")
 				
 			end 
 
@@ -804,18 +804,18 @@ function Refresh()
 	if not RefreshYields() then
 		Controls.Vignette:SetSizeY(m_TopPanelConsideredHeight);
 	end
-	print("DEBUG3 it made it to the end of refresh!")
+	--print("DEBUG3 it made it to the end of refresh!")
 end
 -- ===========================================================================
 function Open(playerID:number, cityID:number)
 	local localplayer = Game.GetLocalPlayer()
 	local pPlayer = Players[localplayer]
-	print("DEBUG3 open was called");
+	--print("DEBUG3 open was called");
 	if pPlayer == nil then
-		print("DEBUG3 player was nil :(");
+		--print("DEBUG3 player was nil :(");
 		return
 	end
-	print("DEBUG3 player was NOT nil :)");
+	--print("DEBUG3 player was NOT nil :)");
 	CloseOtherPanels()
 	
 	--GetEraWonderMap()
@@ -824,7 +824,7 @@ function Open(playerID:number, cityID:number)
 	Refresh();
 	Controls.ReminderDetailPanel:SetHide(true);
 	if not UIManager:IsInPopupQueue(ContextPtr) then
-		print("DEBUG3 were not in popupqueue but now we will be");
+		--print("DEBUG3 were not in popupqueue but now we will be");
 		-- Queue the screen as a popup, but we want it to render at a desired location in the hierarchy, not on top of everything.
 		local kParameters = {};
 		kParameters.RenderAtCurrentParent = true;
@@ -833,7 +833,7 @@ function Open(playerID:number, cityID:number)
 		UIManager:QueuePopup(ContextPtr, PopupPriority.Low, kParameters);
 		UI.PlaySound("UI_Screen_Open");
 	end
-	print("DEBUG3 made it past the popup queue block!");
+	--print("DEBUG3 made it past the popup queue block!");
 	-- From Civ6_styles: FullScreenVignetteConsumer
 	Controls.ScreenAnimIn:SetToBeginning();
 	Controls.ScreenAnimIn:Play();
@@ -953,12 +953,12 @@ function OnInputActionTriggered(actionId:number)
 end
 -- ===========================================================================
 function OnTogglePanel()
-	print("DEBUG3 on toggle panel called!")
+	--print("DEBUG3 on toggle panel called!")
 	if ContextPtr:IsHidden() then
-		print("DEBUG3 context was hidden we will call open!")
+		--print("DEBUG3 context was hidden we will call open!")
 		Open()
 	else
-		print("DEBUG3 context was NOT hidden we will call close!")
+		--print("DEBUG3 context was NOT hidden we will call close!")
 		Close()
 	end
 end
