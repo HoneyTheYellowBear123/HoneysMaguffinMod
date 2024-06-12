@@ -919,6 +919,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_TIER3_NAME" Language="en_US">
 			<Text>Ascended Nexus of Knowledge</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_SCIENCE_DESC" Language="en_US">
+			<Text>The effects of the Nexus of Knowledge being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_SCIENCE_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Nexus of Knowledge being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_SCIENCE_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Nexus of Knowledge being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_SCIENCE_DESC" Language="en_US">
 			<Text>Activate the Nexus of Knowledge, granting three times this city's [ICON_Science] Science yield.</Text>
 		</Row>
@@ -940,6 +949,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_CULTURE_TIER3_NAME" Language="en_US">
 			<Text>Ascended Pain Brush</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_CULTURE_DESC" Language="en_US">
+			<Text>The effects of the Pain Brush being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_CULTURE_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Pain Brush being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_CULTURE_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Pain Brush being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_CULTURE_DESC" Language="en_US">
 			<Text>Activate the Pain Brush, granting three times this city's [ICON_Culture] Culture yield.</Text>
 		</Row>
@@ -960,6 +978,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_TIER3_NAME" Language="en_US">
 			<Text>Ascended Treasure Tonic</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_GOLD_DESC" Language="en_US">
+			<Text>The effects of the Treasure Tonic being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_GOLD_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Treasure Tonic being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_GOLD_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Treasure Tonic being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_GOLD_DESC" Language="en_US">
 			<Text>Activate the Treasure Tonic, granting three times this city's [ICON_Gold] Gold yield.</Text>
 		</Row>
@@ -978,6 +1005,15 @@
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FAITH_TIER3_NAME" Language="en_US">
 			<Text>Ascended Irrationalizer</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_FAITH_DESC" Language="en_US">
+			<Text>The effects of the Irrationalizer being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_FAITH_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Irrationalizer being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_FAITH_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Irrationalizer being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FAITH_DESC" Language="en_US">
 			<Text>Activate the Irrationalizer, granting three times this city's [ICON_Faith] Faith yield.</Text>
@@ -999,6 +1035,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FOOD_TIER3_NAME" Language="en_US">
 			<Text>Ascended LofesanFish</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_FOOD_DESC" Language="en_US">
+			<Text>The effects of the LofesanFish being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_FOOD_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened LofesanFish being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_FOOD_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended LofesanFish being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_FOOD_DESC" Language="en_US">
 			<Text>Activate the LofesanFish, giving a 33% chance to increase population in this city.</Text>
 		</Row>
@@ -1018,6 +1063,15 @@
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_PRODUCTION_TIER3_NAME" Language="en_US">
 			<Text>Ascended Sezedmeens</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_PRODUCTION_DESC" Language="en_US">
+			<Text>The effects of the Sezedmeens being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_PRODUCTION_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Sezedmeens being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FLAT_PRODUCTION_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Sezedmeens being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FLAT_PRODUCTION_DESC" Language="en_US">
 			<Text>Activate the Sezedmeens, granting two times this city's [ICON_Production] Production in all cities.</Text>
@@ -1041,6 +1095,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_TIER3_NAME" Language="en_US">
 			<Text>Ascended Motivatinator</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FREE_BUILDER_UNIT_DESC" Language="en_US">
+			<Text>The effects of the Motivatinator being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FREE_BUILDER_UNIT_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Motivatinator being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_FREE_BUILDER_UNIT_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Motivatinator being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>	
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_DESC" Language="en_US">
 			<Text>Activate the Motivatinator, granting a Builder unit.</Text>
 		</Row>
@@ -1061,6 +1124,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_TIER3_NAME" Language="en_US">
 			<Text>Ascended Notched Pickaxe</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_MINE_QUARRY_DESC" Language="en_US">
+			<Text>The effects of the Notched Pickaxe being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_MINE_QUARRY_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Notched Pickaxe being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_MINE_QUARRY_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Notched Pickaxe being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_MINE_QUARRY_DESC" Language="en_US">
 			<Text>Activate the Notched Pickaxe, granting either a mine or a quarry on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
 		</Row>
@@ -1079,6 +1151,15 @@
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_TIER3_NAME" Language="en_US">
 			<Text>Ascended Farm Hand</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_FARM_PLANTATION_DESC" Language="en_US">
+			<Text>The effects of the Farm Hand being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_FARM_PLANTATION_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Farm Hand being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_FARM_PLANTATION_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Farm Hand being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_FARM_PLANTATION_DESC" Language="en_US">
 			<Text>Activate the Farm Hand, granting either a farm or plantation on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
@@ -1100,6 +1181,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_TIER3_NAME" Language="en_US">
 			<Text>Ascended Resinator</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_CAMP_MILL_DESC" Language="en_US">
+			<Text>The effects of the Resinator being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_CAMP_MILL_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Resinator being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_CAMP_MILL_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Resinator being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_CAMP_MILL_DESC" Language="en_US">
 			<Text>Activate the Resinator, granting either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
 		</Row>
@@ -1118,6 +1208,15 @@
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_TIER3_NAME" Language="en_US">
 			<Text>Ascended Live Stock</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_PASTURE_FISHING_DESC" Language="en_US">
+			<Text>The effects of the Live Stock being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_PASTURE_FISHING_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Live Stock being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_BUILD_PASTURE_FISHING_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Live Stock being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_BUILD_PASTURE_FISHING_DESC" Language="en_US">
 			<Text>Activate the Live Stock, granting either a lumber mill or a camp on a valid tile in your empire. Tiles with an incompatible resource will not be considered.</Text>
@@ -1260,6 +1359,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_TIER3_NAME" Language="en_US">
 			<Text>Ascended Irradiator</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_RADIATION_DESC" Language="en_US">
+			<Text>The effects of the Irradiator being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_RADIATION_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Irradiator being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_RADIATION_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Irradiator being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_RADIATION_DESC" Language="en_US">
 			<Text>Activate the Irradiator, splattering radiation fallout on two random tiles of each major civilization you are at war with.</Text>
 		</Row>
@@ -1281,6 +1389,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_TIER3_NAME" Language="en_US">
 			<Text>Ascended Dilapidater</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_PILLAGE_DESC" Language="en_US">
+			<Text>The effects of the Dilapidater being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_PILLAGE_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Dilapidater being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_PILLAGE_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Dilapidater being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_PILLAGE_DESC" Language="en_US">
 			<Text>Activate the Dilapidater, pillaging two random improvements from every major civilization you are at war with.</Text>
 		</Row>
@@ -1301,6 +1418,15 @@
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_TIER3_NAME" Language="en_US">
 			<Text>Ascended Voodall</Text>
 		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_DAMAGE_UNITS_DESC" Language="en_US">
+			<Text>The effects of the Voodall being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_DAMAGE_UNITS_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Voodall being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_DAMAGE_UNITS_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Voodall being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_DAMAGE_UNITS_DESC" Language="en_US">
 			<Text>Activate the Voodall, dealing up to 25 damage to a unit belonging to every major civilization you are at war with.</Text>
 		</Row>
@@ -1319,6 +1445,15 @@
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_TIER3_NAME" Language="en_US">
 			<Text>Ascended Fraudder</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_STEAL_GOLD_DESC" Language="en_US">
+			<Text>The effects of the Fraudder being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_STEAL_GOLD_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Fraudder being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_STEAL_GOLD_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Fraudder being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_GOLD_DESC" Language="en_US">
 			<Text>Activate the Fraudder, stealing up to 25 [Icon_Gold] Gold from each major civilization you are at war with.</Text>
@@ -1339,6 +1474,15 @@
 		</Row>
 		<Row Tag="LOC_GREATWORK_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_TIER3_NAME" Language="en_US">
 			<Text>Ascended Wings of Rem</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_STEAL_FAITH_DESC" Language="en_US">
+			<Text>The effects of the Wings of Rem being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_STEAL_FAITH_TIER2_DESC" Language="en_US">
+			<Text>The effects of the Awakened Wings of Rem being placed in this city's Macguffin Altar. Adds a special project to this city..</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_ACTIVE_WAR_STEAL_FAITH_TIER3_DESC" Language="en_US">
+			<Text>The effects of the Ascended Wings of Rem being placed in this city's Macguffin Altar. Adds a special project to this city.</Text>
 		</Row>
 		<Row Tag="PROJECT_HONEY_MACGUFFIN_ACTIVE_WAR_STEAL_FAITH_DESC" Language="en_US">
 			<Text>Activate the Wings of Rem, stealing up to 25 [Icon_Faith] Faith from each major civilization you are at war with.</Text>

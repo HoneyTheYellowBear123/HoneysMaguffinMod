@@ -21,7 +21,6 @@
 
 	-- double check config for granting macguffins
 	-- proper techs/costs for awakener and ascender
-	-- Text for active buildings
 
 ------ future ----------
 	
