@@ -1958,21 +1958,70 @@ function grantEnviornmentalismMacguffin(playerID, civicIndex, isCancelled)
 	end
 end
 function grantAstronomyMacguffin(playerID, technologyIndex)
-	if technologyIndex == GameInfo.Civics['TECH_ASTRONOMY'].Index then
-		grantMacguffinGreatPerson(playerID)
-	end
-end
-function grantAstronomyMacguffin(playerID, technologyIndex)
 	if technologyIndex == GameInfo.Technologies['TECH_ASTRONOMY'].Index then
 		grantMacguffinGreatPerson(playerID)
 	end
 end
+function grantReligionMacguffin(playerID, religionIndex)	
+	grantMacguffinGreatPerson(playerID)
+end
+
+function grantFirstCityMacguffin(playerID, cityID, x, y)
+	local playerObject = Players[playerID]
+	if  playerobject:IsMajor() then
+		if (playerobject:GetProperty("HoneyMacguffinFirstCity") == 0) then
+			grantMacguffinGreatPerson(playerID)
+			playerobject:GetProperty("HoneyMacguffinFirstCity",1)
+		end
+	end
+end
+
+function grantFirstNavalMacguffin(playerID, unitID)
+	local playerObject = Players[playerID]
+	if  playerobject:IsMajor() then
+		if (playerobject:GetProperty("HoneyMacguffinFirstNaval") == 0) then
+			if (Units[unitID]:GetDomain() == 'DOMAIN_SEA') then
+				grantMacguffinGreatPerson(playerID)
+				playerobject:GetProperty("HoneyMacguffinFirstNaval",1)
+			end
+		end
+	end
+end
+
+function grantFirstAirborneMacguffin(playerID, unitID)
+	local playerObject = Players[playerID]
+	if  playerobject:IsMajor() then
+		if (playerobject:GetProperty("HoneyMacguffinFirstFlight") == 0) then
+			if (Units[unitID]:GetDomain() == 'DOMAIN_FLIGHT') then
+				grantMacguffinGreatPerson(playerID)
+				playerobject:GetProperty("HoneyMacguffinFirstFlight",1)
+			end
+		end
+	end
+end
+
+
 --function grantWonderMacguffin(x, y, buildingIndex, playerIndex, cityID, percentComplete, unknown)
 	
 	--just the first one
 
 
 --end
+
+function initMacguffinFirstTimeVariables()
+
+	for playerid, playerobject in pairs(Players) do
+
+		if playerobject:IsMajor() then
+			playerobject:SetProperty("HoneyMacguffinFirstCity",0)
+			playerobject:SetProperty("HoneyMacguffinFirstNaval",0)
+			playerobject:SetProperty("HoneyMacguffinFirstFlight",0)
+		end
+	end
+end
+
+
+
 
 
 function initMacguffinGrantingFunctions()
@@ -1987,22 +2036,37 @@ function initMacguffinGrantingFunctions()
 		Events.CivicCompleted.Add(grantPolPhilMacguffin) 
 	end 
 	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_ENLIGHTENMENT') then
-		Events.CivicCompleted.Add(grantPolPhilMacguffin) 
+		Events.CivicCompleted.Add(grantEnlightenmentMacguffin) 
 	end 
 	if GameConfiguration.GetValue('CCONFIG_HONEY_MACGUFFIN_GRANT_ON_ENVIORNMENTALISM') then
-		Events.CivicCompleted.Add(grantPolPhilMacguffin) 
+		Events.CivicCompleted.Add(grantEnviornmentalismMacguffin) 
 	end 
 	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_ASTRONOMY') then
 		Events.ResearchCompleted.Add(grantAstronomyMacguffin) 
 	end 
 	
-	--Events.ReligionFounded --eh
+	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_RELIGION_FOUNDED') then
+		Events.ReligionFounded.Add(grantReligionMacguffin)
+	end
+
+	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_CITY_BUILT') then
+		Events.CityBuilt.Add(grantFirstCityMacguffin)
+	end
+
+	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_BOAT') then
+		Events.UnitAddedToMap.Add(grantFirstNavalMacguffin)
+	end
+
+	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_AIRPLANE') then
+		Events.UnitAddedToMap.Add(grantFirstAirborneMacguffin)
+	end
+
 
 	--to do: come back to these other ones
 	--if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_WONDER_COMPLETED') then
 	--	Events.ResearchCompleted.Add(grantAstronomyMacguffin) 
 	--end 
-	--Events.WonderCompleted --probably just first wonder
+	--Events.WonderCompleted --probably just first wonder?
 	--GameEvents.CityBuilt --build x number of cities, probably also first city
 	--GameEvents.UnitAddedToMap --for flight and boats
 end
@@ -2056,7 +2120,7 @@ end
 
 
 
-
+initMacguffinFirstTimeVariables()
 initMacguffinGrantingFunctions()
 initAvailableHoneyMacguffinGreatPeople();
 initHoneyMacguffinIndexSystem();

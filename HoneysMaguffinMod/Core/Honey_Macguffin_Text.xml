@@ -221,7 +221,14 @@
 			<Text>Airborne Unit Grant Macguffin</Text>
 		</Row>
 		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_GRANT_ON_AIRPLANE_DESCRIPTION" Language="en_US">
-			<Text>Grant a Macguffin to players upon aquiring their first airborne unit. observation balloon and drone units do not count.</Text>
+			<Text>Grant a Macguffin to players upon aquiring their first airborne unit. Observation Balloon and Drone units do not count.</Text>
+		</Row>
+
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_GRANT_ON_RELIGION_FOUNDED_NAME" Language="en_US">
+			<Text>Religion Founded Grant Macguffin</Text>
+		</Row>
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_GRANT_ON_AIRPLANE_DESCRIPTION" Language="en_US">
+			<Text>Grant a Macguffin to players upon founding a religion.</Text>
 		</Row>
 		
 		

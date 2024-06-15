@@ -19,8 +19,7 @@
 
 ------------------------ END ---------------------	
 
-	-- double check config for granting macguffins
-	-- proper techs/costs for awakener and ascender
+	-- proper techs/costs for buildingsr ascender=refining awakener=divineright astrology=altar
 
 ------ future ----------
 	
