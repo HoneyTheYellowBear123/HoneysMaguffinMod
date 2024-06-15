@@ -13,9 +13,6 @@
 ---------------------------- HEAVY FEATURES ---------------------------------
 
 
-	-- make sure entries are removed from the macguffin index system when awakened/ascended
-	--check Honey_Macguffin_Active_Construction.sql there's a section at the bottom that seems suspicious but maybe its fine
-	
 
 ------------------------ END ---------------------	
 
@@ -23,6 +20,7 @@
 
 ------ future ----------
 	
+	--active macguffin UI is fucky but that is no surprise
 	--Dilapidater is untested
 	--Active macguffin cooldown debt system such that you can't abuse trading them.
 	-- District for epic macguffins
@@ -81,25 +79,24 @@ VALUES  ('PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 0.5); --TO DO a pseu
 
 INSERT INTO GreatWorkObjectTypes
 		(GreatWorkObjectType,						Value,		PseudoYieldType,											 Name,									IconString)
-VALUES  ('GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE',	 69420, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_NAME',  '[ICON_Honey_Passive_Macguffin]'), --TO DO change iconstring
-		('GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE',   69421, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_NAME',    '[ICON_Honey_Active_Macguffin]'); --TO DO change iconstring
+VALUES  ('GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE',	 69420, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_PASSIVE_NAME',  '[ICON_Honey_Passive_Macguffin]'), 
+		('GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE',   69421, 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP', 'LOC_GREATWORKOBJECT_HONEY_MACGUFFIN_ACTIVE_NAME',    '[ICON_Honey_Active_Macguffin]'); 
 
 --unobtainable great person for giving out macguffins. I can't great macguffins via lua script, but I can grant great people who grant macguffins so whatever I guess
 INSERT INTO GreatPersonClasses
 		(GreatPersonClassType,			 Name,									 UnitType,					   DistrictType,			PseudoYieldType,							 IconString                    ,				ActionIcon        )
-VALUES  ('GREAT_PERSON_HONEY_MACGUFFIN_GP',           'LOC_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME',           'UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP',    'DISTRICT_CITY_CENTER', 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP',       '[ICON_GreatEngineer]',       'ICON_UNITOPERATION_ENGINEER_ACTION'); --TO DO Icons
+VALUES  ('GREAT_PERSON_HONEY_MACGUFFIN_GP',           'LOC_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME',           'UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP',    'DISTRICT_CITY_CENTER', 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP',       '[ICON_GreatEngineer]',       'ICON_UNITOPERATION_ENGINEER_ACTION'); 
 
 INSERT INTO Buildings
-		(BuildingType,									Name,														Description,							  PrereqDistrict,		PurchaseYield,		        Cost,	AdvisorType  , InternalOnly  )  
-VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC', 0), --TO DO make it scale heavily? --TO DO add back in a prereq tech probably astrology --TO DO prevent steel
+		(BuildingType,									Name,														Description,							  PrereqDistrict,				PurchaseYield,		        Cost,	AdvisorType  , InternalOnly  )  
+VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',	'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME',	 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',				4,    'ADVISOR_GENERIC', 0), 
 		('BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC', 0),
 		('BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC', 0),
-		('BUILDING_HONEY_MACGUFFIN_COOLDOWN', 'LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC', 1); 
+		('BUILDING_HONEY_MACGUFFIN_COOLDOWN',		'LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_NAME',		 'LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_DESC',			'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC', 1); 
 
 
 --TO DO add appropriate prereq tech or civics, consider a cost progression model and proper cost
 --TO DO Projects_XP2 has more fields we might want to abuse 
---TO DO scaling cost for activate macguffin
 INSERT INTO Projects
 		(ProjectType,										Name,												 ShortName,													 Description,					Cost, AdvisorType,        RequiredBuilding)
 VALUES  ('PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2', 'PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2_NAME', 'PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2_SHORTNAME', 'PROJECT_HONEY_MACGUFFIN_TIER1_TO_TIER2_DESC',         2,  'ADVISOR_GENERIC', 'BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2'),

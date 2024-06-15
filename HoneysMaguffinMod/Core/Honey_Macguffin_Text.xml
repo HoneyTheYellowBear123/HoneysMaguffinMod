@@ -206,7 +206,7 @@
 			<Text>Grant a Macguffin to players upon completing their first wonder.</Text>
 		</Row>
 		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_GRANT_ON_CITY_BUILT_NAME" Language="en_US">
-			<Text>City Built Grant Macguffin</Text>
+			<Text>First City Built Grant Macguffin</Text>
 		</Row>
 		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_GRANT_ON_CITY_BUILT_DESCRIPTION" Language="en_US">
 			<Text>Grant a Macguffin to players upon completing their first city.</Text>
@@ -227,7 +227,7 @@
 		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_GRANT_ON_RELIGION_FOUNDED_NAME" Language="en_US">
 			<Text>Religion Founded Grant Macguffin</Text>
 		</Row>
-		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_GRANT_ON_AIRPLANE_DESCRIPTION" Language="en_US">
+		<Row Tag="LOC_PARAMETER_HONEY_MACGUFFIN_GRANT_ON_RELIGION_FOUNDED_DESCRIPTION" Language="en_US">
 			<Text>Grant a Macguffin to players upon founding a religion.</Text>
 		</Row>
 		

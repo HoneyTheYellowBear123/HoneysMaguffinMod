@@ -399,17 +399,17 @@ function Refresh()
 
 
 				----print cooldown
-				ActiveMacguffinInstance.CoolingTurnsInfo:SetText("Turns of cooldown left: "..MacguffinEntry[6])
+				ActiveMacguffinInstance.CoolingTurnsInfo:SetText("Cooldown turns left: "..MacguffinEntry[6])
 				--print("DEBUG3 4")
 
 				-- check if its in an altar
 				if MacguffinEntry[3] == altarBuildingIndex then
 					if MacguffinEntry[6] > 0 then
 						ActiveMacguffinInstance.InAltarInfo:SetText("")
-						ActiveMacguffinInstance.CoolingInAltarInfo:SetText("Macguffin is currently cooling down")
+						ActiveMacguffinInstance.CoolingInAltarInfo:SetText("Cooling down")
 						ActiveMacguffinInstance.NotInAltarInfo:SetText("")
 					else
-						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is ready to activate")
+						ActiveMacguffinInstance.InAltarInfo:SetText("Ready to activate")
 						ActiveMacguffinInstance.CoolingInAltarInfo:SetText("")
 						ActiveMacguffinInstance.NotInAltarInfo:SetText("")
 					end
@@ -417,9 +417,9 @@ function Refresh()
 					if MacguffinEntry[6] > 0 then
 						ActiveMacguffinInstance.InAltarInfo:SetText("")
 						ActiveMacguffinInstance.CoolingInAltarInfo:SetText("")
-						ActiveMacguffinInstance.NotInAltarInfo:SetText("Place in an altar to cool down!")
+						ActiveMacguffinInstance.NotInAltarInfo:SetText("Put in altar to cool down!")
 					else
-						ActiveMacguffinInstance.InAltarInfo:SetText("Macguffin is ready to activate")
+						ActiveMacguffinInstance.InAltarInfo:SetText("Ready to activate")
 						ActiveMacguffinInstance.CoolingInAltarInfo:SetText("")
 						ActiveMacguffinInstance.NotInAltarInfo:SetText("")
 					end

@@ -7,12 +7,10 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_ECONOMIC_CARD_SLOTS_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
-
---TO DO: macguffin awakening could be performed via optional technology that changes the pseudobuilding list. We can worry about this later.
 
 
 local macguffinEra = GameInfo.Eras["HONEY_MACGUFFIN_DUMMY_ERA"].Index;
@@ -1968,21 +1966,21 @@ end
 
 function grantFirstCityMacguffin(playerID, cityID, x, y)
 	local playerObject = Players[playerID]
-	if  playerobject:IsMajor() then
-		if (playerobject:GetProperty("HoneyMacguffinFirstCity") == 0) then
+	if  playerObject:IsMajor() then
+		if (playerObject:GetProperty("HoneyMacguffinFirstCity") == 0) then
 			grantMacguffinGreatPerson(playerID)
-			playerobject:GetProperty("HoneyMacguffinFirstCity",1)
+			playerObject:GetProperty("HoneyMacguffinFirstCity",1)
 		end
 	end
 end
 
 function grantFirstNavalMacguffin(playerID, unitID)
 	local playerObject = Players[playerID]
-	if  playerobject:IsMajor() then
-		if (playerobject:GetProperty("HoneyMacguffinFirstNaval") == 0) then
+	if  playerObject:IsMajor() then
+		if (playerObject:GetProperty("HoneyMacguffinFirstNaval") == 0) then
 			if (Units[unitID]:GetDomain() == 'DOMAIN_SEA') then
 				grantMacguffinGreatPerson(playerID)
-				playerobject:GetProperty("HoneyMacguffinFirstNaval",1)
+				playerObject:GetProperty("HoneyMacguffinFirstNaval",1)
 			end
 		end
 	end
@@ -1990,11 +1988,11 @@ end
 
 function grantFirstAirborneMacguffin(playerID, unitID)
 	local playerObject = Players[playerID]
-	if  playerobject:IsMajor() then
-		if (playerobject:GetProperty("HoneyMacguffinFirstFlight") == 0) then
+	if  playerObject:IsMajor() then
+		if (playerObject:GetProperty("HoneyMacguffinFirstFlight") == 0) then
 			if (Units[unitID]:GetDomain() == 'DOMAIN_FLIGHT') then
 				grantMacguffinGreatPerson(playerID)
-				playerobject:GetProperty("HoneyMacguffinFirstFlight",1)
+				playerObject:GetProperty("HoneyMacguffinFirstFlight",1)
 			end
 		end
 	end
@@ -2050,7 +2048,7 @@ function initMacguffinGrantingFunctions()
 	end
 
 	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_CITY_BUILT') then
-		Events.CityBuilt.Add(grantFirstCityMacguffin)
+		Events.CityInitialized.Add(grantFirstCityMacguffin)
 	end
 
 	if GameConfiguration.GetValue('CONFIG_HONEY_MACGUFFIN_GRANT_ON_BOAT') then
