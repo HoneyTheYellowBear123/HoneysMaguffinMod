@@ -16,7 +16,6 @@
 
 ------------------------ END ---------------------	
 
-	-- proper techs/costs for buildingsr ascender=refining awakener=divineright astrology=altar
 
 ------ future ----------
 	
@@ -31,7 +30,7 @@
 	--config option to only have AI get macguffins
 		--I think this would require code to grant AI a special storage building, or code to get them to build an altar
 	--config option of only have humans get macguffins
-	--Macguffin victory condition
+	--  ~~~~ Macguffin victory condition for the victory menagerie ~~~~
 	-- content
 		-- capture city warmonger bonuses passive?
 
@@ -88,12 +87,17 @@ INSERT INTO GreatPersonClasses
 VALUES  ('GREAT_PERSON_HONEY_MACGUFFIN_GP',           'LOC_GREAT_PERSON_HONEY_MACGUFFIN_GP_NAME',           'UNIT_GREAT_PERSON_HONEY_MACGUFFIN_GP',    'DISTRICT_CITY_CENTER', 'PSEUDOYIELD_GPP_GREAT_PERSON_HONEY_MACGUFFIN_GP',       '[ICON_GreatEngineer]',       'ICON_UNITOPERATION_ENGINEER_ACTION'); 
 
 INSERT INTO Buildings
-		(BuildingType,									Name,														Description,							  PrereqDistrict,				PurchaseYield,		        Cost,	AdvisorType  , InternalOnly  )  
-VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',	'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME',	 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',				4,    'ADVISOR_GENERIC', 0), 
-		('BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC', 0),
-		('BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_DESC',    'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC', 0),
-		('BUILDING_HONEY_MACGUFFIN_COOLDOWN',		'LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_NAME',		 'LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_DESC',			'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC', 1); 
+		(BuildingType,									Name,														Description,							 PrereqTech,			PrereqCivic,		PrereqDistrict,				PurchaseYield,		        Cost,	AdvisorType  , InternalOnly  )  
+VALUES  ('BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY',	'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_NAME',	 'LOC_BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY_DESC',    'TECH_ASTROLOGY',			 null,			'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 20,    'ADVISOR_GENERIC', 0), 
+		('BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2_DESC',    null,			'CIVIC_REFORMED_CHURCH','DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 45,    'ADVISOR_GENERIC', 0),
+		('BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_NAME', 'LOC_BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3_DESC',    'TECH_REFINING',			null,			'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 85,    'ADVISOR_GENERIC', 0),
+		('BUILDING_HONEY_MACGUFFIN_COOLDOWN',		'LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_NAME',		 'LOC_BUILDING_HONEY_MACGUFFIN_COOLDOWN_DESC',			null,					null,			'DISTRICT_CITY_CENTER',         'YIELD_GOLD',			 4,    'ADVISOR_GENERIC', 1); 
 
+INSERT INTO BuildingPrereqs
+		(Building, PrereqBuilding)
+VALUES  ('BUILDING_HONEY_MACGUFFIN_TIER1_TO_TIER2', 'BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY'),
+		('BUILDING_HONEY_MACGUFFIN_TIER2_TO_TIER3', 'BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY');
+		
 
 --TO DO add appropriate prereq tech or civics, consider a cost progression model and proper cost
 --TO DO Projects_XP2 has more fields we might want to abuse 

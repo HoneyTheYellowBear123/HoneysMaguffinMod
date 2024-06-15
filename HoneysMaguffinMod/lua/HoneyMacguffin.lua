@@ -7,7 +7,7 @@
 
 --give player0 (human) a great person for debugging
 local DebugGreatPersonClass = GameInfo.GreatPersonClasses["GREAT_PERSON_HONEY_MACGUFFIN_GP"].Index;
-local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_ACTIVE_FREE_BUILDER_UNIT_GP"].Index;
+local DebugGreatPerson = GameInfo.GreatPersonIndividuals["GREAT_PERSON_HONEY_MACGUFFIN_PASSIVE_RECON_BUFF_GP"].Index;
 local DebugGreatPerson2 = GameInfo.GreatPersonIndividuals["GREAT_PERSON_INDIVIDUAL_BHASA"].Index;
 local altarBuildingIndex = GameInfo.Buildings["BUILDING_HONEY_MACGUFFIN_HOLDER_EMPTY"].Index
 
@@ -1976,9 +1976,10 @@ end
 
 function grantFirstNavalMacguffin(playerID, unitID)
 	local playerObject = Players[playerID]
+	local pUnit = UnitManager.GetUnit(playerID, unitID)
 	if  playerObject:IsMajor() then
 		if (playerObject:GetProperty("HoneyMacguffinFirstNaval") == 0) then
-			if (Units[unitID]:GetDomain() == 'DOMAIN_SEA') then
+			if (pUnit.Domain == 'DOMAIN_SEA') then
 				grantMacguffinGreatPerson(playerID)
 				playerObject:GetProperty("HoneyMacguffinFirstNaval",1)
 			end
@@ -1988,9 +1989,10 @@ end
 
 function grantFirstAirborneMacguffin(playerID, unitID)
 	local playerObject = Players[playerID]
+	local pUnit = UnitManager.GetUnit(playerID, unitID)
 	if  playerObject:IsMajor() then
 		if (playerObject:GetProperty("HoneyMacguffinFirstFlight") == 0) then
-			if (Units[unitID]:GetDomain() == 'DOMAIN_FLIGHT') then
+			if (pUnit.Domain == 'DOMAIN_FLIGHT') then
 				grantMacguffinGreatPerson(playerID)
 				playerObject:GetProperty("HoneyMacguffinFirstFlight",1)
 			end
@@ -2138,5 +2140,5 @@ Events.TurnBegin.Add(macguffinDamageWalls)
 
 
 
---to do: delete debug code
+--debug code: grants an altar and a sage of your choice, defined at the top of this file.
 --Events.CityInitialized.Add(grantDebugGreatPerson)
